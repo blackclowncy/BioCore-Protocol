@@ -230,7 +230,7 @@
               <!-- Key Attributes / Wavelengths / Colors -->
               <div class="mt-6 flex flex-wrap gap-4">
                 
-        <div class="flex items-center gap-3 bg-surface-container/50 px-4 py-3 rounded-xl border border-white/5 flex-1 min-w-[200px] backdrop-blur-sm">
+        <div class="flex items-center gap-3 bg-surface-container/50 px-4 py-3 rounded-xl border border-white/5 flex-1 min-w-[180px] backdrop-blur-sm">
             <div class="w-10 h-10 rounded-full bg-blue-500/20 border-blue-500/30 border flex items-center justify-center flex-shrink-0">
                 <div class="w-4 h-4 rounded-full bg-blue-400 shadow-[0_0_10px_rgba(96,165,250,0.5)]"></div>
             </div>
@@ -239,7 +239,7 @@
                 <div class="text-base text-on-surface font-semibold">520 nm</div>
             </div>
         </div>
-        <div class="flex items-center gap-3 bg-surface-container/50 px-4 py-3 rounded-xl border border-white/5 flex-1 min-w-[200px] backdrop-blur-sm">
+        <div class="flex items-center gap-3 bg-surface-container/50 px-4 py-3 rounded-xl border border-white/5 flex-1 min-w-[180px] backdrop-blur-sm">
             <div class="w-10 h-10 rounded-full bg-purple-500/20 border-purple-500/30 border flex items-center justify-center flex-shrink-0">
                 <div class="w-4 h-4 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(192,132,252,0.5)]"></div>
             </div>
@@ -248,7 +248,7 @@
                 <div class="text-base text-on-surface font-semibold">Serum, Plasma, Tissue, Cells</div>
             </div>
         </div>
-        <div class="flex items-center gap-3 bg-surface-container/50 px-4 py-3 rounded-xl border border-white/5 flex-1 min-w-[200px] backdrop-blur-sm">
+        <div class="flex items-center gap-3 bg-surface-container/50 px-4 py-3 rounded-xl border border-white/5 flex-1 min-w-[180px] backdrop-blur-sm">
             <div class="w-10 h-10 rounded-full bg-emerald-500/20 border-emerald-500/30 border flex items-center justify-center flex-shrink-0">
                 <div class="w-4 h-4 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)]"></div>
             </div>
@@ -257,9 +257,9 @@
                 <div class="text-base text-on-surface font-semibold">Phenol-Aminoantipyrine</div>
             </div>
         </div>
-        <div class="flex items-center gap-3 bg-surface-container/50 px-4 py-3 rounded-xl border border-white/5 flex-1 min-w-[200px] backdrop-blur-sm">
+        <div class="flex items-center gap-3 bg-surface-container/50 px-4 py-3 rounded-xl border border-white/5 flex-1 min-w-[180px] backdrop-blur-sm">
             <div class="w-10 h-10 rounded-full bg-amber-500/20 border-amber-500/30 border flex items-center justify-center flex-shrink-0">
-                <div class="w-4 h-4 rounded-full bg-amber-400 shadow-[0_0_10px_rgba(251,191,36,0.5)]"></div>
+                <div class="w-4 h-4 rounded-full bg-amber-400 shadow-[0_0_10px_rgba(251,113,133,0.5)]"></div>
             </div>
             <div>
                 <div class="text-xs text-on-surface-variant uppercase tracking-wider font-medium">Assay Format</div>
@@ -382,48 +382,68 @@
           <!-- Right Column: Components, Storage & Cautions -->
           <div class="lg:col-span-1 flex flex-col gap-6">
             
-            <!-- Components Table Card -->
+            <!-- Components Table Card (Optimized 2-Column Responsive Layout) -->
             <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl overflow-hidden">
-              <div class="p-5 border-b border-white/5 bg-surface-container/30">
-                <h2 class="text-xl font-headline text-on-surface flex items-center gap-2 font-semibold">
+              <div class="p-5 border-b border-white/5 bg-surface-container/30 flex items-center justify-between">
+                <h2 class="text-lg font-headline text-on-surface flex items-center gap-2 font-semibold">
                   <span class="material-symbols-outlined text-primary">science</span> Materials & Reagents
                 </h2>
+                <span class="text-xs text-on-surface-variant uppercase tracking-wider font-mono">Kit Contents</span>
               </div>
-              <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
+              <div class="w-full">
+                <table class="w-full text-left border-collapse table-auto">
                   <thead>
                     <tr class="border-b border-white/5 text-xs text-on-surface-variant bg-surface-container/20">
-                      <th class="py-3 px-5 font-semibold uppercase tracking-wider">Item / Reagent</th>
-                      <th class="py-3 px-5 font-semibold uppercase tracking-wider">Spec</th>
-                      <th class="py-3 px-5 font-semibold uppercase tracking-wider">Storage</th>
+                      <th class="py-2.5 px-4 font-semibold uppercase tracking-wider">Item / Reagent</th>
+                      <th class="py-2.5 px-4 font-semibold uppercase tracking-wider text-right">Spec</th>
                     </tr>
                   </thead>
-                  <tbody class="text-base text-on-surface divide-y divide-white/5">
+                  <tbody class="divide-y divide-white/5">
                     
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-3.5 px-5 font-medium">Buffer Solution (pH 10.0)</td>
-            <td class="py-3.5 px-5 text-on-surface-variant">25 mL</td>
-            <td class="py-3.5 px-5 text-xs text-on-surface-variant/80">2-8°C</td>
+            <td class="py-3 px-4">
+                <div class="font-medium text-sm text-on-surface">Buffer Solution (pH 10.0)</div>
+                <div class="text-xs text-on-surface-variant/70 font-normal mt-1 flex items-center gap-1.5"><span class="material-symbols-outlined text-[13px] text-tertiary">inventory_2</span><span>2-8°C</span></div>
+            </td>
+            <td class="py-3 px-4 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top">
+                <span class="bg-surface-container-high/80 px-2 py-1 rounded border border-white/5">25 mL</span>
+            </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-3.5 px-5 font-medium">Substrate Solution (Disodium Phenyl Phosphate)</td>
-            <td class="py-3.5 px-5 text-on-surface-variant">25 mL</td>
-            <td class="py-3.5 px-5 text-xs text-on-surface-variant/80">-20°C, avoid light</td>
+            <td class="py-3 px-4">
+                <div class="font-medium text-sm text-on-surface">Substrate Solution (Disodium Phenyl Phosphate)</div>
+                <div class="text-xs text-on-surface-variant/70 font-normal mt-1 flex items-center gap-1.5"><span class="material-symbols-outlined text-[13px] text-tertiary">inventory_2</span><span>-20°C, avoid light</span></div>
+            </td>
+            <td class="py-3 px-4 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top">
+                <span class="bg-surface-container-high/80 px-2 py-1 rounded border border-white/5">25 mL</span>
+            </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-3.5 px-5 font-medium">Phenol Standard Solution (1.0 mg/mL)</td>
-            <td class="py-3.5 px-5 text-on-surface-variant">1 mL</td>
-            <td class="py-3.5 px-5 text-xs text-on-surface-variant/80">2-8°C</td>
+            <td class="py-3 px-4">
+                <div class="font-medium text-sm text-on-surface">Phenol Standard Solution (1.0 mg/mL)</div>
+                <div class="text-xs text-on-surface-variant/70 font-normal mt-1 flex items-center gap-1.5"><span class="material-symbols-outlined text-[13px] text-tertiary">inventory_2</span><span>2-8°C</span></div>
+            </td>
+            <td class="py-3 px-4 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top">
+                <span class="bg-surface-container-high/80 px-2 py-1 rounded border border-white/5">1 mL</span>
+            </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-3.5 px-5 font-medium">Chromogenic Reagent (4-Aminoantipyrine)</td>
-            <td class="py-3.5 px-5 text-on-surface-variant">25 mL</td>
-            <td class="py-3.5 px-5 text-xs text-on-surface-variant/80">2-8°C, avoid light</td>
+            <td class="py-3 px-4">
+                <div class="font-medium text-sm text-on-surface">Chromogenic Reagent (4-Aminoantipyrine)</div>
+                <div class="text-xs text-on-surface-variant/70 font-normal mt-1 flex items-center gap-1.5"><span class="material-symbols-outlined text-[13px] text-tertiary">inventory_2</span><span>2-8°C, avoid light</span></div>
+            </td>
+            <td class="py-3 px-4 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top">
+                <span class="bg-surface-container-high/80 px-2 py-1 rounded border border-white/5">25 mL</span>
+            </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-3.5 px-5 font-medium">Oxidizing Reagent (Potassium Ferricyanide)</td>
-            <td class="py-3.5 px-5 text-on-surface-variant">25 mL</td>
-            <td class="py-3.5 px-5 text-xs text-on-surface-variant/80">2-8°C, avoid light</td>
+            <td class="py-3 px-4">
+                <div class="font-medium text-sm text-on-surface">Oxidizing Reagent (Potassium Ferricyanide)</div>
+                <div class="text-xs text-on-surface-variant/70 font-normal mt-1 flex items-center gap-1.5"><span class="material-symbols-outlined text-[13px] text-tertiary">inventory_2</span><span>2-8°C, avoid light</span></div>
+            </td>
+            <td class="py-3 px-4 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top">
+                <span class="bg-surface-container-high/80 px-2 py-1 rounded border border-white/5">25 mL</span>
+            </td>
         </tr>
                   </tbody>
                 </table>
@@ -437,8 +457,8 @@
               </div>
               <div>
                 <h3 class="text-lg font-headline text-on-surface mb-1 font-semibold">Storage & Stability</h3>
-                <p class="text-base text-on-surface-variant">Store kit at 2-8°C or -20°C protected from light according to individual component labels.</p>
-                <p class="text-sm text-primary mt-2 flex items-center gap-1 font-medium">
+                <p class="text-sm text-on-surface-variant leading-relaxed">Store kit at 2-8°C or -20°C protected from light according to individual component labels.</p>
+                <p class="text-xs text-primary mt-2 flex items-center gap-1 font-medium">
                   <span class="material-symbols-outlined text-[14px]">event_available</span> Stable for 12 months when properly stored.
                 </p>
               </div>
@@ -446,21 +466,21 @@
 
             <!-- Cautions Card -->
             <section class="bg-error-container/10 backdrop-blur-2xl rounded-2xl border border-error/20 shadow-2xl p-5">
-              <h3 class="text-lg font-headline text-error mb-4 flex items-center gap-2 font-semibold">
+              <h3 class="text-base font-headline text-error mb-3 flex items-center gap-2 font-semibold">
                 <span class="material-symbols-outlined drop-shadow-[0_0_8px_rgba(255,107,107,0.5)]">warning</span> Cautions & Safety
               </h3>
-              <ul class="space-y-3">
+              <ul class="space-y-2.5">
                 
-        <li class="flex gap-3 text-base text-on-surface items-start">
-            <span class="material-symbols-outlined text-error text-[20px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)]">check_circle</span>
+        <li class="flex gap-3 text-sm text-on-surface items-start">
+            <span class="material-symbols-outlined text-error text-[18px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
             <span>Do not use EDTA, oxalate, or citrate tubes as they inhibit ALP by chelating essential zinc/magnesium ions.</span>
         </li>
-        <li class="flex gap-3 text-base text-on-surface items-start">
-            <span class="material-symbols-outlined text-error text-[20px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)]">check_circle</span>
+        <li class="flex gap-3 text-sm text-on-surface items-start">
+            <span class="material-symbols-outlined text-error text-[18px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
             <span>Reagents containing 4-aminoantipyrine and potassium ferricyanide must be protected from light.</span>
         </li>
-        <li class="flex gap-3 text-base text-on-surface items-start">
-            <span class="material-symbols-outlined text-error text-[20px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)]">check_circle</span>
+        <li class="flex gap-3 text-sm text-on-surface items-start">
+            <span class="material-symbols-outlined text-error text-[18px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
             <span>Hemolyzed samples will falsely elevate ALP results.</span>
         </li>
               </ul>
@@ -468,11 +488,11 @@
 
             <!-- Expected Results / Morphology Preview -->
             <div class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 p-5 shadow-2xl relative overflow-hidden">
-              <div class="flex items-center gap-2 mb-3">
+              <div class="flex items-center gap-2 mb-2">
                 <span class="material-symbols-outlined text-secondary text-[20px]">analytics</span>
-                <h3 class="text-lg font-headline text-on-surface font-semibold">Expected Results</h3>
+                <h3 class="text-base font-headline text-on-surface font-semibold">Expected Results</h3>
               </div>
-              <p class="text-sm text-on-surface-variant leading-relaxed">
+              <p class="text-xs text-on-surface-variant leading-relaxed">
                 Normal human adult serum ALP ranges between 40–150 U/L (approx. 3–13 King Units). Significant elevations occur in biliary obstruction, osteoblast activity, and bone metastasis.
               </p>
             </div>
