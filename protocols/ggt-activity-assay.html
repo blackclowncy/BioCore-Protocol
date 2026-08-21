@@ -211,7 +211,7 @@
         <!-- Two Column Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
           
-          <!-- Left Column: Overview, Procedures & Calculations -->
+          <!-- Left Column: Overview, Procedures, Calculations & Calculators -->
           <div class="lg:col-span-2 flex flex-col gap-6">
             
             <!-- Overview Card -->
@@ -303,7 +303,7 @@
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
                     <h4 class="text-sm font-semibold text-on-surface mb-1">Plate Loading & Reagent Addition</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Pipette 10 µL of sample, standard, or blank into 96-well plate. Add 190 µL of pre-warmed (37°C) Working Substrate Reagent to each well.</p>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Pipette 25 µL of sample, standard, or blank into 96-well plate. Add 50 µL of Substrate Solution + buffer mix to each well.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -318,12 +318,12 @@
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
                     <h4 class="text-sm font-semibold text-on-surface mb-1">Kinetic Measurement</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Immediately place plate in 37°C preheated microplate reader. Record initial absorbance at 405 nm (OD0), then record OD every 1 minute for 5 to 10 minutes (ΔOD/min).</p>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Immediately place plate in 37°C preheated microplate reader. Record initial absorbance at 405 nm ($A_1$), and record absorbance after $T = 5$ min ($A_2$).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
                     </span>
                 </div>
                 </div>
@@ -334,18 +334,190 @@
             </section>
 
             
-        <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 relative overflow-hidden mt-6">
+        <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 md:p-6 relative overflow-hidden mt-6">
             <div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
             <h2 class="text-lg font-headline text-on-surface mb-3 flex items-center gap-2 font-semibold">
-                <span class="material-symbols-outlined text-tertiary">calculate</span> GGT Activity Kinetic Formula
+                <span class="material-symbols-outlined text-tertiary">calculate</span> Standard Curve & Mathematical Calculation (EEA029)
             </h2>
+            
             <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto">
-                GGT Activity (U/L) = [ (ΔOD/min_sample - ΔOD/min_blank) × V_total × 10^6 ] / [ ε × d × V_sample ]
+                Serum: GGT (U/L) = [(ΔA - b) / a] × (Vsubstrate / Vsample) × (1 / T) × f 
+Tissue: GGT (U/gprot) = [(ΔA - b) / a] × (Vsubstrate / Vsample) × [1 / (Cpr · T)] × f
             </div>
-            <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2">
-                <p>Where ε is the millimolar extinction coefficient of 5-amino-2-nitrobenzoate at 405 nm (9.5 mM^-1 cm^-1) and d is the light path length (cm). 1 Unit (U) is defined as the generation of 1 µmol product per minute at 37°C.</p>
+            <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
+                
+              <div class="space-y-2">
+                <p><strong>1. Standard Curve Formulation:</strong> Plot standard OD ($0, 200, 400, 500, 600, 800, 900, 1000$ µmol/L) as y-axis against concentration as x-axis. Fit linear curve: $\Delta A = ax + b$ with <code>a ≈ 0.001824</code>, <code>b ≈ 0.01108</code>.</p>
+                <p><strong>2. Kinetic Delta Absorbance:</strong> $\Delta A_{sample} = A_2 - A_1$ over incubation time $T = 5$ min. $V_{substrate} = 50$ µL, $V_{sample} = 25$ µL (ratio = 2.0).</p>
+                <p><strong>3. Unit Definition:</strong> 1 Unit (U) is defined as the amount of enzyme generating 1 µmol of p-nitroaniline product per minute at 37°C.</p>
+              </div>
+            
             </div>
         </section>
+
+            
+    <!-- Interactive Calculator Section (From Excel Kit Calculation Sheet) -->
+    <section id="assay-calculator" class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-primary/20 shadow-2xl p-6 relative overflow-hidden mt-8">
+      <div class="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+      
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 relative z-10 border-b border-white/5 pb-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="p-2 rounded-lg bg-primary/20 text-primary material-symbols-outlined text-[22px]">calculate</span>
+            <h2 class="text-xl font-headline text-on-surface font-semibold">γ-GT / GGT Activity Interactive Calculator</h2>
+          </div>
+          <p class="text-xs text-on-surface-variant mt-1">Based on EEA029 Excel Calculation Model (Kinetic &mu;mol/L Standard Curve $y = ax + b$)</p>
+        </div>
+        
+        <!-- Sample Type Tabs -->
+        <div class="flex bg-surface-container p-1 rounded-lg border border-white/5">
+          <button type="button" onclick="setGgtMode('serum')" id="ggt-mode-serum" class="px-3 py-1.5 text-xs font-semibold rounded-md bg-surface-container-high text-primary shadow-sm transition-all">Serum / Plasma</button>
+          <button type="button" onclick="setGgtMode('tissue')" id="ggt-mode-tissue" class="px-3 py-1.5 text-xs font-semibold rounded-md text-on-surface-variant hover:text-on-surface transition-all">Tissue / Cells</button>
+        </div>
+      </div>
+
+      <!-- Calculator Form Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10 mb-6">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">Initial OD (A1)</label>
+          <input type="number" step="0.001" id="ggt-od-a1" value="1.111" class="w-full px-3.5 py-2 bg-surface-container border border-outline-variant rounded-lg text-sm text-on-surface focus:outline-none focus:border-primary font-mono" oninput="calculateGgt()"/>
+          <span class="text-[11px] text-on-surface-variant/70 mt-1 block">OD at time 0 (405 nm)</span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">Final OD (A2)</label>
+          <input type="number" step="0.001" id="ggt-od-a2" value="1.159" class="w-full px-3.5 py-2 bg-surface-container border border-outline-variant rounded-lg text-sm text-on-surface focus:outline-none focus:border-primary font-mono" oninput="calculateGgt()"/>
+          <span class="text-[11px] text-on-surface-variant/70 mt-1 block">OD after reaction time T</span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">Reaction Time T (min)</label>
+          <input type="number" step="1" min="1" id="ggt-time" value="5" class="w-full px-3.5 py-2 bg-surface-container border border-outline-variant rounded-lg text-sm text-on-surface focus:outline-none focus:border-primary font-mono" oninput="calculateGgt()"/>
+          <span class="text-[11px] text-on-surface-variant/70 mt-1 block">Kinetic reaction duration</span>
+        </div>
+
+        <div id="ggt-cpr-container" class="opacity-50 pointer-events-none">
+          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">Protein Conc. Cpr (g/L)</label>
+          <input type="number" step="0.01" min="0.01" id="ggt-cpr" value="4.88" class="w-full px-3.5 py-2 bg-surface-container border border-outline-variant rounded-lg text-sm text-on-surface focus:outline-none focus:border-primary font-mono" oninput="calculateGgt()"/>
+          <span class="text-[11px] text-on-surface-variant/70 mt-1 block">Tissue protein concentration</span>
+        </div>
+      </div>
+
+      <!-- Standard Curve Parameters Collapsible -->
+      <div class="bg-surface-container/30 rounded-xl p-4 border border-white/5 mb-6 relative z-10">
+        <div class="flex items-center justify-between text-xs text-on-surface-variant mb-2">
+          <span class="font-semibold text-on-surface flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-tertiary">show_chart</span>
+            GGT Standard Curve: $\Delta A = a \cdot C + b$
+          </span>
+          <button type="button" onclick="loadGgtExampleData()" class="text-primary hover:underline flex items-center gap-1 text-xs">
+            <span class="material-symbols-outlined text-[14px]">history_edu</span> Load Example Data from XLSX
+          </button>
+        </div>
+        <div class="grid grid-cols-2 gap-3 text-xs">
+          <div>
+            <span class="text-on-surface-variant font-mono">Slope (a):</span>
+            <input type="number" step="0.00001" id="ggt-curve-a" value="0.001824" class="w-full mt-1 px-2.5 py-1.5 bg-surface-container-high border border-outline-variant/60 rounded text-xs text-on-surface font-mono" oninput="calculateGgt()"/>
+          </div>
+          <div>
+            <span class="text-on-surface-variant font-mono">Intercept (b):</span>
+            <input type="number" step="0.00001" id="ggt-curve-b" value="0.01108" class="w-full mt-1 px-2.5 py-1.5 bg-surface-container-high border border-outline-variant/60 rounded text-xs text-on-surface font-mono" oninput="calculateGgt()"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Display Card -->
+      <div class="bg-gradient-to-br from-primary/15 via-surface-container-high/80 to-surface-container/90 rounded-xl p-5 border border-primary/30 relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shadow-lg">
+        <div>
+          <div class="text-xs text-primary uppercase font-bold tracking-widest mb-1 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            Calculated &gamma;-Glutamyl Transferase Activity
+          </div>
+          <div class="flex items-baseline gap-2">
+            <span id="ggt-result-val" class="text-3xl sm:text-4xl font-headline font-bold text-on-surface font-mono">--</span>
+            <span id="ggt-result-unit" class="text-sm font-semibold text-primary">U/L</span>
+          </div>
+          <div id="ggt-breakdown" class="text-xs text-on-surface-variant mt-1.5 font-mono">
+            ΔA = 0.048 &bull; Vsub/Vsample = 50µL/25µL &bull; T = 5 min
+          </div>
+        </div>
+
+        <div class="flex gap-2">
+          <button type="button" onclick="calculateGgt()" class="px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-all shadow-[0_0_15px_rgba(125,211,252,0.3)] flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px]">sync</span> Recalculate
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      let ggtMode = 'serum';
+
+      function setGgtMode(mode) {
+        ggtMode = mode;
+        const serumBtn = document.getElementById('ggt-mode-serum');
+        const tissueBtn = document.getElementById('ggt-mode-tissue');
+        const cprContainer = document.getElementById('ggt-cpr-container');
+        const unitEl = document.getElementById('ggt-result-unit');
+
+        if (mode === 'serum') {
+          serumBtn.className = 'px-3 py-1.5 text-xs font-semibold rounded-md bg-surface-container-high text-primary shadow-sm transition-all';
+          tissueBtn.className = 'px-3 py-1.5 text-xs font-semibold rounded-md text-on-surface-variant hover:text-on-surface transition-all';
+          cprContainer.classList.add('opacity-50', 'pointer-events-none');
+          unitEl.innerText = 'U/L';
+        } else {
+          tissueBtn.className = 'px-3 py-1.5 text-xs font-semibold rounded-md bg-surface-container-high text-primary shadow-sm transition-all';
+          serumBtn.className = 'px-3 py-1.5 text-xs font-semibold rounded-md text-on-surface-variant hover:text-on-surface transition-all';
+          cprContainer.classList.remove('opacity-50', 'pointer-events-none');
+          unitEl.innerText = 'U/gprot';
+        }
+        calculateGgt();
+      }
+
+      function calculateGgt() {
+        const a1 = parseFloat(document.getElementById('ggt-od-a1').value) || 0;
+        const a2 = parseFloat(document.getElementById('ggt-od-a2').value) || 0;
+        const t = parseFloat(document.getElementById('ggt-time').value) || 5;
+        const cpr = parseFloat(document.getElementById('ggt-cpr').value) || 4.88;
+
+        const a = parseFloat(document.getElementById('ggt-curve-a').value) || 0.001824;
+        const b = parseFloat(document.getElementById('ggt-curve-b').value) || 0.01108;
+
+        const deltaA = Math.max(0, a2 - a1);
+        const vRatio = 50 / 25; // 2.0
+        
+        let result = 0;
+        if (ggtMode === 'serum') {
+          result = ((deltaA - b) / a) * vRatio / t;
+        } else {
+          result = ((deltaA - b) / a) * vRatio / (cpr > 0 ? cpr : 1) / t;
+        }
+
+        document.getElementById('ggt-result-val').innerText = result.toFixed(2);
+        document.getElementById('ggt-breakdown').innerHTML = 
+          `&Delta;A = ${deltaA.toFixed(4)} &bull; Vsub/Vsamp = 2.0 &bull; T = ${t} min &bull; ${ggtMode === 'serum' ? '' : 'Cpr = ' + cpr + ' g/L'}`;
+      }
+
+      function loadGgtExampleData() {
+        if (ggtMode === 'serum') {
+          document.getElementById('ggt-od-a1').value = '1.111';
+          document.getElementById('ggt-od-a2').value = '1.159';
+          document.getElementById('ggt-time').value = '5';
+        } else {
+          document.getElementById('ggt-od-a1').value = '1.694';
+          document.getElementById('ggt-od-a2').value = '1.770';
+          document.getElementById('ggt-time').value = '5';
+          document.getElementById('ggt-cpr').value = '4.88';
+        }
+        calculateGgt();
+        showToast('Loaded EEA029 Excel Example Data!');
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        calculateGgt();
+      });
+    </script>
+    
 
           </div>
 

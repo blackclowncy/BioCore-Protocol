@@ -211,7 +211,7 @@
         <!-- Two Column Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
           
-          <!-- Left Column: Overview, Procedures & Calculations -->
+          <!-- Left Column: Overview, Procedures, Calculations & Calculators -->
           <div class="lg:col-span-2 flex flex-col gap-6">
             
             <!-- Overview Card -->
@@ -288,7 +288,7 @@
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
                     <h4 class="text-sm font-semibold text-on-surface mb-1">Dilute Sodium Pyruvate Standard</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Dilute the 2 mmol/L Pyruvate standard with distilled water to generate standard concentrations of 0, 0.2, 0.4, 0.8, 1.2, 1.6, and 2.0 mmol/L.</p>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Dilute the 2 mmol/L Pyruvate standard with distilled water to generate standard concentrations corresponding to Carmen units of 0, 28, 57, 97, 150, and 200.</p>
                     <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Prepare fresh standard dilutions before every assay run.</span></div>
                     
                 <div class="flex gap-3 mt-3">
@@ -430,18 +430,195 @@
             </section>
 
             
-        <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 relative overflow-hidden mt-6">
+        <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 md:p-6 relative overflow-hidden mt-6">
             <div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
             <h2 class="text-lg font-headline text-on-surface mb-3 flex items-center gap-2 font-semibold">
-                <span class="material-symbols-outlined text-tertiary">calculate</span> ALT Activity Calculation Formula
+                <span class="material-symbols-outlined text-tertiary">calculate</span> Standard Curve & Mathematical Calculation (EEA001)
             </h2>
+            
             <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto">
-                ALT Activity (U/L) = [(OD_sample - OD_control) - b] / a × Dilution_Factor × (1000 / 30)
+                Serum: ALT (IU/L) = [a·(ΔA510)² + b·(ΔA510) + c] × 0.482 × f 
+Tissue: ALT (IU/gprot) = [a·(ΔA510)² + b·(ΔA510) + c] × 0.482 × f / Cpr
             </div>
-            <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2">
-                <p>Where <em>a</em> is the slope and <em>b</em> is the intercept of the pyruvate standard curve. One unit of ALT activity is defined as the amount of enzyme that generates 1 µmol of pyruvic acid per minute per liter of sample at 37°C.</p>
+            <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
+                
+              <div class="space-y-2">
+                <p><strong>1. Standard Curve Formulation:</strong> Plot Carmen units (0, 28, 57, 97, 150, 200) as y-axis against absolute standard OD ($x = OD_{std} - OD_{blank}$) as x-axis. Fit quadratic curve: $y = ax^2 + bx + c$. Example calibrated coefficients: <code>a = 2593.62</code>, <code>b = 21.38</code>, <code>c = 1.06</code>.</p>
+                <p><strong>2. Net Sample Absorbance ($\Delta A_{510}$):</strong> $\Delta A_{510} = OD_{sample} - OD_{control}$.</p>
+                <p><strong>3. Unit Definition & Conversion:</strong> 1 Carmen unit is defined as the amount of enzyme producing 1 µmol pyruvate under assay conditions. 1 Carmen unit = 0.482 IU/L (or µmol/min/L). $f$ = sample dilution factor; $C_{pr}$ = tissue protein concentration (gprot/L).</p>
+              </div>
+            
             </div>
         </section>
+
+            
+    <!-- Interactive Calculator Section (From Excel Kit Calculation Sheet) -->
+    <section id="assay-calculator" class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-primary/20 shadow-2xl p-6 relative overflow-hidden mt-8">
+      <div class="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+      
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 relative z-10 border-b border-white/5 pb-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="p-2 rounded-lg bg-primary/20 text-primary material-symbols-outlined text-[22px]">calculate</span>
+            <h2 class="text-xl font-headline text-on-surface font-semibold">ALT/GPT Activity Interactive Calculator</h2>
+          </div>
+          <p class="text-xs text-on-surface-variant mt-1">Based on EEA001 Excel Calculation Model (Carmen Unit & Quadratic Standard Curve $y = ax^2 + bx + c$)</p>
+        </div>
+        
+        <!-- Sample Type Tabs -->
+        <div class="flex bg-surface-container p-1 rounded-lg border border-white/5">
+          <button type="button" onclick="setAltMode('serum')" id="alt-mode-serum" class="px-3 py-1.5 text-xs font-semibold rounded-md bg-surface-container-high text-primary shadow-sm transition-all">Serum / Plasma</button>
+          <button type="button" onclick="setAltMode('tissue')" id="alt-mode-tissue" class="px-3 py-1.5 text-xs font-semibold rounded-md text-on-surface-variant hover:text-on-surface transition-all">Tissue / Cells</button>
+        </div>
+      </div>
+
+      <!-- Calculator Form Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10 mb-6">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">OD Sample (510 nm)</label>
+          <input type="number" step="0.001" id="alt-od-sample" value="0.250" class="w-full px-3.5 py-2 bg-surface-container border border-outline-variant rounded-lg text-sm text-on-surface focus:outline-none focus:border-primary font-mono" oninput="calculateAlt()"/>
+          <span class="text-[11px] text-on-surface-variant/70 mt-1 block">Mean OD of sample wells</span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">OD Control / Blank</label>
+          <input type="number" step="0.001" id="alt-od-control" value="0.235" class="w-full px-3.5 py-2 bg-surface-container border border-outline-variant rounded-lg text-sm text-on-surface focus:outline-none focus:border-primary font-mono" oninput="calculateAlt()"/>
+          <span class="text-[11px] text-on-surface-variant/70 mt-1 block">Mean OD of control wells</span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">Dilution Factor (f)</label>
+          <input type="number" step="0.1" min="1" id="alt-dilution" value="1" class="w-full px-3.5 py-2 bg-surface-container border border-outline-variant rounded-lg text-sm text-on-surface focus:outline-none focus:border-primary font-mono" oninput="calculateAlt()"/>
+          <span class="text-[11px] text-on-surface-variant/70 mt-1 block">Sample dilution before assay</span>
+        </div>
+
+        <div id="alt-cpr-container" class="opacity-50 pointer-events-none">
+          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">Protein Conc. Cpr (g/L)</label>
+          <input type="number" step="0.01" min="0.01" id="alt-cpr" value="13.3" class="w-full px-3.5 py-2 bg-surface-container border border-outline-variant rounded-lg text-sm text-on-surface focus:outline-none focus:border-primary font-mono" oninput="calculateAlt()"/>
+          <span class="text-[11px] text-on-surface-variant/70 mt-1 block">Tissue protein concentration</span>
+        </div>
+      </div>
+
+      <!-- Standard Curve Parameters Collapsible -->
+      <div class="bg-surface-container/30 rounded-xl p-4 border border-white/5 mb-6 relative z-10">
+        <div class="flex items-center justify-between text-xs text-on-surface-variant mb-2">
+          <span class="font-semibold text-on-surface flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-tertiary">show_chart</span>
+            Curve Coefficients: $y = ax^2 + bx + c$
+          </span>
+          <button type="button" onclick="loadAltExampleData()" class="text-primary hover:underline flex items-center gap-1 text-xs">
+            <span class="material-symbols-outlined text-[14px]">history_edu</span> Load Example Data from XLSX
+          </button>
+        </div>
+        <div class="grid grid-cols-3 gap-3 text-xs">
+          <div>
+            <span class="text-on-surface-variant font-mono">a:</span>
+            <input type="number" step="0.01" id="alt-curve-a" value="2593.62" class="w-full mt-1 px-2.5 py-1.5 bg-surface-container-high border border-outline-variant/60 rounded text-xs text-on-surface font-mono" oninput="calculateAlt()"/>
+          </div>
+          <div>
+            <span class="text-on-surface-variant font-mono">b:</span>
+            <input type="number" step="0.01" id="alt-curve-b" value="21.38" class="w-full mt-1 px-2.5 py-1.5 bg-surface-container-high border border-outline-variant/60 rounded text-xs text-on-surface font-mono" oninput="calculateAlt()"/>
+          </div>
+          <div>
+            <span class="text-on-surface-variant font-mono">c:</span>
+            <input type="number" step="0.01" id="alt-curve-c" value="1.06" class="w-full mt-1 px-2.5 py-1.5 bg-surface-container-high border border-outline-variant/60 rounded text-xs text-on-surface font-mono" oninput="calculateAlt()"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Display Card -->
+      <div class="bg-gradient-to-br from-primary/15 via-surface-container-high/80 to-surface-container/90 rounded-xl p-5 border border-primary/30 relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shadow-lg">
+        <div>
+          <div class="text-xs text-primary uppercase font-bold tracking-widest mb-1 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            Calculated ALT/GPT Activity
+          </div>
+          <div class="flex items-baseline gap-2">
+            <span id="alt-result-val" class="text-3xl sm:text-4xl font-headline font-bold text-on-surface font-mono">--</span>
+            <span id="alt-result-unit" class="text-sm font-semibold text-primary">IU/L</span>
+          </div>
+          <div id="alt-breakdown" class="text-xs text-on-surface-variant mt-1.5 font-mono">
+            ΔA510 = 0.015 &bull; Carmen Unit = 1.96 &bull; Conversion = × 0.482
+          </div>
+        </div>
+
+        <div class="flex gap-2">
+          <button type="button" onclick="calculateAlt()" class="px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-all shadow-[0_0_15px_rgba(125,211,252,0.3)] flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px]">sync</span> Recalculate
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      let altMode = 'serum';
+
+      function setAltMode(mode) {
+        altMode = mode;
+        const serumBtn = document.getElementById('alt-mode-serum');
+        const tissueBtn = document.getElementById('alt-mode-tissue');
+        const cprContainer = document.getElementById('alt-cpr-container');
+        const unitEl = document.getElementById('alt-result-unit');
+
+        if (mode === 'serum') {
+          serumBtn.className = 'px-3 py-1.5 text-xs font-semibold rounded-md bg-surface-container-high text-primary shadow-sm transition-all';
+          tissueBtn.className = 'px-3 py-1.5 text-xs font-semibold rounded-md text-on-surface-variant hover:text-on-surface transition-all';
+          cprContainer.classList.add('opacity-50', 'pointer-events-none');
+          unitEl.innerText = 'IU/L';
+        } else {
+          tissueBtn.className = 'px-3 py-1.5 text-xs font-semibold rounded-md bg-surface-container-high text-primary shadow-sm transition-all';
+          serumBtn.className = 'px-3 py-1.5 text-xs font-semibold rounded-md text-on-surface-variant hover:text-on-surface transition-all';
+          cprContainer.classList.remove('opacity-50', 'pointer-events-none');
+          unitEl.innerText = 'IU/gprot';
+        }
+        calculateAlt();
+      }
+
+      function calculateAlt() {
+        const odSample = parseFloat(document.getElementById('alt-od-sample').value) || 0;
+        const odControl = parseFloat(document.getElementById('alt-od-control').value) || 0;
+        const f = parseFloat(document.getElementById('alt-dilution').value) || 1;
+        const cpr = parseFloat(document.getElementById('alt-cpr').value) || 1;
+
+        const a = parseFloat(document.getElementById('alt-curve-a').value) || 2593.62;
+        const b = parseFloat(document.getElementById('alt-curve-b').value) || 21.38;
+        const c = parseFloat(document.getElementById('alt-curve-c').value) || 1.06;
+
+        const deltaA = Math.max(0, odSample - odControl);
+        const carmenUnit = (a * deltaA * deltaA) + (b * deltaA) + c;
+        
+        let result = 0;
+        if (altMode === 'serum') {
+          result = carmenUnit * 0.482 * f;
+        } else {
+          result = (carmenUnit * 0.482 * f) / (cpr > 0 ? cpr : 1);
+        }
+
+        document.getElementById('alt-result-val').innerText = result.toFixed(2);
+        document.getElementById('alt-breakdown').innerHTML = 
+          `&Delta;A510 = ${deltaA.toFixed(4)} &bull; Carmen Unit = ${carmenUnit.toFixed(2)} &bull; ${altMode === 'serum' ? 'f = ' + f : 'Cpr = ' + cpr + ' g/L'}`;
+      }
+
+      function loadAltExampleData() {
+        if (altMode === 'serum') {
+          document.getElementById('alt-od-sample').value = '0.249';
+          document.getElementById('alt-od-control').value = '0.235';
+          document.getElementById('alt-dilution').value = '1';
+        } else {
+          document.getElementById('alt-od-sample').value = '0.381';
+          document.getElementById('alt-od-control').value = '0.272';
+          document.getElementById('alt-dilution').value = '20';
+          document.getElementById('alt-cpr').value = '13.3';
+        }
+        calculateAlt();
+        showToast('Loaded EEA001 Excel Example Data!');
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        calculateAlt();
+      });
+    </script>
+    
 
           </div>
 

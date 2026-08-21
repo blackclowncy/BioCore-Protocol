@@ -211,7 +211,7 @@
         <!-- Two Column Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
           
-          <!-- Left Column: Overview, Procedures & Calculations -->
+          <!-- Left Column: Overview, Procedures, Calculations & Calculators -->
           <div class="lg:col-span-2 flex flex-col gap-6">
             
             <!-- Overview Card -->
@@ -275,7 +275,7 @@
                 <h2 class="text-lg font-headline text-on-surface flex items-center gap-2 font-semibold">
                   <span class="material-symbols-outlined text-primary">format_list_numbered</span> Usage Procedure
                 </h2>
-                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('ffpe_samples')" id="tab-btn-ffpe_samples" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">FFPE Samples</button><button onclick="switchTab('frozen_samples')" id="tab-btn-frozen_samples" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">Frozen Samples</button></div>
+                
               </div>
               <div class="p-5">
                 
@@ -360,59 +360,10 @@
             </div>
             </div>
         </div>
-        <div id="proc-content-frozen_samples" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">For Frozen Cryosections</h3>
-            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
-                
-            <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Fixation & Rehydration</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Air-dry cryosections for 10 mins, fix in cold acetone or 4% PFA for 10 mins, and rinse in distilled water for 2 mins.</p>
-                    
-                    
-                <div class="flex gap-3 mt-3">
-                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15 mins
-                    </span>
-                </div>
-                </div>
-            </div>
-            <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Hematoxylin Staining & Bluing</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Stain with Mayer's Hematoxylin for 1 min, rinse in water, apply Bluing Reagent for 1 min, rinse in water.</p>
-                    
-                    
-                <div class="flex gap-3 mt-3">
-                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 3 mins
-                    </span>
-                </div>
-                </div>
-            </div>
-            <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Eosin Staining & Mounting</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Stain in Eosin for 30–60 seconds, dehydrate rapidly in 95% and 100% ethanol, clear in xylene, and coverslip.</p>
-                    
-                    
-                <div class="flex gap-3 mt-3">
-                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
-                    </span>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
               </div>
             </section>
+
+            
 
             
 

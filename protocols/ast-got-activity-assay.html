@@ -211,7 +211,7 @@
         <!-- Two Column Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
           
-          <!-- Left Column: Overview, Procedures & Calculations -->
+          <!-- Left Column: Overview, Procedures, Calculations & Calculators -->
           <div class="lg:col-span-2 flex flex-col gap-6">
             
             <!-- Overview Card -->
@@ -288,7 +288,7 @@
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
                     <h4 class="text-sm font-semibold text-on-surface mb-1">Prepare Standards & Samples</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Prepare a pyruvate calibration curve (0 to 2.0 mM). Serum, plasma, or cell culture supernatant can be loaded directly (20 µL/well).</p>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Prepare a pyruvate calibration curve corresponding to Carmen units of 0, 24, 61, 114, and 190. Serum, plasma, or cell supernatant is loaded at 20 µL/well.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -349,18 +349,195 @@
             </section>
 
             
-        <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 relative overflow-hidden mt-6">
+        <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 md:p-6 relative overflow-hidden mt-6">
             <div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
             <h2 class="text-lg font-headline text-on-surface mb-3 flex items-center gap-2 font-semibold">
-                <span class="material-symbols-outlined text-tertiary">calculate</span> AST Activity Calculation Formula
+                <span class="material-symbols-outlined text-tertiary">calculate</span> Standard Curve & Mathematical Calculation (EEA003)
             </h2>
+            
             <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto">
-                AST Activity (U/L) = [(OD_sample - OD_control) - b] / a × Dilution_Factor × (1000 / 30)
+                Serum: AST (IU/L) = [a·(ΔA510)² + b·(ΔA510) + c] × 0.482 × f 
+Tissue: AST (IU/gprot) = [a·(ΔA510)² + b·(ΔA510) + c] × 0.482 × f / Cpr
             </div>
-            <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2">
-                <p>1 Unit (U) of AST is defined as the generation of 1 µmol pyruvic acid equivalent per minute per liter of biological sample at 37°C.</p>
+            <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
+                
+              <div class="space-y-2">
+                <p><strong>1. Standard Curve Formulation:</strong> Plot Carmen units (0, 24, 61, 114, 190) as y-axis against net OD ($x = OD_{std} - OD_{blank}$) as x-axis. Fit quadratic curve: $y = ax^2 + bx + c$. Example coefficients: <code>a = 2593.62</code>, <code>b = 21.38</code>, <code>c = 1.06</code>.</p>
+                <p><strong>2. Net Sample Absorbance:</strong> $\Delta A_{510} = OD_{sample} - OD_{control}$.</p>
+                <p><strong>3. Unit Conversion:</strong> 1 Carmen unit = 0.482 IU/L (or µmol/min/L). $f$ = dilution factor; $C_{pr}$ = protein concentration (gprot/L).</p>
+              </div>
+            
             </div>
         </section>
+
+            
+    <!-- Interactive Calculator Section (From Excel Kit Calculation Sheet) -->
+    <section id="assay-calculator" class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-primary/20 shadow-2xl p-6 relative overflow-hidden mt-8">
+      <div class="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+      
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 relative z-10 border-b border-white/5 pb-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="p-2 rounded-lg bg-primary/20 text-primary material-symbols-outlined text-[22px]">calculate</span>
+            <h2 class="text-xl font-headline text-on-surface font-semibold">AST/GOT Activity Interactive Calculator</h2>
+          </div>
+          <p class="text-xs text-on-surface-variant mt-1">Based on EEA003 Excel Calculation Model (Carmen Unit & Quadratic Standard Curve $y = ax^2 + bx + c$)</p>
+        </div>
+        
+        <!-- Sample Type Tabs -->
+        <div class="flex bg-surface-container p-1 rounded-lg border border-white/5">
+          <button type="button" onclick="setAstMode('serum')" id="ast-mode-serum" class="px-3 py-1.5 text-xs font-semibold rounded-md bg-surface-container-high text-primary shadow-sm transition-all">Serum / Plasma</button>
+          <button type="button" onclick="setAstMode('tissue')" id="ast-mode-tissue" class="px-3 py-1.5 text-xs font-semibold rounded-md text-on-surface-variant hover:text-on-surface transition-all">Tissue / Cells</button>
+        </div>
+      </div>
+
+      <!-- Calculator Form Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 relative z-10 mb-6">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">OD Sample (510 nm)</label>
+          <input type="number" step="0.001" id="ast-od-sample" value="0.258" class="w-full px-3.5 py-2 bg-surface-container border border-outline-variant rounded-lg text-sm text-on-surface focus:outline-none focus:border-primary font-mono" oninput="calculateAst()"/>
+          <span class="text-[11px] text-on-surface-variant/70 mt-1 block">Mean OD of sample wells</span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">OD Control / Blank</label>
+          <input type="number" step="0.001" id="ast-od-control" value="0.236" class="w-full px-3.5 py-2 bg-surface-container border border-outline-variant rounded-lg text-sm text-on-surface focus:outline-none focus:border-primary font-mono" oninput="calculateAst()"/>
+          <span class="text-[11px] text-on-surface-variant/70 mt-1 block">Mean OD of control wells</span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">Dilution Factor (f)</label>
+          <input type="number" step="0.1" min="1" id="ast-dilution" value="1" class="w-full px-3.5 py-2 bg-surface-container border border-outline-variant rounded-lg text-sm text-on-surface focus:outline-none focus:border-primary font-mono" oninput="calculateAst()"/>
+          <span class="text-[11px] text-on-surface-variant/70 mt-1 block">Sample dilution before assay</span>
+        </div>
+
+        <div id="ast-cpr-container" class="opacity-50 pointer-events-none">
+          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">Protein Conc. Cpr (g/L)</label>
+          <input type="number" step="0.01" min="0.01" id="ast-cpr" value="14.1" class="w-full px-3.5 py-2 bg-surface-container border border-outline-variant rounded-lg text-sm text-on-surface focus:outline-none focus:border-primary font-mono" oninput="calculateAst()"/>
+          <span class="text-[11px] text-on-surface-variant/70 mt-1 block">Tissue protein concentration</span>
+        </div>
+      </div>
+
+      <!-- Standard Curve Parameters Collapsible -->
+      <div class="bg-surface-container/30 rounded-xl p-4 border border-white/5 mb-6 relative z-10">
+        <div class="flex items-center justify-between text-xs text-on-surface-variant mb-2">
+          <span class="font-semibold text-on-surface flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-tertiary">show_chart</span>
+            Curve Coefficients: $y = ax^2 + bx + c$
+          </span>
+          <button type="button" onclick="loadAstExampleData()" class="text-primary hover:underline flex items-center gap-1 text-xs">
+            <span class="material-symbols-outlined text-[14px]">history_edu</span> Load Example Data from XLSX
+          </button>
+        </div>
+        <div class="grid grid-cols-3 gap-3 text-xs">
+          <div>
+            <span class="text-on-surface-variant font-mono">a:</span>
+            <input type="number" step="0.01" id="ast-curve-a" value="2593.62" class="w-full mt-1 px-2.5 py-1.5 bg-surface-container-high border border-outline-variant/60 rounded text-xs text-on-surface font-mono" oninput="calculateAst()"/>
+          </div>
+          <div>
+            <span class="text-on-surface-variant font-mono">b:</span>
+            <input type="number" step="0.01" id="ast-curve-b" value="21.38" class="w-full mt-1 px-2.5 py-1.5 bg-surface-container-high border border-outline-variant/60 rounded text-xs text-on-surface font-mono" oninput="calculateAst()"/>
+          </div>
+          <div>
+            <span class="text-on-surface-variant font-mono">c:</span>
+            <input type="number" step="0.01" id="ast-curve-c" value="1.06" class="w-full mt-1 px-2.5 py-1.5 bg-surface-container-high border border-outline-variant/60 rounded text-xs text-on-surface font-mono" oninput="calculateAst()"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Display Card -->
+      <div class="bg-gradient-to-br from-primary/15 via-surface-container-high/80 to-surface-container/90 rounded-xl p-5 border border-primary/30 relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shadow-lg">
+        <div>
+          <div class="text-xs text-primary uppercase font-bold tracking-widest mb-1 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            Calculated AST/GOT Activity
+          </div>
+          <div class="flex items-baseline gap-2">
+            <span id="ast-result-val" class="text-3xl sm:text-4xl font-headline font-bold text-on-surface font-mono">--</span>
+            <span id="ast-result-unit" class="text-sm font-semibold text-primary">IU/L</span>
+          </div>
+          <div id="ast-breakdown" class="text-xs text-on-surface-variant mt-1.5 font-mono">
+            ΔA510 = 0.022 &bull; Carmen Unit = 2.71 &bull; Conversion = × 0.482
+          </div>
+        </div>
+
+        <div class="flex gap-2">
+          <button type="button" onclick="calculateAst()" class="px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-all shadow-[0_0_15px_rgba(125,211,252,0.3)] flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px]">sync</span> Recalculate
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      let astMode = 'serum';
+
+      function setAstMode(mode) {
+        astMode = mode;
+        const serumBtn = document.getElementById('ast-mode-serum');
+        const tissueBtn = document.getElementById('ast-mode-tissue');
+        const cprContainer = document.getElementById('ast-cpr-container');
+        const unitEl = document.getElementById('ast-result-unit');
+
+        if (mode === 'serum') {
+          serumBtn.className = 'px-3 py-1.5 text-xs font-semibold rounded-md bg-surface-container-high text-primary shadow-sm transition-all';
+          tissueBtn.className = 'px-3 py-1.5 text-xs font-semibold rounded-md text-on-surface-variant hover:text-on-surface transition-all';
+          cprContainer.classList.add('opacity-50', 'pointer-events-none');
+          unitEl.innerText = 'IU/L';
+        } else {
+          tissueBtn.className = 'px-3 py-1.5 text-xs font-semibold rounded-md bg-surface-container-high text-primary shadow-sm transition-all';
+          serumBtn.className = 'px-3 py-1.5 text-xs font-semibold rounded-md text-on-surface-variant hover:text-on-surface transition-all';
+          cprContainer.classList.remove('opacity-50', 'pointer-events-none');
+          unitEl.innerText = 'IU/gprot';
+        }
+        calculateAst();
+      }
+
+      function calculateAst() {
+        const odSample = parseFloat(document.getElementById('ast-od-sample').value) || 0;
+        const odControl = parseFloat(document.getElementById('ast-od-control').value) || 0;
+        const f = parseFloat(document.getElementById('ast-dilution').value) || 1;
+        const cpr = parseFloat(document.getElementById('ast-cpr').value) || 1;
+
+        const a = parseFloat(document.getElementById('ast-curve-a').value) || 2593.62;
+        const b = parseFloat(document.getElementById('ast-curve-b').value) || 21.38;
+        const c = parseFloat(document.getElementById('ast-curve-c').value) || 1.06;
+
+        const deltaA = Math.max(0, odSample - odControl);
+        const carmenUnit = (a * deltaA * deltaA) + (b * deltaA) + c;
+        
+        let result = 0;
+        if (astMode === 'serum') {
+          result = carmenUnit * 0.482 * f;
+        } else {
+          result = (carmenUnit * 0.482 * f) / (cpr > 0 ? cpr : 1);
+        }
+
+        document.getElementById('ast-result-val').innerText = result.toFixed(2);
+        document.getElementById('ast-breakdown').innerHTML = 
+          `&Delta;A510 = ${deltaA.toFixed(4)} &bull; Carmen Unit = ${carmenUnit.toFixed(2)} &bull; ${astMode === 'serum' ? 'f = ' + f : 'Cpr = ' + cpr + ' g/L'}`;
+      }
+
+      function loadAstExampleData() {
+        if (astMode === 'serum') {
+          document.getElementById('ast-od-sample').value = '0.258';
+          document.getElementById('ast-od-control').value = '0.236';
+          document.getElementById('ast-dilution').value = '1';
+        } else {
+          document.getElementById('ast-od-sample').value = '0.380';
+          document.getElementById('ast-od-control').value = '0.248';
+          document.getElementById('ast-dilution').value = '20';
+          document.getElementById('ast-cpr').value = '14.1';
+        }
+        calculateAst();
+        showToast('Loaded EEA003 Excel Example Data!');
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        calculateAst();
+      });
+    </script>
+    
 
           </div>
 

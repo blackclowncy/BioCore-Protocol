@@ -211,7 +211,7 @@
         <!-- Two Column Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
           
-          <!-- Left Column: Overview, Procedures & Calculations -->
+          <!-- Left Column: Overview, Procedures, Calculations & Calculators -->
           <div class="lg:col-span-2 flex flex-col gap-6">
             
             <!-- Overview Card -->
@@ -275,7 +275,7 @@
                 <h2 class="text-lg font-headline text-on-surface flex items-center gap-2 font-semibold">
                   <span class="material-symbols-outlined text-primary">format_list_numbered</span> Usage Procedure
                 </h2>
-                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('standard_96')" id="tab-btn-standard_96" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">96-Well Protocol</button><button onclick="switchTab('multiplex_mode')" id="tab-btn-multiplex_mode" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">Multiplexing Workflow</button></div>
+                
               </div>
               <div class="p-5">
                 
@@ -360,59 +360,10 @@
             </div>
             </div>
         </div>
-        <div id="proc-content-multiplex_mode" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Multiplexing with Apoptosis / Cytotoxicity Assays</h3>
-            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
-                
-            <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Perform CellTiter-Fluor Assay First</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 5X CellTiter-Fluor reagent and read fluorescence (380-400 Ex / 505 Em) to quantify viable cell number without lysing cells.</p>
-                    
-                    
-                <div class="flex gap-3 mt-3">
-                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30–60 mins
-                    </span>
-                </div>
-                </div>
-            </div>
-            <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Add Second Assay Reagent (Lytic)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Directly add equal volume of Caspase-Glo® 3/7 or CellTiter-Glo® reagent into the same wells.</p>
-                    
-                    
-                <div class="flex gap-3 mt-3">
-                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
-                    </span>
-                </div>
-                </div>
-            </div>
-            <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Incubate & Read Luminescence</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Incubate at room temperature for 15–30 minutes, then measure luminescence for caspase activation or cellular ATP.</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Yields dual readouts (live cell count + caspase activity) from a single well.</span></div>
-                    
-                <div class="flex gap-3 mt-3">
-                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
-                    </span>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
               </div>
             </section>
+
+            
 
             
 
