@@ -222,8 +222,16 @@
               </h2>
               <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
                 
-          <p>The Thermo Scientific™ EasyPep™ Magnetic MS Sample Prep Kit enables rapid, robust, and highly reproducible processing of cultured mammalian cells, tissues, and plasma for proteomic liquid chromatography-mass spectrometry (LC-MS) analysis. The protocol takes less than 3 hours from raw sample to MS-ready peptides.</p>
-          <p><strong>Workflow Highlights:</strong> Includes Universal Nuclease for rapid DNA/RNA digestion without sonication, a 'one-pot' reduction and alkylation reagent (+57.02 carbamidomethylation), an optimized MS-grade Trypsin/Lys-C protease mix, and magnetic clean-up beads eliminating the need for SpeedVac drying.</p>
+          <p>The Thermo Scientific™ EasyPep™ Magnetic MS Sample Prep Kit (Cat. No. A57867, 96 Reactions, Doc. MAN0030132 Rev. B) enables rapid, robust, and reproducible processing of cultured mammalian cells, plasma, serum, and tissues for proteomic liquid chromatography-mass spectrometry (LC-MS) analysis. Optimized to process protein samples from 15–100 µg (and scalable up to 1500 µg) with high peptide yield and purity.</p>
+          <p class="font-semibold text-on-surface mt-2">Key Technical Innovations:</p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-1 text-xs sm:text-sm">
+            <li><strong>Total Protocol Duration &lt; 3 Hours:</strong> Replaces traditional overnight digestion and eliminates vacuum drying/SpeedVac reconstitution.</li>
+            <li><strong>Universal Nuclease Treatment:</strong> Rapidly degrades genomic DNA/RNA viscosity within minutes without requiring sonicators.</li>
+            <li><strong>'One-Pot' Reduction & Alkylation:</strong> Simultaneous disulfide reduction and cysteine carbamidomethylation (+57.02 Da) at 95°C (5–10 min) or 50°C (20–30 min).</li>
+            <li><strong>MS-Grade Trypsin/Lys-C Protease Mix:</strong> High-cleavage fidelity with &lt;5% missed cleavage rates.</li>
+            <li><strong>Magnetic Clean-up Beads:</strong> Direct solid-phase peptide purification; eluted peptides are ready for direct LC-MS injection or TMT™/TMTpro™ isobaric labeling.</li>
+            <li><strong>Automation Compatible:</strong> Validated for high-throughput automated processing on KingFisher™ Apex and KingFisher™ Flex systems.</li>
+          </ul>
         
               </div>
               
@@ -275,25 +283,25 @@
                 <h2 class="text-lg font-headline text-on-surface flex items-center gap-2 font-semibold">
                   <span class="material-symbols-outlined text-primary">format_list_numbered</span> Usage Procedure
                 </h2>
-                
+                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('sample_prep_lysis')" id="tab-btn-sample_prep_lysis" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">1. Lysis & Extraction</button><button onclick="switchTab('red_alk_digest')" id="tab-btn-red_alk_digest" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">2. Reduction, Alkylation & Digestion</button><button onclick="switchTab('manual_cleanup')" id="tab-btn-manual_cleanup" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">3. Manual Magnetic Clean-up</button><button onclick="switchTab('automated_kingfisher')" id="tab-btn-automated_kingfisher" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">4. Automated KingFisher™</button><button onclick="switchTab('tmt_labeling')" id="tab-btn-tmt_labeling" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">5. TMT™ Labeling</button><button onclick="switchTab('troubleshooting')" id="tab-btn-troubleshooting" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">6. Troubleshooting</button></div>
               </div>
               <div class="p-5">
                 
-        <div id="proc-content-magnetic_ms_prep" class="proc-tab-content ">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">96-Reaction Magnetic MS Sample Preparation Protocol</h3>
+        <div id="proc-content-sample_prep_lysis" class="proc-tab-content ">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Sample Extraction, Lysis & Protein Normalization</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Cell Lysis & Nuclease Treatment</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 100 µL Lysis Buffer + 1 µL Universal Nuclease to 15–100 µg protein equivalent of cell pellet or tissue homogenate. Pipette up and down to lyse and clarify.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">PBS Pre-Wash</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Rinse cultured cells or tissues 2–3 times with 1× PBS to remove culture media, FBS, or residual blood before adding Lysis Solution. (Resuspend samples in Lysis Solution without additional buffers).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
                     </span>
                 </div>
                 </div>
@@ -302,9 +310,9 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Reduction & Alkylation (One-Pot)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 10 µL Reduction Solution and 10 µL Alkylation Solution to each lysate. Incubate on a thermal mixer at 95°C for 10 minutes (or 50°C for 20 mins).</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Simultaneous reduction and carbamidomethylation in single reaction.</span></div>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Cultured Mammalian Cell Lysis</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 25 µL Lysis Solution and 1 µL Universal Nuclease to a minimum of 1 × 10⁶ cells. Pipet up and down (with a P200 tip) 10–15 times until sample viscosity is fully reduced. (Centrifugation of cell lysates is typically NOT required).</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Warm Lysis Solution to room temperature before use.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -317,23 +325,8 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Enzymatic Digestion</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Add reconstituted Trypsin/Lys-C enzyme mix (1:40 to 1:20 enzyme-to-protein ratio). Incubate with shaking at 37°C for 1–2 hours.</p>
-                    
-                    
-                <div class="flex gap-3 mt-3">
-                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 60–120 mins
-                    </span>
-                </div>
-                </div>
-            </div>
-            <!-- Step 4 -->
-            <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Magnetic Bead Binding & Clean-Up</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Add Digestion Stop Solution and 50 µL Magnetic Beads. Bind for 5 mins, place on magnetic stand, wash twice with Wash Solution to remove salts/detergents.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Tissue Homogenization</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 25 µL Lysis Solution (containing 1 µL Universal Nuclease) per 5 mg of tissue. Disrupt with a tissue homogenizer until completely homogenized. Centrifuge tissue lysates at 16,000 × g for 10 minutes at room temperature, then transfer supernatant.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -343,17 +336,422 @@
                 </div>
                 </div>
             </div>
-            <!-- Step 5 -->
+            <!-- Step 4 -->
             <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Elution & Direct LC-MS Loading</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 50–100 µL Elution Buffer, mix for 5 mins, place on magnet, and transfer clear supernatant. Sample is immediately ready for LC-MS or TMT labeling.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Serum, Plasma & Purified Proteins</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Dilute purified protein, serum, or plasma samples directly in Lysis Solution to a concentration of 2–5 µg/µL. (Note: Universal Nuclease is NOT required for serum, plasma, or purified proteins).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 5 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Protein Quantitation (BCA)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Determine protein concentration using Pierce™ BCA Protein Assay (Cat. 23227) or Rapid Gold BCA (Cat. A53226). Adjust sample concentration to 2–5 µg/µL using Lysis Solution. Transfer 15–100 µg into low-protein-binding microcentrifuge tubes or 96-deep-well plates.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Protein sample concentration must be ≥2–5 µg/µL to ensure digest concentration is ≥0.06 µg/µL for magnetic binding.</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 20 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-red_alk_digest" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">One-Pot Reduction, Alkylation & Trypsin/Lys-C Proteolysis</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Add Reduction Solution</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add the appropriate volume of Reduction Solution according to Table 1 (7.5 µL for 15–30 µg; 15 µL for 30–60 µg; 30 µL for 60–100 µg; see Table 1) and briefly vortex.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Add Alkylation Solution</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add the appropriate volume of Alkylation Solution according to Table 1 (3.75 µL for 15–30 µg; 7.5 µL for 30–60 µg; 15 µL for 60–100 µg) and briefly vortex.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">One-Pot Reduction & Alkylation Incubation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Incubate sample at 95°C on a heat block/thermal mixer for 5–10 minutes, OR at 50°C for 20–30 minutes to reduce and alkylate cysteines (+57.02 Da).</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Allow sample to cool to room temperature. Briefly centrifuge to collect condensation.</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5–10 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Reconstitute Trypsin/Lys-C Protease Mix</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 150 µL Enzyme Reconstitution Solution to 1 vial (100 µg) of Pierce™ Trypsin/Lys-C Protease Mix. Mix gently.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Reconstituted enzyme is stable at 4°C for 1 month or -20°C for 1 year.</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 3 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 5 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Add Enzyme & Digest</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add appropriate volume of reconstituted enzyme (Table 1: 3.75 µL for 15–30 µg; 7.5 µL for 30–100 µg). Incubate with shaking at 37°C for 1–2 hours. (For 60–100 µg input, 2–3 hours shaking is recommended).</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Digests can be labeled with TMT™ reagents at this point before clean-up if desired.</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 1–3 hrs
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-manual_cleanup" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Manual Solid-Phase Magnetic Peptide Clean-Up Protocol</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Condition & Rinse Magnetic Clean-up Beads</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Vortex Magnetic Clean-Up Beads thoroughly to fully resuspend. Transfer 20 µL beads (for 15–100 µg) to a low-protein-binding tube/plate. Collect beads on magnetic stand, remove storage buffer. Remove from magnet, add 200 µL Bind Solution (Table 1 [2]), vortex, collect on magnet, and discard supernatant.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Bind Digested Peptides to Beads</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add Table 1 Bind Solution [3] (230 µL for 15–30 µg; 460 µL for 30–60 µg; 920 µL for 60–100 µg) to rinsed beads. Transfer bead slurry into the protein digest tube. Incubate at RT for 30–60 minutes with shaking at 1,200 rpm on a thermomixer.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Protein digest must be diluted in Bind Solution by >90% by volume before binding.</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30–60 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Wash Bound Peptides</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Collect beads on magnetic stand, discard supernatant. Remove from magnet, add 500 µL Wash Solution (Table 1), vortex briefly, collect on magnet, and discard wash supernatant. (For TMT-labeled samples, wash twice using 250 µL each).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Elute MS-Ready Peptides</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add designated volume of Elution Solution (30 µL for 15–30 µg; 90 µL for 30–60 µg; 150 µL for 60–100 µg). Vortex briefly and incubate for 3 minutes while mixing on a thermomixer at room temperature.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 3 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 5 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Magnetic Separation & Autosampler Transfer</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Collect beads on magnetic stand. Transfer eluted peptide solution to new low-binding tube or autosampler vial. Centrifuge at 10,000 × g for 2 minutes before LC-MS injection to avoid any bead carryover.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Samples are ready for direct LC-MS injection without vacuum evaporation!</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-automated_kingfisher" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Automated High-Throughput Clean-Up (KingFisher™ Apex / Flex)</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Load Instrument Script</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Select KingFisher script: EasyPep_Magnetic_Kit_15-30ug.kfx, EasyPep_Magnetic_Kit_30-60ug.kfx, or EasyPep_Magnetic_Kit_60-100ug.kfx on KingFisher Apex/Flex instrument.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Plate 1 (Tip Plate)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Combine 96 Deep-Well Tip Comb (Cat. 97002534) with a KingFisher 96 Deep-Well Plate.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 1 min
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Plate 2 (Bead Plate)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Dispense 100 µL total slurry per well (20 µL Magnetic Clean-up Beads diluted in 80 µL Bind Solution).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Plate 3 (Bead Wash Plate)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Dispense 200 µL Bind Solution per well (Mix: 1 minute, Medium speed).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 3 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 5 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Plate 4 (Sample Binding Plate)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Load protein digest in Bind Solution: 250 µL (for 15–30 µg digest), 500 µL (for 30–60 µg digest), or 1000 µL (for 60–100 µg digest). (Mix: 40 minutes, Medium speed).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 40 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 6 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">6</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Plate 5 (Wash Plate)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Dispense 500 µL Wash Solution per well (Mix: 2 minutes, Medium speed).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 7 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">7</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Plate 6 (Elution Plate)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Dispense 50 µL–150 µL Elution Solution per well (Mix: 3 minutes, Medium speed). Collect eluted peptides for analysis.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 3 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-tmt_labeling" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">TMT™ / TMTpro™ Isobaric Tag Labeling Protocols</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Dissolve Reagents & Sample Ratios</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Dissolve TMT™ / TMTpro™ reagents in 100% anhydrous acetonitrile. For 1–10 µg digests: use 1:16 (TMT) or 1:20 (TMTpro) w:w. For 10–100 µg digests: use 1:4–1:8 (TMT) or 1:5–1:10 (TMTpro) w:w.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Option A: Pre-Clean-Up Labeling Workflow</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add dissolved TMT reagent directly to uncleaned digest. Incubate 30–60 mins at RT. Quench with 5 µL of 5% hydroxylamine / 20% formic acid solution for 5 mins. Pool equal amounts, then proceed to Table 1 Manual Magnetic Clean-Up based on total pooled mass.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 45 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Option B: Post-Clean-Up Labeling Workflow</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Dry cleaned peptides in SpeedVac, resuspend in 100 mM TEAB (pH 8.5) or HEPES (pH 8.0). Add TMT reagent, incubate 30–60 mins at RT, quench with 5 µL 5% hydroxylamine for 5 mins. Pool, acidify with 5% TFA until pH < 3, and desalt with Pierce Peptide Desalting Spin Columns (Cat. 89852).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 60 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-troubleshooting" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Troubleshooting & Optimization Guide (MAN0030132)</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">High Sample Viscosity after Lysis</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Cause: Universal Nuclease omitted or inhibited by EDTA in protease inhibitors. Remedy: Add 1 µL Universal Nuclease per 25–100 µL lysis buffer. Never add protease inhibitor cocktails containing EDTA.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> Immediate
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Incomplete Digestion</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Cause: Enzyme added before cooling sample, or insufficient incubation. Remedy: Cool samples to RT after reduction/alkylation before adding Trypsin/Lys-C. Increase digestion time to 3 hours with shaking at 37°C.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> Adjustment
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Low Peptide Yield</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Cause: Protein concentration too dilute (<2 µg/µL) or digest not diluted >90% by volume in Bind Solution. Remedy: Verify initial concentration is 2–5 µg/µL. Follow exact Table 1 Bind Solution volumes.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> Adjustment
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Bead Carryover in Elution</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Cause: Incomplete magnetic capture before pipetting. Remedy: Centrifuge eluted peptide samples at 10,000 × g for 2 minutes before transferring to autosampler vials, or use C18 trap columns.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> Adjustment
                     </span>
                 </div>
                 </div>
@@ -364,8 +762,332 @@
             </section>
 
             
+        <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 md:p-6 relative overflow-hidden mt-6">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+            <h2 class="text-lg font-headline text-on-surface mb-3 flex items-center gap-2 font-semibold">
+                <span class="material-symbols-outlined text-tertiary">calculate</span> Reagent Volumes for Different Protein Input Ranges (Table 1, MAN0030132 Rev. B)
+            </h2>
+            
+            <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto">
+                Initial Protein Concentration in Lysis Solution: 2.0 – 5.0 µg/µL (Final Digest Concentration ≥ 0.06 µg/µL)
+            </div>
+            <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
+                
+              <div class="space-y-4">
+                <p>Scale reagent volumes according to starting protein mass. All volumes below represent a single reaction:</p>
+                <div class="overflow-x-auto">
+                  <table class="w-full text-left text-xs border-collapse bg-surface-container/30 rounded-xl overflow-hidden border border-white/5">
+                    <thead>
+                      <tr class="bg-surface-container-high/60 border-b border-white/10 text-on-surface">
+                        <th class="p-2.5 font-semibold">Protein Range</th>
+                        <th class="p-2.5 font-semibold">Input Vol (2–5 µg/µL)</th>
+                        <th class="p-2.5 font-semibold">Reduction Soln</th>
+                        <th class="p-2.5 font-semibold">Alkylation Soln</th>
+                        <th class="p-2.5 font-semibold">Enzyme Soln</th>
+                        <th class="p-2.5 font-semibold">Clean-up Beads</th>
+                        <th class="p-2.5 font-semibold">Rinse Bind Soln [2]</th>
+                        <th class="p-2.5 font-semibold">Peptide Bind Soln [3]</th>
+                        <th class="p-2.5 font-semibold">Wash Soln</th>
+                        <th class="p-2.5 font-semibold">Elution Soln</th>
+                        <th class="p-2.5 font-semibold text-primary">Max Rxns</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5 font-mono text-[11px]">
+                      <tr class="hover:bg-surface-container/50">
+                        <td class="p-2 font-semibold text-primary">15–30 µg</td>
+                        <td class="p-2">7.5 µL</td>
+                        <td class="p-2">3.75 µL</td>
+                        <td class="p-2">3.75 µL</td>
+                        <td class="p-2">3.75 µL</td>
+                        <td class="p-2">20 µL</td>
+                        <td class="p-2">200 µL</td>
+                        <td class="p-2">230 µL</td>
+                        <td class="p-2">500 µL</td>
+                        <td class="p-2">30 µL</td>
+                        <td class="p-2 font-bold text-primary">96</td>
+                      </tr>
+                      <tr class="hover:bg-surface-container/50">
+                        <td class="p-2 font-semibold text-primary">30–60 µg</td>
+                        <td class="p-2">15 µL</td>
+                        <td class="p-2">7.5 µL</td>
+                        <td class="p-2">7.5 µL</td>
+                        <td class="p-2">7.5 µL</td>
+                        <td class="p-2">20 µL</td>
+                        <td class="p-2">200 µL</td>
+                        <td class="p-2">460 µL</td>
+                        <td class="p-2">500 µL</td>
+                        <td class="p-2">90 µL</td>
+                        <td class="p-2 font-bold text-primary">96</td>
+                      </tr>
+                      <tr class="hover:bg-surface-container/50">
+                        <td class="p-2 font-semibold text-primary">60–100 µg</td>
+                        <td class="p-2">30 µL</td>
+                        <td class="p-2">15 µL</td>
+                        <td class="p-2">15 µL</td>
+                        <td class="p-2">7.5 µL</td>
+                        <td class="p-2">20 µL</td>
+                        <td class="p-2">200 µL</td>
+                        <td class="p-2">920 µL</td>
+                        <td class="p-2">500 µL</td>
+                        <td class="p-2">150 µL</td>
+                        <td class="p-2 font-bold text-primary">96</td>
+                      </tr>
+                      <tr class="hover:bg-surface-container/50">
+                        <td class="p-2 font-semibold text-tertiary">100–300 µg</td>
+                        <td class="p-2">75 µL</td>
+                        <td class="p-2">37.5 µL</td>
+                        <td class="p-2">37.5 µL</td>
+                        <td class="p-2">37.5 µL</td>
+                        <td class="p-2">200 µL</td>
+                        <td class="p-2">1.0 mL</td>
+                        <td class="p-2">2.3 mL</td>
+                        <td class="p-2">2.5 mL</td>
+                        <td class="p-2">300 µL</td>
+                        <td class="p-2 font-bold text-tertiary">12</td>
+                      </tr>
+                      <tr class="hover:bg-surface-container/50">
+                        <td class="p-2 font-semibold text-tertiary">300–600 µg</td>
+                        <td class="p-2">150 µL</td>
+                        <td class="p-2">75 µL</td>
+                        <td class="p-2">75 µL</td>
+                        <td class="p-2">75 µL</td>
+                        <td class="p-2">200 µL</td>
+                        <td class="p-2">1.0 mL</td>
+                        <td class="p-2">4.6 mL</td>
+                        <td class="p-2">2.5 mL</td>
+                        <td class="p-2">900 µL</td>
+                        <td class="p-2 font-bold text-tertiary">10</td>
+                      </tr>
+                      <tr class="hover:bg-surface-container/50">
+                        <td class="p-2 font-semibold text-tertiary">600–1500 µg</td>
+                        <td class="p-2">300 µL</td>
+                        <td class="p-2">150 µL</td>
+                        <td class="p-2">150 µL</td>
+                        <td class="p-2">150 µL</td>
+                        <td class="p-2">200 µL</td>
+                        <td class="p-2">1.0 mL</td>
+                        <td class="p-2">9.2 mL</td>
+                        <td class="p-2">2.5 mL</td>
+                        <td class="p-2">1.5 mL</td>
+                        <td class="p-2 font-bold text-tertiary">5</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p class="text-xs text-on-surface-variant"><em>[1] Volume of protein in Lysis Solution. [2] Volume used to rinse Magnetic Clean-up Beads. [3] Volume used for peptide binding.</em></p>
+              </div>
+            
+            </div>
+        </section>
 
             
+    <!-- Interactive EasyPep Reagent Scaling Calculator -->
+    <section id="assay-calculator" class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-primary/20 shadow-2xl p-6 relative overflow-hidden mt-8">
+      <div class="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+      
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 relative z-10 border-b border-white/5 pb-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="p-2 rounded-lg bg-primary/20 text-primary material-symbols-outlined text-[22px]">calculate</span>
+            <h2 class="text-xl font-headline text-on-surface font-semibold">EasyPep™ Reagent Volume Scaling Calculator</h2>
+          </div>
+          <p class="text-xs text-on-surface-variant mt-1">Automatically scales all 9 digestion & magnetic cleanup reagent volumes based on Thermo Fisher Table 1 specifications</p>
+        </div>
+        
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-on-surface-variant font-mono">Catalog # A57867 (96 rxns)</span>
+        </div>
+      </div>
+
+      <!-- Calculator Inputs Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 relative z-10 mb-6">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">Protein Input Mass Range</label>
+          <select id="easypep-tier" class="w-full px-3.5 py-2.5 bg-surface-container border border-outline-variant rounded-lg text-sm text-on-surface focus:outline-none focus:border-primary font-mono" onchange="calculateEasyPep()">
+            <option value="15-30" selected>15 – 30 µg (Input Vol: 7.5 µL)</option>
+            <option value="30-60">30 – 60 µg (Input Vol: 15 µL)</option>
+            <option value="60-100">60 – 100 µg (Input Vol: 30 µL)</option>
+            <option value="100-300">100 – 300 µg (Input Vol: 75 µL)</option>
+            <option value="300-600">300 – 600 µg (Input Vol: 150 µL)</option>
+            <option value="600-1500">600 – 1500 µg (Input Vol: 300 µL)</option>
+          </select>
+          <span class="text-[11px] text-on-surface-variant/70 mt-1 block">Protein sample concentration: 2–5 µg/µL</span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">Number of Reactions (N)</label>
+          <input type="number" min="1" max="96" value="8" id="easypep-samples" class="w-full px-3.5 py-2.5 bg-surface-container border border-outline-variant rounded-lg text-sm text-on-surface focus:outline-none focus:border-primary font-mono" oninput="calculateEasyPep()"/>
+          <span class="text-[11px] text-on-surface-variant/70 mt-1 block">Total sample reactions to prepare</span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">Pipetting Overage / Excess</label>
+          <select id="easypep-overage" class="w-full px-3.5 py-2.5 bg-surface-container border border-outline-variant rounded-lg text-sm text-on-surface focus:outline-none focus:border-primary font-mono" onchange="calculateEasyPep()">
+            <option value="1.0">0% (Exact)</option>
+            <option value="1.05">5% Excess</option>
+            <option value="1.10" selected>10% Excess (Recommended)</option>
+            <option value="1.15">15% Excess</option>
+          </select>
+          <span class="text-[11px] text-on-surface-variant/70 mt-1 block">Master mix pipetting margin</span>
+        </div>
+      </div>
+
+      <!-- Result Table -->
+      <div class="bg-surface-container/40 rounded-xl border border-white/5 overflow-hidden relative z-10 mb-4">
+        <div class="p-3 bg-surface-container-high/50 border-b border-white/5 flex justify-between items-center">
+          <span class="text-xs font-semibold text-on-surface flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px] text-primary">table_chart</span> Master Mix & Reagent Requirements Summary
+          </span>
+          <span id="easypep-max-rxn-badge" class="text-[11px] bg-primary/20 text-primary px-2.5 py-0.5 rounded font-mono font-semibold">Max Kit Capacity: 96 rxns</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-white/5 text-on-surface-variant bg-surface-container/60">
+                <th class="py-2.5 px-3.5 font-semibold">Step / Stage</th>
+                <th class="py-2.5 px-3.5 font-semibold">Reagent</th>
+                <th class="py-2.5 px-3.5 font-semibold text-right">Per Reaction</th>
+                <th class="py-2.5 px-3.5 font-semibold text-right text-primary font-mono">Master Mix Total (<span id="easypep-total-samples-label">8</span> rxns)</th>
+              </tr>
+            </thead>
+            <tbody id="easypep-calc-table" class="divide-y divide-white/5 font-mono text-[11px] sm:text-xs">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="text-[11px] text-on-surface-variant/80 space-y-1">
+        <p>• <strong>Enzyme Preparation:</strong> Dissolve 1 vial (100 µg) of Trypsin/Lys-C Protease Mix in 150 µL Enzyme Reconstitution Solution before pipetting.</p>
+        <p>• <strong>Bead Washing:</strong> Rinse magnetic beads in Bind Solution before combining with the protein digest.</p>
+      </div>
+    </section>
+
+    <script>
+      const easyPepTable1 = {
+        "15-30": {
+          inputVol: 7.5,
+          reduction: 3.75,
+          alkylation: 3.75,
+          enzyme: 3.75,
+          beads: 20,
+          rinseBind: 200,
+          bindSolution: 230,
+          wash: 500,
+          elution: 30,
+          maxRxns: 96
+        },
+        "30-60": {
+          inputVol: 15,
+          reduction: 7.5,
+          alkylation: 7.5,
+          enzyme: 7.5,
+          beads: 20,
+          rinseBind: 200,
+          bindSolution: 460,
+          wash: 500,
+          elution: 90,
+          maxRxns: 96
+        },
+        "60-100": {
+          inputVol: 30,
+          reduction: 15,
+          alkylation: 15,
+          enzyme: 7.5,
+          beads: 20,
+          rinseBind: 200,
+          bindSolution: 920,
+          wash: 500,
+          elution: 150,
+          maxRxns: 96
+        },
+        "100-300": {
+          inputVol: 75,
+          reduction: 37.5,
+          alkylation: 37.5,
+          enzyme: 37.5,
+          beads: 200,
+          rinseBind: 1000,
+          bindSolution: 2300,
+          wash: 2500,
+          elution: 300,
+          maxRxns: 12
+        },
+        "300-600": {
+          inputVol: 150,
+          reduction: 75,
+          alkylation: 75,
+          enzyme: 75,
+          beads: 200,
+          rinseBind: 1000,
+          bindSolution: 4600,
+          wash: 2500,
+          elution: 900,
+          maxRxns: 10
+        },
+        "600-1500": {
+          inputVol: 300,
+          reduction: 150,
+          alkylation: 150,
+          enzyme: 150,
+          beads: 200,
+          rinseBind: 1000,
+          bindSolution: 9200,
+          wash: 2500,
+          elution: 1500,
+          maxRxns: 5
+        }
+      };
+
+      function formatVol(val) {
+        if (val >= 1000) {
+          return (val / 1000).toFixed(2).replace(/\.00$/, '') + ' mL';
+        }
+        return val.toFixed(1).replace(/\.0$/, '') + ' µL';
+      }
+
+      function calculateEasyPep() {
+        const tierKey = document.getElementById('easypep-tier').value;
+        const n = Math.max(1, parseInt(document.getElementById('easypep-samples').value) || 1);
+        const overage = parseFloat(document.getElementById('easypep-overage').value) || 1.0;
+        const data = easyPepTable1[tierKey];
+
+        document.getElementById('easypep-total-samples-label').innerText = n;
+        document.getElementById('easypep-max-rxn-badge').innerText = `Max Kit Capacity: ${data.maxRxns} rxns`;
+
+        const reagents = [
+          { stage: "Sample Input", name: "Protein Sample (2–5 µg/µL)", perRxn: data.inputVol },
+          { stage: "Digestion", name: "Reduction Solution", perRxn: data.reduction },
+          { stage: "Digestion", name: "Alkylation Solution", perRxn: data.alkylation },
+          { stage: "Digestion", name: "Trypsin/Lys-C Protease Solution", perRxn: data.enzyme },
+          { stage: "Clean-up", name: "Magnetic Clean-up Beads", perRxn: data.beads },
+          { stage: "Clean-up", name: "Bind Solution (Rinse Beads)", perRxn: data.rinseBind },
+          { stage: "Clean-up", name: "Bind Solution (Binding)", perRxn: data.bindSolution },
+          { stage: "Clean-up", name: "Wash Solution", perRxn: data.wash },
+          { stage: "Clean-up", name: "Elution Solution", perRxn: data.elution }
+        ];
+
+        let tbodyHtml = '';
+        reagents.forEach(r => {
+          const totalVol = r.perRxn * n * overage;
+          tbodyHtml += `
+            <tr class="hover:bg-surface-container/50 transition-colors">
+              <td class="py-2 px-3.5 text-on-surface-variant font-sans font-medium">${r.stage}</td>
+              <td class="py-2 px-3.5 text-on-surface font-sans font-semibold">${r.name}</td>
+              <td class="py-2 px-3.5 text-right text-on-surface-variant">${formatVol(r.perRxn)}</td>
+              <td class="py-2 px-3.5 text-right font-bold text-primary">${formatVol(totalVol)}</td>
+            </tr>
+          `;
+        });
+
+        document.getElementById('easypep-calc-table').innerHTML = tbodyHtml;
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        calculateEasyPep();
+      });
+    </script>
+    
 
           </div>
 
@@ -392,8 +1114,8 @@
                     
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Lysis Buffer</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Lysis Solution</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 4°C (Warm to RT before use)</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
                 <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">25 mL</span>
@@ -401,56 +1123,83 @@
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Universal Nuclease</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">-20°C</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Reduction Solution</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 4°C</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">100 µL</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">7 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Reduction & Alkylation Solutions</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">4°C</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Alkylation Solution</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 4°C</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1.2 mL each</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">7 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Enzyme Mix (MS-grade Trypsin/Lys-C)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">-20°C</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Enzyme Reconstitution Solution</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 4°C</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 vial lyophilized</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Enzyme Reconstitution Buffer</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Bind Solution</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 4°C</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1.2 mL</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">4 × 26 mL (104 mL)</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Wash Solution</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 4°C</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">2 × 26 mL (52 mL)</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Elution Solution</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 4°C</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">11 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Magnetic Clean-up Beads</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">4°C (do not freeze)</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 4°C (Do NOT freeze)</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">5 mL</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">2.4 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Wash & Elution Buffers</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Universal Nuclease (25 kU)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 4°C (Long-term: -20°C)</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">50 mL each</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 vial</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Pierce™ Trypsin/Lys-C Protease Mix</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at -20°C (1 yr) / 4°C (1 mo after reconstitution)</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">5 × 100 µg</span>
             </td>
         </tr>
                   </tbody>
@@ -481,15 +1230,19 @@
                 
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Do not freeze Magnetic Clean-up Beads; irreversible bead aggregation will reduce peptide recovery.</span>
+            <span class="leading-relaxed">Never freeze Magnetic Clean-up Beads; irreversible bead aggregation will destroy peptide recovery.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Use MS-grade low-binding tubes and pipette tips to prevent plasticizer polymer contamination in mass spectrometer.</span>
+            <span class="leading-relaxed">Do not add EDTA-containing protease inhibitor cocktails as EDTA inhibits Universal Nuclease and Trypsin/Lys-C.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Ensure complete magnetic separation (30–60 sec) before aspirating supernatant during wash steps.</span>
+            <span class="leading-relaxed">Cool samples to room temperature after 95°C reduction/alkylation before adding Trypsin/Lys-C protease.</span>
+        </li>
+        <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
+            <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
+            <span class="leading-relaxed">Centrifuge eluted peptides at 10,000 × g for 2 minutes before transferring to autosampler vials to prevent bead carryover.</span>
         </li>
               </ul>
             </section>
@@ -501,7 +1254,7 @@
                 <h3 class="text-sm font-headline text-on-surface font-semibold">Expected Results</h3>
               </div>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                High peptide recovery (>80%) with >95% cleavage efficiency, high missed-cleavage fidelity (<5%), and complete removal of MS-interfering detergents.
+                High peptide recovery (>80%) with >95% cleavage efficiency (<5% missed cleavages), complete removal of MS-interfering detergents and salts, and direct compatibility with nano-LC-MS/MS or TMT labeling.
               </p>
             </div>
 
