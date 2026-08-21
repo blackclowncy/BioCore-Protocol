@@ -1,235 +1,1216 @@
 <!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>BioCore Protocol Library - Standardized Laboratory SOPs</title>
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    .list-view-mode .grid {
+      grid-template-columns: 1fr !important;
+    }
+    .list-view-mode .protocol-card {
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 1.5rem !important;
+      padding: 1rem 1.5rem !important;
+    }
+    .list-view-mode .protocol-card p {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 0 !important;
+    }
+    .list-view-mode .protocol-card .border-t {
+      border-top: none !important;
+      padding-top: 0 !important;
+      margin-left: auto;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-tint": "#7dd3fc",
+            "on-primary-fixed": "#001f2e",
+            "surface-container": "#141c2e",
+            "surface-container-lowest": "#0a0e1a",
+            "tertiary": "#c8a0f0",
+            "on-secondary-fixed": "#0d1f2b",
+            "on-surface": "#e0e8f0",
+            "tertiary-fixed": "#e8d0ff",
+            "primary-fixed-dim": "#7dd3fc",
+            "outline-variant": "#2a3a48",
+            "outline": "#4a6070",
+            "error-container": "#3d1414",
+            "background": "#0a0e1a",
+            "on-secondary": "#001f2e",
+            "primary-fixed": "#c8eaff",
+            "on-error-container": "#ffb3b3",
+            "secondary": "#88b4cc",
+            "on-primary": "#001f2e",
+            "on-tertiary": "#1a002e",
+            "secondary-fixed-dim": "#88b4cc",
+            "error": "#ff6b6b",
+            "on-background": "#e0e8f0",
+            "on-error": "#1a0000",
+            "inverse-primary": "#0a4c6e",
+            "surface-dim": "#0f1524",
+            "secondary-fixed": "#c0d8e8",
+            "on-tertiary-fixed-variant": "#4d2a73",
+            "surface-container-low": "#111828",
+            "surface-container-high": "#1a2438",
+            "on-primary-fixed-variant": "#004d73",
+            "on-surface-variant": "#a0b4c4",
+            "surface-container-highest": "#202c42",
+            "on-tertiary-fixed": "#1a002e",
+            "inverse-on-surface": "#0a0e1a",
+            "surface-variant": "#1a2438",
+            "primary-container": "#0e4d6e",
+            "on-primary-container": "#c8eaff",
+            "tertiary-fixed-dim": "#c8a0f0",
+            "on-tertiary-container": "#e8d0ff",
+            "secondary-container": "#1a3a4e",
+            "inverse-surface": "#e0e8f0",
+            "on-secondary-fixed-variant": "#2a4a5e",
+            "tertiary-container": "#3d2060",
+            "surface": "#0f1524",
+            "surface-bright": "#1a2438",
+            "primary": "#7dd3fc",
+            "on-secondary-container": "#c0d8e8"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Inter"],
+            "display": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+</head>
+<body class="bg-background font-body text-on-background min-h-screen">
+  
+  <!-- Left Sidebar Navigation -->
+  <aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low/80 backdrop-blur-xl z-50 flex flex-col border-r border-outline-variant shadow-sm">
+    <div class="p-6 mb-4 flex items-center gap-3">
+      <div class="w-10 h-10 bg-primary/20 rounded-lg border border-primary/30 flex items-center justify-center">
+        <span class="material-symbols-outlined text-primary">biotech</span>
+      </div>
+      <span class="font-headline text-lg text-primary tracking-tight font-semibold">BioCore Portal</span>
+    </div>
+    
+    <div class="px-6 py-2 text-xs uppercase text-on-surface-variant font-bold tracking-widest opacity-80">Protocol Filters</div>
+    <nav class="flex-1 px-3 mt-2 overflow-y-auto space-y-1" id="sidebar-nav">
+      <a onclick="setFilter('all'); return false;" href="#all" class="sidebar-item flex items-center px-4 py-2.5 rounded-lg text-sm bg-primary/20 text-primary font-semibold border border-primary/30 transition-all cursor-pointer" data-cat="all">
+        <span class="material-symbols-outlined mr-3 text-[20px]">apps</span>All Protocols
+      </a>
+      <a onclick="setFilter('histology'); return false;" href="#histology" class="sidebar-item flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface hover:bg-surface-container-high transition-all cursor-pointer" data-cat="histology">
+        <span class="material-symbols-outlined mr-3 text-[20px] text-secondary">smb_share</span>Histology
+      </a>
+      <a onclick="setFilter('biochemistry'); return false;" href="#biochemistry" class="sidebar-item flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface hover:bg-surface-container-high transition-all cursor-pointer" data-cat="biochemistry">
+        <span class="material-symbols-outlined mr-3 text-[20px] text-secondary">experiment</span>Biochemistry
+      </a>
+      <a onclick="setFilter('cell-culture'); return false;" href="#cell-culture" class="sidebar-item flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface hover:bg-surface-container-high transition-all cursor-pointer" data-cat="cell-culture">
+        <span class="material-symbols-outlined mr-3 text-[20px] text-secondary">pet_supplies</span>Cell Culture
+      </a>
+      <a onclick="setFilter('microscopy'); return false;" href="#microscopy" class="sidebar-item flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface hover:bg-surface-container-high transition-all cursor-pointer" data-cat="microscopy">
+        <span class="material-symbols-outlined mr-3 text-[20px] text-secondary">visibility</span>Microscopy
+      </a>
+      <a onclick="setFilter('tissue-engineering'); return false;" href="#tissue-engineering" class="sidebar-item flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface hover:bg-surface-container-high transition-all cursor-pointer" data-cat="tissue-engineering">
+        <span class="material-symbols-outlined mr-3 text-[20px] text-secondary">layers</span>Tissue Engineering
+      </a>
+      <a onclick="setFilter('reagents'); return false;" href="#reagents" class="sidebar-item flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface hover:bg-surface-container-high transition-all cursor-pointer" data-cat="reagents">
+        <span class="material-symbols-outlined mr-3 text-[20px] text-secondary">science</span>Reagents
+      </a>
+    </nav>
 
-<html lang="en" style=""><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        "colors": {
-                "outline-variant": "#2a3a48",
-                "on-primary-fixed-variant": "#004d73",
-                "background": "#0a0e1a",
-                "on-error-container": "#ffb3b3",
-                "secondary-fixed": "#c0d8e8",
-                "tertiary-container": "#3d2060",
-                "on-surface": "#e0e8f0",
-                "on-primary": "#001f2e",
-                "on-surface-variant": "#a0b4c4",
-                "surface": "#0f1524",
-                "surface-tint": "#7dd3fc",
-                "secondary-container": "#1a3a4e",
-                "surface-variant": "#1a2438",
-                "on-tertiary-container": "#e8d0ff",
-                "surface-dim": "#0f1524",
-                "on-background": "#e0e8f0",
-                "surface-container-highest": "#202c42",
-                "on-primary-fixed": "#001f2e",
-                "tertiary-fixed": "#e8d0ff",
-                "secondary": "#88b4cc",
-                "inverse-primary": "#0a4c6e",
-                "surface-container-high": "#1a2438",
-                "inverse-on-surface": "#0a0e1a",
-                "error-container": "#3d1414",
-                "outline": "#4a6070",
-                "secondary-fixed-dim": "#88b4cc",
-                "inverse-surface": "#e0e8f0",
-                "primary-container": "#0e4d6e",
-                "primary-fixed-dim": "#7dd3fc",
-                "primary": "#7dd3fc",
-                "on-secondary": "#001f2e",
-                "on-tertiary": "#1a002e",
-                "surface-container-lowest": "#0a0e1a",
-                "error": "#ff6b6b",
-                "on-tertiary-fixed": "#1a002e",
-                "primary-fixed": "#c8eaff",
-                "surface-bright": "#1a2438",
-                "tertiary": "#c8a0f0",
-                "surface-container": "#141c2e",
-                "surface-container-low": "#111828",
-                "on-primary-container": "#c8eaff",
-                "tertiary-fixed-dim": "#c8a0f0",
-                "on-tertiary-fixed-variant": "#4d2a73",
-                "on-error": "#1a0000",
-                "on-secondary-fixed-variant": "#2a4a5e",
-                "on-secondary-container": "#c0d8e8",
-                "on-secondary-fixed": "#0d1f2b"
-        },
-        "borderRadius": {
-                "DEFAULT": "0.5rem",
-                "lg": "1rem",
-                "xl": "1.5rem",
-                "full": "9999px"
-        },
-        "spacing": {},
-        "fontFamily": {
-                "headline": [
-                        "Inter"
-                ],
-                "display": [
-                        "Inter"
-                ],
-                "body": [
-                        "Inter"
-                ],
-                "label": [
-                        "Inter"
-                ]
-        },
-        "fontSize": {}
-},
-    },
-  }
-</script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/></head><body class="bg-background font-body text-on-background"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-low/80 backdrop-blur-md z-50 flex flex-col border-r border-outline-variant shadow-sm"><div class="p-6 mb-4 flex items-center gap-3"><div class="w-10 h-10 bg-primary rounded flex items-center justify-center"><span class="material-symbols-outlined text-on-primary">biotech</span></div><span class="font-headline text-lg text-primary tracking-tight font-semibold">BioCore Portal</span></div><div class="px-6 py-2 text-xs uppercase text-on-surface-variant font-bold tracking-widest opacity-80">Protocol Filters</div><nav class="flex-1 px-3 mt-2 overflow-y-auto space-y-1" data-active-classes="bg-secondary-container text-on-secondary-container font-semibold"><a class="flex items-center px-4 py-2.5 rounded text-sm text-on-surface hover:bg-surface-container-high transition-all" data-path="histology" href="#"><span class="material-symbols-outlined mr-3 text-[20px] text-secondary">smb_share</span>Histology</a><a class="flex items-center px-4 py-2.5 rounded text-sm text-on-surface hover:bg-surface-container-high transition-all" data-path="microscopy" href="#"><span class="material-symbols-outlined mr-3 text-[20px] text-secondary">visibility</span>Microscopy</a><a class="flex items-center px-4 py-2.5 rounded text-sm text-on-surface hover:bg-surface-container-high transition-all" data-path="tissue-engineering" href="#"><span class="material-symbols-outlined mr-3 text-[20px] text-secondary">layers</span>Tissue Engineering</a><a class="flex items-center px-4 py-2.5 rounded text-sm text-on-surface hover:bg-surface-container-high transition-all" data-path="biochemistry" href="#"><span class="material-symbols-outlined mr-3 text-[20px] text-secondary">experiment</span>Biochemistry</a><a class="flex items-center px-4 py-2.5 rounded text-sm text-on-surface hover:bg-surface-container-high transition-all" data-path="cell-culture" href="#"><span class="material-symbols-outlined mr-3 text-[20px] text-secondary">pet_supplies</span>Cell Culture</a><a class="flex items-center px-4 py-2.5 rounded text-sm text-on-surface hover:bg-surface-container-high transition-all" data-path="reagents" href="#"><span class="material-symbols-outlined mr-3 text-[20px] text-secondary">science</span>Reagents</a></nav><div class="px-6 py-4 border-t border-outline-variant"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">science</span></div><span class="text-sm font-bold text-on-surface">Tang Lab</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-lg border-b border-outline-variant z-40 flex items-center justify-between px-8 shadow-sm"><div class="flex-1 max-w-md"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span><input class="w-full pl-10 pr-4 py-2 bg-surface-container border border-outline-variant rounded focus:outline-none focus:border-primary text-sm text-on-surface placeholder:text-on-surface-variant/70" placeholder="Search protocols, equipment, or SOPs..." type="text"/></div></div><nav class="flex items-center gap-8 h-full" data-active-classes="text-primary font-semibold border-b-2 border-primary"><a class="text-sm text-on-surface-variant hover:text-on-surface transition-all h-full flex items-center px-1 border-b-2 border-transparent" data-path="dashboard" href="#">Dashboard</a><a aria-current="page" class="transition-all h-full flex items-center px-1 text-primary font-semibold border-b-2 border-primary" data-path="protocols" href="#">Protocols</a><a class="text-sm text-on-surface-variant hover:text-on-surface transition-all h-full flex items-center px-1 border-b-2 border-transparent" data-path="equipment" href="#">Equipment</a><a class="text-sm text-on-surface-variant hover:text-on-surface transition-all h-full flex items-center px-1 border-b-2 border-transparent" data-path="inventory" href="#">Inventory</a><a class="text-sm text-on-surface-variant hover:text-on-surface transition-all h-full flex items-center px-1 border-b-2 border-transparent" data-path="safety" href="#">Safety</a></nav><div class="flex items-center gap-4 ml-6"><button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container rounded-full hover:text-on-surface transition-colors"><span class="material-symbols-outlined">notifications</span></button><button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container rounded-full hover:text-on-surface transition-colors"><span class="material-symbols-outlined">settings</span></button></div></header><main class="pt-16 bg-background min-h-screen"><div class="flex flex-col w-full h-full relative font-body text-on-surface">
-<!-- Header Section -->
-<header class="w-full flex items-center justify-between px-12 py-10 z-10 relative">
-<div class="flex flex-col gap-2">
-<h1 class="font-headline text-3xl font-semibold text-on-background m-0 p-0 relative inline-block">
-                Protocol Library
-                <span class="absolute -right-6 top-0 text-primary opacity-30 transform rotate-12 material-symbols-outlined text-4xl">lab_profile</span>
-</h1>
-<p class="text-base text-on-surface-variant max-w-xl m-0 p-0">Central repository for standardized laboratory procedures, assays, and diagnostic kits.</p>
-</div>
-<button class="bg-primary hover:bg-primary-container text-on-primary hover:text-on-primary-container text-sm font-medium uppercase tracking-wider px-6 py-3 rounded shadow-[0_0_15px_rgba(125,211,252,0.3)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(125,211,252,0.5)] flex items-center gap-2">
-<span class="material-symbols-outlined text-[18px]">add</span>
-            New Protocol
-        </button>
-</header>
-<!-- Controls Section -->
-<section class="w-full px-12 pb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 z-10 relative">
-<div class="flex items-center gap-3">
-<div class="bg-surface-container border border-outline-variant/50 rounded px-4 py-2 flex items-center gap-2 shadow-sm text-sm font-medium text-on-surface cursor-pointer hover:bg-surface-container-high transition-colors">
-<span class="material-symbols-outlined text-[16px] text-primary">filter_list</span>
-                Filters
+    <div class="px-6 py-4 border-t border-outline-variant">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-[18px]">science</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-bold text-on-surface">Tang Lab</span>
+          <span class="text-xs text-on-surface-variant">Core Protocol Repository</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Body Content Area -->
+  <div class="pl-72">
+    <!-- Top Header -->
+    <header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-lg border-b border-outline-variant z-40 flex items-center justify-between px-8 shadow-sm">
+      <div class="flex-1 max-w-md">
+        <div class="relative flex items-center">
+          <span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span>
+          <input id="main-search-input" class="w-full pl-10 pr-4 py-2 bg-surface-container border border-outline-variant rounded-lg focus:outline-none focus:border-primary text-sm text-on-surface placeholder:text-on-surface-variant/70" placeholder="Search protocols, reagents, kit numbers (e.g. PK10031, ALT)..." type="text" oninput="handleSearch(this.value)"/>
+          <button id="clear-search-btn" onclick="clearSearch()" class="hidden absolute right-3 text-on-surface-variant hover:text-on-surface">
+            <span class="material-symbols-outlined text-[18px]">close</span>
+          </button>
+        </div>
+      </div>
+      <nav class="flex items-center gap-8 h-full">
+        <a class="text-sm text-on-surface-variant hover:text-on-surface transition-all h-full flex items-center px-1 border-b-2 border-transparent" href="index.html">Dashboard</a>
+        <a aria-current="page" class="transition-all h-full flex items-center px-1 text-primary font-semibold border-b-2 border-primary" href="index.html">Protocols</a>
+        <a class="text-sm text-on-surface-variant hover:text-on-surface transition-all h-full flex items-center px-1 border-b-2 border-transparent" href="#">Equipment</a>
+        <a class="text-sm text-on-surface-variant hover:text-on-surface transition-all h-full flex items-center px-1 border-b-2 border-transparent" href="#">Inventory</a>
+        <a class="text-sm text-on-surface-variant hover:text-on-surface transition-all h-full flex items-center px-1 border-b-2 border-transparent" href="#">Safety</a>
+      </nav>
+      <div class="flex items-center gap-4 ml-6">
+        <button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container rounded-full hover:text-on-surface transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+        <button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container rounded-full hover:text-on-surface transition-colors"><span class="material-symbols-outlined">settings</span></button>
+      </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="pt-16 bg-background min-h-screen">
+      <div class="flex flex-col w-full h-full relative font-body text-on-surface">
+        
+        <!-- Header Banner -->
+        <header class="w-full flex flex-col md:flex-row items-start md:items-center justify-between px-12 py-8 z-10 relative gap-4">
+          <div class="flex flex-col gap-2">
+            <h1 class="font-headline text-3xl font-semibold text-on-background m-0 p-0 relative inline-block">
+              Protocol Library
+              <span class="text-primary text-xl font-normal ml-3 font-mono opacity-80">(19 Standard SOPs)</span>
+            </h1>
+            <p class="text-base text-on-surface-variant max-w-2xl m-0 p-0">Central repository for standardized laboratory procedures, assays, diagnostic kits, and histological protocols.</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <a href="code.html" class="bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/60 text-sm font-medium px-4 py-2.5 rounded-lg transition-all flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px] text-secondary">style</span> Template Demo
+            </a>
+          </div>
+        </header>
+
+        <!-- Filter Controls Section -->
+        <section class="w-full px-12 pb-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 z-10 relative">
+          <div class="flex items-center gap-3 flex-wrap">
+            <div class="bg-surface-container border border-outline-variant/50 rounded-lg px-3 py-1.5 flex items-center gap-2 shadow-sm text-xs font-semibold uppercase tracking-wider text-on-surface-variant">
+              <span class="material-symbols-outlined text-[16px] text-primary">filter_alt</span> Filter By:
             </div>
-<div class="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 hide-scrollbar">
-<span class="px-4 py-1.5 rounded bg-primary text-on-primary text-sm font-medium cursor-pointer whitespace-nowrap shadow-[0_0_10px_rgba(125,211,252,0.2)]">All</span>
-<span class="px-4 py-1.5 rounded bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer whitespace-nowrap transition-colors">Histology</span>
-<span class="px-4 py-1.5 rounded bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer whitespace-nowrap transition-colors">Microscopy</span>
-<span class="px-4 py-1.5 rounded bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer whitespace-nowrap transition-colors">Biochemistry</span>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<span class="text-sm text-on-surface-variant font-medium">View:</span>
-<button class="w-8 h-8 rounded bg-primary/20 text-primary flex items-center justify-center shadow-sm border border-primary/30">
-<span class="material-symbols-outlined text-[20px]">grid_view</span>
-</button>
-<button class="w-8 h-8 rounded bg-transparent text-on-surface-variant hover:text-on-surface hover:bg-surface-container flex items-center justify-center transition-colors">
-<span class="material-symbols-outlined text-[20px]">list</span>
-</button>
-</div>
-</section>
-<!-- Main Grid Content -->
-<main class="w-full px-12 pb-24 z-10 relative">
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-<!-- Card 1: Histology -->
-<div class="group bg-surface-container-low/60 backdrop-blur-sm rounded p-6 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50">
-<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-500"></div>
-<div class="flex justify-between items-start mb-4 relative z-10">
-<div class="w-12 h-12 rounded flex items-center justify-center shadow-sm bg-surface-container-high text-primary"><span class="material-symbols-outlined text-2xl">science</span></div>
-<span class="px-2.5 py-1 rounded bg-secondary-container border border-secondary-container text-on-secondary-container text-xs uppercase tracking-wider font-bold">Histology</span>
-</div>
-<h3 class="font-headline text-xl font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors">Paraffin-Embedding Protocol</h3>
-<p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-2">Standard operating procedure for tissue fixation and paraffin embedding.</p>
-<div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
-<div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
-<div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
-                         Updated 2d ago
-                     </div>
-<button class="text-primary hover:text-primary-container p-1 rounded hover:bg-surface-container transition-colors">
-<span class="material-symbols-outlined text-2xl">description</span>
-</button>
-</div>
-</div>
-<!-- Card 2: Histology -->
-<div class="group bg-surface-container-low/60 backdrop-blur-sm rounded p-6 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50">
-<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-500"></div>
-<div class="flex justify-between items-start mb-4 relative z-10">
-<div class="w-12 h-12 rounded flex items-center justify-center shadow-sm bg-surface-container-high text-primary"><span class="material-symbols-outlined text-2xl">science</span></div>
-<span class="px-2.5 py-1 rounded bg-secondary-container border border-secondary-container text-on-secondary-container text-xs uppercase tracking-wider font-bold">Histology</span>
-</div>
-<h3 class="font-headline text-xl font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors">H&amp;E Staining Kit</h3>
-<p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-2">Hematoxylin and Eosin staining protocol for general morphological analysis.</p>
-<div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
-<div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
-<div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
-                         Updated 1w ago
-                     </div>
-<button class="text-primary hover:text-primary-container p-1 rounded hover:bg-surface-container transition-colors">
-<span class="material-symbols-outlined text-2xl">description</span>
-</button>
-</div>
-</div>
-<!-- Card 3: Microscopy -->
-<div class="group bg-surface-container-low/60 backdrop-blur-sm rounded p-6 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50">
-<div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-500"></div>
-<div class="flex justify-between items-start mb-4 relative z-10">
-<div class="w-12 h-12 rounded flex items-center justify-center shadow-sm bg-surface-container-high text-primary"><span class="material-symbols-outlined text-2xl">science</span></div>
-<span class="px-2.5 py-1 rounded bg-primary-container border border-primary-container text-on-primary-container text-xs uppercase tracking-wider font-bold">Microscopy</span>
-</div>
-<h3 class="font-headline text-xl font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors break-words">MitoTracker Dyes FC &amp; PI</h3>
-<p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-2">Flow cytometry and live-cell imaging protocols using MitoTracker probes.</p>
-<div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
-<div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
-<div class="w-2 h-2 rounded-full bg-yellow-400 shadow-[0_0_5px_rgba(250,204,21,0.5)]"></div>
-                         Updated 1m ago
-                     </div>
-<button class="text-primary hover:text-primary-container p-1 rounded hover:bg-surface-container transition-colors">
-<span class="material-symbols-outlined text-2xl">description</span>
-</button>
-</div>
-</div>
-<!-- Card 4: Biochemistry -->
-<div class="group bg-surface-container-low/60 backdrop-blur-sm rounded p-6 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full relative overflow-hidden md:col-span-2 lg:col-span-2 xl:col-span-2 bg-gradient-to-br from-surface-container-lowest/80 to-surface-container/80 border border-outline-variant hover:border-primary/50">
-<div class="absolute top-0 right-0 w-64 h-64 bg-tertiary-container/20 rounded-bl-full -mr-32 -mt-32 group-hover:scale-110 transition-transform duration-500"></div>
-<div class="flex justify-between items-start mb-4 relative z-10">
-<div class="w-12 h-12 rounded flex items-center justify-center shadow-sm bg-surface-container-high text-primary"><span class="material-symbols-outlined text-2xl">science</span></div>
-<div class="flex gap-2">
-<span class="px-2.5 py-1 rounded bg-tertiary-container border border-tertiary-container text-on-tertiary-container text-xs uppercase tracking-wider font-bold">Biochemistry</span>
-<span class="px-2.5 py-1 rounded bg-surface-variant border border-surface-variant text-on-surface text-xs uppercase tracking-wider font-bold flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">description</span> Verified</span>
-</div>
-</div>
-<h3 class="font-headline text-xl font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors">Creatinine Urinary Detection Kit</h3>
-<p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 max-w-lg">Comprehensive manual for colorimetric detection of creatinine levels in urine samples, including standard curve generation and troubleshooting.</p>
-<div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
-<div class="flex items-center gap-4">
-<div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
-<div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
-                             v2.4 • Updated yesterday
-                         </div>
-</div>
-<div class="flex gap-2">
-<button class="text-on-surface-variant hover:text-primary p-1 rounded hover:bg-surface-container transition-colors">
-<span class="material-symbols-outlined text-2xl">description</span>
-</button>
-<button class="bg-primary hover:bg-primary-container text-on-primary hover:text-on-primary-container px-4 py-2 rounded text-sm font-medium transition-colors flex items-center gap-1 shadow-[0_0_10px_rgba(125,211,252,0.2)]"><span class="material-symbols-outlined text-[16px]">visibility</span> Open</button>
-</div>
-</div>
-</div>
-<!-- Card 5: Cell Viability -->
-<div class="group bg-surface-container-low/60 backdrop-blur-sm rounded p-6 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50">
-<div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-110 transition-transform duration-500"></div>
-<div class="flex justify-between items-start mb-4 relative z-10">
-<div class="w-12 h-12 rounded flex items-center justify-center shadow-sm bg-surface-container-high text-primary"><span class="material-symbols-outlined text-2xl">science</span></div>
-<span class="px-2.5 py-1 rounded bg-surface-variant border border-surface-variant text-on-surface text-xs uppercase tracking-wider font-bold">Assays</span>
-</div>
-<h3 class="font-headline text-xl font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors">CellTiter-Fluor Assay</h3>
-<p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-2">Fluorescent assay for measuring relative numbers of viable cells.</p>
-<div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
-<div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
-<div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
-                         Updated 3d ago
-                     </div>
-<button class="text-primary hover:text-primary-container p-1 rounded hover:bg-surface-container transition-colors">
-<span class="material-symbols-outlined text-2xl">description</span>
-</button>
-</div>
-</div>
-</div>
-</main>
-<!-- Decorative background elements -->
-<div class="absolute top-40 -left-20 w-[30rem] h-[30rem] bg-primary/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
-<div class="absolute bottom-40 right-20 w-[25rem] h-[25rem] bg-tertiary/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
-<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-secondary/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
-</div></main></div>
-</body></html>
+            
+            <div class="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 hide-scrollbar flex-wrap" id="filter-pills">
+              <button onclick="setFilter('all')" class="filter-pill px-4 py-1.5 rounded-lg bg-primary text-on-primary text-sm font-semibold cursor-pointer shadow-[0_0_10px_rgba(125,211,252,0.2)] transition-all" data-filter="all">All (19)</button>
+              <button onclick="setFilter('histology')" class="filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all" data-filter="histology">Histology (6)</button>
+              <button onclick="setFilter('biochemistry')" class="filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all" data-filter="biochemistry">Biochemistry (7)</button>
+              <button onclick="setFilter('cell-culture')" class="filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all" data-filter="cell-culture">Cell Culture (2)</button>
+              <button onclick="setFilter('microscopy')" class="filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all" data-filter="microscopy">Microscopy (2)</button>
+              <button onclick="setFilter('tissue-engineering')" class="filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all" data-filter="tissue-engineering">Tissue Engineering (1)</button>
+              <button onclick="setFilter('reagents')" class="filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all" data-filter="reagents">Reagents (1)</button>
+            </div>
+          </div>
+
+          <!-- View Mode & Status -->
+          <div class="flex items-center gap-4">
+            <span id="results-count" class="text-xs text-on-surface-variant font-mono">Showing 19 protocols</span>
+            <div class="flex items-center gap-1 bg-surface-container p-1 rounded-lg border border-outline-variant/50">
+              <button id="view-grid-btn" onclick="setViewMode('grid')" title="Grid View" class="w-8 h-8 rounded bg-primary/20 text-primary flex items-center justify-center shadow-sm border border-primary/30">
+                <span class="material-symbols-outlined text-[18px]">grid_view</span>
+              </button>
+              <button id="view-list-btn" onclick="setViewMode('list')" title="List View" class="w-8 h-8 rounded bg-transparent text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors">
+                <span class="material-symbols-outlined text-[18px]">view_list</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Protocol Cards Grid Container -->
+        <main id="protocol-container" class="w-full px-12 pb-24 z-10 relative">
+          <div id="protocol-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            
+    <!-- Card: Alanine Aminotransferase (ALT/GPT) Activity Assay Kit -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="biochemistry"
+         data-title="alanine aminotransferase (alt/gpt) activity assay kit"
+         data-vendor="invitrogen / thermo fisher scientific"
+         data-catalog="catalog number eea001 (96 tests)"
+         data-desc="colorimetric determination of alt/gpt activity in serum, plasma, tissue, and cell culture samples.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-tertiary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">experiment</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-tertiary-container border-tertiary-container text-on-tertiary-container">
+            Biochemistry
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Protocol EEA001</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/alt-gpt-activity-assay.html" class="hover:underline focus:outline-none">Alanine Aminotransferase (ALT/GPT) Activity Assay Kit</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Colorimetric determination of ALT/GPT activity in serum, plasma, tissue, and cell culture samples.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Invitrogen</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/alt-gpt-activity-assay.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: Alkaline Phosphatase (ALP) Activity Assay Kit -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="biochemistry"
+         data-title="alkaline phosphatase (alp) activity assay kit"
+         data-vendor="invitrogen / thermo fisher scientific"
+         data-catalog="catalog number eea002 (96 tests)"
+         data-desc="colorimetric assay for measuring alkaline phosphatase (alp) activity in serum, plasma, tissues, and cell lysates.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-tertiary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">experiment</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-tertiary-container border-tertiary-container text-on-tertiary-container">
+            Biochemistry
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Protocol EEA002</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/alp-activity-assay.html" class="hover:underline focus:outline-none">Alkaline Phosphatase (ALP) Activity Assay Kit</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Colorimetric assay for measuring alkaline phosphatase (ALP) activity in serum, plasma, tissues, and cell lysates.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Invitrogen</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/alp-activity-assay.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: Aspartate Aminotransferase (AST/GOT) Activity Assay Kit -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="biochemistry"
+         data-title="aspartate aminotransferase (ast/got) activity assay kit"
+         data-vendor="invitrogen / thermo fisher scientific"
+         data-catalog="catalog number eea003 (96 tests)"
+         data-desc="colorimetric assay for quantifying ast/got enzyme activity across biological fluids, tissues, and cell cultures.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-tertiary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">experiment</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-tertiary-container border-tertiary-container text-on-tertiary-container">
+            Biochemistry
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Protocol EEA003</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/ast-got-activity-assay.html" class="hover:underline focus:outline-none">Aspartate Aminotransferase (AST/GOT) Activity Assay Kit</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Colorimetric assay for quantifying AST/GOT enzyme activity across biological fluids, tissues, and cell cultures.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Invitrogen</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/ast-got-activity-assay.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: CellTiter-Fluor™ Cell Viability Assay -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="cell-culture"
+         data-title="celltiter-fluor™ cell viability assay"
+         data-vendor="promega corporation"
+         data-catalog="cat. # g6080, g6081, g6082"
+         data-desc="non-lytic, single-reagent fluorescent assay measuring conserved live-cell protease activity for multiplexing.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">pet_supplies</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-emerald-500/20 border-emerald-500/30 text-emerald-300">
+            Cell Culture
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Promega TB371</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/celltiter-fluor-assay.html" class="hover:underline focus:outline-none">CellTiter-Fluor™ Cell Viability Assay</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Non-lytic, single-reagent fluorescent assay measuring conserved live-cell protease activity for multiplexing.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Promega Corporation</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/celltiter-fluor-assay.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: Creatinine Urinary Detection Kit -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="biochemistry"
+         data-title="creatinine urinary detection kit"
+         data-vendor="invitrogen / thermo fisher scientific"
+         data-catalog="catalog number eiacun (192 tests)"
+         data-desc="colorimetric microplate assay for measuring urinary creatinine concentrations to normalize analyte excretion.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-tertiary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">experiment</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-tertiary-container border-tertiary-container text-on-tertiary-container">
+            Biochemistry
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Protocol EIACUN</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/creatinine-urinary-detection.html" class="hover:underline focus:outline-none">Creatinine Urinary Detection Kit</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Colorimetric microplate assay for measuring urinary creatinine concentrations to normalize analyte excretion.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Invitrogen</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/creatinine-urinary-detection.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: DMSO (Dimethylsulfoxide), Anhydrous -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="reagents"
+         data-title="dmso (dimethylsulfoxide), anhydrous"
+         data-vendor="molecular probes / invitrogen"
+         data-catalog="catalog number d12345 / mp 10361"
+         data-desc="high-purity anhydrous grade dmso for reconstitution of fluorophores, bioconjugation crosslinkers, and pcr enhancement.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">science</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-purple-500/20 border-purple-500/30 text-purple-300">
+            Reagents
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Cat. D12345</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/dmso-anhydrous-reagent.html" class="hover:underline focus:outline-none">DMSO (Dimethylsulfoxide), Anhydrous</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        High-purity anhydrous grade DMSO for reconstitution of fluorophores, bioconjugation crosslinkers, and PCR enhancement.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Molecular Probes</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/dmso-anhydrous-reagent.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: EasyPep™ Magnetic MS Sample Prep Kit -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="biochemistry"
+         data-title="easypep™ magnetic ms sample prep kit"
+         data-vendor="thermo scientific"
+         data-catalog="catalog number a57867 (96 reactions)"
+         data-desc="rapid magnetic bead-based workflow for mammalian cell/tissue lysis, digestion, and clean-up for lc-ms proteomics in <3 hrs.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-tertiary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">experiment</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-tertiary-container border-tertiary-container text-on-tertiary-container">
+            Biochemistry
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Thermo A57867</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/easypep-magnetic-ms-sample-prep.html" class="hover:underline focus:outline-none">EasyPep™ Magnetic MS Sample Prep Kit</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Rapid magnetic bead-based workflow for mammalian cell/tissue lysis, digestion, and clean-up for LC-MS proteomics in <3 hrs.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Thermo Scientific</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/easypep-magnetic-ms-sample-prep.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: H&E Staining Kit (Hematoxylin and Eosin) -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="histology"
+         data-title="h&e staining kit (hematoxylin and eosin)"
+         data-vendor="proteintech"
+         data-catalog="catalog number pk10031"
+         data-desc="optimized non-toxic h&e staining solution system for ffpe and frozen tissue section morphological histology.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">smb_share</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-secondary-container border-secondary-container text-on-secondary-container">
+            Histology
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Protocol PK10031</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/he-staining-proteintech.html" class="hover:underline focus:outline-none">H&E Staining Kit (Hematoxylin and Eosin)</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Optimized non-toxic H&E staining solution system for FFPE and frozen tissue section morphological histology.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Proteintech</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/he-staining-proteintech.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: H&E Stain Kit (Hematoxylin and Eosin) -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="histology"
+         data-title="h&e stain kit (hematoxylin and eosin)"
+         data-vendor="abcam"
+         data-catalog="product code ab245880"
+         data-desc="high-contrast histological staining protocol featuring mayer's hematoxylin and modified eosin y for cytology and histology.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">smb_share</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-secondary-container border-secondary-container text-on-secondary-container">
+            Histology
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Abcam ab245880</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/he-staining-abcam.html" class="hover:underline focus:outline-none">H&E Stain Kit (Hematoxylin and Eosin)</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        High-contrast histological staining protocol featuring Mayer's Hematoxylin and modified Eosin Y for cytology and histology.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Abcam</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/he-staining-abcam.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: LIVE/DEAD® Viability/Cytotoxicity Kit -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="microscopy"
+         data-title="live/dead® viability/cytotoxicity kit"
+         data-vendor="molecular probes / invitrogen"
+         data-catalog="catalog number l3224 / mp 03224"
+         data-desc="two-color fluorescence cell viability assay based on calcein am (intracellular esterase) and ethd-1 (plasma membrane integrity).">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">visibility</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-primary-container border-primary-container text-on-primary-container">
+            Microscopy
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Molecular Probes L3224</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/live-dead-viability-kit.html" class="hover:underline focus:outline-none">LIVE/DEAD® Viability/Cytotoxicity Kit</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Two-color fluorescence cell viability assay based on Calcein AM (intracellular esterase) and EthD-1 (plasma membrane integrity).
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Molecular Probes</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/live-dead-viability-kit.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: MitoTracker™ Dyes for Flow Cytometry & Imaging -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="microscopy"
+         data-title="mitotracker™ dyes for flow cytometry & imaging"
+         data-vendor="invitrogen / thermo fisher scientific"
+         data-catalog="catalog numbers m46750, m46751, m46752, m46753"
+         data-desc="cell-permeant fluorescent probes that selectively accumulate in active mitochondria for flow cytometry and live-cell imaging.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">visibility</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-primary-container border-primary-container text-on-primary-container">
+            Microscopy
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Thermo M46750-53</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/mitotracker-dyes-flow-cytometry.html" class="hover:underline focus:outline-none">MitoTracker™ Dyes for Flow Cytometry & Imaging</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Cell-permeant fluorescent probes that selectively accumulate in active mitochondria for flow cytometry and live-cell imaging.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Invitrogen</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/mitotracker-dyes-flow-cytometry.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: Paraffin-Embedding Protocol for Cell-Laden Constructs -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="histology"
+         data-title="paraffin-embedding protocol for cell-laden constructs"
+         data-vendor="cellink ab"
+         data-catalog="cellink 3d bioprinting protocol"
+         data-desc="standard operating procedure for dehydration, clearing, infiltration, and embedding of 3d bioprinted constructs in paraffin wax.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">smb_share</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-secondary-container border-secondary-container text-on-secondary-container">
+            Histology
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">CELLINK SOP</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/paraffin-embedding-cellink.html" class="hover:underline focus:outline-none">Paraffin-Embedding Protocol for Cell-Laden Constructs</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Standard operating procedure for dehydration, clearing, infiltration, and embedding of 3D bioprinted constructs in paraffin wax.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>CELLINK AB</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/paraffin-embedding-cellink.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: Periodic Acid Schiff (PAS) Stain Kit (Modified Lillie's) -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="histology"
+         data-title="periodic acid schiff (pas) stain kit (modified lillie's)"
+         data-vendor="scytek laboratories"
+         data-catalog="catalog number pas-1 / pas-2"
+         data-desc="histochemical demonstration of glycogen, mucopolysaccharides, basement membranes, and fungal organisms in tissue sections.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">smb_share</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-secondary-container border-secondary-container text-on-secondary-container">
+            Histology
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">ScyTek PAS-1</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/pas-stain-kit.html" class="hover:underline focus:outline-none">Periodic Acid Schiff (PAS) Stain Kit (Modified Lillie's)</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Histochemical demonstration of glycogen, mucopolysaccharides, basement membranes, and fungal organisms in tissue sections.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>ScyTek Laboratories</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/pas-stain-kit.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: RealTime-Glo™ MT Cell Viability Assay -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="cell-culture"
+         data-title="realtime-glo™ mt cell viability assay"
+         data-vendor="promega corporation"
+         data-catalog="cat. # g9711, g9712, g9713"
+         data-desc="continuous, non-lytic bioluminescent assay monitoring cell viability in real time for up to 72 hours in culture.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">pet_supplies</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-emerald-500/20 border-emerald-500/30 text-emerald-300">
+            Cell Culture
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Promega TM431</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/realtime-glo-mt-assay.html" class="hover:underline focus:outline-none">RealTime-Glo™ MT Cell Viability Assay</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Continuous, non-lytic bioluminescent assay monitoring cell viability in real time for up to 72 hours in culture.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Promega Corporation</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/realtime-glo-mt-assay.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: Serum Creatinine Colorimetric Detection Kit -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="biochemistry"
+         data-title="serum creatinine colorimetric detection kit"
+         data-vendor="invitrogen / thermo fisher scientific"
+         data-catalog="catalog number eiacets / eiacet (192 tests)"
+         data-desc="quantitative colorimetric assay for measuring creatinine concentrations in serum, plasma, and urine samples.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-tertiary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">experiment</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-tertiary-container border-tertiary-container text-on-tertiary-container">
+            Biochemistry
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Protocol EIACETS</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/serum-creatinine-detection.html" class="hover:underline focus:outline-none">Serum Creatinine Colorimetric Detection Kit</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Quantitative colorimetric assay for measuring creatinine concentrations in serum, plasma, and urine samples.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Invitrogen</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/serum-creatinine-detection.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: Trichrome Stain Kit (Modified Masson's) -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="histology"
+         data-title="trichrome stain kit (modified masson's)"
+         data-vendor="scytek laboratories"
+         data-catalog="catalog number trm-1 / trm-2"
+         data-desc="histological visualization of collagenous connective tissue fibers, muscle fibers, keratin, and erythrocytes in tissue sections.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">smb_share</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-secondary-container border-secondary-container text-on-secondary-container">
+            Histology
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">ScyTek TRM-1</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/trichrome-stain-kit.html" class="hover:underline focus:outline-none">Trichrome Stain Kit (Modified Masson's)</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Histological visualization of collagenous connective tissue fibers, muscle fibers, keratin, and erythrocytes in tissue sections.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>ScyTek Laboratories</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/trichrome-stain-kit.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: VitroView™ Jones Stain Kit (Basement Membrane) -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="histology"
+         data-title="vitroview™ jones stain kit (basement membrane)"
+         data-vendor="vitrovivo biotech"
+         data-catalog="catalog number vb-3026"
+         data-desc="methenamine-silver periodic acid staining kit for histological demonstration of glomerular basement membrane and reticular fibers.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">smb_share</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-secondary-container border-secondary-container text-on-secondary-container">
+            Histology
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">VitroVivo VB-3026</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/vitroview-jones-stain-kit.html" class="hover:underline focus:outline-none">VitroView™ Jones Stain Kit (Basement Membrane)</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Methenamine-silver periodic acid staining kit for histological demonstration of glomerular basement membrane and reticular fibers.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>VitroVivo Biotech</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/vitroview-jones-stain-kit.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: Organotypic Tumor Slice Cultures (TSCs) Protocol -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="tissue-engineering"
+         data-title="organotypic tumor slice cultures (tscs) protocol"
+         data-vendor="kenerson et al. / univ. of washington"
+         data-catalog="doi: 10.1016/j.xpro.2021.100590"
+         data-desc="standardized method for preparing and maintaining viable 300 µm organotypic tissue slice cultures from human solid tumors for drug screening.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">layers</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-amber-500/20 border-amber-500/30 text-amber-300">
+            Tissue Engineering
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">STAR Protocols</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/tumor-tissue-slice-culture.html" class="hover:underline focus:outline-none">Organotypic Tumor Slice Cultures (TSCs) Protocol</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Standardized method for preparing and maintaining viable 300 µm organotypic tissue slice cultures from human solid tumors for drug screening.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Kenerson et al.</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/tumor-tissue-slice-culture.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: γ-Glutamyl Transferase (GGT/γ-GT) Activity Assay Kit -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="biochemistry"
+         data-title="γ-glutamyl transferase (ggt/γ-gt) activity assay kit"
+         data-vendor="invitrogen / thermo fisher scientific"
+         data-catalog="catalog number eea029 (96 tests)"
+         data-desc="colorimetric enzyme activity assay measuring γ-gt in serum, plasma, and animal tissue homogenates at 410 nm.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-tertiary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">experiment</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-tertiary-container border-tertiary-container text-on-tertiary-container">
+            Biochemistry
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Protocol EEA029</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/ggt-activity-assay.html" class="hover:underline focus:outline-none">γ-Glutamyl Transferase (GGT/γ-GT) Activity Assay Kit</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Colorimetric enzyme activity assay measuring γ-GT in serum, plasma, and animal tissue homogenates at 410 nm.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Invitrogen</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/ggt-activity-assay.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+          </div>
+
+          <!-- No results empty state -->
+          <div id="no-results" class="hidden py-16 text-center flex-col items-center justify-center">
+            <span class="material-symbols-outlined text-5xl text-on-surface-variant/40 mb-3">search_off</span>
+            <h3 class="text-lg font-semibold text-on-surface mb-1">No matching protocols found</h3>
+            <p class="text-sm text-on-surface-variant mb-4">Try adjusting your search terms or selecting a different category.</p>
+            <button onclick="clearSearch(); setFilter('all');" class="bg-primary/20 hover:bg-primary text-primary hover:text-on-primary border border-primary/30 px-4 py-2 rounded-lg text-xs font-semibold transition-all">
+              Reset Filters
+            </button>
+          </div>
+        </main>
+
+        <!-- Decorative background glow elements -->
+        <div class="absolute top-40 -left-20 w-[30rem] h-[30rem] bg-primary/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+        <div class="absolute bottom-40 right-20 w-[25rem] h-[25rem] bg-tertiary/10 rounded-full blur-[100px] -z-10 pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-secondary/5 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Interactive Search & Filtering Script -->
+  <script>
+    let currentCategory = 'all';
+    let currentQuery = '';
+
+    function filterCards() {
+      const cards = document.querySelectorAll('.protocol-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        const title = card.getAttribute('data-title') || '';
+        const vendor = card.getAttribute('data-vendor') || '';
+        const catalog = card.getAttribute('data-catalog') || '';
+        const desc = card.getAttribute('data-desc') || '';
+
+        const matchesCat = (currentCategory === 'all' || cat === currentCategory);
+        const matchesQuery = !currentQuery || 
+          title.includes(currentQuery) || 
+          vendor.includes(currentQuery) || 
+          catalog.includes(currentQuery) || 
+          desc.includes(currentQuery);
+
+        if (matchesCat && matchesQuery) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      // Update count & empty state
+      document.getElementById('results-count').innerText = `Showing ${visibleCount} of ${cards.length} protocols`;
+      const noResultsEl = document.getElementById('no-results');
+      if (visibleCount === 0) {
+        noResultsEl.classList.remove('hidden');
+        noResultsEl.classList.add('flex');
+      } else {
+        noResultsEl.classList.add('hidden');
+        noResultsEl.classList.remove('flex');
+      }
+    }
+
+    function setFilter(cat) {
+      currentCategory = cat;
+
+      // Update filter pills UI
+      document.querySelectorAll('.filter-pill').forEach(pill => {
+        if (pill.getAttribute('data-filter') === cat) {
+          pill.className = 'filter-pill px-4 py-1.5 rounded-lg bg-primary text-on-primary text-sm font-semibold cursor-pointer shadow-[0_0_10px_rgba(125,211,252,0.2)] transition-all';
+        } else {
+          pill.className = 'filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all';
+        }
+      });
+
+      // Update sidebar nav UI
+      document.querySelectorAll('.sidebar-item').forEach(item => {
+        if (item.getAttribute('data-cat') === cat) {
+          item.className = 'sidebar-item flex items-center px-4 py-2.5 rounded-lg text-sm bg-primary/20 text-primary font-semibold border border-primary/30 transition-all cursor-pointer';
+        } else {
+          item.className = 'sidebar-item flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface hover:bg-surface-container-high transition-all cursor-pointer';
+        }
+      });
+
+      filterCards();
+    }
+
+    function handleSearch(val) {
+      currentQuery = val.trim().toLowerCase();
+      const clearBtn = document.getElementById('clear-search-btn');
+      if (currentQuery) {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+      filterCards();
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('main-search-input');
+      input.value = '';
+      handleSearch('');
+    }
+
+    function setViewMode(mode) {
+      const container = document.getElementById('protocol-container');
+      const gridBtn = document.getElementById('view-grid-btn');
+      const listBtn = document.getElementById('view-list-btn');
+
+      if (mode === 'list') {
+        container.classList.add('list-view-mode');
+        listBtn.className = 'w-8 h-8 rounded bg-primary/20 text-primary flex items-center justify-center shadow-sm border border-primary/30';
+        gridBtn.className = 'w-8 h-8 rounded bg-transparent text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors';
+      } else {
+        container.classList.remove('list-view-mode');
+        gridBtn.className = 'w-8 h-8 rounded bg-primary/20 text-primary flex items-center justify-center shadow-sm border border-primary/30';
+        listBtn.className = 'w-8 h-8 rounded bg-transparent text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors';
+      }
+    }
+
+    // Check URL parameters on page load (e.g. ?category=histology or ?search=ALT)
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const catParam = params.get('category');
+      const searchParam = params.get('search');
+
+      if (catParam) {
+        setFilter(catParam);
+      }
+      if (searchParam) {
+        const input = document.getElementById('main-search-input');
+        input.value = searchParam;
+        handleSearch(searchParam);
+      }
+    });
+  </script>
+</body>
+</html>
