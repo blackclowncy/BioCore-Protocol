@@ -225,8 +225,8 @@
               </h2>
               <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
                 
-          <p>The Periodic Acid Schiff (PAS) Stain Kit (Modified Lillie's) is intended for histological demonstration of glycogen, mucopolysaccharides, basement membranes, and fungal organisms in tissue sections.</p>
-          <p><strong>Staining Principle:</strong> Periodic acid oxidizes 1,2-glycol groups in tissue carbohydrates to dialdehydes. These aldehydes react with sulfurous acid-leucofuchsin (Schiff's Reagent), restoring the dye's quinoid chromophore to produce characteristic magenta/deep pink staining. Counterstaining with hematoxylin visualizes cell nuclei.</p>
+          <p>The <strong>Periodic Acid Schiff (PAS) Stain Kit (Modified Lillie's, ScyTek PAS-1/2)</strong> is intended for histological demonstration of lymphocytes, mucopolysaccharides, glycogen, neutral mucins, fungal cell walls, and basement membranes in formalin-fixed paraffin-embedded (FFPE) or frozen tissue sections.</p>
+          <p><strong>Staining Principle:</strong> Periodic acid oxidizes glycols and adjacent hydroxyl groups (1,2-glycols) in carbohydrates into dialdehydes. The generated aldehyde groups react with colorless Schiff's reagent (leukofuchsin) to form a stable, bright magenta-colored quinoid dye complex. Nuclei are counterstained blue with hematoxylin.</p>
         
               </div>
               
@@ -278,11 +278,11 @@
                 <h2 class="text-lg font-headline text-on-surface flex items-center gap-2 font-semibold">
                   <span class="material-symbols-outlined text-primary">format_list_numbered</span> Usage Procedure
                 </h2>
-                
+                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('pas_standard_sop')" id="tab-btn-pas_standard_sop" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">Standard PAS SOP</button><button onclick="switchTab('pas_diastase')" id="tab-btn-pas_diastase" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">PAS with Diastase (Glycogen Digestion)</button></div>
               </div>
               <div class="p-5">
                 
-        <div id="proc-content-pas_standard" class="proc-tab-content ">
+        <div id="proc-content-pas_standard_sop" class="proc-tab-content ">
             <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Periodic Acid Schiff Staining Procedure</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
@@ -290,13 +290,13 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Deparaffinize and Hydrate</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Deparaffinize sections in xylene and rehydrate through graded alcohols to distilled water.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Deparaffinization and Rehydration</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Deparaffinize FFPE sections in Xylene (3 changes, 3 mins each). Rehydrate through graded ethanols (100%, 95%, 80%, 70%, 2 mins each) down to distilled water.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15 mins
                     </span>
                 </div>
                 </div>
@@ -306,7 +306,82 @@
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
                     <h4 class="text-sm font-semibold text-on-surface mb-1">Periodic Acid Oxidation</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Incubate slides in 0.5% Periodic Acid Solution for 5–10 minutes at room temperature. Rinse in 3 changes of distilled water.</p>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Immerse slides in 0.5% Periodic Acid Solution for 5–10 minutes at room temperature (18–25°C).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5–10 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Distilled Water Wash</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Rinse slides thoroughly in 4 changes of distilled water.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 3 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Schiff's Reagent Incubation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Immerse slides in Schiff's Reagent for 15–30 minutes at room temperature in the dark (keep container covered).</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Schiff's reagent must be water-white to pale yellow; discard if pink/red.</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15–30 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 5 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Color Development & Tap Water Wash</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Rinse slides in running lukewarm tap water for 5–10 minutes. (Lukewarm water wash develops the intense magenta-pink color).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5–10 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 6 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">6</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Nuclear Counterstaining & Bluing</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Counterstain in Modified Mayer's Hematoxylin for 2–3 minutes. Rinse in tap water for 1 minute. Blue in Scott's Tap Water for 30–60 seconds, then rinse in tap water for 2 minutes.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 7 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">7</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Dehydration, Clearing & Mounting</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Dehydrate rapidly through 95% and 100% ethanol (3 changes, 1 min each). Clear in Xylene (2 changes, 2 mins each). Mount with synthetic resin (DPX/Permount) and coverslip.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -316,47 +391,23 @@
                 </div>
                 </div>
             </div>
-            <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Schiff's Reagent Incubation</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Immerse slides in cold Schiff's Reagent for 15 minutes at room temperature (or 2-8°C) until target structures turn bright magenta.</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Rinse under running lukewarm tap water for 5 minutes to develop full magenta color.</span></div>
-                    
-                <div class="flex gap-3 mt-3">
-                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15 mins
-                    </span>
-                </div>
-                </div>
             </div>
-            <!-- Step 4 -->
+        </div>
+        <div id="proc-content-pas_diastase" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">PAS with Diastase Control Protocol</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
             <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Nuclear Counterstain & Bluing</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Counterstain in Mayer's Hematoxylin for 2 minutes. Rinse in water, immerse in Bluing Reagent for 30 seconds, rinse in water.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Diastase Digestion (Glycogen Control)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">For glycogen specificity testing, incubate duplicate section in 0.1% α-amylase or diastase in PBS at 37°C for 30 minutes prior to periodic acid oxidation. Run parallel with undigested slide to confirm glycogen loss.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 4 mins
-                    </span>
-                </div>
-                </div>
-            </div>
-            <!-- Step 5 -->
-            <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Dehydrate & Mount</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Dehydrate in graded alcohols (95%, 100%), clear in xylene, and mount with synthetic resin.</p>
-                    
-                    
-                <div class="flex gap-3 mt-3">
-                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
                     </span>
                 </div>
                 </div>
@@ -395,8 +446,8 @@
                     
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">0.5% Periodic Acid Solution</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">2-8°C</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Periodic Acid Solution (0.5%)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
                 <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">125 mL / 500 mL</span>
@@ -405,7 +456,7 @@
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Schiff's Reagent</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">2-8°C, tightly sealed, dark</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C, tightly sealed in dark</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
                 <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">125 mL / 500 mL</span>
@@ -413,7 +464,7 @@
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Mayer's Hematoxylin Solution</div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Modified Mayer's Hematoxylin</div>
                 <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
@@ -422,7 +473,7 @@
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Bluing Reagent</div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Bluing Reagent (Scott's Tap Water)</div>
                 <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
@@ -457,15 +508,15 @@
                 
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Schiff's Reagent should be colorless or pale yellow; if it turns pink/purple in the bottle, it has deteriorated and must be replaced.</span>
+            <span class="leading-relaxed">Store Schiff's reagent at 2–8°C tightly capped; exposure to light and warmth causes auto-oxidation and false background staining.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Running tap water wash after Schiff's is essential for chromatic development of the magenta quinoid structure.</span>
+            <span class="leading-relaxed">Use distilled water for all rinses prior to Schiff's reagent; tap water minerals interfere with periodic acid oxidation.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">For glycogen specificity, run parallel control slides pre-treated with diastase/amylase digestion.</span>
+            <span class="leading-relaxed">Periodic acid is an oxidizer; handle with gloves.</span>
         </li>
               </ul>
             </section>
@@ -477,7 +528,7 @@
                 <h3 class="text-sm font-headline text-on-surface font-semibold">Expected Results</h3>
               </div>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                PAS-Positive Material (Glycogen, Mucin, Basement Membranes, Fungal Cell Walls): Vibrant Magenta / Pink-Purple; Nuclei: Blue / Black; Background: Pale Pink or Clear.
+                Glycogen, neutral mucopolysaccharides, fungal walls, and basement membranes stain bright magenta-pink; nuclei stain blue/purple; background is pale pink to colorless.
               </p>
             </div>
 

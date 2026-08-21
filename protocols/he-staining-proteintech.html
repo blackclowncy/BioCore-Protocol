@@ -225,8 +225,8 @@
               </h2>
               <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
                 
-          <p>Proteintech's PK10031 H&E Staining Kit is an optimized, ready-to-use reagent system for histology and cytology. It cleanly resolves tissue architecture by staining cell nuclei blue-violet and cytoplasm/extracellular matrix pink to bright red.</p>
-          <p><strong>Formulation Advantages:</strong> The reagents are formulated without hazardous toxic chemicals such as mercury or methanol. Provided in ready-to-use packaging requiring no dilution, capable of staining ~10 slides per milliliter.</p>
+          <p>The <strong>H&E Staining Kit (Hematoxylin and Eosin, Proteintech PK10031)</strong> is the gold standard histological staining method for routine structural and diagnostic evaluation of formalin-fixed paraffin-embedded (FFPE), frozen, and cell-laden tissue sections.</p>
+          <p><strong>Staining Principle:</strong> Positively charged, basic alum-hematoxylin (hematein-aluminum complex) binds selectively to negatively charged basophilic nuclear nucleic acids (DNA/RNA chromatin), staining nuclei deep blue-purple. Negatively charged acidic Eosin Y counterstains positively charged acidophilic cytoplasmic proteins, extracellular matrix collagen, and red blood cells in shades of pink, red, and orange.</p>
         
               </div>
               
@@ -278,25 +278,25 @@
                 <h2 class="text-lg font-headline text-on-surface flex items-center gap-2 font-semibold">
                   <span class="material-symbols-outlined text-primary">format_list_numbered</span> Usage Procedure
                 </h2>
-                
+                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('he_ffpe_sop')" id="tab-btn-he_ffpe_sop" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">1. FFPE Sections SOP</button><button onclick="switchTab('he_frozen_sop')" id="tab-btn-he_frozen_sop" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">2. Frozen Sections SOP</button></div>
               </div>
               <div class="p-5">
                 
-        <div id="proc-content-ffpe_samples" class="proc-tab-content ">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">For Formalin-Fixed Paraffin-Embedded (FFPE) Samples</h3>
+        <div id="proc-content-he_ffpe_sop" class="proc-tab-content ">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Standard FFPE Tissue Section H&E Protocol</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Deparaffinization & Rehydration</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Immerse slides in Xylene (2 changes, 10 mins each). Rehydrate through graded ethanol series: 100%, 95%, 80%, 60% (5 mins each), then rinse in distilled water for 2 mins.</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Ensure complete wax removal for uniform staining.</span></div>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Deparaffinization</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Immerse slide racks in histological Xylene: Xylene I (5 mins), Xylene II (5 mins), Xylene III (5 mins).</p>
+                    
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 42 mins
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15 mins
                     </span>
                 </div>
                 </div>
@@ -305,13 +305,13 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Hematoxylin Nuclear Staining</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Apply Mayer's Hematoxylin Solution onto tissue sections (ensure complete coverage). Stain for 1–2 minutes, then wash gently with distilled water.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Graded Ethanol Rehydration</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Transfer slides through graded ethanol series: 100% Ethanol I (2 mins), 100% Ethanol II (2 mins), 95% Ethanol (2 mins), 80% Ethanol (2 mins), 70% Ethanol (2 mins). Rinse in deionized water for 2 mins.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2 mins
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 12 mins
                     </span>
                 </div>
                 </div>
@@ -320,13 +320,13 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Bluing Reaction</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Apply Bluing Reagent for 2 minutes until tissue nuclei turn vibrant blue. Rinse briefly with distilled water 3 times.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Hematoxylin Nuclear Staining</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Submerge slides in Hematoxylin Staining Solution for 3–5 minutes. Rinse in gentle running tap water for 2 minutes to remove excess dye.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2 mins
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5–7 mins
                     </span>
                 </div>
                 </div>
@@ -335,13 +335,13 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Eosin Cytoplasmic Staining</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Apply Eosin Stain Solution onto slides for 2–5 minutes. Rinse quickly with distilled water.</p>
-                    
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Acid Alcohol Differentiation & Bluing</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Dip slides in 1% Acid Alcohol Differentiation Solution for 2–5 seconds (rapid dips). Immediately rinse in tap water for 1 minute. Transfer to Scott's Tap Water / Bluing Solution for 30–60 seconds until nuclei convert to crisp blue-purple. Rinse in running tap water for 2 minutes.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Acid alcohol removes non-specific cytoplasmic hematoxylin binding for crisp nuclear contrast.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 3 mins
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
                     </span>
                 </div>
                 </div>
@@ -350,8 +350,59 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Dehydration, Clearing & Mounting</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Dehydrate rapidly through graded ethanol (80%, 95%, 100%, 1 min each), clear in Xylene for 5 mins, and mount with neutral resin / mounting medium.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Eosin Y Cytoplasmic Staining</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Stain in Eosin Y Staining Solution for 1–3 minutes. Dip rapidly in 95% ethanol (30 seconds) to remove excess eosin.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2–4 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 6 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">6</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Dehydration, Clearing & Coverslipping</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Dehydrate in 100% Ethanol I (2 mins) and 100% Ethanol II (2 mins). Clear in Xylene I (2 mins) and Xylene II (2 mins). Mount with neutral resin / DPX mounting medium and apply coverslip.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-he_frozen_sop" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Cryosection Rapid H&E Protocol</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Slide Fixation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Air-dry cryosections for 10 minutes at room temperature. Fix in cold acetone (-20°C) or 4% PFA for 5–10 minutes. Rinse in DI water.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Rapid Staining & Mounting</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Stain in Hematoxylin (1–2 mins), rinse tap water, differentiate in 1% acid alcohol (1 sec), blue in Scott's tap water (30 sec), stain in Eosin Y (30–60 sec), dehydrate rapidly in ethanol, clear in xylene, mount.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -395,29 +446,38 @@
                     
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Mayer's Hematoxylin Solution</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp (15-25°C)</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Hematoxylin Staining Solution</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp, avoid light</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">10 mL / 125 mL / 500 mL</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">125 mL / 500 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Bluing Reagent (Modified Scott's)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp (15-25°C)</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Eosin Y Staining Solution (Alcoholic)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp, avoid light</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">10 mL / 125 mL / 500 mL</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">125 mL / 500 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Eosin Stain Solution (Alcoholic)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp (15-25°C)</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Differentiation Solution (1% Acid Alcohol)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">10 mL / 125 mL / 500 mL</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">125 mL / 500 mL</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Bluing Solution (Scott's Tap Water / 0.1% Ammonia)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">125 mL / 500 mL</span>
             </td>
         </tr>
                   </tbody>
@@ -448,15 +508,15 @@
                 
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Perform a test staining with 1–2 extra slides first to optimize staining times for specific tissue types.</span>
+            <span class="leading-relaxed">Filter hematoxylin solution weekly through Whatman filter paper to remove oxidized surface scum.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">If nuclear staining is too dark, differentiate with 0.5–1% HCl in 70% ethanol for 2–5 seconds.</span>
+            <span class="leading-relaxed">Do not over-differentiate in acid alcohol; excessive acid exposure leaches nuclear stain.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Always wear lab coat, safety goggles, and nitrile gloves during xylene clearing.</span>
+            <span class="leading-relaxed">Ensure slides are fully dehydrated before placing in xylene; water carryover causes milky turbidity.</span>
         </li>
               </ul>
             </section>
@@ -468,7 +528,7 @@
                 <h3 class="text-sm font-headline text-on-surface font-semibold">Expected Results</h3>
               </div>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Nuclei: Crisp dark blue/purple; Cytoplasm: Shades of pink/red; Muscle fibers and collagen: Deep pink; Red blood cells: Vibrant orange-red.
+                Nuclei: Crisp Blue-Purple; Cytoplasm: Shades of Pink; Muscle & Keratin: Deep Red-Pink; Erythrocytes: Bright Red/Orange; Collagen: Pale Pink.
               </p>
             </div>
 

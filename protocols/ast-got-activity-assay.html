@@ -278,12 +278,12 @@
                 <h2 class="text-lg font-headline text-on-surface flex items-center gap-2 font-semibold">
                   <span class="material-symbols-outlined text-primary">format_list_numbered</span> Usage Procedure
                 </h2>
-                
+                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('serum_ast_sop')" id="tab-btn-serum_ast_sop" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">Serum & Plasma SOP</button><button onclick="switchTab('tissue_ast_sop')" id="tab-btn-tissue_ast_sop" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">Tissue Homogenate SOP</button></div>
               </div>
               <div class="p-5">
                 
-        <div id="proc-content-ast_procedure" class="proc-tab-content ">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Standard AST Reaction & Detection</h3>
+        <div id="proc-content-serum_ast_sop" class="proc-tab-content ">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Serum / Plasma AST Determination Protocol</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
@@ -291,7 +291,7 @@
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
                     <h4 class="text-sm font-semibold text-on-surface mb-1">Prepare Standards & Samples</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Prepare a pyruvate calibration curve corresponding to Carmen units of 0, 24, 61, 114, and 190. Serum, plasma, or cell supernatant is loaded at 20 µL/well.</p>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Prepare a pyruvate calibration curve corresponding to Carmen units: 0, 24, 61, 114, and 190. Load 20 µL standard or blank per well.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -305,8 +305,23 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Sample Loading</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Load 20 µL fresh serum or plasma into Sample wells. Set up Control wells with 20 µL sample (substrate omitted during 37°C incubation).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
                     <h4 class="text-sm font-semibold text-on-surface mb-1">Substrate Addition & Reaction</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 50 µL Substrate Solution to each well. Incubate at 37°C for exactly 30 minutes in a humidified microplate incubator.</p>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 50 µL Substrate Solution to standard and sample wells. Incubate at 37°C for exactly 30 minutes in a humidified microplate incubator.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -316,12 +331,12 @@
                 </div>
                 </div>
             </div>
-            <!-- Step 3 -->
+            <!-- Step 4 -->
             <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
                     <h4 class="text-sm font-semibold text-on-surface mb-1">Color Development with DNPH</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 50 µL DNPH Developer to each well. Mix thoroughly and incubate at 37°C for 20 minutes.</p>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 50 µL DNPH Developer to all wells (and add 50 µL Substrate to Control wells now). Mix thoroughly and incubate at 37°C for 20 minutes.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -331,9 +346,9 @@
                 </div>
                 </div>
             </div>
-            <!-- Step 4 -->
+            <!-- Step 5 -->
             <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
                     <h4 class="text-sm font-semibold text-on-surface mb-1">Alkali Color Enhancement & Readout</h4>
                     <p class="text-sm text-on-surface-variant leading-relaxed">Add 150 µL 0.4 M NaOH to all wells. Allow color to stabilize at room temperature for 10 minutes, then measure absorbance at 510 nm.</p>
@@ -342,6 +357,57 @@
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
                         <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-tissue_ast_sop" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Tissue Homogenate AST Determination Protocol</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Tissue Homogenization</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Weigh tissue accurately. Add ice-cold 0.9% NaCl at 1:9 (w/v) on ice. Homogenize mechanically.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Centrifugation & Protein Measurement</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Centrifuge at 10,000 × g for 10 min at 4°C. Collect supernatant and measure protein concentration (Cpr in gprot/L).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Assay Reaction</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Load 20 µL supernatant, 50 µL Substrate, incubate at 37°C for 30 min, add 50 µL DNPH (37°C 20 min), add 150 µL 0.4 M NaOH (RT 10 min), measure at 510 nm.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 60 mins
                     </span>
                 </div>
                 </div>

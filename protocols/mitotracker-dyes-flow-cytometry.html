@@ -225,8 +225,14 @@
               </h2>
               <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
                 
-          <p>MitoTracker™ Dyes are cell-permeant reagents that passively diffuse across the plasma membrane and selectively accumulate within active mitochondria in live cells driven by mitochondrial membrane potential (ΔΨm).</p>
-          <p><strong>Features:</strong> Optimized concentrations for conventional and spectral flow cytometry as well as live-cell confocal imaging. Certain variants (e.g. MitoTracker Red CMXRos / Orange CMTMRos) feature chloromethyl reactive moieties that covalently bind mitochondrial proteins, permitting subsequent aldehyde fixation and permeabilization.</p>
+          <p><strong>MitoTracker™ Dyes for Flow Cytometry & Imaging (Thermo Fisher MAN0019253)</strong> are cell-permeant mitochondrion-selective fluorescent probes that passively diffuse across the plasma membrane and selectively accumulate within active mitochondria in live cells.</p>
+          <p><strong>Probes & Mechanisms:</strong></p>
+          <ul class="list-disc pl-5 space-y-1 text-xs sm:text-sm">
+            <li><strong>MitoTracker™ Green FM (Cat. M7514, Ex/Em 490/516 nm):</strong> Accumulates in mitochondria independent of mitochondrial membrane potential ($\Delta\Psi_m$). Useful for quantifying total mitochondrial mass. (Non-fixable).</li>
+            <li><strong>MitoTracker™ Orange CMTMRos (Cat. M7510, Ex/Em 554/576 nm):</strong> Contains a chloromethyl thiol-reactive moiety. Membrane potential-dependent accumulation; retained after aldehyde fixation.</li>
+            <li><strong>MitoTracker™ Red CMXRos (Cat. M7512, Ex/Em 579/599 nm):</strong> Membrane potential-dependent probe with chloromethyl group. Fluoresces in PE-Texas Red channel; retained after aldehyde fixation and permeabilization.</li>
+            <li><strong>MitoTracker™ Deep Red FM (Cat. M22426, Ex/Em 644/665 nm):</strong> Far-red probe (APC channel); potential-dependent, fixable with formaldehyde.</li>
+          </ul>
         
               </div>
               
@@ -278,21 +284,21 @@
                 <h2 class="text-lg font-headline text-on-surface flex items-center gap-2 font-semibold">
                   <span class="material-symbols-outlined text-primary">format_list_numbered</span> Usage Procedure
                 </h2>
-                
+                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('live_staining')" id="tab-btn-live_staining" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">1. Live Cell Staining</button><button onclick="switchTab('fixation_perm')" id="tab-btn-fixation_perm" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">2. Fixation & Permeabilization</button><button onclick="switchTab('flow_channels')" id="tab-btn-flow_channels" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">3. Flow Cytometry Channels</button></div>
               </div>
               <div class="p-5">
                 
         <div id="proc-content-live_staining" class="proc-tab-content ">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Mitochondrial Labeling Protocol for Flow Cytometry</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Live Cell Staining Protocol for Flow Cytometry & Imaging</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Reconstitute Stock Solution</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Dissolve lyophilized dye in anhydrous DMSO to prepare a 1 mM stock solution. Aliquot and store at -20°C protected from light.</p>
-                    
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Stock Solution Reconstitution (1 mM)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Warm lyophilized MitoTracker™ vial to room temperature. Reconstitute 1 vial (50 µg) in high-quality anhydrous DMSO to yield a 1 mM stock solution (e.g. add 74 µL DMSO to 50 µg MitoTracker Red CMXRos [MW 671.7], or 92 µL to Green FM [MW 671.9]). Vortex to dissolve.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Aliquot stock solution into dark desiccated vials and store at -20°C.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -305,13 +311,13 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Prepare Working Staining Medium</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Dilute stock solution into pre-warmed culture medium or buffer to a working concentration of 20–100 nM.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Prepare Working Staining Solution (20–100 nM)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Dilute 1 mM stock solution into prewarmed (37°C) complete culture medium or PBS to a working concentration of 20–100 nM (e.g. 1 µL of 1 mM stock into 10–50 mL medium).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2 mins
                     </span>
                 </div>
                 </div>
@@ -320,13 +326,13 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Incubate Live Cells</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Harvest cells, resuspend in working dye solution, and incubate in 37°C incubator (5% CO2) for 15–30 minutes.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Staining Incubation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Aspirate culture medium from adherent cells or pellet suspension cells (200 × g 5 min). Add 100 nM working staining solution. Incubate at 37°C in 5% CO2 for 15–45 minutes in the dark.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 20 mins
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15–45 mins
                     </span>
                 </div>
                 </div>
@@ -335,8 +341,8 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Wash & Acquire Data</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Centrifuge at 300 × g for 5 mins, resuspend in fresh pre-warmed buffer, and acquire on flow cytometer immediately.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Live Cell Analysis</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">For live-cell flow cytometry or confocal microscopy, cells can be analyzed immediately in the staining solution or after replacing with fresh prewarmed medium/PBS.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -348,10 +354,119 @@
             </div>
             </div>
         </div>
+        <div id="proc-content-fixation_perm" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Aldehyde Fixation Protocol (CMXRos, CMTMRos, Deep Red)</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Post-Staining Fixation (3.7% Formaldehyde)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Following 37°C incubation with fixable MitoTracker™ dyes (Red CMXRos, Orange CMTMRos, or Deep Red FM), aspirate staining solution. Add 3.7% formaldehyde in prewarmed PBS. Incubate at 37°C for 15 minutes.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>MitoTracker Green FM is NOT fixable; do not use formaldehyde on Green FM.</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Washing</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Rinse cells 3 times with PBS for 5 minutes each at room temperature.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Permeabilization (Optional for Antibody Co-Staining)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Incubate fixed cells in 0.1% Triton X-100 in PBS for 10 minutes at room temperature. Wash with PBS before blocking and adding primary antibodies for immunofluorescence.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-flow_channels" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Instrument Configuration & Gating Guide</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Excitation & Emission Channel Selection</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">• Green FM: 488 nm laser -> FITC / FL1 (530/30 nm filter)
+• Orange CMTMRos: 561 nm or 488 nm laser -> PE / FL2 (585/42 nm filter)
+• Red CMXRos: 561 nm or 488 nm laser -> PE-Texas Red / FL3 (610/20 nm filter)
+• Deep Red FM: 633/640 nm laser -> APC / FL4 (660/20 nm filter)</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> Setup
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Mitochondrial Depolarization Control (CCCP / FCCP)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Pre-treat control cells with 50 µM CCCP (carbonyl cyanide m-chlorophenyl hydrazone) for 15 minutes at 37°C prior to MitoTracker Red CMXRos staining. Confirm collapse of mitochondrial membrane potential reflected by loss of fluorescence.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
               </div>
             </section>
 
             
+        <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 md:p-6 relative overflow-hidden mt-6">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+            <h2 class="text-lg font-headline text-on-surface mb-3 flex items-center gap-2 font-semibold">
+                <span class="material-symbols-outlined text-tertiary">calculate</span> Mitochondrial Mass & Membrane Potential Metrics
+            </h2>
+            
+            <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto">
+                Geometric Mean Fluorescence Intensity (MFI) = 10^[ (1/N) · Σ log10(FL_i) ] 
+ΔΨm Depolarization Ratio = MFI_treated / MFI_control
+            </div>
+            <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
+                
+              <div class="space-y-2">
+                <p><strong>1. Total Mass vs Potential:</strong> MitoTracker Green FM reflects total mitochondrial mass (independent of $\Delta\Psi_m$); MitoTracker Red CMXRos / Orange CMTMRos reflects energized mitochondrial membrane potential ($\Delta\Psi_m$).</p>
+                <p><strong>2. Ratio Metric:</strong> Normalized potential = $	ext{MFI}_{	ext{CMXRos}} / 	ext{MFI}_{	ext{Green FM}}$.</p>
+              </div>
+            
+            </div>
+        </section>
 
             
 
@@ -380,20 +495,20 @@
                     
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">MitoTracker™ Lyophilized Dye (20 assays/vial)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">-20°C, desiccated & dark</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">MitoTracker™ Lyophilized Dye Vials (50 µg/vial)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at ≤ -20°C, desiccated, protect from light</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 vial</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">5 vials (100 assays)</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Anhydrous DMSO Reconstitution Solvent</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp, dry</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Anhydrous DMSO (High Purity)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at RT in desiccator</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Optional / 100 µL</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 mL (User supplied)</span>
             </td>
         </tr>
                   </tbody>
@@ -424,15 +539,15 @@
                 
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Never fix cells before staining with MitoTracker dyes; mitochondrial accumulation depends strictly on active membrane potential.</span>
+            <span class="leading-relaxed">Reconstitute only in high-quality anhydrous DMSO; exposure to moisture degrades the chloromethyl reactive group.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">High concentrations (>200 nM) can cause non-specific cellular staining and mitochondrial respiratory inhibition.</span>
+            <span class="leading-relaxed">Do not stain cells at 4°C; mitochondrial uptake requires active membrane transport at 37°C.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Dyes are light-sensitive; protect from ambient laboratory lighting during handling.</span>
+            <span class="leading-relaxed">Excessive dye concentration (> 500 nM) can cause non-specific cytoplasmic background and mitochondrial uncoupling.</span>
         </li>
               </ul>
             </section>
@@ -444,7 +559,7 @@
                 <h3 class="text-sm font-headline text-on-surface font-semibold">Expected Results</h3>
               </div>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                High fluorescence signal specific to mitochondrial network in cells with intact mitochondrial potential; depolarized/apoptotic cells display marked reduction in fluorescence.
+                Healthy cells show high geometric MFI with sharp mitochondrial network localization; apoptotic or uncoupled cells (CCCP-treated) show > 80% decrease in Red CMXRos fluorescence.
               </p>
             </div>
 

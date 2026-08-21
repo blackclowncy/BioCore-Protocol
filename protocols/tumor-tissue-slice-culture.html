@@ -225,8 +225,8 @@
               </h2>
               <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
                 
-          <p>This STAR Protocols method provides a robust, standardized platform for establishing organotypic tissue slice cultures (TSCs) from human solid tumors (e.g. colorectal, pancreatic, hepatocellular, and cholangiocarcinoma) to evaluate responses to systemic chemotherapy, targeted inhibitors, and immunotherapies.</p>
-          <p><strong>Methodological Core:</strong> Precision-cut 250–300 µm slices preserve native 3D tumor microenvironment architecture, tumor-infiltrating immune cells, and extracellular matrix under optimized semi-solid/air-liquid interface culture conditions for 5–7 days.</p>
+          <p>The <strong>Organotypic Tumor Slice Cultures (TSCs) Protocol (STAR Protocols 2, 100574)</strong> provides a comprehensive method for preparing and culturing live, 250–300 µm thick precision-cut slices from human and murine solid tumors (e.g. liver, colorectal, breast, lung, pancreatic cancer).</p>
+          <p><strong>Biological Significance:</strong> Unlike 2D monolayer cultures or single-cell organoids, organotypic slice cultures preserve intact 3D tumor architecture, functional stromal-immune microenvironment (T cells, macrophages, fibroblasts), extracellular matrix stiffness, and vascular niches for ex vivo drug screening, immunotherapy testing, and multi-omics profiling.</p>
         
               </div>
               
@@ -278,25 +278,25 @@
                 <h2 class="text-lg font-headline text-on-surface flex items-center gap-2 font-semibold">
                   <span class="material-symbols-outlined text-primary">format_list_numbered</span> Usage Procedure
                 </h2>
-                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('slice_prep')" id="tab-btn-slice_prep" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">Slice Preparation</button><button onclick="switchTab('culture_treatment')" id="tab-btn-culture_treatment" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">Culture & Drug Treatment</button></div>
+                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('tissue_prep_embed')" id="tab-btn-tissue_prep_embed" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">1. Tissue Collection & Embedding</button><button onclick="switchTab('vibratome_slicing')" id="tab-btn-vibratome_slicing" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">2. Precision Vibratome Slicing</button><button onclick="switchTab('ali_culture')" id="tab-btn-ali_culture" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">3. Air-Liquid Interface Culture</button><button onclick="switchTab('tsc_endpoints')" id="tab-btn-tsc_endpoints" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">4. Downstream Assays & Readouts</button></div>
               </div>
               <div class="p-5">
                 
-        <div id="proc-content-slice_prep" class="proc-tab-content ">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Tissue Procurement, Embedding & Vibratome Slicing</h3>
+        <div id="proc-content-tissue_prep_embed" class="proc-tab-content ">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Fresh Specimen Procurement & Low-Melting Agarose Embedding</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Tissue Procurement & Core Preparation</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Collect fresh human surgical tumor specimens in ice-cold Belzer UW organ preservation solution or slicing buffer. Core 6–8 mm cylindrical biopsies.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Fresh Tissue Procurement & Cold Ischemia Minimization</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Collect fresh surgical human tumor specimens immediately after resection into sterile 5 mL tubes containing 3 mL ice-cold Belzer UW solution or collection buffer. Transport immediately to the laboratory on melting ice (cold ischemia time < 1 hour).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15 mins
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15–30 mins
                     </span>
                 </div>
                 </div>
@@ -305,8 +305,8 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Low Melting Agarose Embedding</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Embed tissue cores in molten 2.5% low-melting agarose maintained at 38–40°C. Cool on ice for 3–5 minutes to form a firm cutting block.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Tumor Core Trimming</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">In a sterile laminar flow hood, transfer specimen to a cold sterile Petri dish. Trim necrotic or fat margins with a sterile scalpel into uniform cylindrical cores of 5–8 mm diameter and 10 mm height.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -320,30 +320,9 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Precision Vibratome Slicing</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Mount block onto vibratome stage. Section tissue at 250–300 µm thickness (speed: 0.05–0.1 mm/s, amplitude: 1.0–1.5 mm) submerged in ice-cold slicing buffer.</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Inspect slice integrity under stereomicroscope.</span></div>
-                    
-                <div class="flex gap-3 mt-3">
-                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
-                    </span>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        <div id="proc-content-culture_treatment" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Air-Liquid Interface Culture & Drug Assays</h3>
-            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
-                
-            <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Transfer Slices to Membrane Inserts</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Transfer 2–3 tumor slices onto Millicell membrane inserts in 6-well plates containing 1.0–1.2 mL slice culture medium beneath the membrane.</p>
-                    
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Low-Melting Agarose Embedding</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Prepare 2% (w/v) low-melting agarose in sterile 1X PBS. Autoclave and place in a 37–40°C water bath. Position tumor core vertically in a square plastic casting mold. Pour 37–40°C molten agarose over specimen to completely cover it. Transfer mold to melting ice for 5 minutes to solidify.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Agarose temperature must NOT exceed 42°C to prevent thermal tumor cell death.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -352,17 +331,42 @@
                 </div>
                 </div>
             </div>
+            </div>
+        </div>
+        <div id="proc-content-vibratome_slicing" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Vibrating Blade Microtome Slicing Protocol</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Vibratome Setup & Blade Calibration</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Mount sterile double-edge stainless steel razor blade (or sapphire blade) on the Leica VT1200S vibratome holder. Fill the buffer tray with ice-cold cutting buffer and surround with ice. Set blade clearance angle to 15°–18°.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
+                    </span>
+                </div>
+                </div>
+            </div>
             <!-- Step 2 -->
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Drug Incubation & Hyperoxia</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Add therapeutic agents (e.g. anti-PD-1, gemcitabine, kinase inhibitors) to medium. Maintain at 37°C in modular hyperoxic chambers (80% O2, 5% CO2).</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Hyperoxia (80% O2) is critical to prevent central necrosis in 300 µm tissue slices.</span></div>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Specimen Mounting & Parameter Configuration</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Glue the trimmed agarose-embedded tumor block onto the specimen disc using cyanoacrylate adhesive (Loctite 401). Configure slicing parameters:
+• Slice Thickness: 250–300 µm
+• Advance Speed: 0.05–0.10 mm/s
+• Vibration Amplitude: 1.0–1.2 mm
+• Vibration Frequency: 85 Hz</p>
+                    
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 3–5 days
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
                     </span>
                 </div>
                 </div>
@@ -371,8 +375,110 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Downstream Endpoint Assays</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Harvest slices for LIVE/DEAD viability staining, formalin fixation for IHC (cleaved caspase-3, Ki-67), supernatant cytokine ELISA, or single-cell RNA-seq.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Slice Collection</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Initiate automated slicing. Use a sterile curved spatula or wide-bore glass Pasteur pipette to gently lift each floating slice into a 6-well plate containing ice-cold wash media.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15–30 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-ali_culture" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Organotypic Air-Liquid Interface Culture (5–7 Days)</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Plate & Insert Preparation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Place Millicell organotypic membrane inserts (0.4 µm pore size) into 6-well culture plates. Add 1.0–1.2 mL of complete TSC medium to the lower chamber underneath each insert.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Ensure fluid touches only the underside of the insert without submerging the upper surface.</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Slice Placement & Air-Liquid Interface</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Transfer 2–3 tumor slices flat onto the top membrane of each insert. Gently remove excess liquid around slice perimeter with a P200 pipette tip to establish an air-liquid interface (direct oxygen diffusion from air; nutrient supply from bottom).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Incubation & Media Exchange</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Incubate in a 37°C, 5% CO2 humidified incubator (atmospheric or hyperoxic 80% O2). Replace lower chamber medium every 24–48 hours.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5–7 Days
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-tsc_endpoints" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Drug Screening & Multi-Omics Endpoints</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Viability Staining (LIVE/DEAD & CellTiter-Glo 3D)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Incubate slices with 2 µM Calcein AM + 4 µM EthD-1 for 45 min at RT, then image with confocal microscopy to quantify live/dead ratio across slice depth (Z-stack). Alternatively, homogenize in CellTiter-Glo® 3D for ATP readout.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 60 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Histology & Immunofluorescence (IHC / IF)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Fix slices in 4% PFA for 2 hours, embed in paraffin, and stain with H&E, Ki-67 (proliferation), cleaved caspase-3 (apoptosis), and CD3/CD8/CD68 (immune infiltrating subsets).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> Variable
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Supernatant ELISA & Single-Cell RNA-Seq</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Collect culture supernatants for cytokine/chemokine profiling (IFN-γ, TNF-α, IL-6), or dissociate slices enzymatically for scRNA-seq tumor heterogeneity analysis.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -416,17 +522,17 @@
                     
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Tissue Slicer (Vibratome / Compresstome)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Lab equipment</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Tissue Collection Buffer (Belzer UW or Cold PBS + 1% Pen/Strep)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store on ice (0–4°C)</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 unit</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">100 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Low-melting Point Agarose (2.5% in PBS)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">4°C / 42°C bath</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Low-Melting Point Agarose (2% w/v in PBS)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Melt at 70°C, equilibrate at 37–40°C</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
                 <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">50 mL</span>
@@ -434,8 +540,8 @@
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Slice Culture Medium (William's E + Supplements)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">4°C</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Cutting Buffer (Ice-Cold William's E Media + 1% Pen/Strep + 10% FBS)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 4°C on ice</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
                 <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">500 mL</span>
@@ -443,8 +549,17 @@
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Millicell PTFE Membrane Inserts (0.4 µm, 30 mm)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Sterile ambient</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Complete TSC Culture Medium (William's E + ITS + 10 nM Dexamethasone)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 4°C, warm to 37°C before use</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">100 mL</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Millicell Organotypic Culture Inserts (0.4 µm, PICM / PTFE)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp, sterile</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
                 <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">6-well format</span>
@@ -452,11 +567,11 @@
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Organotypic Oxygen Chamber (80% O2 / 5% CO2)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">37°C incubator</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Vibrating Microtome (Leica VT1200S or VT1000S)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Laboratory bench</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 unit</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 Device</span>
             </td>
         </tr>
                   </tbody>
@@ -487,15 +602,15 @@
                 
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Maintain strict sterility and keep tissue cold until embedding and culture.</span>
+            <span class="leading-relaxed">Maintain strict sterile technique throughout procurement, sectioning, and culture.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Do not allow agarose temperature to exceed 42°C when embedding live human tumor specimens.</span>
+            <span class="leading-relaxed">Do not allow agarose temperature to exceed 42°C during tissue embedding.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Ensure medium volume touches only the underside of the Millicell membrane to maintain air-liquid interface oxygen diffusion.</span>
+            <span class="leading-relaxed">Ensure medium volume touches only the underside of the Millicell membrane; submerged slices experience rapid hypoxia.</span>
         </li>
               </ul>
             </section>
@@ -507,7 +622,7 @@
                 <h3 class="text-sm font-headline text-on-surface font-semibold">Expected Results</h3>
               </div>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Preservation of >80% viable tumor and stromal cells for at least 5 days in culture, showing differential apoptotic responses to cytotoxic chemotherapy versus immunotherapy.
+                Preserves > 80% viable tumor, stromal, and immune cells for 5–7 days ex vivo, demonstrating robust differential sensitivity to targeted therapies and immune checkpoint blockade.
               </p>
             </div>
 

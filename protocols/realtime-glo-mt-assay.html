@@ -225,8 +225,8 @@
               </h2>
               <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
                 
-          <p>The RealTime-Glo™ MT Cell Viability Assay is a non-lytic, bioluminescent assay that measures viable cell number in real time continuously up to 72 hours. It utilizes an engineered NanoLuc® luciferase and a cell-permeant pro-substrate.</p>
-          <p><strong>Bioluminescent Reaction:</strong> Viable cells with active metabolism reduce the MT Cell Viability Substrate into a NanoLuc substrate. Once reduced, it rapidly diffuses out into the culture medium where it is oxidized by NanoLuc Enzyme to produce a robust bioluminescent signal proportional to viable cell count.</p>
+          <p>The <strong>RealTime-Glo™ MT Cell Viability Assay (Promega TM431)</strong> is a non-lytic, bioluminescent assay that measures viable cell number in real time. It monitors the reducing potential of metabolically active cells continuously for up to 72 hours from the same sample well.</p>
+          <p><strong>Assay Principle:</strong> The assay couples an engineered <em>NanoLuc®</em> luciferase enzyme with a cell-permeant pro-substrate (MT Cell Viability Substrate). Live cells with active metabolism reduce the pro-substrate into a NanoLuc substrate. Once reduced, the substrate rapidly diffuses out of the cells into the surrounding culture medium, where it is immediately utilized by extracellular NanoLuc® luciferase to produce a stable, glow-type bioluminescent signal proportional to viable cell number.</p>
         
               </div>
               
@@ -278,36 +278,21 @@
                 <h2 class="text-lg font-headline text-on-surface flex items-center gap-2 font-semibold">
                   <span class="material-symbols-outlined text-primary">format_list_numbered</span> Usage Procedure
                 </h2>
-                
+                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('rtg_continuous')" id="tab-btn-rtg_continuous" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">1. Continuous Real-Time SOP</button><button onclick="switchTab('rtg_endpoint')" id="tab-btn-rtg_endpoint" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">2. Endpoint / Discrete SOP</button><button onclick="switchTab('rtg_multiplexing')" id="tab-btn-rtg_multiplexing" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">3. Multiplexing Workflows</button></div>
               </div>
               <div class="p-5">
                 
-        <div id="proc-content-continuous_protocol" class="proc-tab-content ">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Continuous-Read Real-Time Cell Monitoring (Up to 72h)</h3>
+        <div id="proc-content-rtg_continuous" class="proc-tab-content ">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Continuous Real-Time Monitoring Protocol (Up to 72h)</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Plate Cells & Add Test Compounds</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Plate cells in 384- or 96-well solid white culture plates in appropriate growth medium.</p>
-                    
-                    
-                <div class="flex gap-3 mt-3">
-                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> Overnight
-                    </span>
-                </div>
-                </div>
-            </div>
-            <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Prepare 2X RealTime-Glo Reagent</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Dilute MT Cell Viability Substrate (1000X) and NanoLuc Enzyme (1000X) 1:500 each into pre-warmed culture medium to create 2X Reagent.</p>
-                    
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Prepare 2X RealTime-Glo™ Reagent in Medium</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Equilibrate MT Cell Viability Substrate and NanoLuc® Enzyme to room temperature. For every 1.0 mL of prewarmed culture medium, add 2.0 µL of MT Substrate (1000X) and 2.0 µL of NanoLuc® Enzyme (1000X) (1:500 dilution to make 2X reagent). Mix thoroughly by vortexing.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Prepare 2X reagent immediately before cell plating or compound addition.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -316,12 +301,78 @@
                 </div>
                 </div>
             </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Cell Seeding & Reagent Addition</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Seed cells in 50 µL of culture medium per well in white 96-well microplates (or 10 µL in white 384-well plates). Add 50 µL of 2X RealTime-Glo™ Reagent (or 10 µL in 384-well) directly to each well. Final concentration of both components is 1X.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
+                    </span>
+                </div>
+                </div>
+            </div>
             <!-- Step 3 -->
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Add 2X Reagent to Wells</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Add equal volume of 2X Reagent to each well containing cells (e.g. 50 µL to 50 µL in 96-well). Incubate plate at 37°C / 5% CO2.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Treatment & Incubation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add test compounds or vehicle controls. Place microplate in a 37°C, 5% CO2 humidified cell culture incubator.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> Variable
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Continuous / Repeated Luminescent Measurement</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Measure luminescence on a standard microplate luminometer (0.25–1.0 second integration time per well) at desired time intervals (e.g. 1h, 2h, 4h, 8h, 12h, 24h, 48h, 72h). Return the plate to the incubator between reads.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 1 min per read
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-rtg_endpoint" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Endpoint Viability Determination Protocol</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Culture & Treatment</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Grow cells in 50–100 µL culture medium in white 96-well plates. Treat with test compounds for the desired incubation period (e.g. 24h, 48h).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> Variable
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">2X Reagent Addition at Endpoint</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add an equal volume of 2X RealTime-Glo™ Reagent (50 µL to 50 µL cell culture). Mix on an orbital shaker for 30 seconds.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -331,17 +382,53 @@
                 </div>
                 </div>
             </div>
-            <!-- Step 4 -->
+            <!-- Step 3 -->
             <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Continuous Luminescence Acquisition</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Read luminescence periodically (e.g. every 1–2 hours) on a microplate luminometer over 24 to 72 hours without needing additional reagents.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Equilibration & Readout</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Incubate plate at 37°C for 10–60 minutes (signal reaches plateau within 10–20 min). Read luminescence on a plate reader.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> Up to 72 hrs
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10–20 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-rtg_multiplexing" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Downstream Multiplexing Capabilities</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Downstream Apoptosis / Lysis Assays</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Because RealTime-Glo™ does not lyse cells or deplete cellular ATP, add Caspase-Glo® 3/7 or CellTiter-Glo® directly to the same wells at the end of the time course.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Direct RNA / DNA / Protein Extraction</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Aspirate medium or add RNA lysis buffer directly to wells after real-time viability tracking for RT-qPCR or Western blot validation.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> Variable
                     </span>
                 </div>
                 </div>
@@ -352,6 +439,25 @@
             </section>
 
             
+        <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 md:p-6 relative overflow-hidden mt-6">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+            <h2 class="text-lg font-headline text-on-surface mb-3 flex items-center gap-2 font-semibold">
+                <span class="material-symbols-outlined text-tertiary">calculate</span> Luminescent Signal Calculation & Blank Correction
+            </h2>
+            
+            <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto">
+                Net Luminescence (RLU) = RLU_sample - RLU_blank 
+Viability (% of Control) = (RLU_treated - RLU_blank) / (RLU_vehicle - RLU_blank) × 100%
+            </div>
+            <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
+                
+              <div class="space-y-2">
+                <p><strong>1. Blank Subtraction:</strong> $RLU_{blank}$ is the background luminescence from cell-free medium containing 1X RealTime-Glo™ reagents.</p>
+                <p><strong>2. Kinetics:</strong> Signal increases proportionally with cell division and decreases upon toxic drug insult, providing real-time $IC_{50}$ shifts over time.</p>
+              </div>
+            
+            </div>
+        </section>
 
             
 
@@ -381,28 +487,28 @@
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">MT Cell Viability Substrate (1000X)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">-20°C, avoid light</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at -20°C, avoid light</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">10 µL / 100 µL</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">20 µL (for 100 assays)</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">NanoLuc® Enzyme (1000X)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">-20°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at -20°C</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">10 µL / 100 µL</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">20 µL (for 100 assays)</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Technical Manual (TM431)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Ambient</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">White 96-Well or 384-Well Microplates (Costar 3917)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 copy</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">As needed</span>
             </td>
         </tr>
                   </tbody>
@@ -433,15 +539,15 @@
                 
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Use opaque solid white 96- or 384-well plates for maximum luminescence signal and minimal well-to-well crosstalk.</span>
+            <span class="leading-relaxed">Always use white-walled opaque microplates (Costar 3917 or equivalent) to maximize light collection and eliminate optical cross-talk.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Because cells are not lysed, downstream assays (e.g. LDH release, Caspase activation, RNA extraction) can be performed in the same well.</span>
+            <span class="leading-relaxed">NanoLuc® enzyme and substrate must be stored at -20°C and protected from light; minimize freeze-thaw cycles (< 5 cycles).</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Protect MT substrate from prolonged light exposure to avoid photolytic background activation.</span>
+            <span class="leading-relaxed">Do not use luminometer filter cubes; measure unfiltered total bioluminescence.</span>
         </li>
               </ul>
             </section>
@@ -453,7 +559,7 @@
                 <h3 class="text-sm font-headline text-on-surface font-semibold">Expected Results</h3>
               </div>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Stable, long-lasting luminescence directly proportional to metabolic viable cell number across a broad dynamic range (10 to 50,000 cells per well).
+                Provides a continuous linear dynamic range from 10 to 50,000 cells per well for up to 72 hours with signal-to-background ratio > 50:1.
               </p>
             </div>
 

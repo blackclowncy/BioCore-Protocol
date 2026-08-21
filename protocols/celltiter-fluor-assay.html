@@ -225,8 +225,8 @@
               </h2>
               <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
                 
-          <p>The CellTiter-Fluor™ Cell Viability Assay is a non-lytic, single-reagent-addition fluorescence assay that measures the relative number of live cells in a culture population. It utilizes a cell-permeant fluorogenic peptide substrate (glycylphenylalanyl-aminofluorocoumarin; GF-AFC).</p>
-          <p><strong>Assay Mechanism:</strong> The substrate enters intact live cells where it is cleaved by conserved, constitutive intracellular aminopeptidase activity, generating fluorescent AFC. Because the assay is non-lytic, cells remain intact, enabling downstream multiplexing with luminescence-based apoptosis or cytotoxicity assays (e.g., Caspase-Glo® or CellTiter-Glo®).</p>
+          <p>The <strong>CellTiter-Fluor™ Cell Viability Assay (Promega TB371)</strong> is a non-lytic, single-reagent fluorescence assay that measures the relative number of live cells in culture. It uses a cell-permeant fluorogenic peptide substrate (glycyl-phenylalanyl-aminofluorocoumarin; GF-AFC) that readily penetrates intact cell membranes.</p>
+          <p><strong>Assay Principle:</strong> Endogenous intracellular aminopeptidase activity in metabolically viable cells cleaves the non-fluorescent GF-AFC substrate to release free AFC, generating a bright fluorescent signal ($380	ext{--}400	ext{ nm}$ excitation / $505	ext{ nm}$ emission) directly proportional to the number of living cells. Because the assay is completely non-lytic, the exact same cell samples can be multiplexed with downstream luminescent assays (e.g. Caspase-Glo® 3/7, CytoTox-Glo™, CellTiter-Glo®) or nucleic acid extraction.</p>
         
               </div>
               
@@ -278,20 +278,35 @@
                 <h2 class="text-lg font-headline text-on-surface flex items-center gap-2 font-semibold">
                   <span class="material-symbols-outlined text-primary">format_list_numbered</span> Usage Procedure
                 </h2>
-                
+                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('ctf_96_well')" id="tab-btn-ctf_96_well" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">1. 96-Well Plate SOP</button><button onclick="switchTab('ctf_384_well')" id="tab-btn-ctf_384_well" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">2. 384-Well HTS SOP</button><button onclick="switchTab('ctf_multiplex')" id="tab-btn-ctf_multiplex" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">3. Multiplexing Workflows</button></div>
               </div>
               <div class="p-5">
                 
-        <div id="proc-content-standard_96" class="proc-tab-content ">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Standard 96-Well Live-Cell Viability Protocol</h3>
+        <div id="proc-content-ctf_96_well" class="proc-tab-content ">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">96-Well Format Standard Viability Protocol</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Reagent Reconstitution (5X Working Solution)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Thaw GF-AFC Substrate and Assay Buffer in a 37°C water bath. Transfer 10 µL of GF-AFC Substrate into 2.0 mL of Assay Buffer (for 5X reagent), or into 10 mL of Assay Buffer (for 2X reagent). Vortex thoroughly for 10 seconds until completely dissolved.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Reconstituted CellTiter-Fluor™ reagent is stable for 24 hours at room temperature or 7 days at 4°C.</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
                     <h4 class="text-sm font-semibold text-on-surface mb-1">Cell Culture & Plating</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Seed cells in opaque-walled (black) 96-well culture plates in 100 µL medium. Treat cells with compound of interest and incubate for desired duration.</p>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Plate adherent or suspension cells in 100 µL of culture medium per well in black-walled, clear-bottom 96-well plates. Include cell-free medium wells as negative blank controls. Allow cells to adhere and treat with test compounds as desired.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -301,13 +316,13 @@
                 </div>
                 </div>
             </div>
-            <!-- Step 2 -->
+            <!-- Step 3 -->
             <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Prepare 5X CellTiter-Fluor Reagent</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Thaw Assay Buffer and GF-AFC substrate at room temperature. Add 10 µL of GF-AFC Substrate to 10 mL of Assay Buffer. Vortex briefly to mix.</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Reagent is stable for 24 hours at room temperature protected from light.</span></div>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Reagent Addition (5X Protocol)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 20 µL of 5X CellTiter-Fluor™ Reagent directly to each well containing 100 µL of cells in culture medium (1:5 dilution). (Alternatively, add 50 µL of 2X Reagent to 50 µL of cells).</p>
+                    
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -316,28 +331,13 @@
                 </div>
                 </div>
             </div>
-            <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Add 5X Reagent to Wells</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 20 µL of 5X CellTiter-Fluor Reagent to each well containing 100 µL cell culture medium (final volume 120 µL). Mix briefly by orbital shaking.</p>
-                    
-                    
-                <div class="flex gap-3 mt-3">
-                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2 mins
-                    </span>
-                </div>
-                </div>
-            </div>
             <!-- Step 4 -->
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Incubation</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Incubate plate at 37°C in a humidified 5% CO2 incubator for 30–90 minutes.</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Signal stabilizes after 30 mins and remains proportional to viable cell number up to 3 hours.</span></div>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Plate Mixing & Incubation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Mix plate on an orbital plate shaker for 30–60 seconds at 300–500 rpm to ensure homogenous reagent distribution. Incubate at 37°C in 5% CO2 for 30 minutes to 3 hours (typically 30–90 minutes).</p>
+                    
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -351,7 +351,7 @@
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
                     <h4 class="text-sm font-semibold text-on-surface mb-1">Fluorescence Measurement</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Measure fluorescence intensity at 380–400 nm excitation and 505 nm emission using a plate reader.</p>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Measure fluorescence in a microplate reader using 380–400 nm excitation (optimal 390 nm) and 505 nm emission (filter bandwidth 505 nm or 510–570 nm). Subtract average blank fluorescence from sample values.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -363,10 +363,132 @@
             </div>
             </div>
         </div>
+        <div id="proc-content-ctf_384_well" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">384-Well High-Throughput Screening Protocol</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Miniaturized Plating</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Plate cells at 500–5,000 cells in 20 µL culture medium per well in black-walled 384-well microplates. Treat with compounds.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> Variable
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">5X Reagent Addition</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 5 µL of 5X CellTiter-Fluor™ Reagent to each well (total volume 25 µL). Mix plate briefly on an orbital shaker.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Incubation & High-Throughput Readout</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Incubate plate at 37°C for 30–90 minutes. Measure fluorescence at 390 nm excitation / 505 nm emission.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30–90 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-ctf_multiplex" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Downstream Luminescent Multiplexing Protocols</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Multiplexing with Caspase-Glo® 3/7 (Apoptosis)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Following CellTiter-Fluor™ fluorescence measurement, immediately add 100 µL of Caspase-Glo® 3/7 Reagent directly to the exact same 96 wells. Incubate at room temperature for 30–60 minutes, then measure luminescence on a luminometer to quantify apoptosis normalized to viable cell number.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30–60 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Multiplexing with CytoTox-Glo™ (Cytotoxicity)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 50 µL of CytoTox-Glo™ AAF-Glo substrate directly following fluorescence readout to determine dead cell protease activity, achieving simultaneous viability + cytotoxicity profiling in a single well.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Multiplexing with CellTiter-Glo® (ATP Quantification)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 100 µL of CellTiter-Glo® Luminescent Reagent to the same well to lyse cells and quantify cellular ATP pools.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
               </div>
             </section>
 
             
+        <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 md:p-6 relative overflow-hidden mt-6">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+            <h2 class="text-lg font-headline text-on-surface mb-3 flex items-center gap-2 font-semibold">
+                <span class="material-symbols-outlined text-tertiary">calculate</span> Fluorescence Background Subtraction & Viability Normalization
+            </h2>
+            
+            <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto">
+                Net Fluorescence (AFU) = F_sample - F_blank 
+Relative Viability (%) = (F_treated - F_blank) / (F_vehicle - F_blank) × 100%
+            </div>
+            <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
+                
+              <div class="space-y-2">
+                <p><strong>1. Blank Correction:</strong> $F_{blank}$ is the average fluorescence signal from cell-free medium controls containing the exact same concentration of CellTiter-Fluor™ reagent.</p>
+                <p><strong>2. Optical Parameters:</strong> Excitation: $380	ext{--}400	ext{ nm}$ ($390	ext{ nm}$ optimal); Emission: $505	ext{ nm}$ (cutoff $510	ext{--}570	ext{ nm}$).</p>
+                <p><strong>3. Multiplex Normalization:</strong> $	ext{Normalized Apoptosis} = 	ext{Caspase Luminescence (RLU)} / 	ext{CellTiter-Fluor (AFU)}$.</p>
+              </div>
+            
+            </div>
+        </section>
 
             
 
@@ -396,28 +518,28 @@
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">GF-AFC Substrate (100 mM in DMSO)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">-20°C, protect from light</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at -20°C, avoid light</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">10 µL (G6080)</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">10 µL (for 10 mL kit)</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Assay Buffer</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">-20°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at -20°C or 4°C</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">10 mL (G6080)</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">10 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Technical Bulletin (TB371)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Ambient</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Opaque Black 96-Well Clear-Bottom Microplates</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 copy</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">As needed (Corning 3603)</span>
             </td>
         </tr>
                   </tbody>
@@ -448,15 +570,15 @@
                 
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Use black clear-bottom or solid black 96-well plates to minimize well-to-well crosstalk and background auto-fluorescence.</span>
+            <span class="leading-relaxed">Use black-walled, clear-bottom plates to prevent well-to-well optical cross-talk and autofluorescence.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Avoid phenol red in medium if maximum sensitivity is required; clear phenol red-free medium yields superior signal-to-background.</span>
+            <span class="leading-relaxed">Do not use serum concentrations exceeding 10% without verifying background, as serum aminopeptidases may cause slight baseline signal.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">GF-AFC substrate is sensitive to moisture and light; store tightly closed at -20°C.</span>
+            <span class="leading-relaxed">Avoid high concentrations of primary amine-containing or highly colored test compounds that absorb at 380–505 nm.</span>
         </li>
               </ul>
             </section>
@@ -468,7 +590,7 @@
                 <h3 class="text-sm font-headline text-on-surface font-semibold">Expected Results</h3>
               </div>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Linear correlation between viable cell count and fluorescence intensity across 4 orders of magnitude (10 to 50,000 cells/well for most cell lines).
+                Generates a linear signal dynamic range from < 100 to > 50,000 cells per well with Z'-factor > 0.7 in high-throughput cytotoxicity screens.
               </p>
             </div>
 

@@ -225,8 +225,8 @@
               </h2>
               <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
                 
-          <p>The Creatinine Urinary Detection Kit is designed to detect and quantify the level of creatinine in urine samples across multiple species including human, rat, dog, and monkey. Urinary creatinine excretion is relatively constant under normal conditions and serves as the gold standard for normalizing excretion rates of other urine biomarkers, drugs, and electrolytes.</p>
-          <p><strong>Assay Principle:</strong> Creatinine reacts with alkaline picrate (Jaffé reaction) to produce an orange-red tautomer that absorbs strongly at 490 nm. The reaction rate and final intensity are directly proportional to creatinine concentration.</p>
+          <p>The <strong>Creatinine Urinary Detection Kit (Arbor Assays K002-H1/H5)</strong> provides quantitative determination of creatinine in human and mammalian urine samples. Because urinary creatinine excretion is relatively constant in healthy individuals, it serves as a critical normalization standard for other urinary biomarkers, drugs, and hormones.</p>
+          <p><strong>Assay Principle:</strong> Creatinine reacts with picrate in alkaline solution (Jaffé reaction) to produce a colored complex measured at 490 nm. High dilution of urine (1:20) eliminates potential matrix interference.</p>
         
               </div>
               
@@ -282,17 +282,17 @@
               </div>
               <div class="p-5">
                 
-        <div id="proc-content-urine_protocol" class="proc-tab-content ">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Urinary Sample Assay Procedure</h3>
+        <div id="proc-content-urine_creat_sop" class="proc-tab-content ">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Urinary Creatinine Determination Protocol</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Sample Clarification & Dilution</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Centrifuge urine samples at 2,000 × g for 5 minutes to pellet cellular debris. Dilute urine 1:10 to 1:20 in 1X Assay Buffer (or deionized water).</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Mouse urine is not recommended as active tubular secretion accounts for >50% of excretion.</span></div>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Standard Curve Preparation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Prepare calibration standards: 10.0, 5.0, 2.5, 1.25, 0.625, 0.3125, and 0 mg/dL by serial 2-fold dilution of the 100 mg/dL stock in Assay Diluent.</p>
+                    
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -305,13 +305,13 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Standard Curve Dilutions</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Perform serial 1:2 dilutions of the 100 mg/dL standard down to 0.156 mg/dL in 1X Assay Buffer (Standards: 10, 5, 2.5, 1.25, 0.625, 0.312, 0.156 mg/dL).</p>
-                    
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Urine Sample 1:20 Dilution</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Dilute urine samples 1:20 by adding 10 µL of urine into 190 µL of Assay Diluent. Vortex thoroughly.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Mouse urine is not recommended for this assay due to significant tubular creatinine secretion.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
                     </span>
                 </div>
                 </div>
@@ -320,8 +320,8 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Plate Loading</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Pipette 50 µL of standards, blanks (Assay Buffer), and diluted urine samples in duplicate into clear 96-well plate wells.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Plate Pipetting</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Pipette 50 µL of standards or 1:20 diluted urine samples into duplicate wells of the 96-well plate.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -335,13 +335,13 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Add Creatinine Reagent</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 100 µL of Creatinine Reagent to each well using a multichannel pipette. Tap plate gently to mix.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Reagent Addition & Incubation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 100 µL of Creatinine Reagent to all wells using a multichannel pipette. Incubate at room temperature (20–25°C) for exactly 30 minutes.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2 mins
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
                     </span>
                 </div>
                 </div>
@@ -350,13 +350,13 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Incubation & Measurement</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Incubate plate at room temperature for 30 minutes. Read optical absorbance at 490 nm on a microplate reader.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Absorbance Readout</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Measure absorbance at 490 nm on a microplate reader.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
                     </span>
                 </div>
                 </div>
@@ -370,14 +370,21 @@
         <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 md:p-6 relative overflow-hidden mt-6">
             <div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
             <h2 class="text-lg font-headline text-on-surface mb-3 flex items-center gap-2 font-semibold">
-                <span class="material-symbols-outlined text-tertiary">calculate</span> Creatinine Concentration Calculation
+                <span class="material-symbols-outlined text-tertiary">calculate</span> Urinary Concentration Calculation
             </h2>
             
             <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto">
-                Urinary Creatinine (mg/dL) = [(OD_sample - OD_blank) - b] / a × Dilution_Factor
+                Net OD490 = OD_sample - OD_blank 
+Urinary Creatinine (mg/dL) = [(Net OD490 - Intercept) / Slope] × 20 
+Biomarker Normalization: Ratio = Urinary Biomarker (µg/L) / Urinary Creatinine (mg/dL)
             </div>
             <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
-                <p>Calculate 4-parameter logistic (4PL) or linear regression from standard curve. Multiply by dilution factor (e.g. ×10 or ×20) to obtain actual concentration in urine sample.</p>
+                
+              <div class="space-y-2">
+                <p><strong>1. Dilution Factor:</strong> Multiply calculated standard curve concentration by 20 (sample dilution factor).</p>
+                <p><strong>2. Normalization:</strong> Express target analyte per gram of urinary creatinine (e.g. Albumin-to-Creatinine Ratio, ACR in mg/g).</p>
+              </div>
+            
             </div>
         </section>
 
@@ -408,17 +415,17 @@
                     
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Clear 96-well Plate</div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Clear 96-Well Microplate</div>
                 <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">2 × 96 wells</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 or 5 Plates</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Creatinine Standard (100 mg/dL)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">-20°C or 4°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 4°C</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
                 <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">100 µL</span>
@@ -426,20 +433,20 @@
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Creatinine Reagent (Alkaline Picrate blend)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">4°C, avoid light</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Assay Diluent (1X)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 4°C</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">20 mL</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">50 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Assay Buffer (1X)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">4°C</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Creatinine Reagent</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 4°C, contains picric acid</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">60 mL</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">20 mL</span>
             </td>
         </tr>
                   </tbody>
@@ -470,15 +477,15 @@
                 
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Store Creatinine Reagent at 4°C protected from light; allow to equilibrate to RT before use.</span>
+            <span class="leading-relaxed">Reagent contains picric acid; handle with PPE and dispose in chemical hazardous waste.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Mouse urine samples are incompatible due to unique murine renal physiology (tubular secretion).</span>
+            <span class="leading-relaxed">Assay validated for human urine; not suitable for mouse urine.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Alkaline picrate will stain skin and surfaces yellow; handle with nitrile gloves.</span>
+            <span class="leading-relaxed">Total assay reaction time must be exactly 30 minutes.</span>
         </li>
               </ul>
             </section>
@@ -490,7 +497,7 @@
                 <h3 class="text-sm font-headline text-on-surface font-semibold">Expected Results</h3>
               </div>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Normal human urinary creatinine typically ranges from 20 to 300 mg/dL depending on hydration status and muscle mass.
+                Normal human urinary creatinine ranges from 50–200 mg/dL (0.8–2.0 g/24 hours).
               </p>
             </div>
 

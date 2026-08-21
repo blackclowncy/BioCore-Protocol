@@ -225,8 +225,8 @@
               </h2>
               <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
                 
-          <p>Alkaline phosphatase (ALP) is a group of membrane-bound metalloenzymes that catalyze the hydrolysis of phosphate monoesters under alkaline conditions. ALP levels are extensively used to evaluate hepatobiliary disease and bone metabolism disorders.</p>
-          <p><strong>Assay Principle:</strong> ALP hydrolyzes disodium phenyl phosphate to release inorganic phosphate and free phenol. Phenol reacts with 4-aminoantipyrine in alkaline buffer and is oxidized by potassium ferricyanide to form a red quinone derivative with maximum absorbance at 520 nm.</p>
+          <p>Alkaline Phosphatase (ALP) is a zinc metalloenzyme that hydrolyzes phosphate monoesters under alkaline conditions. It is heavily expressed in liver, bone, placenta, intestine, and kidneys. Clinically, elevated ALP indicates biliary obstruction, cholestasis, hepatitis, or osteoblastic bone disorders.</p>
+          <p><strong>Assay Principle:</strong> In alkaline carbonate-bicarbonate buffer (pH 10.0), ALP catalyzes the hydrolysis of disodium phenyl phosphate to generate free phenol and inorganic phosphate. Phenol reacts with 4-aminoantipyrine (4-AAP) and potassium ferricyanide in alkaline medium to form a red quinone imine dye, quantified at 510 nm.</p>
         
               </div>
               
@@ -278,25 +278,25 @@
                 <h2 class="text-lg font-headline text-on-surface flex items-center gap-2 font-semibold">
                   <span class="material-symbols-outlined text-primary">format_list_numbered</span> Usage Procedure
                 </h2>
-                
+                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('serum_alp_sop')" id="tab-btn-serum_alp_sop" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">Serum & Plasma SOP</button><button onclick="switchTab('tissue_alp_sop')" id="tab-btn-tissue_alp_sop" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">Tissue Homogenate SOP</button></div>
               </div>
               <div class="p-5">
                 
-        <div id="proc-content-microplate_protocol" class="proc-tab-content ">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Microplate Assay Procedure</h3>
+        <div id="proc-content-serum_alp_sop" class="proc-tab-content ">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Serum / Plasma ALP Determination Protocol</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Sample Preparation</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Collect serum/plasma (avoid EDTA/citrate anticoagulants as they chelate divalent ions like Mg2+/Zn2+). Homogenize tissue samples in 0.9% NaCl (1:9 w/v).</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Use heparin anticoagulation or plain serum.</span></div>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Prepare Standard Dilution Series</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Prepare phenol standards: 0, 0.025, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5 mg/mL in distilled water. Pipette 5 µL per well.</p>
+                    
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15 mins
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
                     </span>
                 </div>
                 </div>
@@ -305,8 +305,8 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Reagent Pipetting</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">In 96-well plate, add 50 µL Buffer Solution and 50 µL Substrate Solution to sample and control wells. Add 5 µL sample to sample wells.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Sample & Buffer Addition</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 5 µL sample to Sample wells. Set up Control wells with 5 µL sample (substrate omitted during 37°C incubation). Add 50 µL Buffer Solution and 50 µL Substrate Solution to Standard and Sample wells.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -320,8 +320,8 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Enzyme Incubation</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Mix well and incubate plate at 37°C for 15 minutes.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Incubation at 37°C</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Incubate plate at 37°C for exactly 15 minutes in a microplate incubator.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -335,8 +335,8 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Color Development</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 50 µL Chromogenic Reagent and 50 µL Oxidizing Reagent to all wells. Add 5 µL sample to blank/control wells now.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Color Development & Stop</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 150 µL Chromogenic Developer to all wells (and add 50 µL Substrate to Control wells now). Mix thoroughly.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -350,13 +350,64 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Incubation & Measurement</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Incubate at room temperature for 10 minutes. Measure optical density at 520 nm (or 510–530 nm).</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Color Stabilization & Readout</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Allow red color to stabilize at room temperature for 10 minutes. Measure absorbance at 510 nm.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
                         <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-tissue_alp_sop" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Tissue Homogenate ALP Determination Protocol</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Tissue Extraction & Homogenization</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Weigh tissue accurately. Add ice-cold 0.9% NaCl at 1:9 (w/v). Homogenize mechanically on ice.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Centrifugation & Protein Quantification</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Centrifuge homogenate at 10,000 × g for 10 minutes at 4°C. Harvest supernatant and determine protein concentration (Cpr in gprot/L).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Enzyme Reaction & Development</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Pipette 5 µL supernatant, 50 µL Buffer, 50 µL Substrate. Incubate at 37°C for 15 min, add 150 µL Developer, incubate at RT for 10 min, read at 510 nm.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
                     </span>
                 </div>
                 </div>
@@ -370,19 +421,19 @@
         <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 md:p-6 relative overflow-hidden mt-6">
             <div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
             <h2 class="text-lg font-headline text-on-surface mb-3 flex items-center gap-2 font-semibold">
-                <span class="material-symbols-outlined text-tertiary">calculate</span> Standard Curve & Mathematical Calculation (EEA002)
+                <span class="material-symbols-outlined text-tertiary">calculate</span> Phenol Standard Curve & Mathematical Calculation (EEA002)
             </h2>
             
             <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto">
-                Serum: ALP (King Unit/100 mL) = [(ΔA - b) / a] × V1 × f 
-Tissue: ALP (King Unit/gprot) = [(ΔA - b) / a] × f / Cpr
+                Serum: ALP (King Unit/100 mL) = (ΔA - b) / a × 100 × f 
+Tissue: ALP (King Unit/gprot) = (ΔA - b) / a / Cpr × f
             </div>
             <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
                 
               <div class="space-y-2">
-                <p><strong>1. Phenol Standard Curve:</strong> Plot absolute standard OD ($\Delta A = OD_{std} - OD_{blank}$) as y-axis against phenol concentration ($0, 0.025, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5$ mg/mL) as x-axis. Fit linear curve: $\Delta A = a \cdot C + b$. Calibrated constants: <code>a ≈ 3.0058</code>, <code>b ≈ 0.0079</code>.</p>
-                <p><strong>2. Unit Definition:</strong> 1 King Unit represents 1 mg of phenol liberated by 100 mL of sample in 15 minutes at 37°C ($V_1 = 100$ mL).</p>
-                <p><strong>3. Tissue Normalization:</strong> For tissue/cell samples, divide by protein concentration $C_{pr}$ (gprot/L) to obtain King Unit/gprot.</p>
+                <p><strong>1. Phenol Standard Curve:</strong> Plot standard net OD ($\Delta A = OD_{std} - OD_{blank}$) as y-axis against phenol concentration ($0, 0.025, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5$ mg/mL) as x-axis. Fit linear curve: $\Delta A = a \cdot C + b$. Calibrated constants: <code>a = 3.0058</code>, <code>b = 0.0079</code>.</p>
+                <p><strong>2. Unit Definition (King Unit):</strong> 1 King Unit is defined as 100 mL serum reacting with substrate at 37°C for 15 minutes to produce 1 mg phenol.</p>
+                <p><strong>3. Formula:</strong> $\Delta A = OD_{sample} - OD_{control}$. $f$ = dilution factor; $C_{pr}$ = tissue protein concentration (gprot/L).</p>
               </div>
             
             </div>
@@ -576,47 +627,47 @@ Tissue: ALP (King Unit/gprot) = [(ΔA - b) / a] × f / Cpr
                     
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Buffer Solution (pH 10.0)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">2-8°C</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Buffer Solution (Carbonate/Bicarbonate pH 10.0)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">4°C</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">25 mL</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">18 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Substrate Solution (Disodium Phenyl Phosphate)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">-20°C, avoid light</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">4°C, avoid light</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">25 mL</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">18 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Phenol Standard Solution (1.0 mg/mL)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">2-8°C</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Phenol Standard Solution (0.1 mg/mL)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">4°C</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 mL</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1.5 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Chromogenic Reagent (4-Aminoantipyrine)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">2-8°C, avoid light</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Chromogenic Developer (4-AAP + Potassium Ferricyanide)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">4°C, protect from light</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">25 mL</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">50 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Oxidizing Reagent (Potassium Ferricyanide)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">2-8°C, avoid light</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Microplate Strips</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">25 mL</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">96 wells</span>
             </td>
         </tr>
                   </tbody>
@@ -647,15 +698,15 @@ Tissue: ALP (King Unit/gprot) = [(ΔA - b) / a] × f / Cpr
                 
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Do not use EDTA, oxalate, or citrate tubes as they inhibit ALP by chelating essential zinc/magnesium ions.</span>
+            <span class="leading-relaxed">Protect chromogenic developer from direct light; store in amber bottle at 4°C.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Reagents containing 4-aminoantipyrine and potassium ferricyanide must be protected from light.</span>
+            <span class="leading-relaxed">Do not use EDTA or citrate anticoagulants as they chelate zinc and magnesium required for ALP activity.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Hemolyzed samples will falsely elevate ALP results.</span>
+            <span class="leading-relaxed">Incubation time must be exactly 15 minutes at 37°C.</span>
         </li>
               </ul>
             </section>
@@ -667,7 +718,7 @@ Tissue: ALP (King Unit/gprot) = [(ΔA - b) / a] × f / Cpr
                 <h3 class="text-sm font-headline text-on-surface font-semibold">Expected Results</h3>
               </div>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Normal human adult serum ALP ranges between 40–150 U/L (approx. 3–13 King Units). Significant elevations occur in biliary obstruction, osteoblast activity, and bone metastasis.
+                Normal adult human serum ALP ranges from 40–150 IU/L (or 3–13 King Units/100 mL). Marked increases occur in biliary obstruction and Paget's disease.
               </p>
             </div>
 

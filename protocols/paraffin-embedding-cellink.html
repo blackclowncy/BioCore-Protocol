@@ -225,8 +225,8 @@
               </h2>
               <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
                 
-          <p>This protocol describes the standard operating procedure for paraffin embedding of fixed, cell-laden 3D bioprinted constructs. Validated across CELLINK bioinks including alginate, nanofibrillated cellulose (NFC), collagen, and GelMA-based formulations.</p>
-          <p><strong>Objective:</strong> Provides robust mechanical support for histological microtome sectioning (4–8 µm) to facilitate downstream H&E, Masson's Trichrome, immunohistochemistry (IHC), and immunofluorescence (IF) microscopy.</p>
+          <p>The <strong>Paraffin-Embedding Protocol for Cell-Laden Constructs (CELLINK)</strong> provides standardized fixation, dehydration, clearing, and infiltration procedures for 3D bioprinted hydrogel constructs (e.g. GelMA, CELLINK Bioink, alginate, collagen) and tissue-engineered scaffolds.</p>
+          <p><strong>Methodological Principle:</strong> Hydrogel biomaterials possess high water content (>90%) and delicate polymeric networks. This protocol ensures complete preservation of cellular morphology and hydrogel crosslinking while executing gradual dehydration and paraffin infiltration without construct shrinkage, collapse, or matrix dissolution.</p>
         
               </div>
               
@@ -278,25 +278,25 @@
                 <h2 class="text-lg font-headline text-on-surface flex items-center gap-2 font-semibold">
                   <span class="material-symbols-outlined text-primary">format_list_numbered</span> Usage Procedure
                 </h2>
-                
+                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('cellink_fix_dehydrate')" id="tab-btn-cellink_fix_dehydrate" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">1. Fixation & Dehydration</button><button onclick="switchTab('cellink_clear_embed')" id="tab-btn-cellink_clear_embed" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">2. Clearing & Infiltration</button></div>
               </div>
               <div class="p-5">
                 
-        <div id="proc-content-embedding_workflow" class="proc-tab-content ">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Construct Dehydration, Infiltration & Embedding</h3>
+        <div id="proc-content-cellink_fix_dehydrate" class="proc-tab-content ">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Construct Fixation and Graded Ethanol Dehydration</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Construct Fixation & Washing</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Fix bioprinted constructs in 4% paraformaldehyde (PFA) for 2–4 hours (or overnight at 4°C). Wash 3 times with PBS.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Construct Harvest & PFA Fixation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Wash 3D bioprinted constructs gently with 1X PBS. Immerse in 4% PFA in PBS. Fix at 4°C for 2–4 hours (for constructs < 2 mm thick) or overnight at 4°C (for constructs > 5 mm thick).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> Overnight / 2 hrs
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2–4 hours / Overnight
                     </span>
                 </div>
                 </div>
@@ -305,13 +305,13 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Graded Ethanol Dehydration</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Sequentially dehydrate constructs in 70% EtOH (30 mins), 80% EtOH (30 mins), 95% EtOH (30 mins), and 100% EtOH (2 changes, 30 mins each).</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">PBS Wash</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Wash fixed constructs in 1X PBS on a gentle rocker 3 times for 10 minutes each at room temperature.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2.5 hrs
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
                     </span>
                 </div>
                 </div>
@@ -320,13 +320,75 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Clearing with Xylene</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Transfer constructs into 1:1 Ethanol/Xylene mixture for 20 mins, followed by pure Xylene (2 changes, 20 mins each) in a chemical fume hood.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Graded Dehydration Series</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Transfer constructs sequentially through graded ethanols on a gentle rocker:
+• 70% Ethanol: 30 minutes
+• 80% Ethanol: 30 minutes
+• 95% Ethanol: 30 minutes
+• 100% Ethanol I: 30 minutes
+• 100% Ethanol II: 30 minutes</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Gradual step-wise dehydration prevents rapid osmotic shock and hydrogel distortion.</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2.5 hours
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-cellink_clear_embed" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Xylene Clearing, Paraffin Infiltration & Block Casting</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Xylene Clearing</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Transfer constructs in histological cassettes into histological xylene inside a fume hood:
+• Xylene I: 20–30 minutes
+• Xylene II: 20–30 minutes
+(Construct will transition from opaque to translucent).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 1 hr
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 40–60 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Molten Paraffin Infiltration (56–58°C)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Transfer cassettes into molten paraffin wax held in a 58°C embedding center:
+• Paraffin Bath I: 45–60 minutes at 56–58°C
+• Paraffin Bath II: 45–60 minutes at 56–58°C
+• Paraffin Bath III (Vacuum optional, 15 inHg): 45–60 minutes at 56–58°C</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2.5–3 hours
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Mold Orientation & Solidification</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Dispense molten paraffin into stainless steel base molds. Using warm forceps, position construct flat or on-edge (for cross-sectional viewing). Place cassette base over mold, top with paraffin, and transfer to a cold plate (-4°C to 0°C) for 30 minutes until fully solidified.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
                     </span>
                 </div>
                 </div>
@@ -335,28 +397,13 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Paraffin Infiltration</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Immerse constructs into molten paraffin wax at 58–60°C (2 changes, 1 hour each, followed by overnight vacuum infiltration if needed).</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Microtome Sectioning</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Trim paraffin blocks and section on a rotary microtome at 4–7 µm. Float ribbons on a 42°C water bath and mount onto positively charged slides.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2 hrs to Overnight
-                    </span>
-                </div>
-                </div>
-            </div>
-            <!-- Step 5 -->
-            <div class="flex gap-3.5 relative">
-                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Mold Embedding & Solidification</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Position construct in embedding mold with heated forceps. Fill with molten paraffin, transfer to cold plate (0 to -4°C) to solidify into a firm block.</p>
-                    
-                    
-                <div class="flex gap-3 mt-3">
-                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> Variable
                     </span>
                 </div>
                 </div>
@@ -395,11 +442,11 @@
                     
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Histological Grade Paraffin Wax (mp 56-58°C)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">4% Paraformaldehyde (PFA) in PBS (pH 7.4)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">4°C, freshly prepared</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Pellets</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">100 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
@@ -408,25 +455,34 @@
                 <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">100 mL each</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">500 mL each</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Xylene / HistoChoice Clearing Agent</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Fume hood</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Xylene (Histological Grade)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp, chemical fume hood</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">100 mL</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">500 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Tissue Embedding Cassettes & Molds</div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Histological Paraffin Wax (Paraplast, Melting Point 56–58°C)</div>
                 <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Assorted</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 kg</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Embedding Cassettes & Stainless Steel Molds</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">As needed</span>
             </td>
         </tr>
                   </tbody>
@@ -457,15 +513,15 @@
                 
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Do not exceed 62°C paraffin bath temperature; excessive heat will harden hydrogel networks and degrade antigenicity.</span>
+            <span class="leading-relaxed">Do not allow molten paraffin temperature to exceed 62°C to prevent tissue/hydrogel hardening and thermal damage.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Hydrogel constructs can be fragile; handle with flat-tipped spatulas or plastic transfer pipettes.</span>
+            <span class="leading-relaxed">Perform all xylene and PFA handling inside a certified chemical fume hood.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Ensure full xylene evaporation/infiltration before cooling block to prevent soft centers during sectioning.</span>
+            <span class="leading-relaxed">Fragile hydrogels (e.g. low-density GelMA or collagen) can be wrapped in lens paper before placing in cassettes to prevent fragmentation.</span>
         </li>
               </ul>
             </section>
@@ -477,7 +533,7 @@
                 <h3 class="text-sm font-headline text-on-surface font-semibold">Expected Results</h3>
               </div>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Homogeneous, bubble-free paraffin blocks capable of ribbon sectioning at 5 µm on standard rotary microtomes without construct distortion.
+                Solid, homogeneous paraffin blocks yielding intact 5 µm serial sections with intact hydrogel-cell architecture suitable for H&E, Masson's Trichrome, and immunostaining.
               </p>
             </div>
 

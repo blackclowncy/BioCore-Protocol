@@ -225,8 +225,12 @@
               </h2>
               <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
                 
-          <p>The LIVE/DEAD® Viability/Cytotoxicity Kit (L3224) provides a rapid two-color fluorescence cell viability assay based on simultaneous determination of live and dead cells using two independent physiological parameters: intracellular esterase activity and plasma membrane integrity.</p>
-          <p><strong>Probe Mechanics:</strong> Live cells are distinguished by enzymatic conversion of virtually non-fluorescent cell-permeant Calcein AM to intensely fluorescent calcein (green, Ex/Em ~494/517 nm). Ethidium homodimer-1 (EthD-1) enters cells with damaged membranes, binding nucleic acids to produce bright red fluorescence (Ex/Em ~528/617 nm).</p>
+          <p>The <strong>LIVE/DEAD® Viability/Cytotoxicity Kit (Thermo Fisher MP03224, Cat. L3224)</strong> provides a two-color fluorescence cell viability assay based on the simultaneous determination of live and dead cells with two distinct probes.</p>
+          <p><strong>Assay Principle:</strong></p>
+          <ul class="list-disc pl-5 space-y-1 text-xs sm:text-sm">
+            <li><strong>Calcein AM (Live Cell Marker):</strong> Non-fluorescent, cell-permeant dye. Ubiquitous intracellular esterase activity in live cells hydrolyzes Calcein AM to polyanionic green fluorescent calcein ($	ext{Ex/Em } 494/517	ext{ nm}$), retained within intact plasma membranes.</li>
+            <li><strong>Ethidium Homodimer-1 (EthD-1, Dead Cell Marker):</strong> Membrane-impermeant dye. Excluded by intact live cells; enters cells with damaged plasma membranes and binds to DNA/RNA with 40-fold fluorescence enhancement, producing bright red fluorescence ($	ext{Ex/Em } 528/617	ext{ nm}$).</li>
+          </ul>
         
               </div>
               
@@ -278,21 +282,21 @@
                 <h2 class="text-lg font-headline text-on-surface flex items-center gap-2 font-semibold">
                   <span class="material-symbols-outlined text-primary">format_list_numbered</span> Usage Procedure
                 </h2>
-                
+                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('adherent_cells')" id="tab-btn-adherent_cells" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">1. Adherent Cells (Microscopy)</button><button onclick="switchTab('suspension_cells')" id="tab-btn-suspension_cells" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">2. Suspension Cells SOP</button><button onclick="switchTab('microplate_reader')" id="tab-btn-microplate_reader" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">3. Microplate Reader SOP</button></div>
               </div>
               <div class="p-5">
                 
         <div id="proc-content-adherent_cells" class="proc-tab-content ">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Fluorescence Microscopy Protocol (Adherent Cultures)</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Adherent Mammalian Cells Fluorescence Microscopy Protocol</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Reagent Preparation</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Warm stock solutions to RT. In 10 mL sterile PBS or serum-free buffer, add 5 µL of 4 mM Calcein AM (final 2 µM) and 20 µL of 2 mM EthD-1 (final 4 µM). Vortex to mix.</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Prepare working solution fresh; Calcein AM hydrolyzes in aqueous solutions.</span></div>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Reagent Preparation & Working Solution</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Allow Calcein AM and EthD-1 vials to warm to room temperature. Prepare 10 mL of combined working solution in sterile DPBS: add 20 µL of EthD-1 (2 mM) to 10 mL DPBS (final 4 µM EthD-1), vortex. Then add 5 µL of Calcein AM (4 mM) (final 2 µM Calcein AM), vortex thoroughly.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Calcein AM is susceptible to moisture hydrolysis; prepare working solution freshly and use within 1 day.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -305,8 +309,8 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Wash Cells</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Wash adherent cells gently with warm PBS once or twice to remove serum esterases that hydrolyze calcein AM non-specifically.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Cell Washing</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Aspirate culture medium from adherent cells grown on glass coverslips, chamber slides, or multiwell plates. Wash gently with 100–500 µL of DPBS to remove serum esterases (which cause background Calcein hydrolysis).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -320,8 +324,8 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Incubation with Dye Solution</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Add sufficient working dye solution to cover cells (e.g. 100 µL per 96-well, 500 µL per 24-well). Incubate for 30–45 minutes at room temperature in the dark.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Staining Incubation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 100–150 µL of working dye solution per coverslip / well (ensure cell layer is completely submerged). Incubate at room temperature (20–25°C) in the dark for 30–45 minutes.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -335,8 +339,8 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Fluorescence Imaging</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Image cells directly without washing on inverted fluorescence microscope: FITC filter set for Calcein (Live) and Texas Red / Rhodamine filter set for EthD-1 (Dead).</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Mounting & Fluorescence Imaging</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Mount coverslip in 10 µL DPBS on a glass slide. Image immediately under a fluorescence microscope. Live cells fluoresce bright green (FITC filter: Ex 490 nm / Em 520 nm); dead cells fluoresce bright red (Texas Red/Rhodamine filter: Ex 528 nm / Em 617 nm).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -348,10 +352,131 @@
             </div>
             </div>
         </div>
+        <div id="proc-content-suspension_cells" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Suspension Cells & Flow Cytometry Protocol</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Cell Harvesting & Pellet Washing</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Harvest cell suspension. Centrifuge at 200–400 × g for 5 minutes. Discard supernatant and resuspend cell pellet in 1 mL DPBS. Centrifuge again to wash.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Staining Reaction</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Resuspend cell pellet in working dye solution (0.1–2 µM Calcein AM + 2–4 µM EthD-1 in DPBS) at a density of 1 × 10⁶ cells/mL. Incubate at room temperature in the dark for 30 minutes.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Flow Cytometry / Wet-Mount Analysis</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Apply 10–20 µL wet mount drop to a glass slide with coverslip for counting, or analyze directly on a flow cytometer using 488 nm argon laser excitation (Green channel: 530/30 nm; Red channel: 610/20 nm).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-microplate_reader" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Quantitative Microplate Fluorescence Reader Protocol</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Prepare Control Cell Populations</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Prepare Live Control (100% viable untreated cells) and Dead Control (cells killed by incubating in 70% ethanol or methanol for 30 minutes, washed in DPBS).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Plate Staining</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">In a 96-well plate, wash cells with DPBS, add 100 µL of working dye solution per well, and incubate at room temperature for 30–45 minutes in the dark.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30–45 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Two-Wavelength Fluorescence Readout</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Measure Green fluorescence at Ex 485 nm / Em 530 nm (live cells). Measure Red fluorescence at Ex 530 nm / Em 645 nm (dead cells).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
               </div>
             </section>
 
             
+        <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 md:p-6 relative overflow-hidden mt-6">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+            <h2 class="text-lg font-headline text-on-surface mb-3 flex items-center gap-2 font-semibold">
+                <span class="material-symbols-outlined text-tertiary">calculate</span> Quantitative Viability Percentage Formulas
+            </h2>
+            
+            <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto">
+                % Live Cells = [F(530)_sample - F(530)_min] / [F(530)_max - F(530)_min] × 100% 
+% Dead Cells = [F(645)_sample - F(645)_min] / [F(645)_max - F(645)_min] × 100%
+            </div>
+            <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
+                
+              <div class="space-y-2">
+                <p><strong>1. Calibration Constants:</strong> $F(530)_{max}$ is the green signal from 100% live controls; $F(530)_{min}$ is from 0% live (dead) controls. $F(645)_{max}$ is the red signal from 100% dead controls; $F(645)_{min}$ is from 100% live controls.</p>
+                <p><strong>2. Optical Filter Specs:</strong> Green (Calcein): Ex $485	ext{ nm}$, Em $530	ext{ nm}$. Red (EthD-1): Ex $530	ext{ nm}$, Em $645	ext{ nm}$.</p>
+              </div>
+            
+            </div>
+        </section>
 
             
 
@@ -381,7 +506,7 @@
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Calcein AM (4 mM in anhydrous DMSO)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">-20°C in desiccator, dark</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at ≤ -20°C, desiccated, avoid light</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
                 <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">40 µL</span>
@@ -389,8 +514,8 @@
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Ethidium Homodimer-1 (EthD-1, 2 mM in DMSO/H2O)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">-20°C, dark</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Ethidium Homodimer-1 (EthD-1, 2 mM in 1:4 DMSO:H2O)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at ≤ -20°C, avoid light</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
                 <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">200 µL</span>
@@ -398,11 +523,11 @@
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Product Information Sheet (MP 03224)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Ambient</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Dulbecco's Phosphate-Buffered Saline (DPBS, 1X)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 copy</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">500 mL (User supplied)</span>
             </td>
         </tr>
                   </tbody>
@@ -433,15 +558,15 @@
                 
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Wash away serum esterases thoroughly prior to staining; residual serum causes high background green fluorescence.</span>
+            <span class="leading-relaxed">Serum must be thoroughly washed away before Calcein AM staining; serum contains esterases that hydrolyze calcein non-specifically.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Protect dye stocks from light and atmospheric moisture; always store with desiccant at -20°C.</span>
+            <span class="leading-relaxed">EthD-1 is a potential mutagen/carcinogen (DNA intercalator); wear nitrile gloves and dispose of as hazardous waste.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">EthD-1 is a DNA-binding fluorophore; handle with standard mutagen safety precautions.</span>
+            <span class="leading-relaxed">Do not fix cells with formaldehyde after staining unless using fixable viability dyes, as fixation destroys membrane selectivity.</span>
         </li>
               </ul>
             </section>
@@ -453,7 +578,7 @@
                 <h3 class="text-sm font-headline text-on-surface font-semibold">Expected Results</h3>
               </div>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Live cells exhibit bright uniform green cytoplasmic fluorescence; dead or damaged cells show intense red nuclear staining with absent green cytoplasm.
+                Clear binary distinction: viable cells display bright, uniform green cytoplasm without nuclear red staining; dead/lysed cells show bright red condensed nuclei with no cytoplasmic green signal.
               </p>
             </div>
 

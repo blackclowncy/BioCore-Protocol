@@ -225,8 +225,8 @@
               </h2>
               <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
                 
-          <p>γ-Glutamyl transferase (γ-GT / GGT) is a membrane-bound glycoprotein that catalyzes the transfer of the γ-glutamyl moiety from glutathione (GSH) to acceptor amino acids or peptides. Highly expressed in liver, kidney, pancreas, and biliary epithelium.</p>
-          <p><strong>Assay Principle:</strong> GGT catalyzes the transfer of the γ-glutamyl group from L-γ-glutamyl-3-carboxy-4-nitroanilide (GPNA) to glycylglycine, generating 5-amino-2-nitrobenzoate (yellow chromophore). The rate of yellow product formation is monitored spectrophotometrically at 405–410 nm, which is directly proportional to GGT activity.</p>
+          <p>γ-Glutamyl Transferase (GGT / γ-GT) is a membrane-bound glycoprotein enzyme that catalyzes the transfer of γ-glutamyl groups from peptides like glutathione to other amino acids. It is highly abundant in the hepatobiliary tract, renal brush border, and pancreas.</p>
+          <p><strong>Assay Principle:</strong> GGT catalyzes the transfer of the glutamyl moiety from L-γ-glutamyl-3-carboxy-4-nitroanilide (GPNA) to glycylglycine, releasing yellow 5-amino-2-nitrobenzoate (or p-nitroaniline). The rate of yellow product formation is continuously monitored at 405–410 nm and is directly proportional to GGT activity.</p>
         
               </div>
               
@@ -278,20 +278,20 @@
                 <h2 class="text-lg font-headline text-on-surface flex items-center gap-2 font-semibold">
                   <span class="material-symbols-outlined text-primary">format_list_numbered</span> Usage Procedure
                 </h2>
-                
+                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('kinetic_ggt_sop')" id="tab-btn-kinetic_ggt_sop" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">Kinetic Assay SOP</button><button onclick="switchTab('standard_curve_ggt_sop')" id="tab-btn-standard_curve_ggt_sop" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">Endpoint & Standard Curve SOP</button></div>
               </div>
               <div class="p-5">
                 
-        <div id="proc-content-ggt_kinetic" class="proc-tab-content ">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Kinetic Microplate GGT Assay Procedure</h3>
+        <div id="proc-content-kinetic_ggt_sop" class="proc-tab-content ">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Continuous Kinetic GGT Activity Protocol</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Sample Preparation</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Serum or heparin plasma: Use undiluted. Tissue: Homogenize 100 mg tissue in 900 µL cold Assay Buffer, centrifuge at 12,000 × g (4°C) for 15 mins, collect supernatant.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Reagent Pre-warming</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Pre-warm Buffer and Substrate reagents in a 37°C water bath or incubator for 15 minutes before assay.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -305,13 +305,13 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Plate Loading & Reagent Addition</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Pipette 25 µL of sample, standard, or blank into 96-well plate. Add 50 µL of Substrate Solution + buffer mix to each well.</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Sample & Working Solution Addition</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Pipette 10 µL of serum, plasma, or clarified tissue homogenate into designated microplate wells. Immediately add 100 µL of working substrate mix (Buffer + Substrate 4:1 v/v).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> 3 mins
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2 mins
                     </span>
                 </div>
                 </div>
@@ -320,13 +320,49 @@
             <div class="flex gap-3.5 relative">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
                 <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Kinetic Measurement</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Immediately place plate in 37°C preheated microplate reader. Record initial absorbance at 405 nm ($A_1$), and record absorbance after $T = 5$ min ($A_2$).</p>
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Kinetic Absorbance Measurement</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Immediately place plate in a pre-warmed 37°C microplate reader. Read initial absorbance A1 at 405 nm (or 410 nm) at t = 1 min, and final absorbance A2 at t = 6 min (5-minute reaction interval). Calculate ΔA/min.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
                         <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-standard_curve_ggt_sop" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">p-Nitroaniline Standard Curve Protocol</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Prepare p-Nitroaniline Standards</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Prepare calibration standards: 0, 200, 400, 500, 600, 800, 900, 1000 µmol/L in buffer. Pipette 10 µL per well.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Incubation & Readout</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Add 100 µL buffer mix, incubate at 37°C for 5 minutes, and read absorbance at 405–410 nm. Plot linear standard curve ΔA = ax + b.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
                     </span>
                 </div>
                 </div>
@@ -340,19 +376,19 @@
         <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 md:p-6 relative overflow-hidden mt-6">
             <div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
             <h2 class="text-lg font-headline text-on-surface mb-3 flex items-center gap-2 font-semibold">
-                <span class="material-symbols-outlined text-tertiary">calculate</span> Standard Curve & Mathematical Calculation (EEA029)
+                <span class="material-symbols-outlined text-tertiary">calculate</span> Kinetic Formula & Calculation (EEA029)
             </h2>
             
             <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto">
-                Serum: GGT (U/L) = [(ΔA - b) / a] × (Vsubstrate / Vsample) × (1 / T) × f 
-Tissue: GGT (U/gprot) = [(ΔA - b) / a] × (Vsubstrate / Vsample) × [1 / (Cpr · T)] × f
+                Kinetic Formula: GGT (U/L) = (ΔA/min × Vtotal × 10⁶) / (ε × d × Vsample) × f 
+Tissue Formula: GGT (U/gprot) = GGT (U/L) / Cpr
             </div>
             <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
                 
               <div class="space-y-2">
-                <p><strong>1. Standard Curve Formulation:</strong> Plot standard OD ($0, 200, 400, 500, 600, 800, 900, 1000$ µmol/L) as y-axis against concentration as x-axis. Fit linear curve: $\Delta A = ax + b$ with <code>a ≈ 0.001824</code>, <code>b ≈ 0.01108</code>.</p>
-                <p><strong>2. Kinetic Delta Absorbance:</strong> $\Delta A_{sample} = A_2 - A_1$ over incubation time $T = 5$ min. $V_{substrate} = 50$ µL, $V_{sample} = 25$ µL (ratio = 2.0).</p>
-                <p><strong>3. Unit Definition:</strong> 1 Unit (U) is defined as the amount of enzyme generating 1 µmol of p-nitroaniline product per minute at 37°C.</p>
+                <p><strong>1. Kinetic Calculation:</strong> $\Delta A/	ext{min} = rac{A_2 - A_1}{T}$ (where $T = 5	ext{ min}$). $\epsilon$ is the millimolar extinction coefficient of 5-amino-2-nitrobenzoate ($9.5	ext{ L}\cdot	ext{mmol}^{-1}\cdot	ext{cm}^{-1}$ at 405 nm); $d$ = light path length ($0.6	ext{ cm}$ in standard 96-well); $V_{total} = 110	ext{ µL}$; $V_{sample} = 10	ext{ µL}$.</p>
+                <p><strong>2. Simplified Formula:</strong> $	ext{Serum GGT (U/L)} = \Delta A/	ext{min} 	imes 1158 	imes f$.</p>
+                <p><strong>3. Standard Curve Method:</strong> Plot standard OD as y-axis against concentration as x-axis. Fit linear curve: $\Delta A = ax + b$ with <code>a = 0.001824</code>, <code>b = 0.01108</code>.</p>
               </div>
             
             </div>
@@ -547,8 +583,8 @@ Tissue: GGT (U/gprot) = [(ΔA - b) / a] × (Vsubstrate / Vsample) × [1 / (Cpr �
                     
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Assay Buffer (pH 8.25, Tris-HCl)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">2-8°C</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Buffer Reagent (Tris-HCl + Glycylglycine, pH 8.25)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">2–8°C</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
                 <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">50 mL</span>
@@ -556,8 +592,8 @@ Tissue: GGT (U/gprot) = [(ΔA - b) / a] × (Vsubstrate / Vsample) × [1 / (Cpr �
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Substrate Solution (GPNA + Glycylglycine)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">-20°C, avoid light</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Substrate Reagent (GPNA Chromogenic Substrate)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">2–8°C, protect from light</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
                 <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">10 mL</span>
@@ -565,20 +601,20 @@ Tissue: GGT (U/gprot) = [(ΔA - b) / a] × (Vsubstrate / Vsample) × [1 / (Cpr �
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Calibrator / Standard (5-Amino-2-nitrobenzoate)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">2-8°C, avoid light</span></div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">p-Nitroaniline Standard Solution (1.0 mM)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">2–8°C</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 mL</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1.5 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
             <td class="py-2.5 px-3 align-top">
-                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">96-Well Clear Microplate</div>
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Microplate Strips</div>
                 <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
             </td>
             <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 plate</span>
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">96 wells</span>
             </td>
         </tr>
                   </tbody>
@@ -609,15 +645,15 @@ Tissue: GGT (U/gprot) = [(ΔA - b) / a] × (Vsubstrate / Vsample) × [1 / (Cpr �
                 
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Ensure microplate reader temperature is strictly stabilized at 37°C prior to initiating kinetic run.</span>
+            <span class="leading-relaxed">Maintain microplate reader chamber at exactly 37°C during kinetic monitoring.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Substrate solution is sensitive to ambient light; keep on ice and protected from light during assay setup.</span>
+            <span class="leading-relaxed">Avoid bubble formation during pipetting as bubbles will severely distort kinetic OD slopes.</span>
         </li>
         <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
             <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
-            <span class="leading-relaxed">Do not use citrate or fluoride anticoagulated plasma as they interfere with GGT activity.</span>
+            <span class="leading-relaxed">Heparin and EDTA plasma are acceptable; do not use fluoride or citrate.</span>
         </li>
               </ul>
             </section>
@@ -629,7 +665,7 @@ Tissue: GGT (U/gprot) = [(ΔA - b) / a] × (Vsubstrate / Vsample) × [1 / (Cpr �
                 <h3 class="text-sm font-headline text-on-surface font-semibold">Expected Results</h3>
               </div>
               <p class="text-xs text-on-surface-variant leading-relaxed">
-                Normal adult human serum GGT is typically 10–50 U/L. Marked elevations (> 100–500 U/L) are sensitive indicators of cholestasis, alcoholic liver disease, and biliary duct lesions.
+                Normal adult human serum GGT ranges from 10–60 U/L. GGT is highly sensitive to alcohol-induced liver injury and biliary obstruction.
               </p>
             </div>
 
