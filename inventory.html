@@ -80,7 +80,7 @@
 <body class="bg-background font-body text-on-background min-h-screen">
   <!-- Toast Notification Container -->
   <div id="toast" class="fixed bottom-8 right-8 bg-surface-container-high border border-primary/40 text-on-surface px-5 py-3 rounded-xl shadow-2xl z-50 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3">
-    <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+    <span id="toast-icon" class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
     <span id="toast-msg" class="text-sm font-medium">Notification</span>
   </div>
 
@@ -131,7 +131,7 @@
       <div class="flex-1 max-w-md">
         <div class="relative flex items-center">
           <span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span>
-          <input id="inv-search-input" class="w-full pl-10 pr-4 py-2 bg-surface-container border border-outline-variant rounded-lg focus:outline-none focus:border-primary text-sm text-on-surface placeholder:text-on-surface-variant/70" placeholder="Search reagents, antibiotics, infusion stocks..." type="text" oninput="filterInventory(this.value)"/>
+          <input id="inv-search-input" class="w-full pl-10 pr-4 py-2 bg-surface-container border border-outline-variant rounded-lg focus:outline-none focus:border-primary text-sm text-on-surface placeholder:text-on-surface-variant/70" placeholder="Search Drugs, Chemicals, Testing Kits, Manufacturers..." type="text" oninput="renderTable()"/>
         </div>
       </div>
       <nav class="flex items-center gap-8 h-full">
@@ -142,8 +142,9 @@
         <a class="text-sm text-on-surface-variant hover:text-on-surface transition-all h-full flex items-center px-1 border-b-2 border-transparent" href="index.html#safety">Safety</a>
       </nav>
       <div class="flex items-center gap-4 ml-6">
-        <button onclick="showToast('Live Inventory Synchronized with Google Sheet')" class="px-3 py-1.5 bg-primary/20 text-primary border border-primary/30 rounded-lg text-xs font-semibold flex items-center gap-1.5 hover:bg-primary/30 transition-all">
-          <span class="material-symbols-outlined text-[16px]">sync</span> Sync Google Sheet
+        <button id="sync-btn" onclick="syncGoogleSheet(true)" class="px-3 py-1.5 bg-primary/20 text-primary border border-primary/30 rounded-lg text-xs font-semibold flex items-center gap-1.5 hover:bg-primary/30 transition-all shadow-sm">
+          <span id="sync-icon" class="material-symbols-outlined text-[16px]">sync</span>
+          <span id="sync-text">Sync Google Sheet</span>
         </button>
       </div>
     </header>
@@ -156,11 +157,14 @@
         <div class="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
         <div>
           <div class="flex items-center gap-2 mb-1">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase bg-primary/20 text-primary border border-primary/30">Live Logistics & Stock</span>
-            <span class="text-xs font-mono text-on-surface-variant">Sheet ID: 1VxyGkDT...TeNueCQw</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase bg-primary/20 text-primary border border-primary/30 flex items-center gap-1">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Live Google Sheets Engine
+            </span>
+            <span id="last-sync-time" class="text-xs font-mono text-on-surface-variant">Auto-synced</span>
           </div>
-          <h1 class="font-headline text-2xl font-bold text-on-surface">Chemical & Perfusion Reagents Inventory</h1>
-          <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Central inventory tracking for perfusion buffers, antibiotic stocks, clinical infusions, electrolytes, and anticoagulants.</p>
+          <h1 class="font-headline text-2xl font-bold text-on-surface">Lab Inventory: Drugs, Chemicals & Testing Kits</h1>
+          <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Centralized reagent tracking categorized by Google Sheet standards: Drugs, Chemicals, and Testing Kits.</p>
         </div>
       </div>
 
@@ -171,594 +175,82 @@
             <span class="material-symbols-outlined text-2xl">inventory_2</span>
           </div>
           <div>
-            <span class="text-[11px] text-on-surface-variant uppercase font-bold tracking-wider block">Total Containers</span>
-            <span class="text-2xl font-bold text-primary font-mono">248</span>
-            <span class="text-[10px] text-on-surface-variant block">Across all product lines</span>
-          </div>
-        </div>
-
-        <div class="bg-surface-container/60 p-4 rounded-xl border border-white/5 flex items-center gap-3.5">
-          <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-300">
-            <span class="material-symbols-outlined text-2xl">science</span>
-          </div>
-          <div>
-            <span class="text-[11px] text-on-surface-variant uppercase font-bold tracking-wider block">Unique Chemicals</span>
-            <span class="text-2xl font-bold text-emerald-300 font-mono">18</span>
-            <span class="text-[10px] text-on-surface-variant block">Formulated formulations</span>
-          </div>
-        </div>
-
-        <div class="bg-surface-container/60 p-4 rounded-xl border border-white/5 flex items-center gap-3.5">
-          <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-300">
-            <span class="material-symbols-outlined text-2xl">domain</span>
-          </div>
-          <div>
-            <span class="text-[11px] text-on-surface-variant uppercase font-bold tracking-wider block">Manufacturers</span>
-            <span class="text-2xl font-bold text-amber-300 font-mono">13</span>
-            <span class="text-[10px] text-on-surface-variant block">Certified pharmaceutical vendors</span>
+            <span class="text-[11px] text-on-surface-variant uppercase font-bold tracking-wider block">Total Items</span>
+            <span id="kpi-total-items" class="text-2xl font-bold text-primary font-mono">53</span>
+            <span class="text-[10px] text-on-surface-variant block">Across all categories</span>
           </div>
         </div>
 
         <div class="bg-surface-container/60 p-4 rounded-xl border border-white/5 flex items-center gap-3.5">
           <div class="w-12 h-12 rounded-xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-300">
-            <span class="material-symbols-outlined text-2xl">verified</span>
+            <span class="material-symbols-outlined text-2xl">medication</span>
           </div>
           <div>
-            <span class="text-[11px] text-on-surface-variant uppercase font-bold tracking-wider block">Safety SDS Status</span>
-            <span class="text-2xl font-bold text-purple-300 font-mono">100%</span>
-            <span class="text-[10px] text-on-surface-variant block">Fully linked to Safety SDS</span>
+            <span class="text-[11px] text-on-surface-variant uppercase font-bold tracking-wider block">Drugs</span>
+            <span id="kpi-drugs" class="text-2xl font-bold text-purple-300 font-mono">18</span>
+            <span class="text-[10px] text-on-surface-variant block">Infusions & Anticoagulants</span>
+          </div>
+        </div>
+
+        <div class="bg-surface-container/60 p-4 rounded-xl border border-white/5 flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-amber-300">
+            <span class="material-symbols-outlined text-2xl">science</span>
+          </div>
+          <div>
+            <span class="text-[11px] text-on-surface-variant uppercase font-bold tracking-wider block">Chemicals</span>
+            <span id="kpi-chemicals" class="text-2xl font-bold text-amber-300 font-mono">14</span>
+            <span class="text-[10px] text-on-surface-variant block">Buffers & Solvents</span>
+          </div>
+        </div>
+
+        <div class="bg-surface-container/60 p-4 rounded-xl border border-white/5 flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-300">
+            <span class="material-symbols-outlined text-2xl">biotech</span>
+          </div>
+          <div>
+            <span class="text-[11px] text-on-surface-variant uppercase font-bold tracking-wider block">Testing Kits</span>
+            <span id="kpi-kits" class="text-2xl font-bold text-emerald-300 font-mono">21</span>
+            <span class="text-[10px] text-on-surface-variant block">Assay & Cartridge Kits</span>
           </div>
         </div>
       </div>
 
-      <!-- Filter Tabs -->
+      <!-- Google Sheet Exact Category Tabs -->
       <div class="flex items-center gap-2 overflow-x-auto pb-2" id="inv-filters">
-        <button onclick="setInvFilter('all')" class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-semibold text-xs transition-all shadow-sm" data-inv-filter="all">All Items (18)</button>
-        <button onclick="setInvFilter('perfusate')" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all" data-inv-filter="perfusate">Perfusate & Nutrition</button>
-        <button onclick="setInvFilter('antibiotic')" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all" data-inv-filter="antibiotic">Antibiotics</button>
-        <button onclick="setInvFilter('anticoagulant')" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all" data-inv-filter="anticoagulant">Anticoagulants</button>
-        <button onclick="setInvFilter('electrolyte')" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all" data-inv-filter="electrolyte">Electrolytes</button>
-        <button onclick="setInvFilter('saline')" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all" data-inv-filter="saline">Sterile Saline</button>
+        <button onclick="setInvCategory('all')" id="btn-cat-all" class="px-4 py-2 rounded-lg bg-primary text-on-primary font-semibold text-xs transition-all shadow-sm flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">apps</span>
+          All Reagents (<span id="count-all">53</span>)
+        </button>
+        <button onclick="setInvCategory('Drugs')" id="btn-cat-drugs" class="px-4 py-2 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px] text-purple-400">medication</span>
+          Drugs (<span id="count-drugs">18</span>)
+        </button>
+        <button onclick="setInvCategory('Chemicals')" id="btn-cat-chems" class="px-4 py-2 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px] text-amber-400">science</span>
+          Chemicals (<span id="count-chems">14</span>)
+        </button>
+        <button onclick="setInvCategory('Testing kits')" id="btn-cat-kits" class="px-4 py-2 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px] text-emerald-400">biotech</span>
+          Testing Kits (<span id="count-kits">21</span>)
+        </button>
       </div>
 
-      <!-- Inventory Table -->
+      <!-- Inventory Table Container -->
       <div class="bg-surface-container-low/60 rounded-xl border border-white/5 overflow-hidden shadow-xl">
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs border-collapse">
             <thead>
               <tr class="bg-surface-container-high/80 border-b border-white/10 text-on-surface text-[11px] uppercase tracking-wider font-semibold">
                 <th class="p-3.5">Chemical / Product Name</th>
-                <th class="p-3.5">Manufacturer</th>
                 <th class="p-3.5">Category</th>
+                <th class="p-3.5">Manufacturer</th>
                 <th class="p-3.5">Specification / Volume</th>
-                <th class="p-3.5 text-center">Stock Containers</th>
-                <th class="p-3.5 text-right">Actions</th>
+                <th class="p-3.5 text-center">Stock / Quantity</th>
+                <th class="p-3.5 text-right">SDS / Details</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-white/5" id="inv-table-body">
-              
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 inv-row"
-        data-name="50% dextrose injection, usp"
-        data-mfg="hospira"
-        data-cat="perfusate nutrition & colloid">
-      <td class="p-3.5 font-medium text-on-surface">
-        <div class="flex items-center gap-2.5">
-          <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">vaccines</span>
-          <span class="font-semibold">50% Dextrose Injection, USP</span>
-        </div>
-      </td>
-      <td class="p-3.5 text-on-surface-variant font-mono text-xs">Hospira</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-purple-500/20 text-purple-300 border-purple-500/30">
-          Perfusate Nutrition & Colloid
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">25 g/50 mL</td>
-      <td class="p-3.5 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-sm border border-primary/30 shadow-sm">
-          3
-        </span>
-      </td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/sds-50-dextrose-injection-usp.html" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">shield</span> SDS Info
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 inv-row"
-        data-name="albumin (human) 25%, usp (albuked 25)"
-        data-mfg="kedrion biopharma"
-        data-cat="perfusate nutrition & colloid">
-      <td class="p-3.5 font-medium text-on-surface">
-        <div class="flex items-center gap-2.5">
-          <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">vaccines</span>
-          <span class="font-semibold">Albumin (Human) 25%, USP (albuked 25)</span>
-        </div>
-      </td>
-      <td class="p-3.5 text-on-surface-variant font-mono text-xs">Kedrion Biopharma</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-purple-500/20 text-purple-300 border-purple-500/30">
-          Perfusate Nutrition & Colloid
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">25g/100 mL</td>
-      <td class="p-3.5 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-sm border border-primary/30 shadow-sm">
-          34
-        </span>
-      </td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/sds-albumin-human-25-usp-brand-name-albuked-25.html" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">shield</span> SDS Info
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 inv-row"
-        data-name="potassium chloride solution (0.075 m)"
-        data-mfg="gibco"
-        data-cat="electrolyte / buffer">
-      <td class="p-3.5 font-medium text-on-surface">
-        <div class="flex items-center gap-2.5">
-          <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">vaccines</span>
-          <span class="font-semibold">Potassium Chloride Solution (0.075 M)</span>
-        </div>
-      </td>
-      <td class="p-3.5 text-on-surface-variant font-mono text-xs">Gibco</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-amber-500/20 text-amber-300 border-amber-500/30">
-          Electrolyte / Buffer
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">100 mL</td>
-      <td class="p-3.5 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-sm border border-primary/30 shadow-sm">
-          4
-        </span>
-      </td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/sds-potassium-chloride-solution-0075-m.html" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">shield</span> SDS Info
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 inv-row"
-        data-name="vitamin b complex hp injection"
-        data-mfg="vetone"
-        data-cat="perfusate nutrition & colloid">
-      <td class="p-3.5 font-medium text-on-surface">
-        <div class="flex items-center gap-2.5">
-          <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">vaccines</span>
-          <span class="font-semibold">Vitamin B Complex HP Injection</span>
-        </div>
-      </td>
-      <td class="p-3.5 text-on-surface-variant font-mono text-xs">VetOne</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-purple-500/20 text-purple-300 border-purple-500/30">
-          Perfusate Nutrition & Colloid
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">500 mL</td>
-      <td class="p-3.5 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-sm border border-primary/30 shadow-sm">
-          1
-        </span>
-      </td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/sds-vitamin-b-complex-hp-injection.html" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">shield</span> SDS Info
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 inv-row"
-        data-name="cefuroxime for injection, usp"
-        data-mfg="hikma pharmaceuticals"
-        data-cat="antibiotics">
-      <td class="p-3.5 font-medium text-on-surface">
-        <div class="flex items-center gap-2.5">
-          <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">vaccines</span>
-          <span class="font-semibold">Cefuroxime for Injection, USP</span>
-        </div>
-      </td>
-      <td class="p-3.5 text-on-surface-variant font-mono text-xs">Hikma Pharmaceuticals</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-emerald-500/20 text-emerald-300 border-emerald-500/30">
-          Antibiotics
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">750 mg</td>
-      <td class="p-3.5 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-sm border border-primary/30 shadow-sm">
-          27
-        </span>
-      </td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/sds-cefuroxime-for-injection-usp.html" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">shield</span> SDS Info
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 inv-row"
-        data-name="servator b salf solution"
-        data-mfg="s.a.l.f. s.p.a."
-        data-cat="clinical infusion / solution">
-      <td class="p-3.5 font-medium text-on-surface">
-        <div class="flex items-center gap-2.5">
-          <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">vaccines</span>
-          <span class="font-semibold">SERVATOR B SALF Solution</span>
-        </div>
-      </td>
-      <td class="p-3.5 text-on-surface-variant font-mono text-xs">S.A.L.F. S.p.A.</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-primary/20 text-primary border-primary/30">
-          Clinical Infusion / Solution
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">2000 mL</td>
-      <td class="p-3.5 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-sm border border-primary/30 shadow-sm">
-          5
-        </span>
-      </td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/sds-servator-b-salf-solution.html" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">shield</span> SDS Info
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 inv-row"
-        data-name="humulin r (insulin human) injection, u-100"
-        data-mfg="lilly"
-        data-cat="clinical infusion / solution">
-      <td class="p-3.5 font-medium text-on-surface">
-        <div class="flex items-center gap-2.5">
-          <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">vaccines</span>
-          <span class="font-semibold">Humulin R (insulin human) injection, U-100</span>
-        </div>
-      </td>
-      <td class="p-3.5 text-on-surface-variant font-mono text-xs">Lilly</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-primary/20 text-primary border-primary/30">
-          Clinical Infusion / Solution
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">10 mL (100 units per mL)</td>
-      <td class="p-3.5 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-sm border border-primary/30 shadow-sm">
-          5
-        </span>
-      </td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/sds-humulin-r-insulin-human-injection-u-100.html" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">shield</span> SDS Info
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 inv-row"
-        data-name="meropenem for injection, usp (i.v.)"
-        data-mfg="eugia"
-        data-cat="antibiotics">
-      <td class="p-3.5 font-medium text-on-surface">
-        <div class="flex items-center gap-2.5">
-          <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">vaccines</span>
-          <span class="font-semibold">Meropenem for Injection, USP (I.V.)</span>
-        </div>
-      </td>
-      <td class="p-3.5 text-on-surface-variant font-mono text-xs">Eugia</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-emerald-500/20 text-emerald-300 border-emerald-500/30">
-          Antibiotics
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">500 mg/vial</td>
-      <td class="p-3.5 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-sm border border-primary/30 shadow-sm">
-          14
-        </span>
-      </td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/sds-meropenem-for-injection-usp-iv.html" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">shield</span> SDS Info
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 inv-row"
-        data-name="clinimix e with electrolytes"
-        data-mfg="baxter"
-        data-cat="perfusate nutrition & colloid">
-      <td class="p-3.5 font-medium text-on-surface">
-        <div class="flex items-center gap-2.5">
-          <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">vaccines</span>
-          <span class="font-semibold">CLINIMIX E with ELECTROLYTES</span>
-        </div>
-      </td>
-      <td class="p-3.5 text-on-surface-variant font-mono text-xs">Baxter</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-purple-500/20 text-purple-300 border-purple-500/30">
-          Perfusate Nutrition & Colloid
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">1000 mL</td>
-      <td class="p-3.5 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-sm border border-primary/30 shadow-sm">
-          4
-        </span>
-      </td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/sds-clinimix-e-with-electrolytes.html" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">shield</span> SDS Info
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 inv-row"
-        data-name="sterile saline solution"
-        data-mfg="ufc bio"
-        data-cat="saline carrier">
-      <td class="p-3.5 font-medium text-on-surface">
-        <div class="flex items-center gap-2.5">
-          <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">vaccines</span>
-          <span class="font-semibold">Sterile Saline Solution</span>
-        </div>
-      </td>
-      <td class="p-3.5 text-on-surface-variant font-mono text-xs">UFC Bio</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-blue-500/20 text-blue-300 border-blue-500/30">
-          Saline Carrier
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">500 mL</td>
-      <td class="p-3.5 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-sm border border-primary/30 shadow-sm">
-          14
-        </span>
-      </td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/sds-saline-solution-09.html" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">shield</span> SDS Info
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 inv-row"
-        data-name="sterile saline solution"
-        data-mfg="grifols"
-        data-cat="saline carrier">
-      <td class="p-3.5 font-medium text-on-surface">
-        <div class="flex items-center gap-2.5">
-          <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">vaccines</span>
-          <span class="font-semibold">Sterile Saline Solution</span>
-        </div>
-      </td>
-      <td class="p-3.5 text-on-surface-variant font-mono text-xs">Grifols</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-blue-500/20 text-blue-300 border-blue-500/30">
-          Saline Carrier
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">1000 mL</td>
-      <td class="p-3.5 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-sm border border-primary/30 shadow-sm">
-          28
-        </span>
-      </td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/sds-saline-solution-09.html" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">shield</span> SDS Info
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 inv-row"
-        data-name="sterile saline solution"
-        data-mfg="grifols"
-        data-cat="saline carrier">
-      <td class="p-3.5 font-medium text-on-surface">
-        <div class="flex items-center gap-2.5">
-          <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">vaccines</span>
-          <span class="font-semibold">Sterile Saline Solution</span>
-        </div>
-      </td>
-      <td class="p-3.5 text-on-surface-variant font-mono text-xs">Grifols</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-blue-500/20 text-blue-300 border-blue-500/30">
-          Saline Carrier
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">100 mL</td>
-      <td class="p-3.5 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-sm border border-primary/30 shadow-sm">
-          5
-        </span>
-      </td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/sds-saline-solution-09.html" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">shield</span> SDS Info
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 inv-row"
-        data-name="heparin sodium injection, usp"
-        data-mfg="auromedics pharma llc"
-        data-cat="anticoagulant">
-      <td class="p-3.5 font-medium text-on-surface">
-        <div class="flex items-center gap-2.5">
-          <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">vaccines</span>
-          <span class="font-semibold">Heparin Sodium Injection, USP</span>
-        </div>
-      </td>
-      <td class="p-3.5 text-on-surface-variant font-mono text-xs">AuroMedics Pharma LLC</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-rose-500/20 text-rose-300 border-rose-500/30">
-          Anticoagulant
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">30 mL (30,000 USP units)</td>
-      <td class="p-3.5 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-sm border border-primary/30 shadow-sm">
-          1
-        </span>
-      </td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/sds-heparin-sodium-injection-usp.html" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">shield</span> SDS Info
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 inv-row"
-        data-name="8.4% sodium bicarbonate injection"
-        data-mfg="exela pharma sciences"
-        data-cat="electrolyte / buffer">
-      <td class="p-3.5 font-medium text-on-surface">
-        <div class="flex items-center gap-2.5">
-          <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">vaccines</span>
-          <span class="font-semibold">8.4% Sodium Bicarbonate Injection</span>
-        </div>
-      </td>
-      <td class="p-3.5 text-on-surface-variant font-mono text-xs">Exela Pharma Sciences</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-amber-500/20 text-amber-300 border-amber-500/30">
-          Electrolyte / Buffer
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">50 mL</td>
-      <td class="p-3.5 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-sm border border-primary/30 shadow-sm">
-          47
-        </span>
-      </td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/sds-84-sodium-bicarbonate-injection.html" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">shield</span> SDS Info
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 inv-row"
-        data-name="calcium gluconate injection, usp"
-        data-mfg="fresenius kabi usa, llc"
-        data-cat="electrolyte / buffer">
-      <td class="p-3.5 font-medium text-on-surface">
-        <div class="flex items-center gap-2.5">
-          <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">vaccines</span>
-          <span class="font-semibold">Calcium Gluconate Injection, USP</span>
-        </div>
-      </td>
-      <td class="p-3.5 text-on-surface-variant font-mono text-xs">Fresenius Kabi USA, LLC</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-amber-500/20 text-amber-300 border-amber-500/30">
-          Electrolyte / Buffer
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">100 mL (10,000 mg)</td>
-      <td class="p-3.5 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-sm border border-primary/30 shadow-sm">
-          5
-        </span>
-      </td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/sds-calcium-gluconate-injection-usp.html" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">shield</span> SDS Info
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 inv-row"
-        data-name="10% lmd dextran 40 in 5% dextrose injection, usp"
-        data-mfg="hospira, inc."
-        data-cat="perfusate nutrition & colloid">
-      <td class="p-3.5 font-medium text-on-surface">
-        <div class="flex items-center gap-2.5">
-          <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">vaccines</span>
-          <span class="font-semibold">10% LMD DEXTRAN 40 in 5% Dextrose Injection, USP</span>
-        </div>
-      </td>
-      <td class="p-3.5 text-on-surface-variant font-mono text-xs">Hospira, Inc.</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-purple-500/20 text-purple-300 border-purple-500/30">
-          Perfusate Nutrition & Colloid
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">500 mL</td>
-      <td class="p-3.5 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-sm border border-primary/30 shadow-sm">
-          10
-        </span>
-      </td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/sds-10-lmd-dextran-40-in-5-dextrose-injection-usp.html" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">shield</span> SDS Info
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 inv-row"
-        data-name="1000 usp/ml heparin"
-        data-mfg="pfizer"
-        data-cat="anticoagulant">
-      <td class="p-3.5 font-medium text-on-surface">
-        <div class="flex items-center gap-2.5">
-          <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">vaccines</span>
-          <span class="font-semibold">1000 USP/ml Heparin</span>
-        </div>
-      </td>
-      <td class="p-3.5 text-on-surface-variant font-mono text-xs">Pfizer</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-rose-500/20 text-rose-300 border-rose-500/30">
-          Anticoagulant
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">2 mL</td>
-      <td class="p-3.5 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-sm border border-primary/30 shadow-sm">
-          16
-        </span>
-      </td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/sds-heparin-sodium-injection-usp.html" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">shield</span> SDS Info
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 inv-row"
-        data-name="heparin sodium injection, usp"
-        data-mfg="meitheal pharmaceuticals"
-        data-cat="anticoagulant">
-      <td class="p-3.5 font-medium text-on-surface">
-        <div class="flex items-center gap-2.5">
-          <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">vaccines</span>
-          <span class="font-semibold">Heparin Sodium Injection, USP</span>
-        </div>
-      </td>
-      <td class="p-3.5 text-on-surface-variant font-mono text-xs">Meitheal Pharmaceuticals</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border bg-rose-500/20 text-rose-300 border-rose-500/30">
-          Anticoagulant
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">1 mL (10,000 USP units)</td>
-      <td class="p-3.5 text-center">
-        <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-sm border border-primary/30 shadow-sm">
-          25
-        </span>
-      </td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/sds-heparin-sodium-injection-usp.html" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">shield</span> SDS Info
-        </a>
-      </td>
-    </tr>
-    
+              <!-- Dynamically rendered -->
             </tbody>
           </table>
         </div>
@@ -767,58 +259,229 @@
   </div>
 
   <script>
-    function showToast(msg) {
+    const SPREADSHEET_ID = '1VxyGkDTWfMWHz5O-wltK9y-I5SrC7m0Z_l-TeNueCQw';
+    let currentCategory = 'all';
+    let inventoryData = [{"category": "Drugs", "qty": "3", "vol": "25 g/50 mL", "name": "50% Dextrose Injection, USP", "mfg": "Hospira"}, {"category": "Drugs", "qty": "34", "vol": "25g/100 mL", "name": "Albumin (Human) 25%, USP (albuked 25)", "mfg": "Kedrion Biopharma"}, {"category": "Drugs", "qty": "4", "vol": "100 mL", "name": "Potassium Chloride Solution (0.075 M)", "mfg": "Gibco"}, {"category": "Drugs", "qty": "1", "vol": "500 mL", "name": "Vitamin B Complex HP Injection", "mfg": "VetOne"}, {"category": "Drugs", "qty": "27", "vol": "750 mg", "name": "Cefuroxime for Injection, USP", "mfg": "Hikma Pharmaceuticals"}, {"category": "Drugs", "qty": "5", "vol": "2000 mL", "name": "SERVATOR B SALF Solution", "mfg": "S.A.L.F. S.p.A."}, {"category": "Drugs", "qty": "5", "vol": "10 mL (100 units per mL)", "name": "Humulin R (insulin human) injection, U-100", "mfg": "Lilly"}, {"category": "Drugs", "qty": "14", "vol": "500 mg/vial", "name": "Meropenem for Injection, USP (I.V.)", "mfg": "Eugia"}, {"category": "Drugs", "qty": "4", "vol": "1000 mL", "name": "CLINIMIX E with ELECTROLYTES", "mfg": "Baxter"}, {"category": "Drugs", "qty": "14", "vol": "500 mL", "name": "Sterile Saline Solution", "mfg": "UFC Bio"}, {"category": "Drugs", "qty": "28", "vol": "1000 mL", "name": "Sterile Saline Solution", "mfg": "Grifols"}, {"category": "Drugs", "qty": "5", "vol": "100 mL", "name": "Sterile Saline Solution", "mfg": "Grifols"}, {"category": "Drugs", "qty": "1", "vol": "30 mL (30,000 USP units)", "name": "Heparin Sodium Injection, USP", "mfg": "AuroMedics Pharma LLC"}, {"category": "Drugs", "qty": "47", "vol": "50 mL", "name": "8.4% Sodium Bicarbonate Injection", "mfg": "Exela Pharma Sciences"}, {"category": "Drugs", "qty": "5", "vol": "100 mL (10,000 mg)", "name": "Calcium Gluconate Injection, USP", "mfg": "Fresenius Kabi USA, LLC"}, {"category": "Drugs", "qty": "10", "vol": "500 mL", "name": "10% LMD DEXTRAN 40 in 5% Dextrose Injection, USP", "mfg": "Hospira, Inc."}, {"category": "Drugs", "qty": "16", "vol": "2 mL", "name": "1000 USP/ml Heparin", "mfg": "Pfizer"}, {"category": "Drugs", "qty": "25", "vol": "1 mL (10,000 USP units)", "name": "Heparin Sodium Injection, USP", "mfg": "Meitheal Pharmaceuticals"}, {"category": "Chemicals", "qty": "1", "vol": "100 g", "name": "L-Glutathione, reduced, 97%", "mfg": "Thermo Scientific"}, {"category": "Chemicals", "qty": "1", "vol": "25 g", "name": "Sodium bicarbonate", "mfg": "Sigma-Aldrich"}, {"category": "Chemicals", "qty": "1", "vol": "1 kg", "name": "Paraformaldehyde, reagent grade, crystalline", "mfg": "Sigma-Aldrich"}, {"category": "Chemicals", "qty": "1", "vol": "5g", "name": "N-Acetyl-L-cysteine", "mfg": "SIGMA-ALDRICH"}, {"category": "Chemicals", "qty": "1", "vol": "100g", "name": "Acetaminophen", "mfg": "Sigma-Aldrich"}, {"category": "Chemicals", "qty": "1", "vol": "1L", "name": "Hydrochloric Acid 37%", "mfg": "CCS, LLC"}, {"category": "Chemicals", "qty": "1", "vol": "1 Kg", "name": "Potassium hydroxide, ca. 85%, extra pure, flakes", "mfg": "Thermo Scientific"}, {"category": "Chemicals", "qty": "1", "vol": "500g", "name": "Sodium hydroxide, flake, 98%", "mfg": "Thermo Scientific"}, {"category": "Chemicals", "qty": "2", "vol": "2.5Kg", "name": "Sodium bicarbonate, 99.5%, for analysis", "mfg": "Aldon"}, {"category": "Chemicals", "qty": "1", "vol": "2.5Kg", "name": "Glucose, Anhydrous, Granular, Lab Grade", "mfg": "Aldon"}, {"category": "Chemicals", "qty": "1", "vol": "500g", "name": "Magnesium Chloride, Hexahydrate", "mfg": "Aldon"}, {"category": "Chemicals", "qty": "1", "vol": "500g", "name": "Calcium Chloride, Anhydrous, Reagent Grade", "mfg": "Aldon"}, {"category": "Chemicals", "qty": "1", "vol": "500g", "name": "Potassium Chloride, Reagent Grade", "mfg": "Aldon"}, {"category": "Chemicals", "qty": "1", "vol": "12Kg", "name": "Sodium Chloride Lab Grade Fine", "mfg": "Aldon"}, {"category": "Testing kits", "qty": "25*4", "vol": "25*4", "name": "i-STAT CG4+ Cartridge", "mfg": "Abbott"}, {"category": "Testing kits", "qty": "25*5", "vol": "25*5", "name": "i-STAT CHEM8+ Cartridge", "mfg": "Abbott"}, {"category": "Testing kits", "qty": "96 Tests", "vol": "96 Tests", "name": "Alkaline Phosphatase (ALP) Activity Assay Kit", "mfg": "Invitrogen (by Thermo Fisher Scientific)"}, {"category": "Testing kits", "qty": "20 x 50 µg", "vol": "20 x 50 µg", "name": "MitoTracker™ Red CMXRos", "mfg": "Invitrogen (by Thermo Fisher Scientific)"}, {"category": "Testing kits", "qty": "20 x 50 µg", "vol": "20 x 50 µg", "name": "MitoTracker™ Green FM", "mfg": "Invitrogen (by Thermo Fisher Scientific)"}, {"category": "Testing kits", "qty": "96 Tests", "vol": "96 Tests", "name": "γ-Glutamyl Transferase (GGT/γ-GT) Activity Assay Kit", "mfg": "Invitrogen (by Thermo Fisher Scientific)"}, {"category": "Testing kits", "qty": "96 Tests", "vol": "96 Tests", "name": "Serum Creatinine Detection Kit", "mfg": "Invitrogen (by Thermo Fisher Scientific)"}, {"category": "Testing kits", "qty": "10 x 3 mL", "vol": "10 x 3 mL", "name": "DMSO (Dimethylsulfoxide), anhydrous", "mfg": "Invitrogen (by Thermo Fisher Scientific)"}, {"category": "Testing kits", "qty": "96 Tests", "vol": "96 Tests", "name": "Aspartate Aminotransferase (AST/GOT) Activity Assay Kit", "mfg": "Invitrogen (by Thermo Fisher Scientific)"}, {"category": "Testing kits", "qty": "96 Tests", "vol": "96 Tests", "name": "Alanine Aminotransferase (ALT/GPT) Activity Assay Kit", "mfg": "Invitrogen (by Thermo Fisher Scientific)"}, {"category": "Testing kits", "qty": "1 kit", "vol": "1 kit", "name": "LIVE/DEAD™ Viability/Cytotoxicity Kit, for mammalian cells", "mfg": "Invitrogen (by Thermo Fisher Scientific)"}, {"category": "Testing kits", "qty": "2*96 Tests", "vol": "2*96 Tests", "name": "Creatinine Urinary Detection Kit", "mfg": "Invitrogen (by Thermo Fisher Scientific)"}, {"category": "Testing kits", "qty": "100μg", "vol": "100μg", "name": "CD68 Monoclonal Antibody (Clone KP1)", "mfg": "Invitrogen / eBioscience™"}, {"category": "Testing kits", "qty": "200μL", "vol": "200μL", "name": "Myeloperoxidase (MPO) Polyclonal Antibody", "mfg": "Elabscience®"}, {"category": "Testing kits", "qty": "500ml", "vol": "500ml", "name": "H&E Staining Kit (Hematoxylin and Eosin)", "mfg": "Proteintech"}, {"category": "Testing kits", "qty": "1 Kit (Standard)", "vol": "1 Kit (Standard)", "name": "Periodic Acid Schiff (PAS) Stain Kit (Modified Lillie's)", "mfg": "ScyTek Laboratories"}, {"category": "Testing kits", "qty": "1 Kit (Standard)", "vol": "1 Kit (Standard)", "name": "Trichrome Stain Kit (Modified Masson's)", "mfg": "ScyTek Laboratories"}, {"category": "Testing kits", "qty": "1 Kit", "vol": "1 Kit", "name": "VitroView™ Jones Stain Kit (Basement Membrane)", "mfg": "VitroVivo Biotech"}, {"category": "Testing kits", "qty": "1 Kit", "vol": "1 Kit", "name": "VitroView™ In Situ Ki67 IHC DAB Detection Kit", "mfg": "VitroVivo Biotech"}, {"category": "Testing kits", "qty": "1 Kit", "vol": "1 Kit", "name": "CellTiter-Fluor™ Cell Viability Assay", "mfg": "Promega Corporation"}, {"category": "Testing kits", "qty": "1 Kit", "vol": "1 Kit", "name": "VitroView™ In Situ Ki67 IHC DAB Detection Kit", "mfg": "RealTime-Glo™ MT Cell Viability Assay"}];
+
+    function showToast(msg, isSuccess = true) {
       const t = document.getElementById('toast');
+      const icon = document.getElementById('toast-icon');
       document.getElementById('toast-msg').innerText = msg;
+      icon.innerText = isSuccess ? 'check_circle' : 'info';
+      icon.className = isSuccess ? 'material-symbols-outlined text-primary text-[20px]' : 'material-symbols-outlined text-amber-400 text-[20px]';
       t.classList.remove('translate-y-20', 'opacity-0');
-      setTimeout(() => t.classList.add('translate-y-20', 'opacity-0'), 3000);
+      setTimeout(() => t.classList.add('translate-y-20', 'opacity-0'), 3500);
     }
 
-    function filterInventory(query) {
-      const q = query.toLowerCase().trim();
-      const rows = document.querySelectorAll('.inv-row');
-      rows.forEach(r => {
-        const name = r.dataset.name || '';
-        const mfg = r.dataset.mfg || '';
-        const cat = r.dataset.cat || '';
-        if (name.includes(q) || mfg.includes(q) || cat.includes(q)) {
-          r.classList.remove('hidden');
-        } else {
-          r.classList.add('hidden');
+    function parseCSV(text) {
+      const lines = text.trim().split('\n');
+      const rows = [];
+      for (let line of lines) {
+        let row = [];
+        let inQuote = false;
+        let cell = '';
+        for (let i = 0; i < line.length; i++) {
+          let char = line[i];
+          if (char === '"' || char === "'") {
+            inQuote = !inQuote;
+          } else if (char === ',' && !inQuote) {
+            row.push(cell.trim().replace(/^["']|["']$/g, ''));
+            cell = '';
+          } else {
+            cell += char;
+          }
         }
-      });
+        row.push(cell.trim().replace(/^["']|["']$/g, ''));
+        rows.push(row);
+      }
+      return rows;
     }
 
-    function setInvFilter(filter) {
-      const btns = document.querySelectorAll('#inv-filters button');
-      btns.forEach(b => {
-        if (b.dataset.invFilter === filter) {
-          b.className = 'px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-semibold text-xs transition-all shadow-sm';
-        } else {
-          b.className = 'px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all';
+    async function fetchTab(tabName) {
+      const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tabName)}`;
+      const resp = await fetch(url);
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      const csvText = await resp.text();
+      return parseCSV(csvText);
+    }
+
+    async function syncGoogleSheet(showFeedback = false) {
+      const syncBtn = document.getElementById('sync-btn');
+      const syncIcon = document.getElementById('sync-icon');
+      const syncText = document.getElementById('sync-text');
+
+      if (syncIcon) syncIcon.classList.add('animate-spin');
+      if (syncText) syncText.innerText = 'Syncing...';
+
+      try {
+        const [drugsRows, chemsRows, kitsRows] = await Promise.all([
+          fetchTab('Drugs'),
+          fetchTab('Chemicals'),
+          fetchTab(' Testing Kit')
+        ]);
+
+        let newInv = [];
+        // Parse Drugs
+        for (let i = 1; i < drugsRows.length; i++) {
+          const r = drugsRows[i];
+          if (r.length >= 4 && r[2]) {
+            newInv.push({ category: 'Drugs', qty: r[0], vol: r[1], name: r[2], mfg: r[3] });
+          }
         }
+
+        // Parse Chemicals
+        for (let i = 1; i < chemsRows.length; i++) {
+          const r = chemsRows[i];
+          if (r.length >= 4 && r[2]) {
+            newInv.push({ category: 'Chemicals', qty: r[0], vol: r[1], name: r[2], mfg: r[3] });
+          }
+        }
+
+        // Parse Testing Kits
+        for (let i = 1; i < kitsRows.length; i++) {
+          const r = kitsRows[i];
+          if (r.length >= 3 && r[1]) {
+            newInv.push({ category: 'Testing kits', qty: r[0], vol: r[0], name: r[1], mfg: r[2] });
+          }
+        }
+
+        if (newInv.length > 0) {
+          inventoryData = newInv;
+          document.getElementById('last-sync-time').innerText = `Synced at ${new Date().toLocaleTimeString()}`;
+          renderTable();
+          if (showFeedback) {
+            showToast(`Synchronized ${newInv.length} live inventory items from Google Sheets!`);
+          }
+        }
+      } catch (err) {
+        console.warn('Live Google Sheet sync failed, using cached data:', err);
+        if (showFeedback) {
+          showToast('Live sync unavailable, using local inventory data', false);
+        }
+      } finally {
+        if (syncIcon) syncIcon.classList.remove('animate-spin');
+        if (syncText) syncText.innerText = 'Sync Google Sheet';
+      }
+    }
+
+    function setInvCategory(cat) {
+      currentCategory = cat;
+      const btnAll = document.getElementById('btn-cat-all');
+      const btnDrugs = document.getElementById('btn-cat-drugs');
+      const btnChems = document.getElementById('btn-cat-chems');
+      const btnKits = document.getElementById('btn-cat-kits');
+
+      const activeCls = 'px-4 py-2 rounded-lg bg-primary text-on-primary font-semibold text-xs transition-all shadow-sm flex items-center gap-1.5';
+      const inactiveCls = 'px-4 py-2 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all flex items-center gap-1.5';
+
+      btnAll.className = (cat === 'all') ? activeCls : inactiveCls;
+      btnDrugs.className = (cat === 'Drugs') ? activeCls : inactiveCls;
+      btnChems.className = (cat === 'Chemicals') ? activeCls : inactiveCls;
+      btnKits.className = (cat === 'Testing kits') ? activeCls : inactiveCls;
+
+      renderTable();
+    }
+
+    function renderTable() {
+      const query = (document.getElementById('inv-search-input').value || '').toLowerCase().trim();
+      const tbody = document.getElementById('inv-table-body');
+
+      let drugsCount = 0;
+      let chemsCount = 0;
+      let kitsCount = 0;
+
+      inventoryData.forEach(item => {
+        if (item.category === 'Drugs') drugsCount++;
+        else if (item.category === 'Chemicals') chemsCount++;
+        else if (item.category === 'Testing kits') kitsCount++;
       });
 
-      const rows = document.querySelectorAll('.inv-row');
-      rows.forEach(r => {
-        const cat = r.dataset.cat || '';
-        if (filter === 'all') {
-          r.classList.remove('hidden');
-        } else if (filter === 'perfusate' && (cat.includes('perfusate') || cat.includes('nutrition'))) {
-          r.classList.remove('hidden');
-        } else if (filter === 'antibiotic' && cat.includes('antibiotic')) {
-          r.classList.remove('hidden');
-        } else if (filter === 'anticoagulant' && cat.includes('anticoagulant')) {
-          r.classList.remove('hidden');
-        } else if (filter === 'electrolyte' && cat.includes('electrolyte')) {
-          r.classList.remove('hidden');
-        } else if (filter === 'saline' && cat.includes('saline')) {
-          r.classList.remove('hidden');
-        } else {
-          r.classList.add('hidden');
-        }
+      document.getElementById('kpi-total-items').innerText = inventoryData.length;
+      document.getElementById('kpi-drugs').innerText = drugsCount;
+      document.getElementById('kpi-chemicals').innerText = chemsCount;
+      document.getElementById('kpi-kits').innerText = kitsCount;
+
+      document.getElementById('count-all').innerText = inventoryData.length;
+      document.getElementById('count-drugs').innerText = drugsCount;
+      document.getElementById('count-chems').innerText = chemsCount;
+      document.getElementById('count-kits').innerText = kitsCount;
+
+      let filtered = inventoryData.filter(item => {
+        const matchCat = (currentCategory === 'all' || item.category === currentCategory);
+        const matchQuery = !query || 
+          item.name.toLowerCase().includes(query) ||
+          item.mfg.toLowerCase().includes(query) ||
+          item.category.toLowerCase().includes(query) ||
+          item.vol.toLowerCase().includes(query);
+        return matchCat && matchQuery;
       });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" class="p-8 text-center text-on-surface-variant">
+              <span class="material-symbols-outlined text-3xl mb-2 text-primary/60 block">search_off</span>
+              No reagents found matching "${query}".
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      let html = '';
+      filtered.forEach(item => {
+        let icon = 'vaccines';
+        let badgeCls = 'bg-primary/20 text-primary border-primary/30';
+        let sdsUrl = 'index.html#safety';
+
+        if (item.category === 'Drugs') {
+          icon = 'medication';
+          badgeCls = 'bg-purple-500/20 text-purple-300 border-purple-500/30';
+        } else if (item.category === 'Chemicals') {
+          icon = 'science';
+          badgeCls = 'bg-amber-500/20 text-amber-300 border-amber-500/30';
+        } else if (item.category === 'Testing kits') {
+          icon = 'biotech';
+          badgeCls = 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30';
+        }
+
+        html += `
+          <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5">
+            <td class="p-3.5 font-medium text-on-surface">
+              <div class="flex items-center gap-2.5">
+                <span class="p-1.5 rounded-lg bg-surface-container text-primary material-symbols-outlined text-[18px]">${icon}</span>
+                <span class="font-semibold">${item.name}</span>
+              </div>
+            </td>
+            <td class="p-3.5">
+              <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border ${badgeCls}">
+                ${item.category}
+              </span>
+            </td>
+            <td class="p-3.5 text-on-surface-variant font-mono text-xs">${item.mfg}</td>
+            <td class="p-3.5 font-mono text-xs text-on-surface">${item.vol}</td>
+            <td class="p-3.5 text-center">
+              <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-xs border border-primary/30 shadow-sm">
+                ${item.qty}
+              </span>
+            </td>
+            <td class="p-3.5 text-right">
+              <a href="${sdsUrl}" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
+                <span class="material-symbols-outlined text-[14px]">shield</span> Safety SDS
+              </a>
+            </td>
+          </tr>
+        `;
+      });
+
+      tbody.innerHTML = html;
     }
+
+    // Auto-sync on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderTable();
+      syncGoogleSheet(false);
+    });
   </script>
 </body>
 </html>

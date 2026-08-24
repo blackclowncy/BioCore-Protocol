@@ -80,7 +80,7 @@
 <body class="bg-background font-body text-on-background min-h-screen">
   <!-- Toast Notification Container -->
   <div id="toast" class="fixed bottom-8 right-8 bg-surface-container-high border border-primary/40 text-on-surface px-5 py-3 rounded-xl shadow-2xl z-50 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3">
-    <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+    <span id="toast-icon" class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
     <span id="toast-msg" class="text-sm font-medium">Notification</span>
   </div>
 
@@ -131,7 +131,7 @@
       <div class="flex-1 max-w-md">
         <div class="relative flex items-center">
           <span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span>
-          <input id="org-search-input" class="w-full pl-10 pr-4 py-2 bg-surface-container border border-outline-variant rounded-lg focus:outline-none focus:border-primary text-sm text-on-surface placeholder:text-on-surface-variant/70" placeholder="Search donor ID (e.g. AME1132), organ, or observation..." type="text" oninput="filterOrgans(this.value)"/>
+          <input id="org-search-input" class="w-full pl-10 pr-4 py-2 bg-surface-container border border-outline-variant rounded-lg focus:outline-none focus:border-primary text-sm text-on-surface placeholder:text-on-surface-variant/70" placeholder="Search donor ID (e.g. AME1132), organ, or observation..." type="text" oninput="renderOrgansTable()"/>
         </div>
       </div>
       <nav class="flex items-center gap-8 h-full">
@@ -142,8 +142,9 @@
         <a class="text-sm text-on-surface-variant hover:text-on-surface transition-all h-full flex items-center px-1 border-b-2 border-transparent" href="index.html#safety">Safety</a>
       </nav>
       <div class="flex items-center gap-4 ml-6">
-        <button onclick="showToast('Live Organ Log Synchronized with Google Sheet')" class="px-3 py-1.5 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-lg text-xs font-semibold flex items-center gap-1.5 hover:bg-rose-500/30 transition-all">
-          <span class="material-symbols-outlined text-[16px]">sync</span> Sync Organ Sheet
+        <button id="sync-org-btn" onclick="syncOrganSheet(true)" class="px-3 py-1.5 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-lg text-xs font-semibold flex items-center gap-1.5 hover:bg-rose-500/30 transition-all shadow-sm">
+          <span id="sync-org-icon" class="material-symbols-outlined text-[16px]">sync</span>
+          <span id="sync-org-text">Sync Organ Sheet</span>
         </button>
       </div>
     </header>
@@ -156,11 +157,14 @@
         <div class="absolute top-0 right-0 w-80 h-80 bg-rose-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
         <div>
           <div class="flex items-center gap-2 mb-1">
-            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase bg-rose-500/20 text-rose-300 border border-rose-500/30">Donor Organ Perfusion Tracking</span>
-            <span class="text-xs font-mono text-on-surface-variant">Sheet ID: 1VxyGkDT...TeNueCQw</span>
+            <span class="px-2.5 py-0.5 rounded-full text-xs font-bold uppercase bg-rose-500/20 text-rose-300 border border-rose-500/30 flex items-center gap-1">
+              <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span>
+              Live Donor Organs Engine
+            </span>
+            <span id="last-organ-sync-time" class="text-xs font-mono text-on-surface-variant">Auto-synced</span>
           </div>
           <h1 class="font-headline text-2xl font-bold text-on-surface">Human Donor Organs & Perfusion Record</h1>
-          <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Comprehensive procedural log of human donor livers, kidneys, hearts, and perfusates undergoing machine perfusion (NMP/HMP/SCSC) and proteomics.</p>
+          <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Procedural log of human donor livers, kidneys, hearts, and perfusates undergoing machine perfusion (NMP/HMP/SCSC) and proteomics.</p>
         </div>
       </div>
 
@@ -172,7 +176,7 @@
           </div>
           <div>
             <span class="text-[11px] text-on-surface-variant uppercase font-bold tracking-wider block">Total Organ Runs</span>
-            <span class="text-2xl font-bold text-amber-300 font-mono">16</span>
+            <span id="kpi-org-total" class="text-2xl font-bold text-amber-300 font-mono">16</span>
             <span class="text-[10px] text-on-surface-variant block">Livers, Kidneys, Hearts, Blood</span>
           </div>
         </div>
@@ -183,7 +187,7 @@
           </div>
           <div>
             <span class="text-[11px] text-on-surface-variant uppercase font-bold tracking-wider block">NMP Warm Runs</span>
-            <span class="text-2xl font-bold text-primary font-mono">13</span>
+            <span id="kpi-org-nmp" class="text-2xl font-bold text-primary font-mono">13</span>
             <span class="text-[10px] text-on-surface-variant block">37°C Normothermic Perfusion</span>
           </div>
         </div>
@@ -194,7 +198,7 @@
           </div>
           <div>
             <span class="text-[11px] text-on-surface-variant uppercase font-bold tracking-wider block">Proteomics Cohort</span>
-            <span class="text-2xl font-bold text-emerald-300 font-mono">3 Donors</span>
+            <span id="kpi-org-prot" class="text-2xl font-bold text-emerald-300 font-mono">3 Donors</span>
             <span class="text-[10px] text-on-surface-variant block">Mass spec profiling positive</span>
           </div>
         </div>
@@ -205,7 +209,7 @@
           </div>
           <div>
             <span class="text-[11px] text-on-surface-variant uppercase font-bold tracking-wider block">Marginal / Alerts</span>
-            <span class="text-2xl font-bold text-rose-300 font-mono">4 Logged</span>
+            <span id="kpi-org-alerts" class="text-2xl font-bold text-rose-300 font-mono">4 Logged</span>
             <span class="text-[10px] text-on-surface-variant block">Necrosis / Overweight / Tiny</span>
           </div>
         </div>
@@ -213,12 +217,12 @@
 
       <!-- Filter Tabs -->
       <div class="flex items-center gap-2 overflow-x-auto pb-2" id="org-filters">
-        <button onclick="setOrgFilter('all')" class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-semibold text-xs transition-all shadow-sm" data-org-filter="all">All Organs (16)</button>
-        <button onclick="setOrgFilter('liver')" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all" data-org-filter="liver">Liver</button>
-        <button onclick="setOrgFilter('kidney')" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all" data-org-filter="kidney">Kidney</button>
-        <button onclick="setOrgFilter('heart')" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all" data-org-filter="heart">Heart</button>
-        <button onclick="setOrgFilter('nmp')" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all" data-org-filter="nmp">NMP Protocol</button>
-        <button onclick="setOrgFilter('proteomics')" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all" data-org-filter="proteomics">Proteomics (Y)</button>
+        <button onclick="setOrgTypeFilter('all')" id="btn-org-all" class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-semibold text-xs transition-all shadow-sm">All Organs</button>
+        <button onclick="setOrgTypeFilter('liver')" id="btn-org-liver" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all">Liver</button>
+        <button onclick="setOrgTypeFilter('kidney')" id="btn-org-kidney" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all">Kidney</button>
+        <button onclick="setOrgTypeFilter('heart')" id="btn-org-heart" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all">Heart</button>
+        <button onclick="setOrgTypeFilter('nmp')" id="btn-org-nmp" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all">NMP Warm Perfusion</button>
+        <button onclick="setOrgTypeFilter('proteomics')" id="btn-org-prot" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all">Proteomics (Y)</button>
       </div>
 
       <!-- Organs Record Table -->
@@ -238,599 +242,7 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-white/5" id="org-table-body">
-              
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 org-row"
-        data-type="kidney(left)"
-        data-donor="ame1132"
-        data-purpose="nmp"
-        data-date="2025.05.30-05.31">
-      <td class="p-3.5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center border text-primary bg-primary/20 border-primary/30">
-            <span class="material-symbols-outlined text-[18px]">science</span>
-          </div>
-          <div>
-            <span class="font-bold text-on-surface block text-xs">Kidney(Left)</span>
-            <span class="text-[10px] text-on-surface-variant font-mono">Log #AME1132</span>
-          </div>
-        </div>
-      </td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-md bg-surface-container border border-outline-variant font-mono font-bold text-primary text-xs">
-          AME1132
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface-variant">2025.05.29/14:53</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 font-bold text-[11px]">
-          NMP
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">2025.05.30-05.31</td>
-      <td class="p-3.5 text-center"><span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold">YES (Y)</span></td>
-      <td class="p-3.5"><span class="text-on-surface-variant/50 font-mono text-[11px]">Normal / Unremarkable</span></td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/machine-perfusion-donor-livers.html" class="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">vital_signs</span> SOP
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 org-row"
-        data-type="kidney(right)"
-        data-donor="ame3421"
-        data-purpose="nmp"
-        data-date="2025.05.31">
-      <td class="p-3.5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center border text-primary bg-primary/20 border-primary/30">
-            <span class="material-symbols-outlined text-[18px]">science</span>
-          </div>
-          <div>
-            <span class="font-bold text-on-surface block text-xs">Kidney(Right)</span>
-            <span class="text-[10px] text-on-surface-variant font-mono">Log #AME3421</span>
-          </div>
-        </div>
-      </td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-md bg-surface-container border border-outline-variant font-mono font-bold text-primary text-xs">
-          AME3421
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface-variant">2025.05.30/18:54</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 font-bold text-[11px]">
-          NMP
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">2025.05.31</td>
-      <td class="p-3.5 text-center"><span class="text-on-surface-variant/60 font-mono text-[11px]">—</span></td>
-      <td class="p-3.5"><span class="text-on-surface-variant/50 font-mono text-[11px]">Normal / Unremarkable</span></td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/machine-perfusion-donor-livers.html" class="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">vital_signs</span> SOP
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 org-row"
-        data-type="rbc (2u)"
-        data-donor="n/a"
-        data-purpose="dialysis"
-        data-date="2025.06.16">
-      <td class="p-3.5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center border text-purple-400 bg-purple-500/20 border-purple-500/30">
-            <span class="material-symbols-outlined text-[18px]">bloodtype</span>
-          </div>
-          <div>
-            <span class="font-bold text-on-surface block text-xs">RBC (2u)</span>
-            <span class="text-[10px] text-on-surface-variant font-mono">Log #N/A</span>
-          </div>
-        </div>
-      </td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-md bg-surface-container border border-outline-variant font-mono font-bold text-primary text-xs">
-          N/A
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface-variant">—</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 font-bold text-[11px]">
-          Dialysis
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">2025.06.16</td>
-      <td class="p-3.5 text-center"><span class="text-on-surface-variant/60 font-mono text-[11px]">—</span></td>
-      <td class="p-3.5"><span class="text-on-surface-variant/50 font-mono text-[11px]">Normal / Unremarkable</span></td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/machine-perfusion-donor-livers.html" class="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">vital_signs</span> SOP
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 org-row"
-        data-type="liver"
-        data-donor="amf2486"
-        data-purpose="saline nmp"
-        data-date="2025.07.01">
-      <td class="p-3.5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center border text-amber-400 bg-amber-500/20 border-amber-500/30">
-            <span class="material-symbols-outlined text-[18px]">vital_signs</span>
-          </div>
-          <div>
-            <span class="font-bold text-on-surface block text-xs">Liver</span>
-            <span class="text-[10px] text-on-surface-variant font-mono">Log #AMF2486</span>
-          </div>
-        </div>
-      </td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-md bg-surface-container border border-outline-variant font-mono font-bold text-primary text-xs">
-          AMF2486
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface-variant">2025.06.29/16:19</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 font-bold text-[11px]">
-          Saline NMP
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">2025.07.01</td>
-      <td class="p-3.5 text-center"><span class="text-on-surface-variant/60 font-mono text-[11px]">—</span></td>
-      <td class="p-3.5"><span class="text-on-surface-variant/50 font-mono text-[11px]">Normal / Unremarkable</span></td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/machine-perfusion-donor-livers.html" class="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">vital_signs</span> SOP
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 org-row"
-        data-type="liver"
-        data-donor="amgb368"
-        data-purpose="nmp"
-        data-date="2025.07.04">
-      <td class="p-3.5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center border text-amber-400 bg-amber-500/20 border-amber-500/30">
-            <span class="material-symbols-outlined text-[18px]">vital_signs</span>
-          </div>
-          <div>
-            <span class="font-bold text-on-surface block text-xs">Liver</span>
-            <span class="text-[10px] text-on-surface-variant font-mono">Log #AMGB368</span>
-          </div>
-        </div>
-      </td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-md bg-surface-container border border-outline-variant font-mono font-bold text-primary text-xs">
-          AMGB368
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface-variant">2025.07.04/11:17</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 font-bold text-[11px]">
-          NMP
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">2025.07.04</td>
-      <td class="p-3.5 text-center"><span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold">YES (Y)</span></td>
-      <td class="p-3.5"><span class="text-on-surface-variant/50 font-mono text-[11px]">Normal / Unremarkable</span></td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/machine-perfusion-donor-livers.html" class="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">vital_signs</span> SOP
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 org-row"
-        data-type="liver"
-        data-donor="amf4302"
-        data-purpose="hmp"
-        data-date="2025.07.04">
-      <td class="p-3.5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center border text-amber-400 bg-amber-500/20 border-amber-500/30">
-            <span class="material-symbols-outlined text-[18px]">vital_signs</span>
-          </div>
-          <div>
-            <span class="font-bold text-on-surface block text-xs">Liver</span>
-            <span class="text-[10px] text-on-surface-variant font-mono">Log #AMF4302</span>
-          </div>
-        </div>
-      </td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-md bg-surface-container border border-outline-variant font-mono font-bold text-primary text-xs">
-          AMF4302
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface-variant">2025.07.03/17:36</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 font-bold text-[11px]">
-          HMP
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">2025.07.04</td>
-      <td class="p-3.5 text-center"><span class="text-on-surface-variant/60 font-mono text-[11px]">—</span></td>
-      <td class="p-3.5"><span class="text-on-surface-variant/50 font-mono text-[11px]">Normal / Unremarkable</span></td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/machine-perfusion-donor-livers.html" class="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">vital_signs</span> SOP
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 org-row"
-        data-type="liver"
-        data-donor="amgg324"
-        data-purpose="scsc"
-        data-date="2025.07.11">
-      <td class="p-3.5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center border text-amber-400 bg-amber-500/20 border-amber-500/30">
-            <span class="material-symbols-outlined text-[18px]">vital_signs</span>
-          </div>
-          <div>
-            <span class="font-bold text-on-surface block text-xs">Liver</span>
-            <span class="text-[10px] text-on-surface-variant font-mono">Log #AMGG324</span>
-          </div>
-        </div>
-      </td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-md bg-surface-container border border-outline-variant font-mono font-bold text-primary text-xs">
-          AMGG324
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface-variant">2025.07.10/17:44</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 font-bold text-[11px]">
-          SCSC
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">2025.07.11</td>
-      <td class="p-3.5 text-center"><span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold">YES (Y)</span></td>
-      <td class="p-3.5"><span class="text-on-surface-variant/50 font-mono text-[11px]">Normal / Unremarkable</span></td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/machine-perfusion-donor-livers.html" class="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">vital_signs</span> SOP
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 org-row"
-        data-type="kidney(left)"
-        data-donor="amgj265"
-        data-purpose="nmp"
-        data-date="2025.07.14">
-      <td class="p-3.5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center border text-primary bg-primary/20 border-primary/30">
-            <span class="material-symbols-outlined text-[18px]">science</span>
-          </div>
-          <div>
-            <span class="font-bold text-on-surface block text-xs">Kidney(Left)</span>
-            <span class="text-[10px] text-on-surface-variant font-mono">Log #AMGJ265</span>
-          </div>
-        </div>
-      </td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-md bg-surface-container border border-outline-variant font-mono font-bold text-primary text-xs">
-          AMGJ265
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface-variant">2025.07.13/11:11</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 font-bold text-[11px]">
-          NMP
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">2025.07.14</td>
-      <td class="p-3.5 text-center"><span class="text-on-surface-variant/60 font-mono text-[11px]">—</span></td>
-      <td class="p-3.5"><span class="text-on-surface-variant/50 font-mono text-[11px]">Normal / Unremarkable</span></td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/machine-perfusion-donor-livers.html" class="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">vital_signs</span> SOP
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 org-row"
-        data-type="liver"
-        data-donor="amgq084"
-        data-purpose="nmp"
-        data-date="2025.07.18-19">
-      <td class="p-3.5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center border text-amber-400 bg-amber-500/20 border-amber-500/30">
-            <span class="material-symbols-outlined text-[18px]">vital_signs</span>
-          </div>
-          <div>
-            <span class="font-bold text-on-surface block text-xs">Liver</span>
-            <span class="text-[10px] text-on-surface-variant font-mono">Log #AMGQ084</span>
-          </div>
-        </div>
-      </td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-md bg-surface-container border border-outline-variant font-mono font-bold text-primary text-xs">
-          AMGQ084
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface-variant">2025.07.18/16:58</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 font-bold text-[11px]">
-          NMP
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">2025.07.18-19</td>
-      <td class="p-3.5 text-center"><span class="text-on-surface-variant/60 font-mono text-[11px]">—</span></td>
-      <td class="p-3.5"><span class="text-on-surface-variant/50 font-mono text-[11px]">Normal / Unremarkable</span></td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/machine-perfusion-donor-livers.html" class="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">vital_signs</span> SOP
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 org-row"
-        data-type="heart"
-        data-donor="amgp422"
-        data-purpose="nmp"
-        data-date="2025.07.18">
-      <td class="p-3.5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center border text-rose-400 bg-rose-500/20 border-rose-500/30">
-            <span class="material-symbols-outlined text-[18px]">favorite</span>
-          </div>
-          <div>
-            <span class="font-bold text-on-surface block text-xs">Heart</span>
-            <span class="text-[10px] text-on-surface-variant font-mono">Log #AMGP422</span>
-          </div>
-        </div>
-      </td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-md bg-surface-container border border-outline-variant font-mono font-bold text-primary text-xs">
-          AMGP422
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface-variant">2025.07.17/22:26</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 font-bold text-[11px]">
-          NMP
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">2025.07.18</td>
-      <td class="p-3.5 text-center"><span class="text-on-surface-variant/60 font-mono text-[11px]">—</span></td>
-      <td class="p-3.5"><span class="text-on-surface-variant/50 font-mono text-[11px]">Normal / Unremarkable</span></td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/machine-perfusion-donor-livers.html" class="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">vital_signs</span> SOP
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 org-row"
-        data-type="kidney(both)"
-        data-donor="amgo171"
-        data-purpose="nmp"
-        data-date="2025.07.18">
-      <td class="p-3.5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center border text-primary bg-primary/20 border-primary/30">
-            <span class="material-symbols-outlined text-[18px]">science</span>
-          </div>
-          <div>
-            <span class="font-bold text-on-surface block text-xs">Kidney(Both)</span>
-            <span class="text-[10px] text-on-surface-variant font-mono">Log #AMGO171</span>
-          </div>
-        </div>
-      </td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-md bg-surface-container border border-outline-variant font-mono font-bold text-primary text-xs">
-          AMGO171
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface-variant">2025.07.17/23:48</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 font-bold text-[11px]">
-          NMP
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">2025.07.18</td>
-      <td class="p-3.5 text-center"><span class="text-on-surface-variant/60 font-mono text-[11px]">—</span></td>
-      <td class="p-3.5"><span class="px-2.5 py-1 rounded bg-surface-container text-primary border border-primary/20 text-[11px] font-semibold inline-flex">Tiny</span></td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/machine-perfusion-donor-livers.html" class="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">vital_signs</span> SOP
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 org-row"
-        data-type="liver"
-        data-donor="amg5011"
-        data-purpose="nmp"
-        data-date="2025.08.02">
-      <td class="p-3.5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center border text-amber-400 bg-amber-500/20 border-amber-500/30">
-            <span class="material-symbols-outlined text-[18px]">vital_signs</span>
-          </div>
-          <div>
-            <span class="font-bold text-on-surface block text-xs">Liver</span>
-            <span class="text-[10px] text-on-surface-variant font-mono">Log #AMG5011</span>
-          </div>
-        </div>
-      </td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-md bg-surface-container border border-outline-variant font-mono font-bold text-primary text-xs">
-          AMG5011
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface-variant">2025.08.01/22:45</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 font-bold text-[11px]">
-          NMP
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">2025.08.02</td>
-      <td class="p-3.5 text-center"><span class="text-on-surface-variant/60 font-mono text-[11px]">—</span></td>
-      <td class="p-3.5"><span class="text-on-surface-variant/50 font-mono text-[11px]">Normal / Unremarkable</span></td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/machine-perfusion-donor-livers.html" class="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">vital_signs</span> SOP
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 org-row"
-        data-type="liver"
-        data-donor="amho066"
-        data-purpose="nmp"
-        data-date="2025.08.19">
-      <td class="p-3.5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center border text-amber-400 bg-amber-500/20 border-amber-500/30">
-            <span class="material-symbols-outlined text-[18px]">vital_signs</span>
-          </div>
-          <div>
-            <span class="font-bold text-on-surface block text-xs">Liver</span>
-            <span class="text-[10px] text-on-surface-variant font-mono">Log #AMHO066</span>
-          </div>
-        </div>
-      </td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-md bg-surface-container border border-outline-variant font-mono font-bold text-primary text-xs">
-          AMHO066
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface-variant">2025.08.17/18:18</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 font-bold text-[11px]">
-          NMP
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">2025.08.19</td>
-      <td class="p-3.5 text-center"><span class="text-on-surface-variant/60 font-mono text-[11px]">—</span></td>
-      <td class="p-3.5"><span class="px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[11px] font-semibold flex items-center gap-1 inline-flex"><span class="material-symbols-outlined text-[14px]">info</span> Overweight</span></td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/machine-perfusion-donor-livers.html" class="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">vital_signs</span> SOP
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 org-row"
-        data-type="heart"
-        data-donor="amht33"
-        data-purpose="nmp"
-        data-date="2025.08.22">
-      <td class="p-3.5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center border text-rose-400 bg-rose-500/20 border-rose-500/30">
-            <span class="material-symbols-outlined text-[18px]">favorite</span>
-          </div>
-          <div>
-            <span class="font-bold text-on-surface block text-xs">Heart</span>
-            <span class="text-[10px] text-on-surface-variant font-mono">Log #AMHT33</span>
-          </div>
-        </div>
-      </td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-md bg-surface-container border border-outline-variant font-mono font-bold text-primary text-xs">
-          AMHT33
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface-variant">2025.08.22/06:52</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 font-bold text-[11px]">
-          NMP
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">2025.08.22</td>
-      <td class="p-3.5 text-center"><span class="text-on-surface-variant/60 font-mono text-[11px]">—</span></td>
-      <td class="p-3.5"><span class="text-on-surface-variant/50 font-mono text-[11px]">Normal / Unremarkable</span></td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/machine-perfusion-donor-livers.html" class="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">vital_signs</span> SOP
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 org-row"
-        data-type="liver"
-        data-donor="amht34"
-        data-purpose="nmp"
-        data-date="2025.08.22">
-      <td class="p-3.5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center border text-amber-400 bg-amber-500/20 border-amber-500/30">
-            <span class="material-symbols-outlined text-[18px]">vital_signs</span>
-          </div>
-          <div>
-            <span class="font-bold text-on-surface block text-xs">Liver</span>
-            <span class="text-[10px] text-on-surface-variant font-mono">Log #AMHT34</span>
-          </div>
-        </div>
-      </td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-md bg-surface-container border border-outline-variant font-mono font-bold text-primary text-xs">
-          AMHT34
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface-variant">2025.08.22/13:16</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 font-bold text-[11px]">
-          NMP
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">2025.08.22</td>
-      <td class="p-3.5 text-center"><span class="text-on-surface-variant/60 font-mono text-[11px]">—</span></td>
-      <td class="p-3.5"><span class="px-2.5 py-1 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[11px] font-semibold flex items-center gap-1 inline-flex"><span class="material-symbols-outlined text-[14px]">warning</span> Necrosis</span></td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/machine-perfusion-donor-livers.html" class="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">vital_signs</span> SOP
-        </a>
-      </td>
-    </tr>
-    
-    <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5 org-row"
-        data-type="liver"
-        data-donor="amid027"
-        data-purpose="nmp"
-        data-date="2025.09.06">
-      <td class="p-3.5">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-lg flex items-center justify-center border text-amber-400 bg-amber-500/20 border-amber-500/30">
-            <span class="material-symbols-outlined text-[18px]">vital_signs</span>
-          </div>
-          <div>
-            <span class="font-bold text-on-surface block text-xs">Liver</span>
-            <span class="text-[10px] text-on-surface-variant font-mono">Log #AMID027</span>
-          </div>
-        </div>
-      </td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-md bg-surface-container border border-outline-variant font-mono font-bold text-primary text-xs">
-          AMID027
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface-variant">2025.09.05/15:05</td>
-      <td class="p-3.5">
-        <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 font-bold text-[11px]">
-          NMP
-        </span>
-      </td>
-      <td class="p-3.5 font-mono text-xs text-on-surface">2025.09.06</td>
-      <td class="p-3.5 text-center"><span class="text-on-surface-variant/60 font-mono text-[11px]">—</span></td>
-      <td class="p-3.5"><span class="px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[11px] font-semibold flex items-center gap-1 inline-flex"><span class="material-symbols-outlined text-[14px]">info</span> Missing Gallbladder • IBP High</span></td>
-      <td class="p-3.5 text-right">
-        <a href="protocols/machine-perfusion-donor-livers.html" class="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
-          <span class="material-symbols-outlined text-[14px]">vital_signs</span> SOP
-        </a>
-      </td>
-    </tr>
-    
+              <!-- Dynamically rendered -->
             </tbody>
           </table>
         </div>
@@ -839,58 +251,241 @@
   </div>
 
   <script>
-    function showToast(msg) {
+    const SPREADSHEET_ID = '1VxyGkDTWfMWHz5O-wltK9y-I5SrC7m0Z_l-TeNueCQw';
+    let currentOrgFilter = 'all';
+    let organsData = [{"type": "Kidney(Left)", "donor_id": "AME1132", "clamped": "2025.05.29/14:53", "purpose": "NMP", "date": "2025.05.30-05.31", "proteomics": "Y", "detail": ""}, {"type": "Kidney(Right)", "donor_id": "AME3421", "clamped": "2025.05.30/18:54", "purpose": "NMP", "date": "2025.05.31", "proteomics": "", "detail": ""}, {"type": "RBC (2u)", "donor_id": "—", "clamped": "—", "purpose": "Dialysis", "date": "2025.06.16", "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMF2486", "clamped": "2025.06.29/16:19", "purpose": "Saline NMP", "date": "2025.07.01", "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMGB368", "clamped": "2025.07.04/11:17", "purpose": "NMP", "date": "2025.07.04", "proteomics": "Y", "detail": ""}, {"type": "Liver", "donor_id": "AMF4302", "clamped": "2025.07.03/17:36", "purpose": "HMP", "date": "2025.07.04", "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMGG324", "clamped": "2025.07.10/17:44", "purpose": "SCSC", "date": "2025.07.11", "proteomics": "Y", "detail": ""}, {"type": "Kidney(Left)", "donor_id": "AMGJ265", "clamped": "2025.07.13/11:11", "purpose": "NMP", "date": "2025.07.14", "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMGQ084", "clamped": "2025.07.18/16:58", "purpose": "NMP", "date": "2025.07.18-19", "proteomics": "", "detail": ""}, {"type": "Heart", "donor_id": "AMGP422", "clamped": "2025.07.17/22:26", "purpose": "NMP", "date": "2025.07.18", "proteomics": "", "detail": ""}, {"type": "Kidney(Both)", "donor_id": "AMGO171", "clamped": "2025.07.17/23:48", "purpose": "NMP", "date": "2025.07.18", "proteomics": "", "detail": "Tiny"}, {"type": "Liver", "donor_id": "AMG5011", "clamped": "2025.08.01/22:45", "purpose": "NMP", "date": "2025.08.02", "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMHO066", "clamped": "2025.08.17/18:18", "purpose": "NMP", "date": "2025.08.19", "proteomics": "", "detail": "Overweight"}, {"type": "Heart", "donor_id": "AMHT33", "clamped": "2025.08.22/06:52", "purpose": "NMP", "date": "2025.08.22", "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMHT34", "clamped": "2025.08.22/13:16", "purpose": "NMP", "date": "2025.08.22", "proteomics": "", "detail": "Necrosis"}, {"type": "Liver", "donor_id": "AMID027", "clamped": "2025.09.05/15:05", "purpose": "NMP", "date": "2025.09.06", "proteomics": "", "detail": "Missing Gallbladder • IBP High"}];
+
+    function showToast(msg, isSuccess = true) {
       const t = document.getElementById('toast');
+      const icon = document.getElementById('toast-icon');
       document.getElementById('toast-msg').innerText = msg;
+      icon.innerText = isSuccess ? 'check_circle' : 'info';
       t.classList.remove('translate-y-20', 'opacity-0');
-      setTimeout(() => t.classList.add('translate-y-20', 'opacity-0'), 3000);
+      setTimeout(() => t.classList.add('translate-y-20', 'opacity-0'), 3500);
     }
 
-    function filterOrgans(query) {
-      const q = query.toLowerCase().trim();
-      const rows = document.querySelectorAll('.org-row');
-      rows.forEach(r => {
-        const text = r.innerText.toLowerCase();
-        if (text.includes(q)) {
-          r.classList.remove('hidden');
-        } else {
-          r.classList.add('hidden');
+    function parseCSV(text) {
+      const lines = text.trim().split('\n');
+      const rows = [];
+      for (let line of lines) {
+        let row = [];
+        let inQuote = false;
+        let cell = '';
+        for (let i = 0; i < line.length; i++) {
+          let char = line[i];
+          if (char === '"' || char === "'") {
+            inQuote = !inQuote;
+          } else if (char === ',' && !inQuote) {
+            row.push(cell.trim().replace(/^["']|["']$/g, ''));
+            cell = '';
+          } else {
+            cell += char;
+          }
         }
-      });
+        row.push(cell.trim().replace(/^["']|["']$/g, ''));
+        rows.push(row);
+      }
+      return rows;
     }
 
-    function setOrgFilter(filter) {
+    async function syncOrganSheet(showFeedback = false) {
+      const syncBtn = document.getElementById('sync-org-btn');
+      const syncIcon = document.getElementById('sync-org-icon');
+      const syncText = document.getElementById('sync-org-text');
+
+      if (syncIcon) syncIcon.classList.add('animate-spin');
+      if (syncText) syncText.innerText = 'Syncing...';
+
+      try {
+        const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:csv&sheet=Organ`;
+        const resp = await fetch(url);
+        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+        const csvText = await resp.text();
+        const rows = parseCSV(csvText);
+
+        let newOrgans = [];
+        for (let i = 1; i < rows.length; i++) {
+          const r = rows[i];
+          if (r.length >= 5 && r[0]) {
+            newOrgans.push({
+              type: r[0],
+              donor_id: r[1] || '—',
+              clamped: r[2] || '—',
+              purpose: r[3] || 'Perfusion',
+              date: r[4] || '—',
+              proteomics: r[5] || '',
+              detail: (r[6] || '').replace(/\n/g, ' • ')
+            });
+          }
+        }
+
+        if (newOrgans.length > 0) {
+          organsData = newOrgans;
+          document.getElementById('last-organ-sync-time').innerText = `Synced at ${new Date().toLocaleTimeString()}`;
+          renderOrgansTable();
+          if (showFeedback) {
+            showToast(`Synchronized ${newOrgans.length} live organ perfusion records!`);
+          }
+        }
+      } catch (err) {
+        console.warn('Live Organ sheet sync failed, using cached data:', err);
+        if (showFeedback) {
+          showToast('Live sync unavailable, using local organ records', false);
+        }
+      } finally {
+        if (syncIcon) syncIcon.classList.remove('animate-spin');
+        if (syncText) syncText.innerText = 'Sync Organ Sheet';
+      }
+    }
+
+    function setOrgTypeFilter(filter) {
+      currentOrgFilter = filter;
       const btns = document.querySelectorAll('#org-filters button');
       btns.forEach(b => {
-        if (b.dataset.orgFilter === filter) {
-          b.className = 'px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-semibold text-xs transition-all shadow-sm';
-        } else {
-          b.className = 'px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all';
-        }
+        b.className = 'px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all';
       });
 
-      const rows = document.querySelectorAll('.org-row');
-      rows.forEach(r => {
-        const type = r.dataset.type || '';
-        const purpose = r.dataset.purpose || '';
-        const text = r.innerText;
-        if (filter === 'all') {
-          r.classList.remove('hidden');
-        } else if (filter === 'liver' && type.includes('liver')) {
-          r.classList.remove('hidden');
-        } else if (filter === 'kidney' && type.includes('kidney')) {
-          r.classList.remove('hidden');
-        } else if (filter === 'heart' && type.includes('heart')) {
-          r.classList.remove('hidden');
-        } else if (filter === 'nmp' && purpose.includes('nmp')) {
-          r.classList.remove('hidden');
-        } else if (filter === 'proteomics' && text.includes('YES (Y)')) {
-          r.classList.remove('hidden');
-        } else {
-          r.classList.add('hidden');
-        }
-      });
+      const activeMap = {
+        'all': 'btn-org-all',
+        'liver': 'btn-org-liver',
+        'kidney': 'btn-org-kidney',
+        'heart': 'btn-org-heart',
+        'nmp': 'btn-org-nmp',
+        'proteomics': 'btn-org-prot'
+      };
+
+      const activeBtn = document.getElementById(activeMap[filter]);
+      if (activeBtn) activeBtn.className = 'px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-semibold text-xs transition-all shadow-sm';
+
+      renderOrgansTable();
     }
+
+    function renderOrgansTable() {
+      const query = (document.getElementById('org-search-input').value || '').toLowerCase().trim();
+      const tbody = document.getElementById('org-table-body');
+
+      let nmpCount = 0;
+      let protCount = 0;
+      let alertCount = 0;
+
+      organsData.forEach(item => {
+        if (item.purpose.toLowerCase().includes('nmp')) nmpCount++;
+        if (item.proteomics === 'Y') protCount++;
+        if (item.detail && (item.detail.includes('Necrosis') || item.detail.includes('Overweight') || item.detail.includes('Tiny') || item.detail.includes('Missing'))) alertCount++;
+      });
+
+      document.getElementById('kpi-org-total').innerText = organsData.length;
+      document.getElementById('kpi-org-nmp').innerText = nmpCount;
+      document.getElementById('kpi-org-prot').innerText = `${protCount} Donors`;
+      document.getElementById('kpi-org-alerts').innerText = `${alertCount} Logged`;
+
+      let filtered = organsData.filter(item => {
+        let matchFilter = true;
+        const type = item.type.toLowerCase();
+        const purpose = item.purpose.toLowerCase();
+
+        if (currentOrgFilter === 'liver') matchFilter = type.includes('liver');
+        else if (currentOrgFilter === 'kidney') matchFilter = type.includes('kidney');
+        else if (currentOrgFilter === 'heart') matchFilter = type.includes('heart');
+        else if (currentOrgFilter === 'nmp') matchFilter = purpose.includes('nmp');
+        else if (currentOrgFilter === 'proteomics') matchFilter = (item.proteomics === 'Y');
+
+        const matchQuery = !query ||
+          item.type.toLowerCase().includes(query) ||
+          item.donor_id.toLowerCase().includes(query) ||
+          item.purpose.toLowerCase().includes(query) ||
+          item.detail.toLowerCase().includes(query) ||
+          item.date.toLowerCase().includes(query);
+
+        return matchFilter && matchQuery;
+      });
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="8" class="p-8 text-center text-on-surface-variant">
+              <span class="material-symbols-outlined text-3xl mb-2 text-rose-400/60 block">search_off</span>
+              No donor organ runs found matching criteria.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      let html = '';
+      filtered.forEach(item => {
+        let icon = 'vital_signs';
+        let colorCls = 'text-amber-400 bg-amber-500/20 border-amber-500/30';
+        if (item.type.includes('Kidney')) {
+          icon = 'science';
+          colorCls = 'text-primary bg-primary/20 border-primary/30';
+        } else if (item.type.includes('Heart')) {
+          icon = 'favorite';
+          colorCls = 'text-rose-400 bg-rose-500/20 border-rose-500/30';
+        } else if (item.type.includes('RBC')) {
+          icon = 'bloodtype';
+          colorCls = 'text-purple-400 bg-purple-500/20 border-purple-500/30';
+        }
+
+        const protBadge = (item.proteomics === 'Y') 
+          ? '<span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold">YES (Y)</span>'
+          : '<span class="text-on-surface-variant/60 font-mono text-[11px]">—</span>';
+
+        let detailHtml = '<span class="text-on-surface-variant/50 font-mono text-[11px]">Normal / Unremarkable</span>';
+        if (item.detail) {
+          if (item.detail.includes('Necrosis')) {
+            detailHtml = `<span class="px-2.5 py-1 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[11px] font-semibold flex items-center gap-1 inline-flex"><span class="material-symbols-outlined text-[14px]">warning</span> ${item.detail}</span>`;
+          } else if (item.detail.includes('Overweight') || item.detail.includes('Missing')) {
+            detailHtml = `<span class="px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[11px] font-semibold flex items-center gap-1 inline-flex"><span class="material-symbols-outlined text-[14px]">info</span> ${item.detail}</span>`;
+          } else {
+            detailHtml = `<span class="px-2.5 py-1 rounded bg-surface-container text-primary border border-primary/20 text-[11px] font-semibold inline-flex">${item.detail}</span>`;
+          }
+        }
+
+        html += `
+          <tr class="hover:bg-surface-container/60 transition-colors border-b border-white/5">
+            <td class="p-3.5">
+              <div class="flex items-center gap-2.5">
+                <div class="w-8 h-8 rounded-lg flex items-center justify-center border ${colorCls}">
+                  <span class="material-symbols-outlined text-[18px]">${icon}</span>
+                </div>
+                <div>
+                  <span class="font-bold text-on-surface block text-xs">${item.type}</span>
+                  <span class="text-[10px] text-on-surface-variant font-mono">Log #${item.donor_id}</span>
+                </div>
+              </div>
+            </td>
+            <td class="p-3.5">
+              <span class="px-2.5 py-1 rounded-md bg-surface-container border border-outline-variant font-mono font-bold text-primary text-xs">
+                ${item.donor_id}
+              </span>
+            </td>
+            <td class="p-3.5 font-mono text-xs text-on-surface-variant">${item.clamped}</td>
+            <td class="p-3.5">
+              <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 font-bold text-[11px]">
+                ${item.purpose}
+              </span>
+            </td>
+            <td class="p-3.5 font-mono text-xs text-on-surface">${item.date}</td>
+            <td class="p-3.5 text-center">${protBadge}</td>
+            <td class="p-3.5">${detailHtml}</td>
+            <td class="p-3.5 text-right">
+              <a href="protocols/machine-perfusion-donor-livers.html" class="inline-flex items-center gap-1 px-2.5 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
+                <span class="material-symbols-outlined text-[14px]">vital_signs</span> SOP
+              </a>
+            </td>
+          </tr>
+        `;
+      });
+
+      tbody.innerHTML = html;
+    }
+
+    // Auto-sync on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderOrgansTable();
+      syncOrganSheet(false);
+    });
   </script>
 </body>
 </html>
