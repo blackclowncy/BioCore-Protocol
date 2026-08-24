@@ -109,7 +109,7 @@
         <span class="material-symbols-outlined mr-3 text-[20px]">apps</span>All Protocols
       </a>
       <a onclick="setFilter('histology'); return false;" href="#histology" class="sidebar-item flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface hover:bg-surface-container-high transition-all cursor-pointer" data-cat="histology">
-        <span class="material-symbols-outlined mr-3 text-[20px] text-secondary">smb_share</span>Histology (6)
+        <span class="material-symbols-outlined mr-3 text-[20px] text-secondary">smb_share</span>Histology (7)
       </a>
       <a onclick="setFilter('biochemistry'); return false;" href="#biochemistry" class="sidebar-item flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface hover:bg-surface-container-high transition-all cursor-pointer" data-cat="biochemistry">
         <span class="material-symbols-outlined mr-3 text-[20px] text-secondary">experiment</span>Biochemistry (7)
@@ -179,7 +179,7 @@
           <div class="flex flex-col gap-2">
             <h1 class="font-headline text-3xl font-semibold text-on-background m-0 p-0 relative inline-block">
               Protocol Library
-              <span class="text-primary text-xl font-normal ml-3 font-mono opacity-80">(22 Standard SOPs)</span>
+              <span class="text-primary text-xl font-normal ml-3 font-mono opacity-80">(23 Standard SOPs)</span>
             </h1>
             <p class="text-base text-on-surface-variant max-w-2xl m-0 p-0">Central repository for standardized laboratory procedures, assays, diagnostic kits, and histological protocols.</p>
           </div>
@@ -198,8 +198,8 @@
             </div>
             
             <div class="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 hide-scrollbar flex-wrap" id="filter-pills">
-              <button onclick="setFilter('all')" class="filter-pill px-4 py-1.5 rounded-lg bg-primary text-on-primary text-sm font-semibold cursor-pointer shadow-[0_0_10px_rgba(125,211,252,0.2)] transition-all" data-filter="all">All (22)</button>
-              <button onclick="setFilter('histology')" class="filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all" data-filter="histology">Histology (6)</button>
+              <button onclick="setFilter('all')" class="filter-pill px-4 py-1.5 rounded-lg bg-primary text-on-primary text-sm font-semibold cursor-pointer shadow-[0_0_10px_rgba(125,211,252,0.2)] transition-all" data-filter="all">All (23)</button>
+              <button onclick="setFilter('histology')" class="filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all" data-filter="histology">Histology (7)</button>
               <button onclick="setFilter('biochemistry')" class="filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all" data-filter="biochemistry">Biochemistry (7)</button>
               <button onclick="setFilter('cell-culture')" class="filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all" data-filter="cell-culture">Cell Culture (2)</button>
               <button onclick="setFilter('microscopy')" class="filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all" data-filter="microscopy">Microscopy (2)</button>
@@ -211,7 +211,7 @@
 
           <!-- View Mode & Status -->
           <div class="flex items-center gap-4">
-            <span id="results-count" class="text-xs text-on-surface-variant font-mono">Showing 22 protocols</span>
+            <span id="results-count" class="text-xs text-on-surface-variant font-mono">Showing 23 protocols</span>
             <div class="flex items-center gap-1 bg-surface-container p-1 rounded-lg border border-outline-variant/50">
               <button id="view-grid-btn" onclick="setViewMode('grid')" title="Grid View" class="w-8 h-8 rounded bg-primary/20 text-primary flex items-center justify-center shadow-sm border border-primary/30">
                 <span class="material-symbols-outlined text-[18px]">grid_view</span>
@@ -1195,6 +1195,50 @@
         </div>
       </div>
     </div>
+    <!-- Card: CD68 (KP1) & Myeloperoxidase (MPO) IHC Staining Protocol -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="histology"
+         data-title="cd68 (kp1) & myeloperoxidase (mpo) ihc staining protocol"
+         data-vendor="biocore pathology / multi-vendor standard"
+         data-catalog="dual-marker myeloid infiltrate panel (ffpe & frozen)"
+         data-desc="standardized bench-level chromogenic (dab) and immunofluorescence ihc protocol for cd68 (kp1) and mpo polyclonal antibodies across ffpe and frozen sections for myeloid infiltrate characterization.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">smb_share</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-secondary-container border-secondary-container text-on-secondary-container">
+            Histology
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Pathology SOP</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/cd68-mpo-myeloid-ihc.html" class="hover:underline focus:outline-none">CD68 (KP1) & Myeloperoxidase (MPO) IHC Staining Protocol</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Standardized bench-level chromogenic (DAB) and immunofluorescence IHC protocol for CD68 (KP1) and MPO polyclonal antibodies across FFPE and frozen sections for myeloid infiltrate characterization.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>BioCore Pathology</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/cd68-mpo-myeloid-ihc.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
           </div>
           
           <!-- No results placeholder -->
@@ -1292,7 +1336,7 @@
       const noResultsEl = document.getElementById('no-results');
 
       if (resultsCountEl) {
-        resultsCountEl.innerText = `Showing ${visibleCount} of 22 protocols`;
+        resultsCountEl.innerText = `Showing ${visibleCount} of 23 protocols`;
       }
 
       if (visibleCount === 0) {
