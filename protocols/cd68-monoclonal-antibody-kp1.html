@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>CD68 Monoclonal Antibody (Clone KP1) - BioCore Protocol Portal</title>
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-tint": "#7dd3fc",
+            "on-primary-fixed": "#001f2e",
+            "surface-container": "#141c2e",
+            "surface-container-lowest": "#0a0e1a",
+            "tertiary": "#c8a0f0",
+            "on-secondary-fixed": "#0d1f2b",
+            "on-surface": "#e0e8f0",
+            "tertiary-fixed": "#e8d0ff",
+            "primary-fixed-dim": "#7dd3fc",
+            "outline-variant": "#2a3a48",
+            "outline": "#4a6070",
+            "error-container": "#3d1414",
+            "background": "#0a0e1a",
+            "on-secondary": "#001f2e",
+            "primary-fixed": "#c8eaff",
+            "on-error-container": "#ffb3b3",
+            "secondary": "#88b4cc",
+            "on-primary": "#001f2e",
+            "on-tertiary": "#1a002e",
+            "secondary-fixed-dim": "#88b4cc",
+            "error": "#ff6b6b",
+            "on-background": "#e0e8f0",
+            "on-error": "#1a0000",
+            "inverse-primary": "#0a4c6e",
+            "surface-dim": "#0f1524",
+            "secondary-fixed": "#c0d8e8",
+            "on-tertiary-fixed-variant": "#4d2a73",
+            "surface-container-low": "#111828",
+            "surface-container-high": "#1a2438",
+            "on-primary-fixed-variant": "#004d73",
+            "on-surface-variant": "#a0b4c4",
+            "surface-container-highest": "#202c42",
+            "on-tertiary-fixed": "#1a002e",
+            "inverse-on-surface": "#0a0e1a",
+            "surface-variant": "#1a2438",
+            "primary-container": "#0e4d6e",
+            "on-primary-container": "#c8eaff",
+            "tertiary-fixed-dim": "#c8a0f0",
+            "on-tertiary-container": "#e8d0ff",
+            "secondary-container": "#1a3a4e",
+            "inverse-surface": "#e0e8f0",
+            "on-secondary-fixed-variant": "#2a4a5e",
+            "tertiary-container": "#3d2060",
+            "surface": "#0f1524",
+            "surface-bright": "#1a2438",
+            "primary": "#7dd3fc",
+            "on-secondary-container": "#c0d8e8"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Inter"],
+            "display": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+</head>
+<body class="bg-background font-body text-on-background min-h-screen">
+  <!-- Toast Notification Container -->
+  <div id="toast" class="fixed bottom-8 right-8 bg-surface-container-high border border-primary/40 text-on-surface px-5 py-3 rounded-xl shadow-2xl z-50 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3">
+    <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+    <span id="toast-msg" class="text-sm font-medium">Notification</span>
+  </div>
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="fixed left-0 top-0 h-full w-72 bg-surface/80 backdrop-blur-xl z-50 flex flex-col border-r border-outline-variant shadow-sm">
+    <div class="p-6 mb-4 flex items-center gap-3">
+      <a href="../index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 bg-primary/20 rounded-lg border border-primary/30 flex items-center justify-center group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-primary">biotech</span>
+        </div>
+        <span class="font-headline text-lg text-on-surface tracking-tight font-semibold">BioCore Portal</span>
+      </a>
+    </div>
+    
+    <div class="px-6 py-2 text-sm uppercase text-on-surface-variant font-bold tracking-widest opacity-60">Protocol Filters</div>
+    <nav class="flex-1 px-3 mt-2 overflow-y-auto space-y-1">
+      <a class="flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" href="../index.html?category=histology">
+        <span class="material-symbols-outlined mr-3 text-[18px]">smb_share</span>Histology
+      </a>
+      <a class="flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" href="../index.html?category=microscopy">
+        <span class="material-symbols-outlined mr-3 text-[18px]">visibility</span>Microscopy
+      </a>
+      <a class="flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" href="../index.html?category=tissue-engineering">
+        <span class="material-symbols-outlined mr-3 text-[18px]">layers</span>Tissue Engineering
+      </a>
+      <a class="flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" href="../index.html?category=biochemistry">
+        <span class="material-symbols-outlined mr-3 text-[18px]">experiment</span>Biochemistry
+      </a>
+      <a class="flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" href="../index.html?category=cell-culture">
+        <span class="material-symbols-outlined mr-3 text-[18px]">pet_supplies</span>Cell Culture
+      </a>
+      <a class="flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" href="../index.html?category=perfusion">
+        <span class="material-symbols-outlined mr-3 text-[18px]">vital_signs</span>Perfusion
+      </a>
+      <a class="flex items-center px-4 py-2.5 rounded-lg text-sm bg-primary/20 text-primary font-semibold border border-primary/30 transition-all" href="../index.html?category=reagents">
+        <span class="material-symbols-outlined mr-3 text-[18px]">science</span>Reagents
+      </a>
+    </nav>
+
+    <div class="px-6 py-4 border-t border-outline-variant">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-[16px]">science</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-bold text-on-surface">Tang Lab</span>
+          <span class="text-xs text-on-surface-variant">Core Protocol Repository</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Body Content -->
+  <div class="pl-72">
+    <!-- Header Bar -->
+    <header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant z-40 flex items-center justify-between px-8">
+      <div class="flex-1 max-w-md">
+        <div class="relative flex items-center">
+          <span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span>
+          <input id="protocol-search" class="w-full pl-10 pr-4 py-2 bg-surface-container border border-outline-variant rounded-lg focus:outline-none focus:border-primary text-sm text-on-surface placeholder-on-surface-variant" placeholder="Search protocols, equipment, or SOPs..." type="text" onkeydown="if(event.key==='Enter'){ window.location.href='../index.html?search='+encodeURIComponent(this.value); }"/>
+        </div>
+      </div>
+      <nav class="flex items-center gap-8 h-full">
+        <a class="text-sm text-on-surface-variant hover:text-primary transition-all h-full flex items-center px-1 border-b-2 border-transparent" href="../index.html">Dashboard</a>
+        <a aria-current="page" class="transition-all h-full flex items-center px-1 text-primary font-semibold border-b-2 border-primary" href="../index.html">Protocols</a>
+        <a class="text-sm text-on-surface-variant hover:text-primary transition-all h-full flex items-center px-1 border-b-2 border-transparent" href="#">Equipment</a>
+        <a class="text-sm text-on-surface-variant hover:text-primary transition-all h-full flex items-center px-1 border-b-2 border-transparent" href="#">Inventory</a>
+        <a class="text-sm text-on-surface-variant hover:text-primary transition-all h-full flex items-center px-1 border-b-2 border-transparent" href="#">Safety</a>
+      </nav>
+      <div class="flex items-center gap-4 ml-6">
+        <button onclick="showToast('No new notifications')" class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container rounded-full"><span class="material-symbols-outlined">notifications</span></button>
+        <button onclick="showToast('Tang Lab Protocol Portal v2.4')" class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container rounded-full"><span class="material-symbols-outlined">settings</span></button>
+      </div>
+    </header>
+
+    <!-- Content Area -->
+    <main class="pt-16 bg-background min-h-screen relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background pointer-events-none"></div>
+      <div class="flex flex-col w-full p-6 md:p-8 space-y-6 max-w-7xl mx-auto relative z-10">
+        
+        <!-- Breadcrumbs & Back link -->
+        <div class="flex items-center gap-2 text-xs sm:text-sm text-on-surface-variant">
+          <a href="../index.html" class="hover:text-primary transition-colors flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px]">arrow_back</span> Protocol Library
+          </a>
+          <span>/</span>
+          <a href="../index.html?category=reagents" class="hover:text-primary transition-colors capitalize">Reagents</a>
+          <span>/</span>
+          <span class="text-on-surface font-medium truncate max-w-md">CD68 Monoclonal Antibody (Clone KP1)</span>
+        </div>
+
+        <!-- Protocol Header Section -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-surface/60 backdrop-blur-2xl p-5 md:p-6 rounded-2xl border border-white/5 shadow-2xl relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent pointer-events-none"></div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-2.5 mb-2">
+              <span class="px-2.5 py-0.5 bg-primary/20 text-primary text-xs rounded-full uppercase tracking-wider font-semibold border border-primary/20">Protocol 14-0688-82</span>
+              <div class="flex items-center gap-1 text-on-surface-variant bg-surface-container-highest/50 px-2 py-0.5 rounded-md text-xs border border-white/5">
+                <span class="material-symbols-outlined text-[14px] text-tertiary">verified</span>
+                <span>Verified Protocol</span>
+              </div>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-headline text-on-surface tracking-tight font-semibold">CD68 Monoclonal Antibody (Clone KP1)</h1>
+            <p class="text-on-surface-variant mt-1 text-xs sm:text-sm flex items-center gap-2">
+              <span class="material-symbols-outlined text-[16px]">biotech</span> Invitrogen / eBioscience™ &bull; Catalog 14-0688-82 / MA5-13324 (100 µg / 200 µL)
+            </p>
+          </div>
+          <div class="flex gap-2.5 relative z-10 w-full md:w-auto">
+            <button onclick="window.print()" class="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface border border-white/10 rounded-lg transition-all text-xs sm:text-sm font-medium">
+              <span class="material-symbols-outlined text-[16px]">print</span> Print
+            </button>
+            <button onclick="exportProtocolMarkdown()" class="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface border border-white/10 rounded-lg transition-all text-xs sm:text-sm font-medium">
+              <span class="material-symbols-outlined text-[16px]">download</span> Export
+            </button>
+            <button onclick="copyShareLink()" class="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2 bg-primary text-on-primary rounded-lg transition-all text-xs sm:text-sm font-medium hover:bg-primary/90 shadow-[0_0_15px_rgba(125,211,252,0.3)]">
+              <span class="material-symbols-outlined text-[16px]">share</span> Share
+            </button>
+          </div>
+        </div>
+
+        <!-- Two Column Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          
+          <!-- Left Column: Overview, Procedures, Calculations & Calculators -->
+          <div class="lg:col-span-2 flex flex-col gap-6">
+            
+            <!-- Overview Card -->
+            <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 md:p-6 relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+              <h2 class="text-lg font-headline text-on-surface mb-3 flex items-center gap-2 font-semibold">
+                <span class="material-symbols-outlined text-primary">info</span> Overview & Principle
+              </h2>
+              <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
+                
+          <p><strong>CD68 Monoclonal Antibody (Clone KP1, eBioscience™ / Invitrogen Cat. No. 14-0688-82 / MA5-13324)</strong> is a benchmark monoclonal antibody directed against the human CD68 antigen (Macrosialin / gp110 / Scavenger Receptor D), widely regarded as the gold-standard lineage marker for tissue macrophages, monocytes, osteoclasts, and myeloid-derived phagocytes.</p>
+          <p class="font-semibold text-on-surface mt-2">Biological Target & Epitope Characteristics:</p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-1 text-xs sm:text-sm">
+            <li><strong>Intracellular Lysosomal Localization:</strong> CD68 is a 110 kDa heavily glycosylated type I integral membrane protein belonging to the lysosomal-associated membrane protein (LAMP) family. It resides predominantly within the late endosomal and lysosomal membranes of monocytes and macrophages, participating in intracellular lysosomal metabolism, antigen processing, and phagocytic clearance.</li>
+            <li><strong>Robust Formalin-Resistant Epitope (Clone KP1):</strong> Generated by immunizing mice with a subcellular fraction of human alveolar macrophages. Clone KP1 recognizes a robust, formalin-resistant peptide epitope on CD68, ensuring exceptional fidelity in formalin-fixed paraffin-embedded (FFPE) pathology specimens.</li>
+            <li><strong>Broad Cross-Species Reactivity:</strong> Highly reactive with Human, Cat, Non-human primate, Rat, Cynomolgus monkey, Rabbit, Pig, Hamster, and Mouse tissues (>100 peer-reviewed publications). (Note: Non-reactive with Canine or Chicken).</li>
+            <li><strong>Multi-Platform Validation:</strong> Optimized for IHC-P (1–5 µg/mL), IHC-F (1 µg/mL), ICC/IF confocal microscopy (5 µg/mL), intracellular flow cytometry (0.5–1 µg/test), and Western blotting (1–2 µg/mL).</li>
+          </ul>
+        
+              </div>
+              
+              <!-- Key Attributes / Wavelengths / Colors -->
+              <div class="mt-5 flex flex-wrap gap-3">
+                
+        <div class="flex items-center gap-3 bg-surface-container/50 px-3.5 py-2.5 rounded-xl border border-white/5 flex-1 min-w-[160px] backdrop-blur-sm">
+            <div class="w-9 h-9 rounded-full bg-purple-500/20 border-purple-500/30 border flex items-center justify-center flex-shrink-0">
+                <div class="w-3.5 h-3.5 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(192,132,252,0.5)]"></div>
+            </div>
+            <div>
+                <div class="text-[11px] text-on-surface-variant uppercase tracking-wider font-medium">Clone</div>
+                <div class="text-sm text-on-surface font-semibold">KP1 (Mouse IgG1κ)</div>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 bg-surface-container/50 px-3.5 py-2.5 rounded-xl border border-white/5 flex-1 min-w-[160px] backdrop-blur-sm">
+            <div class="w-9 h-9 rounded-full bg-amber-500/20 border-amber-500/30 border flex items-center justify-center flex-shrink-0">
+                <div class="w-3.5 h-3.5 rounded-full bg-amber-400 shadow-[0_0_10px_rgba(251,113,133,0.5)]"></div>
+            </div>
+            <div>
+                <div class="text-[11px] text-on-surface-variant uppercase tracking-wider font-medium">Applications</div>
+                <div class="text-sm text-on-surface font-semibold">IHC-P, IHC-F, ICC/IF, Flow</div>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 bg-surface-container/50 px-3.5 py-2.5 rounded-xl border border-white/5 flex-1 min-w-[160px] backdrop-blur-sm">
+            <div class="w-9 h-9 rounded-full bg-emerald-500/20 border-emerald-500/30 border flex items-center justify-center flex-shrink-0">
+                <div class="w-3.5 h-3.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)]"></div>
+            </div>
+            <div>
+                <div class="text-[11px] text-on-surface-variant uppercase tracking-wider font-medium">Working Conc.</div>
+                <div class="text-sm text-on-surface font-semibold">1–5 µg/mL (1:100–1:500)</div>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 bg-surface-container/50 px-3.5 py-2.5 rounded-xl border border-white/5 flex-1 min-w-[160px] backdrop-blur-sm">
+            <div class="w-9 h-9 rounded-full bg-blue-500/20 border-blue-500/30 border flex items-center justify-center flex-shrink-0">
+                <div class="w-3.5 h-3.5 rounded-full bg-blue-400 shadow-[0_0_10px_rgba(96,165,250,0.5)]"></div>
+            </div>
+            <div>
+                <div class="text-[11px] text-on-surface-variant uppercase tracking-wider font-medium">Target</div>
+                <div class="text-sm text-on-surface font-semibold">Macrophage Lysosomes</div>
+            </div>
+        </div>
+              </div>
+            </section>
+
+            <!-- Usage Procedure Section -->
+            <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-0 overflow-hidden relative">
+              <div class="p-5 border-b border-white/5 bg-surface-container/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                <h2 class="text-lg font-headline text-on-surface flex items-center gap-2 font-semibold">
+                  <span class="material-symbols-outlined text-primary">format_list_numbered</span> Usage Procedure
+                </h2>
+                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('cd68_ihc_paraffin')" id="tab-btn-cd68_ihc_paraffin" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">1. IHC (FFPE Paraffin)</button><button onclick="switchTab('cd68_ihc_frozen')" id="tab-btn-cd68_ihc_frozen" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">2. IHC (Frozen Cryosections)</button><button onclick="switchTab('cd68_icc_if')" id="tab-btn-cd68_icc_if" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">3. ICC / IF Confocal Microscopy</button><button onclick="switchTab('cd68_flow_cytometry')" id="tab-btn-cd68_flow_cytometry" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">4. Intracellular Flow Cytometry</button><button onclick="switchTab('cd68_qc_troubleshooting')" id="tab-btn-cd68_qc_troubleshooting" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">5. Controls & Troubleshooting</button></div>
+              </div>
+              <div class="p-5">
+                
+        <div id="proc-content-cd68_ihc_paraffin" class="proc-tab-content ">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Immunohistochemistry on Formalin-Fixed Paraffin-Embedded Sections (IHC-P)</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Deparaffinization & Rehydration</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Immerse slide racks in fresh xylene for 3 changes of 5 minutes each (3 × 5 min). Rehydrate through graded ethanol baths: 100% ethanol (2 × 2 min), 95% ethanol (2 × 2 min), 70% ethanol (2 min), and rinse in distilled water for 2 minutes.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 20 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Heat-Induced Epitope Retrieval (HIER)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Immerse slides in 10 mM Sodium Citrate buffer (pH 6.0) or 1 mM EDTA buffer (pH 8.0/9.0). Heat in a microwave oven or pressure cooker to a boil (2–3 min), then maintain at sub-boiling temperature (95–98°C) for 10–15 minutes. Cool slides slowly on the benchtop for 30 minutes at room temperature. Rinse in 1X PBS for 2 × 2 minutes.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>HIER in pH 6.0 citrate provides optimal unmasking of the KP1 lysosomal epitope.</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 45 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Endogenous Peroxidase & Non-Specific Blocking</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Incubate sections in 0.3% H2O2 in PBS (or methanol) for 10–15 minutes at room temperature to quench endogenous peroxidases. Rinse in 1X PBS for 2 × 2 minutes. Apply 5% normal goat serum (or 1% BSA + 0.1% Triton X-100 in PBS) for 30–60 minutes at room temperature in a humidified chamber.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 45 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Primary Antibody Incubation (KP1)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Dilute CD68 KP1 antibody stock (0.5 mg/mL) to a working concentration of 1.0–5.0 µg/mL (1:100 to 1:500 dilution) in 1X PBS containing 1% BSA. Apply 100–150 µL per section. Incubate for 1–2 hours at room temperature, or overnight at 4°C in a humidified chamber. Rinse in 1X PBS for 3 changes of 2 minutes (3 × 2 min).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 1–2 hours (or O/N)
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 5 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Polymer Secondary Detection & DAB Chromogen</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Apply polymer HRP-conjugated anti-mouse secondary antibody for 30 minutes at room temperature. Rinse in 1X PBS for 3 × 2 minutes. Apply fresh DAB working substrate and monitor brown lysosomal/cytoplasmic staining under a microscope (typically 2–8 minutes). Terminate reaction in ddH2O.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 40 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 6 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">6</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Counterstain & Mounting</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Counterstain in Mayer's Hematoxylin for 1–2 minutes, blue in running tap water for 2 minutes. Dehydrate through 95% and 100% ethanol, clear in xylene (2 × 5 min), and coverslip with permanent resinous mounting medium.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-cd68_ihc_frozen" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Immunohistochemistry on Frozen Cryosections (IHC-F)</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Cryosection Preparation & Fixation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Equilibrate frozen tissue blocks (-80°C) to cryostat chamber (-20°C). Cut 5–8 µm cryosections and mount onto Superfrost Plus slides. Air dry at room temperature for 30 minutes. Fix slides in ice-cold acetone or acetone/methanol (1:1) for 10 minutes at 4°C. Air dry for 20 minutes.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 60 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Washing & Permeabilization / Blocking</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Rinse fixed slides in 1X PBS for 2 × 2 minutes. Block non-specific binding by applying 5% normal goat serum + 0.1% Triton X-100 in PBS for 30 minutes at room temperature.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Triton X-100 permeabilizes lysosomal membranes to maximize KP1 antibody access.</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Primary Antibody Incubation & Visualization</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Dilute CD68 KP1 antibody to 1.0 µg/mL (1:500 dilution) in 1% BSA/PBS. Incubate for 1 hour at room temperature or overnight at 4°C. Rinse in PBS (3 × 2 min). Apply HRP polymer secondary antibody or fluorophore-conjugated anti-mouse IgG (e.g. Alexa Fluor 488/594 at 2 µg/mL). Develop DAB or mount with antifade coverslip.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 1–2 hours
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-cd68_icc_if" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Immunocytochemistry & Immunofluorescence on Cultured Macrophages (ICC/IF)</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Cell Culture & Macrophage Differentiation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Seed monocyte cell lines (e.g. THP-1 or U937) onto sterile glass coverslips in 24-well plates. Differentiate into M0 macrophages using 50–100 nM Phorbol 12-myristate 13-acetate (PMA) for 24–48 hours, followed by 24h rest in fresh medium.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 48–72 hours
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Fixation & Permeabilization</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Wash cells gently with 1X PBS. Fix in 4% Paraformaldehyde (PFA) in PBS for 10–15 minutes at room temperature. Wash with PBS (2 × 2 min). Permeabilize with 0.1% Triton X-100 in PBS for 15 minutes at room temperature.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Blocking & Primary Antibody Incubation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Block non-specific sites with 1% BSA + 0.1% Tween-20 in PBS for 1 hour at room temperature. Incubate with CD68 KP1 antibody diluted to 5.0 µg/mL (1:100) in blocking buffer overnight at 4°C (or 2 hours at room temperature).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2 hours to O/N
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Fluorescent Secondary & Counterstaining</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Wash 3 × 5 min in PBS-T. Incubate with Goat anti-Mouse IgG Superclonal™ Alexa Fluor 488 (2 µg/mL) + Rhodamine Phalloidin (for F-actin) for 1 hour at room temperature in the dark. Wash 3 × 5 min. Counterstain nuclei with DAPI (1 µg/mL) for 5 minutes. Mount coverslips onto slides using ProLong™ Glass Antifade Mountant.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 90 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-cd68_flow_cytometry" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Intracellular Flow Cytometry Staining SOP</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Harvest & Surface Staining</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Harvest 1 × 10⁶ single-cell suspension of PBMCs, splenocytes, or cultured macrophages. Wash with Flow Cytometry Staining Buffer (PBS + 1% FBS + 0.09% NaN3). Perform live/dead fixable viability dye staining (15 min at 4°C). Perform surface marker staining (e.g. CD14, CD11b, F4/80) if required.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Intracellular Fixation & Permeabilization</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Resuspend cell pellet in 100 µL of IC Fixation Buffer (or 4% PFA) and incubate for 20 minutes at room temperature (or 4°C in the dark). Centrifuge at 400 × g for 5 minutes. Resuspend and wash pellet in 1X Permeabilization Buffer (containing saponin or Triton X-100).</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>CD68 is predominantly intracellular; permeabilization is strictly mandatory for detection.</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Intracellular CD68 KP1 Antibody Staining</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Resuspend cells in 100 µL of 1X Permeabilization Buffer containing 0.5–1.0 µg of CD68 KP1 antibody (or conjugated KP1-PE/FITC/APC). Incubate for 30–45 minutes at 4°C in the dark. Wash twice with 1X Permeabilization Buffer (400 × g, 5 min).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 45 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Secondary Labeling & Cytometer Acquisition</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">If using purified unconjugated KP1, incubate with fluorochrome-conjugated anti-mouse IgG (e.g. Alexa Fluor 488/647) for 30 minutes at 4°C. Wash twice, resuspend in 300 µL Flow Staining Buffer, and acquire on flow cytometer (gating on singlet live cells -> CD14⁺ / CD68⁺).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 45 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-cd68_qc_troubleshooting" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Quality Controls & Performance Optimization (Clone KP1)</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Positive & Negative Quality Controls</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">• Positive Tissue Controls: Human tonsil (interdigitating reticulum cells / macrophages), spleen red pulp macrophages, liver Kupffer cells, or lung alveolar macrophages.
+• Negative Isotype Control: Purified Mouse IgG1 kappa isotype control at an identical concentration (1–5 µg/mL) to verify absence of non-specific Fc receptor binding.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> QC Standard
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Troubleshooting: Weak or Absent Staining</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">• Cause 1: Inadequate heat-induced antigen retrieval in FFPE tissue. -> Remedy: Ensure retrieval buffer reaches 95–98°C for full 10–15 min in pH 6.0 citrate or pH 9.0 Tris-EDTA.
+• Cause 2: Failure to permeabilize intracellular lysosomal membranes in ICC/Flow. -> Remedy: Include 0.1% Triton X-100 or saponin in all blocking and antibody incubation steps.
+• Cause 3: Over-fixation in formalin (>48h). -> Remedy: Prolong antigen retrieval time or test enzymatic digestion (proteinase K / pronase).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> Remedy
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Troubleshooting: High Non-Specific Background</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">• Cause 1: Incomplete endogenous peroxidase blocking in liver/spleen. -> Remedy: Treat sections with 3% H2O2 in methanol for 20 minutes before serum blocking.
+• Cause 2: Non-specific Fc receptor binding on macrophages. -> Remedy: Use 5–10% normal serum from the host species of the secondary antibody, or add Mouse/Human Fc Block (anti-CD16/CD32).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> Remedy
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+              </div>
+            </section>
+
+            
+        <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 md:p-6 relative overflow-hidden mt-6">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+            <h2 class="text-lg font-headline text-on-surface mb-3 flex items-center gap-2 font-semibold">
+                <span class="material-symbols-outlined text-tertiary">calculate</span> CD68 Working Dilution Formulas & Preparation Ratios
+            </h2>
+            
+            <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto">
+                Stock Concentration = 0.5 mg/mL (500 µg/mL)
+Volume Stock (µL) = [Target Conc (µg/mL) × Total Volume (µL)] / 500 µg/mL
+            </div>
+            <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
+                
+              <div class="space-y-4">
+                <p><strong>1. Working Dilution Formulas:</strong></p>
+                <p>$$\text{Dilution Ratio } (1:X) = \frac{500\text{ \mu g/mL}}{\text{Target Working Conc (\mu g/mL)}}$$</p>
+                <p>$$\text{Stock Antibody Volume (\mu L)} = \frac{\text{Target Conc (\mu g/mL)} \times V_{\text{total}} (\mu L)}{500\text{ \mu g/mL}}$$</p>
+                <p><strong>2. Standard Working Concentrations by Application:</strong></p>
+                <div class="overflow-x-auto">
+                  <table class="w-full text-left text-xs border-collapse bg-surface-container/30 rounded-xl overflow-hidden border border-white/5 font-mono">
+                    <thead>
+                      <tr class="bg-surface-container-high/60 border-b border-white/10 text-on-surface">
+                        <th class="p-2.5 font-semibold">Application</th>
+                        <th class="p-2.5 font-semibold">Target Working Conc</th>
+                        <th class="p-2.5 font-semibold">Dilution Ratio</th>
+                        <th class="p-2.5 font-semibold text-primary">Volume Stock per 1.0 mL Buffer</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5 text-[11px]">
+                      <tr>
+                        <td class="p-2 font-semibold">IHC (Paraffin FFPE)</td>
+                        <td class="p-2">1.0 µg/mL</td>
+                        <td class="p-2">1 : 500</td>
+                        <td class="p-2 font-bold text-primary">2.0 µL</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2 font-semibold">IHC (Frozen Sections)</td>
+                        <td class="p-2">1.0 µg/mL</td>
+                        <td class="p-2">1 : 500</td>
+                        <td class="p-2 font-bold text-primary">2.0 µL</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2 font-semibold">ICC / IF Confocal</td>
+                        <td class="p-2">5.0 µg/mL</td>
+                        <td class="p-2">1 : 100</td>
+                        <td class="p-2 font-bold text-primary">10.0 µL</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2 font-semibold">Intracellular Flow Cytometry</td>
+                        <td class="p-2">0.5 µg / 100 µL test (5 µg/mL)</td>
+                        <td class="p-2">1 : 100</td>
+                        <td class="p-2 font-bold text-primary">1.0 µL per test</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2 font-semibold">Western Blotting (WB)</td>
+                        <td class="p-2">1.0 – 2.0 µg/mL</td>
+                        <td class="p-2">1 : 250 – 1 : 500</td>
+                        <td class="p-2 font-bold text-primary">2.0 – 4.0 µL</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            
+            </div>
+        </section>
+
+            
+    <!-- Interactive CD68 Antibody Dilution & Multi-Application Calculator -->
+    <section id="assay-calculator" class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-primary/20 shadow-2xl p-6 relative overflow-hidden mt-8">
+      <div class="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+      
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 relative z-10 border-b border-white/5 pb-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="p-2 rounded-lg bg-primary/20 text-primary material-symbols-outlined text-[22px]">colorize</span>
+            <h2 class="text-xl font-headline text-on-surface font-semibold">CD68 (KP1) Working Dilution & Batch Scaler</h2>
+          </div>
+          <p class="text-xs text-on-surface-variant mt-1">Calculates exact stock antibody and diluent volumes for IHC(P), IHC(F), ICC/IF, and Flow Cytometry (Stock: 0.5 mg/mL)</p>
+        </div>
+        
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="loadCd68Preset('ihc')" class="px-2.5 py-1 text-xs font-semibold rounded bg-primary/20 text-primary border border-primary/30 hover:bg-primary/30 transition-all">IHC-P (1 µg/mL)</button>
+          <button type="button" onclick="loadCd68Preset('icc')" class="px-2.5 py-1 text-xs font-semibold rounded bg-purple-500/20 text-purple-300 border border-purple-500/30 hover:bg-purple-500/30 transition-all">ICC/IF (5 µg/mL)</button>
+          <button type="button" onclick="loadCd68Preset('flow')" class="px-2.5 py-1 text-xs font-semibold rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/30 transition-all">Flow (0.5 µg/test)</button>
+        </div>
+      </div>
+
+      <!-- Inputs Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 relative z-10 mb-6 font-mono text-xs">
+        <div>
+          <label class="block text-on-surface-variant font-semibold uppercase tracking-wider text-[11px] mb-1.5">Application Preset</label>
+          <select id="cd68-app-select" class="w-full px-3 py-2 bg-surface-container border border-outline-variant rounded-lg text-on-surface focus:outline-none focus:border-primary" onchange="onCd68AppChange()">
+            <option value="1.0" selected>IHC Paraffin (1.0 µg/mL, 1:500)</option>
+            <option value="2.5">IHC Paraffin High (2.5 µg/mL, 1:200)</option>
+            <option value="1.0_f">IHC Frozen (1.0 µg/mL, 1:500)</option>
+            <option value="5.0">ICC / IF Confocal (5.0 µg/mL, 1:100)</option>
+            <option value="0.5_flow">Flow Cytometry (0.5 µg / 100 µL test)</option>
+            <option value="custom">Custom Concentration</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-on-surface-variant font-semibold uppercase tracking-wider text-[11px] mb-1.5">Target Conc. (µg/mL)</label>
+          <input type="number" step="0.1" min="0.1" max="50" id="cd68-target-conc" value="1.0" class="w-full px-3 py-2 bg-surface-container border border-outline-variant rounded-lg text-on-surface focus:outline-none focus:border-primary font-bold text-primary" oninput="calculateCd68()"/>
+        </div>
+
+        <div>
+          <label class="block text-on-surface-variant font-semibold uppercase tracking-wider text-[11px] mb-1.5">Number of Tests / Slides</label>
+          <input type="number" min="1" max="500" id="cd68-test-count" value="12" class="w-full px-3 py-2 bg-surface-container border border-outline-variant rounded-lg text-on-surface focus:outline-none focus:border-primary" oninput="calculateCd68()"/>
+        </div>
+
+        <div>
+          <label class="block text-on-surface-variant font-semibold uppercase tracking-wider text-[11px] mb-1.5">Volume per Test (µL)</label>
+          <input type="number" step="10" min="20" max="2000" id="cd68-vol-per-test" value="150" class="w-full px-3 py-2 bg-surface-container border border-outline-variant rounded-lg text-on-surface focus:outline-none focus:border-primary" oninput="calculateCd68()"/>
+        </div>
+      </div>
+
+      <!-- Results Grid -->
+      <div class="bg-surface-container/40 rounded-xl p-5 border border-white/5 relative z-10">
+        <div class="text-xs font-semibold text-primary mb-3 flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">science</span>
+          Master Mix Preparation Recipe (Stock Conc: 500 µg/mL = 0.5 mg/mL)
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
+          <div class="bg-surface-container-high/60 p-3.5 rounded-lg border border-white/5">
+            <span class="text-on-surface-variant text-[11px] block mb-1">CD68 Stock (14-0688-82) Volume:</span>
+            <span id="cd68-stock-vol" class="text-lg font-bold text-primary">3.60 µL</span>
+            <span class="text-[10px] text-on-surface-variant block mt-1">Dilution Factor: <strong id="cd68-dil-factor" class="text-on-surface">1 : 500</strong></span>
+          </div>
+
+          <div class="bg-surface-container-high/60 p-3.5 rounded-lg border border-white/5">
+            <span class="text-on-surface-variant text-[11px] block mb-1">Antibody Diluent Buffer Volume:</span>
+            <span id="cd68-buffer-vol" class="text-lg font-bold text-emerald-400">1.796 mL</span>
+            <span class="text-[10px] text-on-surface-variant block mt-1">1X PBS + 1% BSA + 0.1% Tween-20</span>
+          </div>
+
+          <div class="bg-surface-container-high/60 p-3.5 rounded-lg border border-white/5">
+            <span class="text-on-surface-variant text-[11px] block mb-1">Total Working Volume (+5% dead vol):</span>
+            <span id="cd68-total-vol" class="text-lg font-bold text-tertiary">1.890 mL</span>
+            <span class="text-[10px] text-on-surface-variant block mt-1">Dispenses 12 slides at 150 µL each</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function onCd68AppChange() {
+        const val = document.getElementById('cd68-app-select').value;
+        if (val === '1.0' || val === '1.0_f') {
+          document.getElementById('cd68-target-conc').value = '1.0';
+          document.getElementById('cd68-vol-per-test').value = '150';
+        } else if (val === '2.5') {
+          document.getElementById('cd68-target-conc').value = '2.5';
+          document.getElementById('cd68-vol-per-test').value = '150';
+        } else if (val === '5.0') {
+          document.getElementById('cd68-target-conc').value = '5.0';
+          document.getElementById('cd68-vol-per-test').value = '200';
+        } else if (val === '0.5_flow') {
+          document.getElementById('cd68-target-conc').value = '5.0'; // 0.5 ug in 100 uL = 5 ug/mL
+          document.getElementById('cd68-vol-per-test').value = '100';
+        }
+        calculateCd68();
+      }
+
+      function calculateCd68() {
+        const targetConc = parseFloat(document.getElementById('cd68-target-conc').value) || 1.0;
+        const testCount = parseInt(document.getElementById('cd68-test-count').value) || 1;
+        const volPerTest = parseFloat(document.getElementById('cd68-vol-per-test').value) || 150;
+        
+        const stockConc = 500.0; // 0.5 mg/mL = 500 ug/mL
+        const rawTotalVol = testCount * volPerTest; // uL
+        const totalVolWithOverhead = rawTotalVol * 1.05; // 5% excess pipetting overhead
+
+        const stockVolUl = (targetConc * totalVolWithOverhead) / stockConc;
+        const bufferVolUl = totalVolWithOverhead - stockVolUl;
+        const dilutionRatio = Math.round(stockConc / targetConc);
+
+        document.getElementById('cd68-stock-vol').innerText = `${stockVolUl.toFixed(2)} µL`;
+        document.getElementById('cd68-dil-factor').innerText = `1 : ${dilutionRatio}`;
+
+        if (bufferVolUl >= 1000) {
+          document.getElementById('cd68-buffer-vol').innerText = `${(bufferVolUl / 1000).toFixed(3)} mL`;
+        } else {
+          document.getElementById('cd68-buffer-vol').innerText = `${bufferVolUl.toFixed(1)} µL`;
+        }
+
+        if (totalVolWithOverhead >= 1000) {
+          document.getElementById('cd68-total-vol').innerText = `${(totalVolWithOverhead / 1000).toFixed(3)} mL`;
+        } else {
+          document.getElementById('cd68-total-vol').innerText = `${totalVolWithOverhead.toFixed(0)} µL`;
+        }
+      }
+
+      function loadCd68Preset(app) {
+        if (app === 'ihc') {
+          document.getElementById('cd68-app-select').value = '1.0';
+          document.getElementById('cd68-target-conc').value = '1.0';
+          document.getElementById('cd68-vol-per-test').value = '150';
+          showToast('Loaded IHC Paraffin SOP (1 µg/mL, 1:500)');
+        } else if (app === 'icc') {
+          document.getElementById('cd68-app-select').value = '5.0';
+          document.getElementById('cd68-target-conc').value = '5.0';
+          document.getElementById('cd68-vol-per-test').value = '200';
+          showToast('Loaded ICC / IF Confocal SOP (5 µg/mL, 1:100)');
+        } else if (app === 'flow') {
+          document.getElementById('cd68-app-select').value = '0.5_flow';
+          document.getElementById('cd68-target-conc').value = '5.0';
+          document.getElementById('cd68-vol-per-test').value = '100';
+          showToast('Loaded Intracellular Flow Cytometry SOP (0.5 µg/test)');
+        }
+        calculateCd68();
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        calculateCd68();
+      });
+    </script>
+    
+
+          </div>
+
+          <!-- Right Column: Components, Storage & Cautions -->
+          <div class="lg:col-span-1 flex flex-col gap-5">
+            
+            <!-- Components Table Card (Strict table-fixed with zero overflow) -->
+            <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl overflow-hidden">
+              <div class="p-4 border-b border-white/5 bg-surface-container/30 flex items-center justify-between">
+                <h2 class="text-base font-headline text-on-surface flex items-center gap-2 font-semibold">
+                  <span class="material-symbols-outlined text-primary text-[18px]">science</span> Materials & Reagents
+                </h2>
+                <span class="text-[11px] text-on-surface-variant uppercase tracking-wider font-mono">Kit Contents</span>
+              </div>
+              <div class="w-full">
+                <table class="w-full text-left border-collapse table-fixed">
+                  <thead>
+                    <tr class="border-b border-white/5 text-[11px] text-on-surface-variant bg-surface-container/20">
+                      <th class="py-2 px-3 font-semibold uppercase tracking-wider">Item / Reagent</th>
+                      <th class="py-2 px-3 font-semibold uppercase tracking-wider text-right w-20">Spec</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-white/5">
+                    
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">CD68 Monoclonal Antibody (Clone KP1, 14-0688-82)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 4°C in PBS pH 7.2 + 0.09% sodium azide. Do NOT freeze.</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">100 µg / 200 µL (0.5 mg/mL)</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">10 mM Sodium Citrate Antigen Retrieval Buffer (pH 6.0)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 15–25°C</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Prepared fresh</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Primary Antibody Diluent (1X PBS + 1% BSA + 0.1% Tween-20)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Prepared fresh</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Normal Goat / Donkey Serum Blocking Reagent (5%)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Prepared fresh</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Polymer HRP or Fluorophore-Conjugated Anti-Mouse Secondary</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C / -20°C</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Commercial kit</span>
+            </td>
+        </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <!-- Storage Card -->
+            <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-4.5 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-tertiary/20 border border-tertiary/30 text-tertiary flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(200,160,240,0.15)]">
+                <span class="material-symbols-outlined text-[20px]">inventory_2</span>
+              </div>
+              <div>
+                <h3 class="text-sm font-headline text-on-surface mb-1 font-semibold">Storage & Stability</h3>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Store at 4°C in PBS pH 7.2 with 0.09% sodium azide. Do not freeze.</p>
+                <p class="text-[11px] text-primary mt-1.5 flex items-center gap-1 font-medium">
+                  <span class="material-symbols-outlined text-[13px]">event_available</span> Stable for 12 months from date of shipment at 4°C.
+                </p>
+              </div>
+            </section>
+
+            <!-- Cautions Card -->
+            <section class="bg-error-container/10 backdrop-blur-2xl rounded-2xl border border-error/20 shadow-2xl p-4.5">
+              <h3 class="text-sm font-headline text-error mb-2.5 flex items-center gap-1.5 font-semibold">
+                <span class="material-symbols-outlined text-[18px] drop-shadow-[0_0_8px_rgba(255,107,107,0.5)]">warning</span> Cautions & Safety
+              </h3>
+              <ul class="space-y-2">
+                
+        <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
+            <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
+            <span class="leading-relaxed">Store antibody stock vial strictly at 4°C. Do NOT freeze; repeated freeze-thaw cycles degrade antibody affinity and cause aggregation.</span>
+        </li>
+        <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
+            <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
+            <span class="leading-relaxed">Contains 0.09% sodium azide preservative. Sodium azide is toxic and inhibits HRP enzyme activity; wash thoroughly before adding HRP conjugates.</span>
+        </li>
+        <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
+            <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
+            <span class="leading-relaxed">CD68 is an intracellular lysosomal antigen; permeabilization with Triton X-100 or saponin is strictly mandatory for immunofluorescence and flow cytometry.</span>
+        </li>
+        <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
+            <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
+            <span class="leading-relaxed">Always utilize heat-induced epitope retrieval (HIER) in citrate pH 6.0 for FFPE tissues to maximize epitope accessibility.</span>
+        </li>
+              </ul>
+            </section>
+
+            <!-- Expected Results / Morphology Preview -->
+            <div class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 p-4.5 shadow-2xl relative overflow-hidden">
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="material-symbols-outlined text-secondary text-[18px]">analytics</span>
+                <h3 class="text-sm font-headline text-on-surface font-semibold">Expected Results</h3>
+              </div>
+              <p class="text-xs text-on-surface-variant leading-relaxed">
+                Strong granular cytoplasmic and lysosomal brown/fluorescent immunoreactivity in tissue macrophages, Kupffer cells, and monocytes, with clear separation from CD68-negative parenchymal cells.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Tab switching logic
+    function switchTab(procId) {
+      document.querySelectorAll('.proc-tab-content').forEach(el => el.classList.add('hidden'));
+      const activeContent = document.getElementById('proc-content-' + procId);
+      if (activeContent) activeContent.classList.remove('hidden');
+
+      document.querySelectorAll('.proc-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-surface-container-high', 'text-primary', 'shadow-sm');
+        btn.classList.add('text-on-surface-variant');
+      });
+      const activeBtn = document.getElementById('tab-btn-' + procId);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-surface-container-high', 'text-primary', 'shadow-sm');
+        activeBtn.classList.remove('text-on-surface-variant');
+      }
+    }
+
+    // Toast message
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-msg');
+      toastMsg.innerText = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 2500);
+    }
+
+    // Share link copy
+    function copyShareLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        showToast('Protocol link copied to clipboard!');
+      }).catch(() => {
+        showToast('Share URL: ' + window.location.href);
+      });
+    }
+
+    // Export markdown file
+    function exportProtocolMarkdown() {
+      const title = document.querySelector('h1').innerText;
+      const text = `# ${title}\n\nURL: ${window.location.href}\nBioCore Protocol Portal - Tang Lab\nGenerated on ${new Date().toLocaleDateString()}`;
+      const blob = new Blob([text], { type: 'text/markdown' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'cd68-monoclonal-antibody-kp1-protocol.md';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Protocol exported successfully!');
+    }
+  </script>
+</body>
+</html>
