@@ -129,6 +129,9 @@
       <a onclick="setFilter('reagents'); return false;" href="#reagents" class="sidebar-item flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface hover:bg-surface-container-high transition-all cursor-pointer" data-cat="reagents">
         <span class="material-symbols-outlined mr-3 text-[20px] text-secondary">science</span>Reagents (3)
       </a>
+      <a onclick="setFilter('safety'); return false;" href="#safety" class="sidebar-item flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface hover:bg-surface-container-high transition-all cursor-pointer" data-cat="safety">
+        <span class="material-symbols-outlined mr-3 text-[20px] text-rose-400">health_and_safety</span>Safety & SDS (38)
+      </a>
     </nav>
 
     <div class="px-6 py-4 border-t border-outline-variant">
@@ -162,7 +165,7 @@
         <a aria-current="page" class="transition-all h-full flex items-center px-1 text-primary font-semibold border-b-2 border-primary" href="index.html">Protocols</a>
         <a class="text-sm text-on-surface-variant hover:text-on-surface transition-all h-full flex items-center px-1 border-b-2 border-transparent" href="#">Equipment</a>
         <a class="text-sm text-on-surface-variant hover:text-on-surface transition-all h-full flex items-center px-1 border-b-2 border-transparent" href="#">Inventory</a>
-        <a class="text-sm text-on-surface-variant hover:text-on-surface transition-all h-full flex items-center px-1 border-b-2 border-transparent" href="#">Safety</a>
+        <a onclick="setFilter('safety'); return false;" class="text-sm text-on-surface-variant hover:text-on-surface transition-all h-full flex items-center px-1 border-b-2 border-transparent cursor-pointer" href="#safety">Safety</a>
       </nav>
       <div class="flex items-center gap-4 ml-6">
         <button class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container rounded-full hover:text-on-surface transition-colors"><span class="material-symbols-outlined">notifications</span></button>
@@ -179,9 +182,9 @@
           <div class="flex flex-col gap-2">
             <h1 class="font-headline text-3xl font-semibold text-on-background m-0 p-0 relative inline-block">
               Protocol Library
-              <span class="text-primary text-xl font-normal ml-3 font-mono opacity-80">(23 Standard SOPs)</span>
+              <span class="text-primary text-xl font-normal ml-3 font-mono opacity-80">(61 Standard SOPs & SDS)</span>
             </h1>
-            <p class="text-base text-on-surface-variant max-w-2xl m-0 p-0">Central repository for standardized laboratory procedures, assays, diagnostic kits, and histological protocols.</p>
+            <p class="text-base text-on-surface-variant max-w-2xl m-0 p-0">Central repository for standardized laboratory procedures, assays, diagnostic kits, and Safety Data Sheets (SDS).</p>
           </div>
           <div class="flex items-center gap-3">
             <a href="code.html" class="bg-surface-container hover:bg-surface-container-high text-on-surface border border-outline-variant/60 text-sm font-medium px-4 py-2.5 rounded-lg transition-all flex items-center gap-2">
@@ -198,7 +201,7 @@
             </div>
             
             <div class="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 hide-scrollbar flex-wrap" id="filter-pills">
-              <button onclick="setFilter('all')" class="filter-pill px-4 py-1.5 rounded-lg bg-primary text-on-primary text-sm font-semibold cursor-pointer shadow-[0_0_10px_rgba(125,211,252,0.2)] transition-all" data-filter="all">All (23)</button>
+              <button onclick="setFilter('all')" class="filter-pill px-4 py-1.5 rounded-lg bg-primary text-on-primary text-sm font-semibold cursor-pointer shadow-[0_0_10px_rgba(125,211,252,0.2)] transition-all" data-filter="all">All (61)</button>
               <button onclick="setFilter('histology')" class="filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all" data-filter="histology">Histology (7)</button>
               <button onclick="setFilter('biochemistry')" class="filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all" data-filter="biochemistry">Biochemistry (7)</button>
               <button onclick="setFilter('cell-culture')" class="filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all" data-filter="cell-culture">Cell Culture (2)</button>
@@ -206,12 +209,13 @@
               <button onclick="setFilter('tissue-engineering')" class="filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all" data-filter="tissue-engineering">Tissue Engineering (1)</button>
               <button onclick="setFilter('perfusion')" class="filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all" data-filter="perfusion">Perfusion (1)</button>
               <button onclick="setFilter('reagents')" class="filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all" data-filter="reagents">Reagents (3)</button>
+              <button onclick="setFilter('safety')" class="filter-pill px-4 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface text-sm font-medium cursor-pointer transition-all" data-filter="safety">Safety (38)</button>
             </div>
           </div>
 
           <!-- View Mode & Status -->
           <div class="flex items-center gap-4">
-            <span id="results-count" class="text-xs text-on-surface-variant font-mono">Showing 23 protocols</span>
+            <span id="results-count" class="text-xs text-on-surface-variant font-mono">Showing 61 protocols</span>
             <div class="flex items-center gap-1 bg-surface-container p-1 rounded-lg border border-outline-variant/50">
               <button id="view-grid-btn" onclick="setViewMode('grid')" title="Grid View" class="w-8 h-8 rounded bg-primary/20 text-primary flex items-center justify-center shadow-sm border border-primary/30">
                 <span class="material-symbols-outlined text-[18px]">grid_view</span>
@@ -1239,6 +1243,1678 @@
         </div>
       </div>
     </div>
+    <!-- Card: SDS: CLINIMIX E with ELECTROLYTES -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: clinimix e with electrolytes"
+         data-vendor="baxter healthcare corporation"
+         data-catalog="cas: mixture / formulated solution • baxter healthcare corporation"
+         data-desc="official safety data sheet (sds) and chemical safety profile for clinimix e with electrolytes (cas: mixture / formulated solution). ghs signal word: non-hazardous / low risk.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-clinimix-e-with-electrolytes.html" class="hover:underline focus:outline-none">SDS: CLINIMIX E with ELECTROLYTES</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for CLINIMIX E with ELECTROLYTES (CAS: Mixture / Formulated Solution). GHS Signal Word: Non-Hazardous / Low Risk.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Baxter Healthcare Corporation</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-clinimix-e-with-electrolytes.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Vitamin B Complex HP Injection -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: vitamin b complex hp injection"
+         data-vendor="laboratory chemical standard / multi-vendor sds"
+         data-catalog="cas: mixture / formulated solution • laboratory chemical standard / multi-vendor sds"
+         data-desc="official safety data sheet (sds) and chemical safety profile for vitamin b complex hp injection (cas: mixture / formulated solution). ghs signal word: non-hazardous / low risk.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-vitamin-b-complex-hp-injection.html" class="hover:underline focus:outline-none">SDS: Vitamin B Complex HP Injection</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Vitamin B Complex HP Injection (CAS: Mixture / Formulated Solution). GHS Signal Word: Non-Hazardous / Low Risk.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Laboratory Chemical Standard</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-vitamin-b-complex-hp-injection.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Voltage sensitive dyes RH1691 -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: voltage sensitive dyes rh1691"
+         data-vendor="laboratory chemical standard / multi-vendor sds"
+         data-catalog="cas: 1149367-62-3 • laboratory chemical standard / multi-vendor sds"
+         data-desc="official safety data sheet (sds) and chemical safety profile for voltage sensitive dyes rh1691 (cas: 1149367-62-3). ghs signal word: non-hazardous / low risk.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-voltage-sensitive-dyes-rh1691.html" class="hover:underline focus:outline-none">SDS: Voltage sensitive dyes RH1691</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Voltage sensitive dyes RH1691 (CAS: 1149367-62-3). GHS Signal Word: Non-Hazardous / Low Risk.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Laboratory Chemical Standard</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-voltage-sensitive-dyes-rh1691.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: 10% LMD DEXTRAN 40 in 5% Dextrose Injection, USP -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: 10% lmd dextran 40 in 5% dextrose injection, usp"
+         data-vendor="hospira / pfizer inc."
+         data-catalog="cas: 1310-73-2 • hospira / pfizer inc."
+         data-desc="official safety data sheet (sds) and chemical safety profile for 10% lmd dextran 40 in 5% dextrose injection, usp (cas: 1310-73-2). ghs signal word: non-hazardous / low risk.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-10-lmd-dextran-40-in-5-dextrose-injection-usp.html" class="hover:underline focus:outline-none">SDS: 10% LMD DEXTRAN 40 in 5% Dextrose Injection, USP</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for 10% LMD DEXTRAN 40 in 5% Dextrose Injection, USP (CAS: 1310-73-2). GHS Signal Word: Non-Hazardous / Low Risk.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Hospira</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-10-lmd-dextran-40-in-5-dextrose-injection-usp.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: 5-Aminolevulinic acid hydrochloride -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: 5-aminolevulinic acid hydrochloride"
+         data-vendor="sigma-aldrich / milliporesigma"
+         data-catalog="cas: 5451-09-2 • sigma-aldrich / milliporesigma"
+         data-desc="official safety data sheet (sds) and chemical safety profile for 5-aminolevulinic acid hydrochloride (cas: 5451-09-2). ghs signal word: danger.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-5-aminolevulinic-acid-hydrochloride.html" class="hover:underline focus:outline-none">SDS: 5-Aminolevulinic acid hydrochloride</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for 5-Aminolevulinic acid hydrochloride (CAS: 5451-09-2). GHS Signal Word: DANGER.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Sigma-Aldrich</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-5-aminolevulinic-acid-hydrochloride.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: 50% Dextrose Injection, USP -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: 50% dextrose injection, usp"
+         data-vendor="hospira / pfizer inc."
+         data-catalog="cas: mixture / formulated solution • hospira / pfizer inc."
+         data-desc="official safety data sheet (sds) and chemical safety profile for 50% dextrose injection, usp (cas: mixture / formulated solution). ghs signal word: warning.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-50-dextrose-injection-usp.html" class="hover:underline focus:outline-none">SDS: 50% Dextrose Injection, USP</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for 50% Dextrose Injection, USP (CAS: Mixture / Formulated Solution). GHS Signal Word: WARNING.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Hospira</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-50-dextrose-injection-usp.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Acetaminophen -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: acetaminophen"
+         data-vendor="sigma-aldrich / milliporesigma"
+         data-catalog="cas: 103-90-2 • sigma-aldrich / milliporesigma"
+         data-desc="official safety data sheet (sds) and chemical safety profile for acetaminophen (cas: 103-90-2). ghs signal word: danger.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-acetaminophen.html" class="hover:underline focus:outline-none">SDS: Acetaminophen</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Acetaminophen (CAS: 103-90-2). GHS Signal Word: DANGER.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Sigma-Aldrich</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-acetaminophen.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Agar -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: agar"
+         data-vendor="sigma-aldrich / milliporesigma"
+         data-catalog="cas: 9002-18-0 • sigma-aldrich / milliporesigma"
+         data-desc="official safety data sheet (sds) and chemical safety profile for agar (cas: 9002-18-0). ghs signal word: danger.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-agar.html" class="hover:underline focus:outline-none">SDS: Agar</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Agar (CAS: 9002-18-0). GHS Signal Word: DANGER.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Sigma-Aldrich</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-agar.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Albumin (Human) 25%, USP (Brand Name albuked 25) -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: albumin (human) 25%, usp (brand name albuked 25)"
+         data-vendor="laboratory chemical standard / multi-vendor sds"
+         data-catalog="cas: mixture / formulated solution • laboratory chemical standard / multi-vendor sds"
+         data-desc="official safety data sheet (sds) and chemical safety profile for albumin (human) 25%, usp (brand name albuked 25) (cas: mixture / formulated solution). ghs signal word: non-hazardous / low risk.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-albumin-human-25-usp-brand-name-albuked-25.html" class="hover:underline focus:outline-none">SDS: Albumin (Human) 25%, USP (Brand Name albuked 25)</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Albumin (Human) 25%, USP (Brand Name albuked 25) (CAS: Mixture / Formulated Solution). GHS Signal Word: Non-Hazardous / Low Risk.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Laboratory Chemical Standard</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-albumin-human-25-usp-brand-name-albuked-25.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Benzyl alcohol -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: benzyl alcohol"
+         data-vendor="sigma-aldrich / milliporesigma"
+         data-catalog="cas: 100-51-6 • sigma-aldrich / milliporesigma"
+         data-desc="official safety data sheet (sds) and chemical safety profile for benzyl alcohol (cas: 100-51-6). ghs signal word: danger.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-benzyl-alcohol.html" class="hover:underline focus:outline-none">SDS: Benzyl alcohol</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Benzyl alcohol (CAS: 100-51-6). GHS Signal Word: DANGER.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Sigma-Aldrich</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-benzyl-alcohol.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Benzyl benzoate -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: benzyl benzoate"
+         data-vendor="sigma-aldrich / milliporesigma"
+         data-catalog="cas: 120-51-4 • sigma-aldrich / milliporesigma"
+         data-desc="official safety data sheet (sds) and chemical safety profile for benzyl benzoate (cas: 120-51-4). ghs signal word: warning.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-benzyl-benzoate.html" class="hover:underline focus:outline-none">SDS: Benzyl benzoate</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Benzyl benzoate (CAS: 120-51-4). GHS Signal Word: WARNING.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Sigma-Aldrich</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-benzyl-benzoate.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Bovine Red Blood Cells -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: bovine red blood cells"
+         data-vendor="laboratory chemical standard / multi-vendor sds"
+         data-catalog="cas: mixture / formulated solution • laboratory chemical standard / multi-vendor sds"
+         data-desc="official safety data sheet (sds) and chemical safety profile for bovine red blood cells (cas: mixture / formulated solution). ghs signal word: non-hazardous / low risk.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-bovine-red-blood-cells.html" class="hover:underline focus:outline-none">SDS: Bovine Red Blood Cells</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Bovine Red Blood Cells (CAS: Mixture / Formulated Solution). GHS Signal Word: Non-Hazardous / Low Risk.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Laboratory Chemical Standard</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-bovine-red-blood-cells.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Calcium Gluconate Injection, USP -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: calcium gluconate injection, usp"
+         data-vendor="fresenius kabi usa"
+         data-catalog="cas: mixture / formulated solution • fresenius kabi usa"
+         data-desc="official safety data sheet (sds) and chemical safety profile for calcium gluconate injection, usp (cas: mixture / formulated solution). ghs signal word: danger.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-calcium-gluconate-injection-usp.html" class="hover:underline focus:outline-none">SDS: Calcium Gluconate Injection, USP</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Calcium Gluconate Injection, USP (CAS: Mixture / Formulated Solution). GHS Signal Word: DANGER.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Fresenius Kabi USA</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-calcium-gluconate-injection-usp.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Cefuroxime for Injection, USP -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: cefuroxime for injection, usp"
+         data-vendor="fresenius kabi usa"
+         data-catalog="cas: mixture / formulated solution • fresenius kabi usa"
+         data-desc="official safety data sheet (sds) and chemical safety profile for cefuroxime for injection, usp (cas: mixture / formulated solution). ghs signal word: non-hazardous / low risk.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-cefuroxime-for-injection-usp.html" class="hover:underline focus:outline-none">SDS: Cefuroxime for Injection, USP</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Cefuroxime for Injection, USP (CAS: Mixture / Formulated Solution). GHS Signal Word: Non-Hazardous / Low Risk.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Fresenius Kabi USA</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-cefuroxime-for-injection-usp.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Cyanine5.5 azide 44030 -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: cyanine5.5 azide 44030"
+         data-vendor="laboratory chemical standard / multi-vendor sds"
+         data-catalog="cas: mixture / formulated solution • laboratory chemical standard / multi-vendor sds"
+         data-desc="official safety data sheet (sds) and chemical safety profile for cyanine5.5 azide 44030 (cas: mixture / formulated solution). ghs signal word: non-hazardous / low risk.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-cyanine55-azide-44030.html" class="hover:underline focus:outline-none">SDS: Cyanine5.5 azide 44030</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Cyanine5.5 azide 44030 (CAS: Mixture / Formulated Solution). GHS Signal Word: Non-Hazardous / Low Risk.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Laboratory Chemical Standard</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-cyanine55-azide-44030.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Ethyl alcohol, Pure -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: ethyl alcohol, pure"
+         data-vendor="sigma-aldrich / milliporesigma"
+         data-catalog="cas: 64-17-5 • sigma-aldrich / milliporesigma"
+         data-desc="official safety data sheet (sds) and chemical safety profile for ethyl alcohol, pure (cas: 64-17-5). ghs signal word: danger.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-ethyl-alcohol-pure.html" class="hover:underline focus:outline-none">SDS: Ethyl alcohol, Pure</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Ethyl alcohol, Pure (CAS: 64-17-5). GHS Signal Word: DANGER.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Sigma-Aldrich</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-ethyl-alcohol-pure.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Formalin -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: formalin"
+         data-vendor="thermo fisher scientific / invitrogen"
+         data-catalog="cas: 30525-89-4 • thermo fisher scientific / invitrogen"
+         data-desc="official safety data sheet (sds) and chemical safety profile for formalin (cas: 30525-89-4). ghs signal word: danger.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-formalin.html" class="hover:underline focus:outline-none">SDS: Formalin</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Formalin (CAS: 30525-89-4). GHS Signal Word: DANGER.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Thermo Fisher Scientific</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-formalin.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Gelatine -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: gelatine"
+         data-vendor="sigma-aldrich / milliporesigma"
+         data-catalog="cas: 9000-70-8 • sigma-aldrich / milliporesigma"
+         data-desc="official safety data sheet (sds) and chemical safety profile for gelatine (cas: 9000-70-8). ghs signal word: danger.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-gelatine.html" class="hover:underline focus:outline-none">SDS: Gelatine</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Gelatine (CAS: 9000-70-8). GHS Signal Word: DANGER.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Sigma-Aldrich</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-gelatine.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Heparin Sodium Injection, USP -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: heparin sodium injection, usp"
+         data-vendor="laboratory chemical standard / multi-vendor sds"
+         data-catalog="cas: mixture / formulated solution • laboratory chemical standard / multi-vendor sds"
+         data-desc="official safety data sheet (sds) and chemical safety profile for heparin sodium injection, usp (cas: mixture / formulated solution). ghs signal word: warning.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-heparin-sodium-injection-usp.html" class="hover:underline focus:outline-none">SDS: Heparin Sodium Injection, USP</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Heparin Sodium Injection, USP (CAS: Mixture / Formulated Solution). GHS Signal Word: WARNING.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Laboratory Chemical Standard</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-heparin-sodium-injection-usp.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Humulin R  (insulin human) injection, U-100 -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: humulin r  (insulin human) injection, u-100"
+         data-vendor="eli lilly and company"
+         data-catalog="cas: mixture / formulated solution • eli lilly and company"
+         data-desc="official safety data sheet (sds) and chemical safety profile for humulin r  (insulin human) injection, u-100 (cas: mixture / formulated solution). ghs signal word: warning.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-humulin-r-insulin-human-injection-u-100.html" class="hover:underline focus:outline-none">SDS: Humulin R  (insulin human) injection, U-100</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Humulin R  (insulin human) injection, U-100 (CAS: Mixture / Formulated Solution). GHS Signal Word: WARNING.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Eli Lilly and Company</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-humulin-r-insulin-human-injection-u-100.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Hydrochloric Acid -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: hydrochloric acid"
+         data-vendor="laboratory chemical standard / multi-vendor sds"
+         data-catalog="cas: mixture / formulated solution • laboratory chemical standard / multi-vendor sds"
+         data-desc="official safety data sheet (sds) and chemical safety profile for hydrochloric acid (cas: mixture / formulated solution). ghs signal word: danger.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-hydrochloric-acid.html" class="hover:underline focus:outline-none">SDS: Hydrochloric Acid</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Hydrochloric Acid (CAS: Mixture / Formulated Solution). GHS Signal Word: DANGER.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Laboratory Chemical Standard</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-hydrochloric-acid.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Indocyanine green, MP Biomedicals -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: indocyanine green, mp biomedicals"
+         data-vendor="laboratory chemical standard / multi-vendor sds"
+         data-catalog="cas: 3599-32-4 • laboratory chemical standard / multi-vendor sds"
+         data-desc="official safety data sheet (sds) and chemical safety profile for indocyanine green, mp biomedicals (cas: 3599-32-4). ghs signal word: danger.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-indocyanine-green-mp-biomedicals.html" class="hover:underline focus:outline-none">SDS: Indocyanine green, MP Biomedicals</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Indocyanine green, MP Biomedicals (CAS: 3599-32-4). GHS Signal Word: DANGER.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Laboratory Chemical Standard</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-indocyanine-green-mp-biomedicals.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Intralipid -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: intralipid"
+         data-vendor="sigma-aldrich / milliporesigma"
+         data-catalog="cas: 68890-65-3 • sigma-aldrich / milliporesigma"
+         data-desc="official safety data sheet (sds) and chemical safety profile for intralipid (cas: 68890-65-3). ghs signal word: danger.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-intralipid.html" class="hover:underline focus:outline-none">SDS: Intralipid</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Intralipid (CAS: 68890-65-3). GHS Signal Word: DANGER.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Sigma-Aldrich</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-intralipid.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Isoflurane, USP -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: isoflurane, usp"
+         data-vendor="laboratory chemical standard / multi-vendor sds"
+         data-catalog="cas: mixture / formulated solution • laboratory chemical standard / multi-vendor sds"
+         data-desc="official safety data sheet (sds) and chemical safety profile for isoflurane, usp (cas: mixture / formulated solution). ghs signal word: non-hazardous / low risk.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-isoflurane-usp.html" class="hover:underline focus:outline-none">SDS: Isoflurane, USP</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Isoflurane, USP (CAS: Mixture / Formulated Solution). GHS Signal Word: Non-Hazardous / Low Risk.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Laboratory Chemical Standard</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-isoflurane-usp.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Isopropyl Alcohol 70% -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: isopropyl alcohol 70%"
+         data-vendor="laboratory chemical standard / multi-vendor sds"
+         data-catalog="cas: mixture / formulated solution • laboratory chemical standard / multi-vendor sds"
+         data-desc="official safety data sheet (sds) and chemical safety profile for isopropyl alcohol 70% (cas: mixture / formulated solution). ghs signal word: danger.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-isopropyl-alcohol-70.html" class="hover:underline focus:outline-none">SDS: Isopropyl Alcohol 70%</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Isopropyl Alcohol 70% (CAS: Mixture / Formulated Solution). GHS Signal Word: DANGER.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Laboratory Chemical Standard</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-isopropyl-alcohol-70.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: L-Glutathione, reduced, 97% -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: l-glutathione, reduced, 97%"
+         data-vendor="sigma-aldrich / milliporesigma"
+         data-catalog="cas: 70-18-8 • sigma-aldrich / milliporesigma"
+         data-desc="official safety data sheet (sds) and chemical safety profile for l-glutathione, reduced, 97% (cas: 70-18-8). ghs signal word: danger.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-l-glutathione-reduced-97.html" class="hover:underline focus:outline-none">SDS: L-Glutathione, reduced, 97%</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for L-Glutathione, reduced, 97% (CAS: 70-18-8). GHS Signal Word: DANGER.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Sigma-Aldrich</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-l-glutathione-reduced-97.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Meropenem for Injection, USP (I.V.) -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: meropenem for injection, usp (i.v.)"
+         data-vendor="laboratory chemical standard / multi-vendor sds"
+         data-catalog="cas: mixture / formulated solution • laboratory chemical standard / multi-vendor sds"
+         data-desc="official safety data sheet (sds) and chemical safety profile for meropenem for injection, usp (i.v.) (cas: mixture / formulated solution). ghs signal word: non-hazardous / low risk.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-meropenem-for-injection-usp-iv.html" class="hover:underline focus:outline-none">SDS: Meropenem for Injection, USP (I.V.)</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Meropenem for Injection, USP (I.V.) (CAS: Mixture / Formulated Solution). GHS Signal Word: Non-Hazardous / Low Risk.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Laboratory Chemical Standard</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-meropenem-for-injection-usp-iv.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: N-Acetyl-L-cysteine -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: n-acetyl-l-cysteine"
+         data-vendor="sigma-aldrich / milliporesigma"
+         data-catalog="cas: 616-91-1 • sigma-aldrich / milliporesigma"
+         data-desc="official safety data sheet (sds) and chemical safety profile for n-acetyl-l-cysteine (cas: 616-91-1). ghs signal word: warning.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-n-acetyl-l-cysteine.html" class="hover:underline focus:outline-none">SDS: N-Acetyl-L-cysteine</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for N-Acetyl-L-cysteine (CAS: 616-91-1). GHS Signal Word: WARNING.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Sigma-Aldrich</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-n-acetyl-l-cysteine.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Paraformaldehyde, reagent grade, crystalline -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: paraformaldehyde, reagent grade, crystalline"
+         data-vendor="sigma-aldrich / milliporesigma"
+         data-catalog="cas: 30525-89-4 • sigma-aldrich / milliporesigma"
+         data-desc="official safety data sheet (sds) and chemical safety profile for paraformaldehyde, reagent grade, crystalline (cas: 30525-89-4). ghs signal word: danger.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-paraformaldehyde-reagent-grade-crystalline.html" class="hover:underline focus:outline-none">SDS: Paraformaldehyde, reagent grade, crystalline</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Paraformaldehyde, reagent grade, crystalline (CAS: 30525-89-4). GHS Signal Word: DANGER.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Sigma-Aldrich</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-paraformaldehyde-reagent-grade-crystalline.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Potassium Chloride Solution (0.075 M) -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: potassium chloride solution (0.075 m)"
+         data-vendor="laboratory chemical standard / multi-vendor sds"
+         data-catalog="cas: mixture / formulated solution • laboratory chemical standard / multi-vendor sds"
+         data-desc="official safety data sheet (sds) and chemical safety profile for potassium chloride solution (0.075 m) (cas: mixture / formulated solution). ghs signal word: non-hazardous / low risk.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-potassium-chloride-solution-0075-m.html" class="hover:underline focus:outline-none">SDS: Potassium Chloride Solution (0.075 M)</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Potassium Chloride Solution (0.075 M) (CAS: Mixture / Formulated Solution). GHS Signal Word: Non-Hazardous / Low Risk.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Laboratory Chemical Standard</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-potassium-chloride-solution-0075-m.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Potassium hydroxide -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: potassium hydroxide"
+         data-vendor="sigma-aldrich / milliporesigma"
+         data-catalog="cas: 1310-58-3 • sigma-aldrich / milliporesigma"
+         data-desc="official safety data sheet (sds) and chemical safety profile for potassium hydroxide (cas: 1310-58-3). ghs signal word: danger.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-potassium-hydroxide.html" class="hover:underline focus:outline-none">SDS: Potassium hydroxide</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Potassium hydroxide (CAS: 1310-58-3). GHS Signal Word: DANGER.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Sigma-Aldrich</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-potassium-hydroxide.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: SERVATOR B SALF Solution -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: servator b salf solution"
+         data-vendor="salf laboratorio farmacologico"
+         data-catalog="cas: mixture / formulated solution • salf laboratorio farmacologico"
+         data-desc="official safety data sheet (sds) and chemical safety profile for servator b salf solution (cas: mixture / formulated solution). ghs signal word: non-hazardous / low risk.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-servator-b-salf-solution.html" class="hover:underline focus:outline-none">SDS: SERVATOR B SALF Solution</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for SERVATOR B SALF Solution (CAS: Mixture / Formulated Solution). GHS Signal Word: Non-Hazardous / Low Risk.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>SALF Laboratorio Farmacologico</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-servator-b-salf-solution.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Saline-_Solution-0.9 -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: saline-_solution-0.9"
+         data-vendor="laboratory chemical standard / multi-vendor sds"
+         data-catalog="cas: 7647-14-5 • laboratory chemical standard / multi-vendor sds"
+         data-desc="official safety data sheet (sds) and chemical safety profile for saline-_solution-0.9 (cas: 7647-14-5). ghs signal word: non-hazardous / low risk.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-saline-solution-09.html" class="hover:underline focus:outline-none">SDS: Saline-_Solution-0.9</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Saline-_Solution-0.9 (CAS: 7647-14-5). GHS Signal Word: Non-Hazardous / Low Risk.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Laboratory Chemical Standard</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-saline-solution-09.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Sodium bicarbonate -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: sodium bicarbonate"
+         data-vendor="sigma-aldrich / milliporesigma"
+         data-catalog="cas: 144-55-8 • sigma-aldrich / milliporesigma"
+         data-desc="official safety data sheet (sds) and chemical safety profile for sodium bicarbonate (cas: 144-55-8). ghs signal word: danger.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-sodium-bicarbonate.html" class="hover:underline focus:outline-none">SDS: Sodium bicarbonate</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Sodium bicarbonate (CAS: 144-55-8). GHS Signal Word: DANGER.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Sigma-Aldrich</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-sodium-bicarbonate.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Sodium hydroxide, flake, 98% -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: sodium hydroxide, flake, 98%"
+         data-vendor="sigma-aldrich / milliporesigma"
+         data-catalog="cas: 1310-73-2 • sigma-aldrich / milliporesigma"
+         data-desc="official safety data sheet (sds) and chemical safety profile for sodium hydroxide, flake, 98% (cas: 1310-73-2). ghs signal word: danger.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-sodium-hydroxide-flake-98.html" class="hover:underline focus:outline-none">SDS: Sodium hydroxide, flake, 98%</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Sodium hydroxide, flake, 98% (CAS: 1310-73-2). GHS Signal Word: DANGER.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Sigma-Aldrich</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-sodium-hydroxide-flake-98.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: Synthetic Urine Solution -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: synthetic urine solution"
+         data-vendor="sigma-aldrich / milliporesigma"
+         data-catalog="cas: mixture / formulated solution • sigma-aldrich / milliporesigma"
+         data-desc="official safety data sheet (sds) and chemical safety profile for synthetic urine solution (cas: mixture / formulated solution). ghs signal word: non-hazardous / low risk.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-synthetic-urine-solution.html" class="hover:underline focus:outline-none">SDS: Synthetic Urine Solution</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for Synthetic Urine Solution (CAS: Mixture / Formulated Solution). GHS Signal Word: Non-Hazardous / Low Risk.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Sigma-Aldrich</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-synthetic-urine-solution.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: human kidney perfusion solution -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: human kidney perfusion solution"
+         data-vendor="laboratory chemical standard / multi-vendor sds"
+         data-catalog="cas: mixture / formulated solution • laboratory chemical standard / multi-vendor sds"
+         data-desc="official safety data sheet (sds) and chemical safety profile for human kidney perfusion solution (cas: mixture / formulated solution). ghs signal word: warning.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-human-kidney-perfusion-solution.html" class="hover:underline focus:outline-none">SDS: human kidney perfusion solution</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for human kidney perfusion solution (CAS: Mixture / Formulated Solution). GHS Signal Word: WARNING.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Laboratory Chemical Standard</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-human-kidney-perfusion-solution.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Card: SDS: 8.4% Sodium Bicarbonate Injection -->
+    <div class="protocol-card group bg-surface-container-low/60 backdrop-blur-sm rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full relative overflow-hidden border border-outline-variant hover:border-primary/50 hover:-translate-y-1"
+         data-category="safety"
+         data-title="sds: 8.4% sodium bicarbonate injection"
+         data-vendor="laboratory chemical standard / multi-vendor sds"
+         data-catalog="cas: mixture / formulated solution • laboratory chemical standard / multi-vendor sds"
+         data-desc="official safety data sheet (sds) and chemical safety profile for 8.4% sodium bicarbonate injection (cas: mixture / formulated solution). ghs signal word: non-hazardous / low risk.">
+      <div class="absolute top-0 right-0 w-32 h-32 bg-rose-500/10 rounded-bl-full -mr-16 -mt-16 group-hover:scale-125 transition-transform duration-500 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-start mb-4 relative z-10">
+        <div class="w-12 h-12 rounded-xl flex items-center justify-center shadow-sm bg-surface-container-high text-primary border border-white/5">
+          <span class="material-symbols-outlined text-2xl">health_and_safety</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-1 rounded-full border text-xs uppercase tracking-wider font-bold bg-rose-500/20 border-rose-500/30 text-rose-300">
+            Safety
+          </span>
+        </div>
+      </div>
+      
+      <div class="mb-2">
+        <span class="text-xs text-primary/80 font-mono font-medium">Safety Data Sheet</span>
+      </div>
+      
+      <h3 class="font-headline text-lg font-semibold text-on-surface mb-2 relative z-10 group-hover:text-primary transition-colors line-clamp-2">
+        <a href="protocols/sds-84-sodium-bicarbonate-injection.html" class="hover:underline focus:outline-none">SDS: 8.4% Sodium Bicarbonate Injection</a>
+      </h3>
+      
+      <p class="text-sm text-on-surface-variant mb-6 flex-grow relative z-10 line-clamp-3 leading-relaxed">
+        Official Safety Data Sheet (SDS) and chemical safety profile for 8.4% Sodium Bicarbonate Injection (CAS: Mixture / Formulated Solution). GHS Signal Word: Non-Hazardous / Low Risk.
+      </p>
+      
+      <div class="flex items-center justify-between relative z-10 pt-4 border-t border-outline-variant/50">
+        <div class="flex items-center gap-2 text-xs text-on-surface-variant font-medium">
+          <div class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_5px_rgba(200,160,240,0.5)]"></div>
+          <span>Laboratory Chemical Standard</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <a href="protocols/sds-84-sodium-bicarbonate-injection.html" class="bg-primary/10 hover:bg-primary text-primary hover:text-on-primary px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 border border-primary/30">
+            <span class="material-symbols-outlined text-[16px]">visibility</span> Open
+          </a>
+        </div>
+      </div>
+    </div>
           </div>
           
           <!-- No results placeholder -->
@@ -1336,7 +3012,7 @@
       const noResultsEl = document.getElementById('no-results');
 
       if (resultsCountEl) {
-        resultsCountEl.innerText = `Showing ${visibleCount} of 23 protocols`;
+        resultsCountEl.innerText = `Showing ${visibleCount} of 61 protocols`;
       }
 
       if (visibleCount === 0) {
