@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>VitroView™ In Situ Ki67 IHC DAB Detection Kit - BioCore Protocol Portal</title>
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-tint": "#7dd3fc",
+            "on-primary-fixed": "#001f2e",
+            "surface-container": "#141c2e",
+            "surface-container-lowest": "#0a0e1a",
+            "tertiary": "#c8a0f0",
+            "on-secondary-fixed": "#0d1f2b",
+            "on-surface": "#e0e8f0",
+            "tertiary-fixed": "#e8d0ff",
+            "primary-fixed-dim": "#7dd3fc",
+            "outline-variant": "#2a3a48",
+            "outline": "#4a6070",
+            "error-container": "#3d1414",
+            "background": "#0a0e1a",
+            "on-secondary": "#001f2e",
+            "primary-fixed": "#c8eaff",
+            "on-error-container": "#ffb3b3",
+            "secondary": "#88b4cc",
+            "on-primary": "#001f2e",
+            "on-tertiary": "#1a002e",
+            "secondary-fixed-dim": "#88b4cc",
+            "error": "#ff6b6b",
+            "on-background": "#e0e8f0",
+            "on-error": "#1a0000",
+            "inverse-primary": "#0a4c6e",
+            "surface-dim": "#0f1524",
+            "secondary-fixed": "#c0d8e8",
+            "on-tertiary-fixed-variant": "#4d2a73",
+            "surface-container-low": "#111828",
+            "surface-container-high": "#1a2438",
+            "on-primary-fixed-variant": "#004d73",
+            "on-surface-variant": "#a0b4c4",
+            "surface-container-highest": "#202c42",
+            "on-tertiary-fixed": "#1a002e",
+            "inverse-on-surface": "#0a0e1a",
+            "surface-variant": "#1a2438",
+            "primary-container": "#0e4d6e",
+            "on-primary-container": "#c8eaff",
+            "tertiary-fixed-dim": "#c8a0f0",
+            "on-tertiary-container": "#e8d0ff",
+            "secondary-container": "#1a3a4e",
+            "inverse-surface": "#e0e8f0",
+            "on-secondary-fixed-variant": "#2a4a5e",
+            "tertiary-container": "#3d2060",
+            "surface": "#0f1524",
+            "surface-bright": "#1a2438",
+            "primary": "#7dd3fc",
+            "on-secondary-container": "#c0d8e8"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.5rem",
+            "lg": "1rem",
+            "xl": "1.5rem",
+            "full": "9999px"
+          },
+          "fontFamily": {
+            "headline": ["Inter"],
+            "display": ["Inter"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+</head>
+<body class="bg-background font-body text-on-background min-h-screen">
+  <!-- Toast Notification Container -->
+  <div id="toast" class="fixed bottom-8 right-8 bg-surface-container-high border border-primary/40 text-on-surface px-5 py-3 rounded-xl shadow-2xl z-50 transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-3">
+    <span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+    <span id="toast-msg" class="text-sm font-medium">Notification</span>
+  </div>
+
+  <!-- Left Sidebar Navigation -->
+  <aside class="fixed left-0 top-0 h-full w-72 bg-surface/80 backdrop-blur-xl z-50 flex flex-col border-r border-outline-variant shadow-sm">
+    <div class="p-6 mb-4 flex items-center gap-3">
+      <a href="../index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 bg-primary/20 rounded-lg border border-primary/30 flex items-center justify-center group-hover:scale-105 transition-transform">
+          <span class="material-symbols-outlined text-primary">biotech</span>
+        </div>
+        <span class="font-headline text-lg text-on-surface tracking-tight font-semibold">BioCore Portal</span>
+      </a>
+    </div>
+    
+    <div class="px-6 py-2 text-sm uppercase text-on-surface-variant font-bold tracking-widest opacity-60">Protocol Filters</div>
+    <nav class="flex-1 px-3 mt-2 overflow-y-auto space-y-1">
+      <a class="flex items-center px-4 py-2.5 rounded-lg text-sm bg-primary/20 text-primary font-semibold border border-primary/30 transition-all" href="../index.html?category=histology">
+        <span class="material-symbols-outlined mr-3 text-[18px]">smb_share</span>Histology
+      </a>
+      <a class="flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" href="../index.html?category=microscopy">
+        <span class="material-symbols-outlined mr-3 text-[18px]">visibility</span>Microscopy
+      </a>
+      <a class="flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" href="../index.html?category=tissue-engineering">
+        <span class="material-symbols-outlined mr-3 text-[18px]">layers</span>Tissue Engineering
+      </a>
+      <a class="flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" href="../index.html?category=biochemistry">
+        <span class="material-symbols-outlined mr-3 text-[18px]">experiment</span>Biochemistry
+      </a>
+      <a class="flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" href="../index.html?category=cell-culture">
+        <span class="material-symbols-outlined mr-3 text-[18px]">pet_supplies</span>Cell Culture
+      </a>
+      <a class="flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" href="../index.html?category=perfusion">
+        <span class="material-symbols-outlined mr-3 text-[18px]">vital_signs</span>Perfusion
+      </a>
+      <a class="flex items-center px-4 py-2.5 rounded-lg text-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" href="../index.html?category=reagents">
+        <span class="material-symbols-outlined mr-3 text-[18px]">science</span>Reagents
+      </a>
+    </nav>
+
+    <div class="px-6 py-4 border-t border-outline-variant">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center">
+          <span class="material-symbols-outlined text-primary text-[16px]">science</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-sm font-bold text-on-surface">Tang Lab</span>
+          <span class="text-xs text-on-surface-variant">Core Protocol Repository</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Body Content -->
+  <div class="pl-72">
+    <!-- Header Bar -->
+    <header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant z-40 flex items-center justify-between px-8">
+      <div class="flex-1 max-w-md">
+        <div class="relative flex items-center">
+          <span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span>
+          <input id="protocol-search" class="w-full pl-10 pr-4 py-2 bg-surface-container border border-outline-variant rounded-lg focus:outline-none focus:border-primary text-sm text-on-surface placeholder-on-surface-variant" placeholder="Search protocols, equipment, or SOPs..." type="text" onkeydown="if(event.key==='Enter'){ window.location.href='../index.html?search='+encodeURIComponent(this.value); }"/>
+        </div>
+      </div>
+      <nav class="flex items-center gap-8 h-full">
+        <a class="text-sm text-on-surface-variant hover:text-primary transition-all h-full flex items-center px-1 border-b-2 border-transparent" href="../index.html">Dashboard</a>
+        <a aria-current="page" class="transition-all h-full flex items-center px-1 text-primary font-semibold border-b-2 border-primary" href="../index.html">Protocols</a>
+        <a class="text-sm text-on-surface-variant hover:text-primary transition-all h-full flex items-center px-1 border-b-2 border-transparent" href="#">Equipment</a>
+        <a class="text-sm text-on-surface-variant hover:text-primary transition-all h-full flex items-center px-1 border-b-2 border-transparent" href="#">Inventory</a>
+        <a class="text-sm text-on-surface-variant hover:text-primary transition-all h-full flex items-center px-1 border-b-2 border-transparent" href="#">Safety</a>
+      </nav>
+      <div class="flex items-center gap-4 ml-6">
+        <button onclick="showToast('No new notifications')" class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container rounded-full"><span class="material-symbols-outlined">notifications</span></button>
+        <button onclick="showToast('Tang Lab Protocol Portal v2.4')" class="w-10 h-10 flex items-center justify-center text-on-surface-variant hover:bg-surface-container rounded-full"><span class="material-symbols-outlined">settings</span></button>
+      </div>
+    </header>
+
+    <!-- Content Area -->
+    <main class="pt-16 bg-background min-h-screen relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-background to-background pointer-events-none"></div>
+      <div class="flex flex-col w-full p-6 md:p-8 space-y-6 max-w-7xl mx-auto relative z-10">
+        
+        <!-- Breadcrumbs & Back link -->
+        <div class="flex items-center gap-2 text-xs sm:text-sm text-on-surface-variant">
+          <a href="../index.html" class="hover:text-primary transition-colors flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px]">arrow_back</span> Protocol Library
+          </a>
+          <span>/</span>
+          <a href="../index.html?category=histology" class="hover:text-primary transition-colors capitalize">Histology</a>
+          <span>/</span>
+          <span class="text-on-surface font-medium truncate max-w-md">VitroView™ In Situ Ki67 IHC DAB Detection Kit</span>
+        </div>
+
+        <!-- Protocol Header Section -->
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 bg-surface/60 backdrop-blur-2xl p-5 md:p-6 rounded-2xl border border-white/5 shadow-2xl relative overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent pointer-events-none"></div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-2.5 mb-2">
+              <span class="px-2.5 py-0.5 bg-primary/20 text-primary text-xs rounded-full uppercase tracking-wider font-semibold border border-primary/20">Protocol VB-4002D</span>
+              <div class="flex items-center gap-1 text-on-surface-variant bg-surface-container-highest/50 px-2 py-0.5 rounded-md text-xs border border-white/5">
+                <span class="material-symbols-outlined text-[14px] text-tertiary">verified</span>
+                <span>Verified Protocol</span>
+              </div>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-headline text-on-surface tracking-tight font-semibold">VitroView™ In Situ Ki67 IHC DAB Detection Kit</h1>
+            <p class="text-on-surface-variant mt-1 text-xs sm:text-sm flex items-center gap-2">
+              <span class="material-symbols-outlined text-[16px]">biotech</span> VitroVivo Biotech &bull; Catalog Number VB-4002D (50–100 tests)
+            </p>
+          </div>
+          <div class="flex gap-2.5 relative z-10 w-full md:w-auto">
+            <button onclick="window.print()" class="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface border border-white/10 rounded-lg transition-all text-xs sm:text-sm font-medium">
+              <span class="material-symbols-outlined text-[16px]">print</span> Print
+            </button>
+            <button onclick="exportProtocolMarkdown()" class="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface border border-white/10 rounded-lg transition-all text-xs sm:text-sm font-medium">
+              <span class="material-symbols-outlined text-[16px]">download</span> Export
+            </button>
+            <button onclick="copyShareLink()" class="flex-1 md:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2 bg-primary text-on-primary rounded-lg transition-all text-xs sm:text-sm font-medium hover:bg-primary/90 shadow-[0_0_15px_rgba(125,211,252,0.3)]">
+              <span class="material-symbols-outlined text-[16px]">share</span> Share
+            </button>
+          </div>
+        </div>
+
+        <!-- Two Column Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          
+          <!-- Left Column: Overview, Procedures, Calculations & Calculators -->
+          <div class="lg:col-span-2 flex flex-col gap-6">
+            
+            <!-- Overview Card -->
+            <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 md:p-6 relative overflow-hidden">
+              <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+              <h2 class="text-lg font-headline text-on-surface mb-3 flex items-center gap-2 font-semibold">
+                <span class="material-symbols-outlined text-primary">info</span> Overview & Principle
+              </h2>
+              <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
+                
+          <p>The <strong>VitroView™ In Situ Ki67 IHC DAB Detection Kit (Cat. No. VB-4002D)</strong> is optimized for one-step, biotin-free immunohistochemical detection of the Ki67 nuclear proliferation antigen in formalin-fixed paraffin-embedded (FFPE) tissue sections, frozen cryosections, and cultured cells.</p>
+          <p class="font-semibold text-on-surface mt-2">Biological Significance & Proliferation Marker:</p>
+          <ul class="list-disc pl-5 space-y-1.5 mt-1 text-xs sm:text-sm">
+            <li><strong>Cell Cycle-Specific Nuclear Antigen:</strong> Ki67 protein is strictly expressed in all active phases of the cell division cycle ($G_1, S, G_2$, and mitosis $M$), but is completely down-regulated in resting/quiescent cells in the $G_0$ phase.</li>
+            <li><strong>Broad 11-Species Cross-Reactivity:</strong> The optimized anti-Ki67 antibody demonstrates robust immunoreactivity in human, mouse, rat, sheep, rabbit, horse, cow, dog, pig, monkey, and Chinese hamster tissues.</li>
+            <li><strong>Polymer-HRP Detection System:</strong> Employs a polymeric horseradish peroxidase (HRP)-conjugated secondary antibody that eliminates non-specific background caused by endogenous biotin in liver, kidney, and metabolic tissues, providing crisp nuclear contrast with 3,3'-diaminobenzidine (DAB).</li>
+          </ul>
+        
+              </div>
+              
+              <!-- Key Attributes / Wavelengths / Colors -->
+              <div class="mt-5 flex flex-wrap gap-3">
+                
+        <div class="flex items-center gap-3 bg-surface-container/50 px-3.5 py-2.5 rounded-xl border border-white/5 flex-1 min-w-[160px] backdrop-blur-sm">
+            <div class="w-9 h-9 rounded-full bg-purple-500/20 border-purple-500/30 border flex items-center justify-center flex-shrink-0">
+                <div class="w-3.5 h-3.5 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(192,132,252,0.5)]"></div>
+            </div>
+            <div>
+                <div class="text-[11px] text-on-surface-variant uppercase tracking-wider font-medium">Marker</div>
+                <div class="text-sm text-on-surface font-semibold">Ki67 Nuclear Antigen</div>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 bg-surface-container/50 px-3.5 py-2.5 rounded-xl border border-white/5 flex-1 min-w-[160px] backdrop-blur-sm">
+            <div class="w-9 h-9 rounded-full bg-amber-500/20 border-amber-500/30 border flex items-center justify-center flex-shrink-0">
+                <div class="w-3.5 h-3.5 rounded-full bg-amber-400 shadow-[0_0_10px_rgba(251,113,133,0.5)]"></div>
+            </div>
+            <div>
+                <div class="text-[11px] text-on-surface-variant uppercase tracking-wider font-medium">Detection</div>
+                <div class="text-sm text-on-surface font-semibold">Polymer HRP-DAB</div>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 bg-surface-container/50 px-3.5 py-2.5 rounded-xl border border-white/5 flex-1 min-w-[160px] backdrop-blur-sm">
+            <div class="w-9 h-9 rounded-full bg-emerald-500/20 border-emerald-500/30 border flex items-center justify-center flex-shrink-0">
+                <div class="w-3.5 h-3.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.5)]"></div>
+            </div>
+            <div>
+                <div class="text-[11px] text-on-surface-variant uppercase tracking-wider font-medium">Sample Types</div>
+                <div class="text-sm text-on-surface font-semibold">FFPE, Frozen, Cells</div>
+            </div>
+        </div>
+        <div class="flex items-center gap-3 bg-surface-container/50 px-3.5 py-2.5 rounded-xl border border-white/5 flex-1 min-w-[160px] backdrop-blur-sm">
+            <div class="w-9 h-9 rounded-full bg-blue-500/20 border-blue-500/30 border flex items-center justify-center flex-shrink-0">
+                <div class="w-3.5 h-3.5 rounded-full bg-blue-400 shadow-[0_0_10px_rgba(96,165,250,0.5)]"></div>
+            </div>
+            <div>
+                <div class="text-[11px] text-on-surface-variant uppercase tracking-wider font-medium">Species Cross</div>
+                <div class="text-sm text-on-surface font-semibold">Human, Rodents, 11 Spp.</div>
+            </div>
+        </div>
+              </div>
+            </section>
+
+            <!-- Usage Procedure Section -->
+            <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-0 overflow-hidden relative">
+              <div class="p-5 border-b border-white/5 bg-surface-container/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                <h2 class="text-lg font-headline text-on-surface flex items-center gap-2 font-semibold">
+                  <span class="material-symbols-outlined text-primary">format_list_numbered</span> Usage Procedure
+                </h2>
+                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('ffpe_prep_retrieval')" id="tab-btn-ffpe_prep_retrieval" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">1. FFPE Sections & Heat Retrieval</button><button onclick="switchTab('frozen_cells_prep')" id="tab-btn-frozen_cells_prep" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">2. Frozen Sections & Cultured Cells</button><button onclick="switchTab('polymer_hrp_dab_staining')" id="tab-btn-polymer_hrp_dab_staining" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">3. Polymeric HRP-DAB Staining SOP</button><button onclick="switchTab('ki67_index_scoring')" id="tab-btn-ki67_index_scoring" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">4. Ki67 Index & Clinical Scoring</button><button onclick="switchTab('troubleshooting_ki67')" id="tab-btn-troubleshooting_ki67" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">5. Troubleshooting & Controls</button></div>
+              </div>
+              <div class="p-5">
+                
+        <div id="proc-content-ffpe_prep_retrieval" class="proc-tab-content ">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Paraffin Deparaffinization & Heat-Induced Epitope Retrieval (HIER)</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Deparaffinization in Xylene</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Immerse FFPE slide racks in a staining dish containing fresh xylene for 3 changes of 5 minutes each (3 × 5 min).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Graded Ethanol Rehydration</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Rehydrate tissue sections through graded alcohols:
+• 100% Ethanol: 2 changes of 2 minutes each (2 × 2 min)
+• 95% Ethanol: 2 changes of 2 minutes each (2 × 2 min)
+• Distilled / deionized water (ddH2O): Rinse thoroughly for 2 minutes.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Never allow slides to dry out once deparaffinization has begun.</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">1× Antigen Retrieval Working Solution Preparation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Dilute 10 mL of 10× Ag Retrieval Solution (VB-4002D-1) with 90 mL of ddH2O to prepare 100 mL of 1× Ag retrieval working solution. Mix thoroughly.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Microwave Heat-Induced Epitope Retrieval (HIER)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Place rehydrated slides into a Coplin jar containing the 1× Ag retrieval solution. Heat in a microwave oven for 2–3 minutes to bring solution to a boil. Maintain at a sub-boiling temperature for 10 minutes (using power adjustments, pressure cooker, or 95–98°C water bath). Remove jar and allow slides to cool slowly on the benchtop for 30 minutes at room temperature.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>CRITICAL: Do NOT use heat-induced antigen retrieval on frozen sections or cultured cells.</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 45 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-frozen_cells_prep" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Cryosection & Cultured Cell Line Preparation</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Cultured Cell Lines on Coverslips / Chamber Slides</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Grow cells on sterile glass coverslips or multi-well chamber slides overnight at 37°C. Wash briefly with 1X PBS. Fix according to desired method:
+• Option A: 10% Neutral Buffered Formalin in PBS for 20 minutes at RT (keep wet)
+• Option B: Ice-cold Methanol for 10 minutes, allow to air dry for 10 minutes
+• Option C: Ice-cold Acetone for 10 minutes, allow to air dry for 10 minutes
+Wash in 1X PBS and proceed directly to Staining Procedure (Skip Heat Retrieval).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Cryosections (Frozen Tissue Preparation)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Snap freeze fresh surgical or animal tissue in liquid nitrogen (or isopentane pre-cooled in LN2). Embed in OCT compound in cryomolds and store at -80°C. Equilibrate tissue block to cryostat temperature (-20°C). Cut 5–10 µm cryosections and mount onto charged Superfrost Plus slides.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Cryosection Fixation & Hydration</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Warm frozen slides at room temperature for 30 minutes. Fix in ice-cold acetone or ice-cold methanol for 10 minutes. Air dry for 30 minutes. Rinse in 1X PBS for 2 × 2 minutes. Proceed directly to Staining Procedure without heat antigen retrieval.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 70 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-polymer_hrp_dab_staining" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Polymer HRP-Conjugated DAB Immunohistochemical Staining</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Permeabilization & Hydrophobic Barrier</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Rinse sections in PBS-Triton X-100 (0.025%) for 2 changes of 2 minutes (2 × 2 min). Carefully wipe excess buffer from around the tissue perimeter with a Kimwipe and draw a tight hydrophobic circle using a Mini PAP Pen.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Serum Blocking (Non-Specific Binding Block)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Apply 3–4 drops of RTU Blocking Buffer (VB-4002D-2) to completely cover the tissue section. Incubate in a humidified chamber for 30 minutes at room temperature to block non-specific immunoglobulin binding sites.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Primary Antibody Incubation (RTU Anti-Ki67)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Tap off blocking buffer (do not rinse). Immediately apply 3–4 drops of RTU Anti-Ki67 Primary Antibody (VB-4002D-3). Incubate for 1–2 hours at room temperature, or overnight at 4°C in a humidified chamber. Rinse in 1X PBS for 3 × 2 minutes.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 1–2 hours (or O/N)
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Endogenous Peroxidase Blocking (Optional / Recommended)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">For tissues with high endogenous peroxidase activity (e.g. spleen, liver, kidney, blood-rich specimens), incubate sections in 0.3% H2O2 in PBS (or 0.3% H2O2 in methanol) for 10 minutes at room temperature. Rinse in 1X PBS for 2 × 2 minutes.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 10 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 5 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Polymeric Peroxidase Secondary Antibody Incubation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Apply 3–4 drops of RTU Polymeric Peroxidase (HRP)-Conjugated Secondary Antibody (VB-4002D-4) to each section. Incubate in a humidified chamber for 30 minutes at room temperature. Rinse in 1X PBS for 3 changes of 2 minutes (3 × 2 min).</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Polymer detection provides high sensitivity and completely avoids endogenous biotin background.</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 6 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">6</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Working DAB Solution Preparation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Mix 25 µL of DAB Stock Solution (40×, VB-4002D-5) with 1.0 mL of Stable DAB Buffer (VB-4002D-6). Mix thoroughly by vortexing immediately before use.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Prepare DAB working solution fresh. Discard any unused working solution after 6 hours.</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 7 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">7</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">DAB Chromogen Substrate Incubation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Apply 3 drops of prepared DAB working solution to cover the tissue. Incubate for 2–8 minutes. Closely monitor brown nuclear signal development under a light microscope. As soon as distinct brown nuclear staining appears with minimal background, terminate reaction by immersing slides in ddH2O for 2 × 2 minutes.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>WARNING: DAB is a potential carcinogen. Wear nitrile gloves and dispose of in toxic chemical waste.</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 2–8 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 8 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">8</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Hematoxylin Nuclear Counterstaining</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Apply 3 drops of RTU Hematoxylin Solution (VB-4002D-7) for 1–2 minutes. Rinse slides gently in running tap water for 2 changes of 2 minutes (2 × 2 min) to allow blueing of non-proliferating nuclei.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 9 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">9</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Dehydration, Clearing & Coverslipping</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Dehydrate through graded ethanol series:
+• 75% Ethanol: 2 minutes
+• 95% Ethanol: 2 minutes
+• 100% Ethanol: 2 changes of 3 minutes each (2 × 3 min)
+Clear in xylene for 2 changes of 5 minutes each (2 × 5 min). Apply 1–2 drops of permanent resinous mounting medium (e.g. DPX or Permount) and coverslip without trapping air bubbles.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 20 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-ki67_index_scoring" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Ki67 Proliferation Index (%) Quantification & Scoring Protocols</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Low-Power Survey & Hotspot Identification</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Examine the entire stained section under low magnification (40×–100×) to assess overall staining homogeneity and identify 'hotspots' (areas with the highest density of Ki67-positive brown nuclei).</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">High-Power Counting Methodology (400× HPF)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Under high magnification (400× HPF), count both Ki67-positive brown nuclei and Ki67-negative blue nuclei across 3 to 5 representative hotspot fields. A minimum of 500 to 1,000 total tumor cells should be evaluated to ensure statistical validity.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 15 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Ki67 Proliferation Index Calculation Formula</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">Calculate the Ki67 Labeling / Proliferation Index using the standard formula:
+Ki67 Index (%) = (Number of Ki67-positive tumor nuclei / Total number of tumor nuclei) × 100%</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 5 mins
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Clinical Stratification & Grading Consensus</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">• Neuroendocrine Neoplasms (WHO 2022 Grading):
+  - Grade 1 (G1): Ki67 Index < 3%
+  - Grade 2 (G2): Ki67 Index 3% – 20%
+  - Grade 3 (G3 / NEC): Ki67 Index > 20%
+• Breast Carcinoma (St. Gallen Consensus):
+  - Luminal A-like: Ki67 < 14%–20% (Low proliferation)
+  - Luminal B-like (HER2-negative): Ki67 ≥ 20% (High proliferation)
+• Lymphomas & Solid Tumors: > 25% indicates high proliferative fraction.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> Classification
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div id="proc-content-troubleshooting_ki67" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Quality Controls & Troubleshooting Guide (VB-4002D)</h3>
+            <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
+                
+            <!-- Step 1 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Quality Control Slides (Positive & Negative Controls)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">• Positive Control: Run the included Ki67 Positive Control FFPE Slides (VB-4002D-8, e.g. tonsil, lymph node, or proliferating tumor) in parallel with test specimens to verify reagent reactivity.
+• Negative Control: In parallel, incubate one test slide with 1X PBS or an isotype-matched non-immune IgG instead of the primary antibody to evaluate non-specific background.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> Control QC
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">High Background Staining</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">• Cause 1: Incomplete endogenous peroxidase blocking. -> Remedy: Incubate in 0.3% H2O2 in methanol or PBS for 10–30 min at RT.
+• Cause 2: Incomplete deparaffinization. -> Remedy: Prepare new sections and deparaffinize in fresh xylene (3 × 5 min).
+• Cause 3: Inadequate washing between steps. -> Remedy: Rinse gently with wash buffer bottle and soak in wash bath for 5 min with gentle agitation.
+• Cause 4: Over-development of DAB substrate. -> Remedy: Reduce DAB incubation time (2–5 min) and monitor under microscope.
+• Cause 5: Specimen dehydration during staining. -> Remedy: Keep sections moist in humidified chamber at all times.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> Remedy
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Negative Staining on Positive Slides</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">• Cause 1: Protocol steps performed in incorrect sequence or antibody omitted. -> Remedy: Repeat procedure carefully.
+• Cause 2: Heat-labile antigens destroyed during tissue processing. -> Remedy: Use freshly cut slides (< 2 weeks old). Ensure paraffin melting temperature does not exceed 55–58°C (embedding wax must NOT exceed 60°C).
+• Cause 3: Specimen improperly fixed or over-fixed in formalin. -> Remedy: Optimize fixation (10% NBF for 18–24 hours; avoid > 48h over-fixation).
+• Cause 4: Epitopes masked due to inadequate antigen retrieval. -> Remedy: Verify microwave boiling time and maintain 10 min sub-boiling.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> Remedy
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="flex gap-3.5 relative">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1">Weak Staining on All Slides</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed">• Cause 1: Specimen retained excess wash liquid, diluting antibody. -> Remedy: Carefully wipe excess liquid around tissue before applying reagent drops.
+• Cause 2: Primary or secondary antibody incubation time insufficient. -> Remedy: Prolong primary antibody incubation to 2 hours at RT or overnight at 4°C.
+• Cause 3: Incomplete deparaffinization creating a hydrophobic wax barrier. -> Remedy: Use fresh xylene and fresh 100% ethanol baths.</p>
+                    
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> Remedy
+                    </span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+              </div>
+            </section>
+
+            
+        <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 md:p-6 relative overflow-hidden mt-6">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+            <h2 class="text-lg font-headline text-on-surface mb-3 flex items-center gap-2 font-semibold">
+                <span class="material-symbols-outlined text-tertiary">calculate</span> Ki67 Proliferation Index Calculation & Reagent Working Dilutions
+            </h2>
+            
+            <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto">
+                Ki67 Index (%) = (Ki67⁺ Nuclei / Total Nuclei) × 100%
+Working DAB Solution = 25 µL 40× DAB Stock + 1.0 mL Stable DAB Buffer
+            </div>
+            <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
+                
+              <div class="space-y-4">
+                <p><strong>1. Ki67 Labeling Index Formula:</strong></p>
+                <p>$$\text{Ki67 Proliferation Index (\%)} = \frac{N_{\text{Ki67-positive brown nuclei}}}{N_{\text{Total tumor nuclei (brown + blue)}}} \times 100\%$$</p>
+                <p><strong>2. Working Solutions Preparation Table (per 10 slides):</strong></p>
+                <div class="overflow-x-auto">
+                  <table class="w-full text-left text-xs border-collapse bg-surface-container/30 rounded-xl overflow-hidden border border-white/5 font-mono">
+                    <thead>
+                      <tr class="bg-surface-container-high/60 border-b border-white/10 text-on-surface">
+                        <th class="p-2.5 font-semibold">Solution</th>
+                        <th class="p-2.5 font-semibold">Stock Reagent</th>
+                        <th class="p-2.5 font-semibold">Diluent</th>
+                        <th class="p-2.5 font-semibold text-primary">Final Working Volume</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-white/5 text-[11px]">
+                      <tr>
+                        <td class="p-2 font-semibold">1× Ag Retrieval Solution</td>
+                        <td class="p-2">10 mL 10× Ag Retrieval (VB-4002D-1)</td>
+                        <td class="p-2">90 mL ddH₂O</td>
+                        <td class="p-2 font-bold text-primary">100 mL (1 Coplin jar)</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2 font-semibold">0.3% H₂O₂ Blocking (Optional)</td>
+                        <td class="p-2">1.0 mL 30% H₂O₂</td>
+                        <td class="p-2">99.0 mL 1X PBS or Methanol</td>
+                        <td class="p-2 font-bold text-primary">100 mL</td>
+                      </tr>
+                      <tr>
+                        <td class="p-2 font-semibold">Working DAB Substrate</td>
+                        <td class="p-2">37.5 µL 40× DAB Stock (VB-4002D-5)</td>
+                        <td class="p-2">1.5 mL Stable DAB Buffer (VB-4002D-6)</td>
+                        <td class="p-2 font-bold text-primary">1.54 mL (150 µL / slide)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            
+            </div>
+        </section>
+
+            
+    <!-- Interactive Ki67 Proliferation Index & Reagent Scaler Suite -->
+    <section id="assay-calculator" class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-primary/20 shadow-2xl p-6 relative overflow-hidden mt-8">
+      <div class="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+      
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 relative z-10 border-b border-white/5 pb-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="p-2 rounded-lg bg-primary/20 text-primary material-symbols-outlined text-[22px]">biotech</span>
+            <h2 class="text-xl font-headline text-on-surface font-semibold">Ki67 Proliferation Index & IHC Batch Scaler</h2>
+          </div>
+          <p class="text-xs text-on-surface-variant mt-1">Multi-field nuclear counting, clinical grading index, and reagent volume batch scaling (VitroVivo VB-4002D)</p>
+        </div>
+        
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="loadKi67Example('low')" class="px-2.5 py-1 text-xs font-semibold rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-500/30 transition-all">Load Low Index (G1)</button>
+          <button type="button" onclick="loadKi67Example('high')" class="px-2.5 py-1 text-xs font-semibold rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 hover:bg-rose-500/30 transition-all">Load High Index (G3)</button>
+        </div>
+      </div>
+
+      <!-- Tab Buttons: 1. Proliferation Index Calculator, 2. IHC Reagent Batch Scaler -->
+      <div class="flex gap-2 border-b border-white/10 mb-6 relative z-10">
+        <button id="ki67-tab-btn-index" onclick="switchKi67Tab('index')" class="px-4 py-2 text-xs font-semibold rounded-t-lg bg-primary/20 text-primary border-b-2 border-primary transition-all">
+          1. Multi-Field Ki67 Proliferation Index (%)
+        </button>
+        <button id="ki67-tab-btn-scaler" onclick="switchKi67Tab('scaler')" class="px-4 py-2 text-xs font-semibold rounded-t-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container/40 transition-all">
+          2. Reagent Batch Volume Scaler
+        </button>
+      </div>
+
+      <!-- Tab 1: Proliferation Index Multi-Field Counter -->
+      <div id="ki67-pane-index" class="space-y-6 relative z-10">
+        <div class="bg-surface-container/40 p-4 rounded-xl border border-white/5">
+          <div class="text-xs font-semibold text-primary mb-2 flex items-center gap-1.5">
+            <span class="material-symbols-outlined text-[16px]">pin</span>
+            High-Power Field (400× Hotspot) Nuclear Counts
+          </div>
+          <p class="text-[11px] text-on-surface-variant mb-4">Input nuclear counts across 3 to 5 representative tumor hotspot fields (counting 500–1000 total tumor cells recommended):</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-5 gap-3 text-xs font-mono">
+            <!-- Field 1 -->
+            <div class="bg-surface-container/60 p-3 rounded-lg border border-white/5">
+              <span class="font-bold text-on-surface text-[11px] block mb-2">Field 1 (Hotspot A)</span>
+              <label class="block text-[10px] text-on-surface-variant mb-0.5">Ki67⁺ Nuclei</label>
+              <input type="number" min="0" id="k67-pos-1" value="28" class="w-full px-2 py-1 bg-surface-container-high border border-outline-variant rounded mb-2 text-on-surface" oninput="calculateKi67Index()"/>
+              <label class="block text-[10px] text-on-surface-variant mb-0.5">Total Nuclei</label>
+              <input type="number" min="1" id="k67-tot-1" value="180" class="w-full px-2 py-1 bg-surface-container-high border border-outline-variant rounded text-on-surface" oninput="calculateKi67Index()"/>
+            </div>
+
+            <!-- Field 2 -->
+            <div class="bg-surface-container/60 p-3 rounded-lg border border-white/5">
+              <span class="font-bold text-on-surface text-[11px] block mb-2">Field 2 (Hotspot B)</span>
+              <label class="block text-[10px] text-on-surface-variant mb-0.5">Ki67⁺ Nuclei</label>
+              <input type="number" min="0" id="k67-pos-2" value="35" class="w-full px-2 py-1 bg-surface-container-high border border-outline-variant rounded mb-2 text-on-surface" oninput="calculateKi67Index()"/>
+              <label class="block text-[10px] text-on-surface-variant mb-0.5">Total Nuclei</label>
+              <input type="number" min="1" id="k67-tot-2" value="210" class="w-full px-2 py-1 bg-surface-container-high border border-outline-variant rounded text-on-surface" oninput="calculateKi67Index()"/>
+            </div>
+
+            <!-- Field 3 -->
+            <div class="bg-surface-container/60 p-3 rounded-lg border border-white/5">
+              <span class="font-bold text-on-surface text-[11px] block mb-2">Field 3 (Hotspot C)</span>
+              <label class="block text-[10px] text-on-surface-variant mb-0.5">Ki67⁺ Nuclei</label>
+              <input type="number" min="0" id="k67-pos-3" value="31" class="w-full px-2 py-1 bg-surface-container-high border border-outline-variant rounded mb-2 text-on-surface" oninput="calculateKi67Index()"/>
+              <label class="block text-[10px] text-on-surface-variant mb-0.5">Total Nuclei</label>
+              <input type="number" min="1" id="k67-tot-3" value="195" class="w-full px-2 py-1 bg-surface-container-high border border-outline-variant rounded text-on-surface" oninput="calculateKi67Index()"/>
+            </div>
+
+            <!-- Field 4 -->
+            <div class="bg-surface-container/60 p-3 rounded-lg border border-white/5">
+              <span class="font-bold text-on-surface text-[11px] block mb-2">Field 4 (Optional)</span>
+              <label class="block text-[10px] text-on-surface-variant mb-0.5">Ki67⁺ Nuclei</label>
+              <input type="number" min="0" id="k67-pos-4" value="0" class="w-full px-2 py-1 bg-surface-container-high border border-outline-variant rounded mb-2 text-on-surface" oninput="calculateKi67Index()"/>
+              <label class="block text-[10px] text-on-surface-variant mb-0.5">Total Nuclei</label>
+              <input type="number" min="0" id="k67-tot-4" value="0" class="w-full px-2 py-1 bg-surface-container-high border border-outline-variant rounded text-on-surface" oninput="calculateKi67Index()"/>
+            </div>
+
+            <!-- Field 5 -->
+            <div class="bg-surface-container/60 p-3 rounded-lg border border-white/5">
+              <span class="font-bold text-on-surface text-[11px] block mb-2">Field 5 (Optional)</span>
+              <label class="block text-[10px] text-on-surface-variant mb-0.5">Ki67⁺ Nuclei</label>
+              <input type="number" min="0" id="k67-pos-5" value="0" class="w-full px-2 py-1 bg-surface-container-high border border-outline-variant rounded mb-2 text-on-surface" oninput="calculateKi67Index()"/>
+              <label class="block text-[10px] text-on-surface-variant mb-0.5">Total Nuclei</label>
+              <input type="number" min="0" id="k67-tot-5" value="0" class="w-full px-2 py-1 bg-surface-container-high border border-outline-variant rounded text-on-surface" oninput="calculateKi67Index()"/>
+            </div>
+          </div>
+        </div>
+
+        <!-- Evaluation Results Banner -->
+        <div id="ki67-result-banner" class="bg-gradient-to-br from-amber-500/20 via-surface-container-high/90 to-surface-container/90 rounded-xl p-5 border border-amber-500/40 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shadow-xl">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span id="ki67-result-dot" class="w-3 h-3 rounded-full bg-amber-400 shadow-[0_0_10px_rgba(251,191,36,0.8)]"></span>
+              <span id="ki67-result-title" class="text-sm uppercase font-bold tracking-widest text-amber-400 font-headline">INTERMEDIATE PROLIFERATION (15.7%)</span>
+            </div>
+            <p id="ki67-result-desc" class="text-xs text-on-surface-variant leading-relaxed">
+              Cumulatively analyzed 585 tumor cells across 3 fields (94 Ki67-positive nuclei). Proliferation index falls within intermediate proliferative activity.
+            </p>
+            <div class="flex flex-wrap gap-4 mt-3 text-xs font-mono">
+              <div class="bg-surface-container/80 px-3 py-1.5 rounded-md border border-white/5">
+                <span class="text-on-surface-variant">Total Counted: </span>
+                <span id="ki67-total-counted" class="text-primary font-bold">585 cells</span>
+              </div>
+              <div class="bg-surface-container/80 px-3 py-1.5 rounded-md border border-white/5">
+                <span class="text-on-surface-variant">Ki67⁺ Count: </span>
+                <span id="ki67-pos-counted" class="text-amber-400 font-bold">94 cells</span>
+              </div>
+              <div class="bg-surface-container/80 px-3 py-1.5 rounded-md border border-white/5">
+                <span class="text-on-surface-variant">Calculated Index: </span>
+                <span id="ki67-index-val" class="text-emerald-400 font-bold">16.07%</span>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" onclick="calculateKi67Index()" class="px-4 py-2 bg-primary text-on-primary rounded-lg text-xs font-semibold hover:bg-primary/90 transition-all shadow-[0_0_15px_rgba(125,211,252,0.3)] flex items-center gap-1.5 flex-shrink-0">
+            <span class="material-symbols-outlined text-[16px]">sync</span> Refresh Score
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab 2: Reagent Batch Scaler -->
+      <div id="ki67-pane-scaler" class="hidden space-y-6 relative z-10">
+        <div class="bg-surface-container/40 p-4 rounded-xl border border-white/5">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
+            <div>
+              <div class="text-xs font-semibold text-primary flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[16px]">calculate</span>
+                IHC Batch Size Configuration
+              </div>
+              <p class="text-[11px] text-on-surface-variant mt-0.5">Scale all antigen retrieval, blocking, antibody, and DAB substrate volumes based on number of slides.</p>
+            </div>
+            <div class="flex items-center gap-3">
+              <label class="text-xs font-semibold text-on-surface">Number of Slides:</label>
+              <input type="number" min="1" max="100" id="ki67-slide-count" value="10" class="w-20 px-3 py-1.5 bg-surface-container-high border border-outline-variant rounded-lg text-sm text-center font-mono font-bold text-primary" oninput="scaleKi67Reagents()"/>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs border-collapse bg-surface-container/60 rounded-xl overflow-hidden border border-white/5 font-mono">
+              <thead>
+                <tr class="bg-surface-container-high/80 border-b border-white/10 text-on-surface">
+                  <th class="p-2.5 font-semibold">Step / Reagent</th>
+                  <th class="p-2.5 font-semibold">Per Slide Dose</th>
+                  <th class="p-2.5 font-semibold text-primary">Total Batch Volume</th>
+                  <th class="p-2.5 font-semibold text-tertiary">Preparation Notes</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-white/5 text-[11px]">
+                <tr>
+                  <td class="p-2.5 font-semibold text-on-surface">1× Antigen Retrieval Solution</td>
+                  <td class="p-2.5">10 mL / Coplin Jar fraction</td>
+                  <td class="p-2.5 font-bold text-primary" id="k67-vol-ag">100.0 mL</td>
+                  <td class="p-2.5 text-on-surface-variant" id="k67-prep-ag">10.0 mL 10× Ag Retrieval + 90.0 mL ddH₂O</td>
+                </tr>
+                <tr>
+                  <td class="p-2.5 font-semibold text-on-surface">RTU Blocking Buffer (VB-4002D-2)</td>
+                  <td class="p-2.5">3–4 drops (~150 µL)</td>
+                  <td class="p-2.5 font-bold text-primary" id="k67-vol-block">1.50 mL</td>
+                  <td class="p-2.5 text-on-surface-variant">Ready-to-use, apply directly to specimen</td>
+                </tr>
+                <tr>
+                  <td class="p-2.5 font-semibold text-on-surface">RTU Anti-Ki67 Antibody (VB-4002D-3)</td>
+                  <td class="p-2.5">3–4 drops (~150 µL)</td>
+                  <td class="p-2.5 font-bold text-primary" id="k67-vol-pri">1.50 mL</td>
+                  <td class="p-2.5 text-on-surface-variant">Ready-to-use rabbit monoclonal/polyclonal</td>
+                </tr>
+                <tr>
+                  <td class="p-2.5 font-semibold text-on-surface">RTU Polymeric HRP Secondary (VB-4002D-4)</td>
+                  <td class="p-2.5">3–4 drops (~150 µL)</td>
+                  <td class="p-2.5 font-bold text-primary" id="k67-vol-sec">1.50 mL</td>
+                  <td class="p-2.5 text-on-surface-variant">Biotin-free polymer HRP conjugate</td>
+                </tr>
+                <tr>
+                  <td class="p-2.5 font-semibold text-on-surface">Working DAB Substrate Solution</td>
+                  <td class="p-2.5">3 drops (~150 µL)</td>
+                  <td class="p-2.5 font-bold text-primary" id="k67-vol-dab">1.50 mL</td>
+                  <td class="p-2.5 text-on-surface-variant" id="k67-prep-dab">37.5 µL 40× DAB Stock + 1.50 mL Stable Buffer</td>
+                </tr>
+                <tr>
+                  <td class="p-2.5 font-semibold text-on-surface">RTU Hematoxylin Counterstain (VB-4002D-7)</td>
+                  <td class="p-2.5">3 drops (~150 µL)</td>
+                  <td class="p-2.5 font-bold text-primary" id="k67-vol-hema">1.50 mL</td>
+                  <td class="p-2.5 text-on-surface-variant">Ready-to-use Mayer's modified formula</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function switchKi67Tab(tab) {
+        const paneIdx = document.getElementById('ki67-pane-index');
+        const paneScl = document.getElementById('ki67-pane-scaler');
+        const btnIdx = document.getElementById('ki67-tab-btn-index');
+        const btnScl = document.getElementById('ki67-tab-btn-scaler');
+
+        if (tab === 'index') {
+          paneIdx.classList.remove('hidden');
+          paneScl.classList.add('hidden');
+          btnIdx.className = 'px-4 py-2 text-xs font-semibold rounded-t-lg bg-primary/20 text-primary border-b-2 border-primary transition-all';
+          btnScl.className = 'px-4 py-2 text-xs font-semibold rounded-t-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container/40 transition-all';
+        } else {
+          paneIdx.classList.add('hidden');
+          paneScl.classList.remove('hidden');
+          btnScl.className = 'px-4 py-2 text-xs font-semibold rounded-t-lg bg-primary/20 text-primary border-b-2 border-primary transition-all';
+          btnIdx.className = 'px-4 py-2 text-xs font-semibold rounded-t-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container/40 transition-all';
+          scaleKi67Reagents();
+        }
+      }
+
+      function calculateKi67Index() {
+        let totalPos = 0;
+        let totalCells = 0;
+
+        for (let i = 1; i <= 5; i++) {
+          const p = parseInt(document.getElementById(`k67-pos-${i}`).value) || 0;
+          const t = parseInt(document.getElementById(`k67-tot-${i}`).value) || 0;
+          if (t > 0) {
+            totalPos += Math.min(p, t);
+            totalCells += t;
+          }
+        }
+
+        const index = totalCells > 0 ? (totalPos / totalCells) * 100 : 0;
+
+        document.getElementById('ki67-total-counted').innerText = `${totalCells} cells`;
+        document.getElementById('ki67-pos-counted').innerText = `${totalPos} cells`;
+        document.getElementById('ki67-index-val').innerText = `${index.toFixed(2)}%`;
+
+        const banner = document.getElementById('ki67-result-banner');
+        const dot = document.getElementById('ki67-result-dot');
+        const title = document.getElementById('ki67-result-title');
+        const desc = document.getElementById('ki67-result-desc');
+
+        if (index < 10) {
+          banner.className = 'bg-gradient-to-br from-emerald-500/20 via-surface-container-high/90 to-surface-container/90 rounded-xl p-5 border border-emerald-500/40 relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shadow-xl';
+          dot.className = 'w-3 h-3 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]';
+          title.className = 'text-sm uppercase font-bold tracking-widest text-emerald-400 font-headline';
+          title.innerText = `LOW PROLIFERATIVE INDEX (${index.toFixed(1)}%)`;
+          desc.innerText = `Analyzed ${totalCells} total tumor cells across fields (${totalPos} Ki67-positive nuclei). Low proliferative activity (typical of Grade 1 neuroendocrine tumors or Luminal A-like breast carcinomas).`;
+        } else if (index <= 25) {
+          banner.className = 'bg-gradient-to-br from-amber-500/20 via-surface-container-high/90 to-surface-container/90 rounded-xl p-5 border border-amber-500/40 relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shadow-xl';
+          dot.className = 'w-3 h-3 rounded-full bg-amber-400 shadow-[0_0_10px_rgba(251,191,36,0.8)]';
+          title.className = 'text-sm uppercase font-bold tracking-widest text-amber-400 font-headline';
+          title.innerText = `INTERMEDIATE PROLIFERATIVE INDEX (${index.toFixed(1)}%)`;
+          desc.innerText = `Analyzed ${totalCells} total tumor cells across fields (${totalPos} Ki67-positive nuclei). Intermediate proliferation rate (typical of Grade 2 neoplasms or Luminal B-like tumors).`;
+        } else {
+          banner.className = 'bg-gradient-to-br from-rose-500/20 via-surface-container-high/90 to-surface-container/90 rounded-xl p-5 border border-rose-500/40 relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shadow-xl';
+          dot.className = 'w-3 h-3 rounded-full bg-rose-400 shadow-[0_0_10px_rgba(251,113,133,0.8)]';
+          title.className = 'text-sm uppercase font-bold tracking-widest text-rose-400 font-headline';
+          title.innerText = `HIGH PROLIFERATIVE INDEX (${index.toFixed(1)}%)`;
+          desc.innerText = `Analyzed ${totalCells} total tumor cells across fields (${totalPos} Ki67-positive nuclei). Marked cellular proliferation (typical of Grade 3 / high-grade carcinomas, aggressive lymphomas, or triple-negative breast cancers).`;
+        }
+      }
+
+      function scaleKi67Reagents() {
+        const n = parseInt(document.getElementById('ki67-slide-count').value) || 1;
+        
+        // 100 mL retrieval per jar (~10 slides per jar, minimum 100 mL)
+        const jars = Math.max(1, Math.ceil(n / 10));
+        const retrievalVol = jars * 100;
+        const ag10x = retrievalVol / 10;
+        const agWater = retrievalVol - ag10x;
+
+        const blockVol = (n * 0.15).toFixed(2);
+        const priVol = (n * 0.15).toFixed(2);
+        const secVol = (n * 0.15).toFixed(2);
+        const dabVol = (n * 0.15).toFixed(2);
+        const dabStock = (n * 3.75).toFixed(1);
+        const hemaVol = (n * 0.15).toFixed(2);
+
+        document.getElementById('k67-vol-ag').innerText = `${retrievalVol.toFixed(1)} mL`;
+        document.getElementById('k67-prep-ag').innerText = `${ag10x.toFixed(1)} mL 10× Ag Retrieval + ${agWater.toFixed(1)} mL ddH₂O (${jars} Coplin Jar${jars > 1 ? 's' : ''})`;
+
+        document.getElementById('k67-vol-block').innerText = `${blockVol} mL`;
+        document.getElementById('k67-vol-pri').innerText = `${priVol} mL`;
+        document.getElementById('k67-vol-sec').innerText = `${secVol} mL`;
+        document.getElementById('k67-vol-dab').innerText = `${dabVol} mL`;
+        document.getElementById('k67-prep-dab').innerText = `${dabStock} µL 40× DAB Stock + ${dabVol} mL Stable Buffer`;
+        document.getElementById('k67-vol-hema').innerText = `${hemaVol} mL`;
+      }
+
+      function loadKi67Example(type) {
+        if (type === 'low') {
+          document.getElementById('k67-pos-1').value = '6';
+          document.getElementById('k67-tot-1').value = '200';
+          document.getElementById('k67-pos-2').value = '8';
+          document.getElementById('k67-tot-2').value = '220';
+          document.getElementById('k67-pos-3').value = '5';
+          document.getElementById('k67-tot-3').value = '190';
+          document.getElementById('k67-pos-4').value = '0';
+          document.getElementById('k67-tot-4').value = '0';
+          document.getElementById('k67-pos-5').value = '0';
+          document.getElementById('k67-tot-5').value = '0';
+          showToast('Loaded Low Proliferation Index (G1, ~3.1%) Example');
+        } else {
+          document.getElementById('k67-pos-1').value = '115';
+          document.getElementById('k67-tot-1').value = '210';
+          document.getElementById('k67-pos-2').value = '130';
+          document.getElementById('k67-tot-2').value = '225';
+          document.getElementById('k67-pos-3').value = '105';
+          document.getElementById('k67-tot-3').value = '195';
+          document.getElementById('k67-pos-4').value = '0';
+          document.getElementById('k67-tot-4').value = '0';
+          document.getElementById('k67-pos-5').value = '0';
+          document.getElementById('k67-tot-5').value = '0';
+          showToast('Loaded High Proliferation Index (G3, ~55.6%) Example');
+        }
+        calculateKi67Index();
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        calculateKi67Index();
+        scaleKi67Reagents();
+      });
+    </script>
+    
+
+          </div>
+
+          <!-- Right Column: Components, Storage & Cautions -->
+          <div class="lg:col-span-1 flex flex-col gap-5">
+            
+            <!-- Components Table Card (Strict table-fixed with zero overflow) -->
+            <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl overflow-hidden">
+              <div class="p-4 border-b border-white/5 bg-surface-container/30 flex items-center justify-between">
+                <h2 class="text-base font-headline text-on-surface flex items-center gap-2 font-semibold">
+                  <span class="material-symbols-outlined text-primary text-[18px]">science</span> Materials & Reagents
+                </h2>
+                <span class="text-[11px] text-on-surface-variant uppercase tracking-wider font-mono">Kit Contents</span>
+              </div>
+              <div class="w-full">
+                <table class="w-full text-left border-collapse table-fixed">
+                  <thead>
+                    <tr class="border-b border-white/5 text-[11px] text-on-surface-variant bg-surface-container/20">
+                      <th class="py-2 px-3 font-semibold uppercase tracking-wider">Item / Reagent</th>
+                      <th class="py-2 px-3 font-semibold uppercase tracking-wider text-right w-20">Spec</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-white/5">
+                    
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">10× Ag Retrieval Solution (VB-4002D-1)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">50 mL</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">RTU Blocking Buffer (VB-4002D-2)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">5 mL</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">RTU Anti-Ki67 Primary Antibody (VB-4002D-3)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">5 mL</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">RTU Polymeric HRP Secondary Antibody (VB-4002D-4)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">5 mL</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">DAB Stock Solution 40× (VB-4002D-5)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C, protect from light</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">0.5 mL</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Stable DAB Buffer (VB-4002D-6)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">20 mL</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">RTU Hematoxylin Solution (VB-4002D-7)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">5 mL</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Ki67 Positive Control FFPE Slides (VB-4002D-8)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">2 slides</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Required: Xylene, Graded Ethanol (100%, 95%, 75%)</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 15–25°C</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Laboratory stock</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Required: 30% H₂O₂, 10 mM PBS pH 7.4, Triton X-100</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 15–25°C</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Laboratory stock</span>
+            </td>
+        </tr>
+        <tr class="hover:bg-surface-container/40 transition-colors">
+            <td class="py-2.5 px-3 align-top">
+                <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Required: Mini PAP Pen & Permanent Mounting Medium</div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 15–25°C</span></div>
+            </td>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Laboratory stock</span>
+            </td>
+        </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <!-- Storage Card -->
+            <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-4.5 flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-tertiary/20 border border-tertiary/30 text-tertiary flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(200,160,240,0.15)]">
+                <span class="material-symbols-outlined text-[20px]">inventory_2</span>
+              </div>
+              <div>
+                <h3 class="text-sm font-headline text-on-surface mb-1 font-semibold">Storage & Stability</h3>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Store entire kit at 2–8°C upon arrival. Do not freeze polymeric conjugate.</p>
+                <p class="text-[11px] text-primary mt-1.5 flex items-center gap-1 font-medium">
+                  <span class="material-symbols-outlined text-[13px]">event_available</span> Stable for 12 months when stored properly at 2–8°C.
+                </p>
+              </div>
+            </section>
+
+            <!-- Cautions Card -->
+            <section class="bg-error-container/10 backdrop-blur-2xl rounded-2xl border border-error/20 shadow-2xl p-4.5">
+              <h3 class="text-sm font-headline text-error mb-2.5 flex items-center gap-1.5 font-semibold">
+                <span class="material-symbols-outlined text-[18px] drop-shadow-[0_0_8px_rgba(255,107,107,0.5)]">warning</span> Cautions & Safety
+              </h3>
+              <ul class="space-y-2">
+                
+        <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
+            <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
+            <span class="leading-relaxed">DAB is a suspected carcinogen; handle in a chemical fume hood with double nitrile gloves and neutralize liquid waste with 10% sodium hypochlorite bleach before disposal.</span>
+        </li>
+        <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
+            <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
+            <span class="leading-relaxed">Do NOT use heat-induced antigen retrieval on frozen sections or cultured cells; heat damages cell morphology.</span>
+        </li>
+        <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
+            <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
+            <span class="leading-relaxed">Never allow slides to dry out during any step of the staining protocol; keep sections in a humidified slide chamber.</span>
+        </li>
+        <li class="flex gap-2.5 text-xs sm:text-sm text-on-surface items-start">
+            <span class="material-symbols-outlined text-error text-[16px] mt-0.5 drop-shadow-[0_0_5px_rgba(255,107,107,0.3)] flex-shrink-0">check_circle</span>
+            <span class="leading-relaxed">Always include positive control slides (VB-4002D-8) and negative control slides (omitting primary antibody) in every staining run.</span>
+        </li>
+              </ul>
+            </section>
+
+            <!-- Expected Results / Morphology Preview -->
+            <div class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 p-4.5 shadow-2xl relative overflow-hidden">
+              <div class="flex items-center gap-2 mb-1.5">
+                <span class="material-symbols-outlined text-secondary text-[18px]">analytics</span>
+                <h3 class="text-sm font-headline text-on-surface font-semibold">Expected Results</h3>
+              </div>
+              <p class="text-xs text-on-surface-variant leading-relaxed">
+                Crisp dark brown nuclear immunoreactivity localized to nucleoli and chromatin in actively proliferating cells with virtually zero background, contrasting sharply against blue hematoxylin-stained non-proliferating nuclei.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Tab switching logic
+    function switchTab(procId) {
+      document.querySelectorAll('.proc-tab-content').forEach(el => el.classList.add('hidden'));
+      const activeContent = document.getElementById('proc-content-' + procId);
+      if (activeContent) activeContent.classList.remove('hidden');
+
+      document.querySelectorAll('.proc-tab-btn').forEach(btn => {
+        btn.classList.remove('bg-surface-container-high', 'text-primary', 'shadow-sm');
+        btn.classList.add('text-on-surface-variant');
+      });
+      const activeBtn = document.getElementById('tab-btn-' + procId);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-surface-container-high', 'text-primary', 'shadow-sm');
+        activeBtn.classList.remove('text-on-surface-variant');
+      }
+    }
+
+    // Toast message
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-msg');
+      toastMsg.innerText = msg;
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 2500);
+    }
+
+    // Share link copy
+    function copyShareLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        showToast('Protocol link copied to clipboard!');
+      }).catch(() => {
+        showToast('Share URL: ' + window.location.href);
+      });
+    }
+
+    // Export markdown file
+    function exportProtocolMarkdown() {
+      const title = document.querySelector('h1').innerText;
+      const text = `# ${title}\n\nURL: ${window.location.href}\nBioCore Protocol Portal - Tang Lab\nGenerated on ${new Date().toLocaleDateString()}`;
+      const blob = new Blob([text], { type: 'text/markdown' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'ki67-ihc-dab-detection-protocol.md';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('Protocol exported successfully!');
+    }
+  </script>
+</body>
+</html>
