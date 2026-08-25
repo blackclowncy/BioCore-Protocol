@@ -222,16 +222,16 @@
       <div class="flex items-center gap-2 overflow-x-auto pb-2" id="org-filters">
         <button onclick="setOrgTypeFilter('all')" id="btn-org-all" class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-semibold text-xs transition-all shadow-sm">All Organs (<span id="filter-count-all">26</span>)</button>
         <button onclick="setOrgTypeFilter('lung')" id="btn-org-lung" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all flex items-center gap-1">
-          <span class="material-symbols-outlined text-[15px] text-cyan-400">air</span> Lung (<span id="filter-count-lung">5</span>)
+          <span class="material-symbols-outlined text-[15px] text-cyan-400">pulmonology</span> Lung (<span id="filter-count-lung">5</span>)
         </button>
         <button onclick="setOrgTypeFilter('liver')" id="btn-org-liver" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all flex items-center gap-1">
-          <span class="material-symbols-outlined text-[15px] text-amber-400">vital_signs</span> Liver (<span id="filter-count-liver">11</span>)
+          <span class="material-symbols-outlined text-[15px] text-amber-400">gastroenterology</span> Liver (<span id="filter-count-liver">11</span>)
         </button>
         <button onclick="setOrgTypeFilter('kidney')" id="btn-org-kidney" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all flex items-center gap-1">
-          <span class="material-symbols-outlined text-[15px] text-primary">science</span> Kidney (<span id="filter-count-kidney">7</span>)
+          <span class="material-symbols-outlined text-[15px] text-primary">nephrology</span> Kidney (<span id="filter-count-kidney">7</span>)
         </button>
         <button onclick="setOrgTypeFilter('heart')" id="btn-org-heart" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all flex items-center gap-1">
-          <span class="material-symbols-outlined text-[15px] text-rose-400">favorite</span> Heart (<span id="filter-count-heart">2</span>)
+          <span class="material-symbols-outlined text-[15px] text-rose-400">cardiology</span> Heart (<span id="filter-count-heart">2</span>)
         </button>
         <button onclick="setOrgTypeFilter('evlp')" id="btn-org-evlp" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all">EVLP Protocol</button>
         <button onclick="setOrgTypeFilter('nmp')" id="btn-org-nmp" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all">NMP Protocol</button>
@@ -530,19 +530,21 @@
 
       let html = '';
       filtered.forEach(item => {
-        let icon = 'vital_signs';
+        let icon = 'gastroenterology';
         let colorCls = 'text-amber-400 bg-amber-500/20 border-amber-500/30';
-        if (item.type.toLowerCase().includes('lung')) {
-          icon = 'air';
+        const typeLower = item.type.toLowerCase();
+
+        if (typeLower.includes('lung')) {
+          icon = 'pulmonology';
           colorCls = 'text-cyan-400 bg-cyan-500/20 border-cyan-500/30';
-        } else if (item.type.toLowerCase().includes('kidney')) {
-          icon = 'science';
+        } else if (typeLower.includes('kidney')) {
+          icon = 'nephrology';
           colorCls = 'text-primary bg-primary/20 border-primary/30';
-        } else if (item.type.toLowerCase().includes('heart')) {
-          icon = 'favorite';
+        } else if (typeLower.includes('heart')) {
+          icon = 'cardiology';
           colorCls = 'text-rose-400 bg-rose-500/20 border-rose-500/30';
-        } else if (item.type.toLowerCase().includes('rbc')) {
-          icon = 'bloodtype';
+        } else if (typeLower.includes('rbc')) {
+          icon = 'hematology';
           colorCls = 'text-purple-400 bg-purple-500/20 border-purple-500/30';
         }
 
@@ -571,14 +573,14 @@
           purposeBadgeCls = 'bg-blue-500/20 text-blue-300 border-blue-500/30';
         }
 
-        let detailHtml = '<span class="text-on-surface-variant/50 font-mono text-[11px]">Normal / Unremarkable</span>';
-        if (item.detail) {
+        let detailHtml = '<span class="text-on-surface-variant/40 font-mono text-xs">-</span>';
+        if (item.detail && item.detail.trim() && item.detail !== '—' && item.detail !== '-') {
           if (item.detail.includes('Necrosis')) {
             detailHtml = `<span class="px-2.5 py-1 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[11px] font-semibold flex items-center gap-1 inline-flex"><span class="material-symbols-outlined text-[14px]">warning</span> ${item.detail}</span>`;
           } else if (item.detail.includes('Overweight') || item.detail.includes('Missing')) {
             detailHtml = `<span class="px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[11px] font-semibold flex items-center gap-1 inline-flex"><span class="material-symbols-outlined text-[14px]">info</span> ${item.detail}</span>`;
           } else if (item.detail.includes('Toronto')) {
-            detailHtml = `<span class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-[11px] font-semibold flex items-center gap-1 inline-flex"><span class="material-symbols-outlined text-[14px]">air</span> ${item.detail}</span>`;
+            detailHtml = `<span class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-[11px] font-semibold flex items-center gap-1 inline-flex"><span class="material-symbols-outlined text-[14px]">pulmonology</span> ${item.detail}</span>`;
           } else {
             detailHtml = `<span class="px-2.5 py-1 rounded bg-surface-container text-primary border border-primary/20 text-[11px] font-semibold inline-flex">${item.detail}</span>`;
           }
