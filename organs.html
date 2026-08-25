@@ -134,7 +134,7 @@
       <div class="flex-1 max-w-md">
         <div class="relative flex items-center">
           <span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span>
-          <input id="org-search-input" class="w-full pl-10 pr-4 py-2 bg-surface-container border border-outline-variant rounded-lg focus:outline-none focus:border-primary text-sm text-on-surface placeholder:text-on-surface-variant/70" placeholder="Search donor ID (e.g. AME1132), organ, or observation..." type="text" oninput="renderOrgansTable()"/>
+          <input id="org-search-input" class="w-full pl-10 pr-4 py-2 bg-surface-container border border-outline-variant rounded-lg focus:outline-none focus:border-primary text-sm text-on-surface placeholder:text-on-surface-variant/70" placeholder="Search donor ID (e.g. AMIL349, AME1132), organ, purpose, or detail..." type="text" oninput="renderOrgansTable()"/>
         </div>
       </div>
       <nav class="flex items-center gap-8 h-full">
@@ -167,7 +167,7 @@
             <span id="last-organ-sync-time" class="text-xs font-mono text-on-surface-variant">Auto-synced</span>
           </div>
           <h1 class="font-headline text-2xl font-bold text-on-surface">Human Donor Organs & Perfusion Record</h1>
-          <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Procedural log of human donor livers, kidneys, hearts, and perfusates undergoing machine perfusion (NMP/HMP/SCSC) and proteomics.</p>
+          <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">Live tracking of human donor lungs, livers, kidneys, hearts, and perfusates undergoing machine perfusion (EVLP / NMP / HMP / SCS) and proteomics.</p>
         </div>
       </div>
 
@@ -179,8 +179,19 @@
           </div>
           <div>
             <span class="text-[11px] text-on-surface-variant uppercase font-bold tracking-wider block">Total Organ Runs</span>
-            <span id="kpi-org-total" class="text-2xl font-bold text-amber-300 font-mono">16</span>
-            <span class="text-[10px] text-on-surface-variant block">Livers, Kidneys, Hearts, Blood</span>
+            <span id="kpi-org-total" class="text-2xl font-bold text-amber-300 font-mono">26</span>
+            <span class="text-[10px] text-on-surface-variant block">Lungs, Livers, Kidneys, Hearts</span>
+          </div>
+        </div>
+
+        <div class="bg-surface-container/60 p-4 rounded-xl border border-white/5 flex items-center gap-3.5">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/20 border border-cyan-500/30 flex items-center justify-center text-cyan-300">
+            <span class="material-symbols-outlined text-2xl">air</span>
+          </div>
+          <div>
+            <span class="text-[11px] text-on-surface-variant uppercase font-bold tracking-wider block">EVLP Lung Runs</span>
+            <span id="kpi-org-evlp" class="text-2xl font-bold text-cyan-300 font-mono">5</span>
+            <span class="text-[10px] text-on-surface-variant block">Ex Vivo Lung Perfusion</span>
           </div>
         </div>
 
@@ -190,7 +201,7 @@
           </div>
           <div>
             <span class="text-[11px] text-on-surface-variant uppercase font-bold tracking-wider block">NMP Warm Runs</span>
-            <span id="kpi-org-nmp" class="text-2xl font-bold text-primary font-mono">13</span>
+            <span id="kpi-org-nmp" class="text-2xl font-bold text-primary font-mono">15</span>
             <span class="text-[10px] text-on-surface-variant block">37°C Normothermic Perfusion</span>
           </div>
         </div>
@@ -205,26 +216,26 @@
             <span class="text-[10px] text-on-surface-variant block">Mass spec profiling positive</span>
           </div>
         </div>
-
-        <div class="bg-surface-container/60 p-4 rounded-xl border border-white/5 flex items-center gap-3.5">
-          <div class="w-12 h-12 rounded-xl bg-rose-500/20 border border-rose-500/30 flex items-center justify-center text-rose-300">
-            <span class="material-symbols-outlined text-2xl">medical_information</span>
-          </div>
-          <div>
-            <span class="text-[11px] text-on-surface-variant uppercase font-bold tracking-wider block">Marginal / Alerts</span>
-            <span id="kpi-org-alerts" class="text-2xl font-bold text-rose-300 font-mono">4 Logged</span>
-            <span class="text-[10px] text-on-surface-variant block">Necrosis / Overweight / Tiny</span>
-          </div>
-        </div>
       </div>
 
       <!-- Filter Tabs -->
       <div class="flex items-center gap-2 overflow-x-auto pb-2" id="org-filters">
-        <button onclick="setOrgTypeFilter('all')" id="btn-org-all" class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-semibold text-xs transition-all shadow-sm">All Organs</button>
-        <button onclick="setOrgTypeFilter('liver')" id="btn-org-liver" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all">Liver</button>
-        <button onclick="setOrgTypeFilter('kidney')" id="btn-org-kidney" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all">Kidney</button>
-        <button onclick="setOrgTypeFilter('heart')" id="btn-org-heart" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all">Heart</button>
-        <button onclick="setOrgTypeFilter('nmp')" id="btn-org-nmp" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all">NMP Warm Perfusion</button>
+        <button onclick="setOrgTypeFilter('all')" id="btn-org-all" class="px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-semibold text-xs transition-all shadow-sm">All Organs (<span id="filter-count-all">26</span>)</button>
+        <button onclick="setOrgTypeFilter('lung')" id="btn-org-lung" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all flex items-center gap-1">
+          <span class="material-symbols-outlined text-[15px] text-cyan-400">air</span> Lung (<span id="filter-count-lung">5</span>)
+        </button>
+        <button onclick="setOrgTypeFilter('liver')" id="btn-org-liver" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all flex items-center gap-1">
+          <span class="material-symbols-outlined text-[15px] text-amber-400">vital_signs</span> Liver (<span id="filter-count-liver">11</span>)
+        </button>
+        <button onclick="setOrgTypeFilter('kidney')" id="btn-org-kidney" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all flex items-center gap-1">
+          <span class="material-symbols-outlined text-[15px] text-primary">science</span> Kidney (<span id="filter-count-kidney">7</span>)
+        </button>
+        <button onclick="setOrgTypeFilter('heart')" id="btn-org-heart" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all flex items-center gap-1">
+          <span class="material-symbols-outlined text-[15px] text-rose-400">favorite</span> Heart (<span id="filter-count-heart">2</span>)
+        </button>
+        <button onclick="setOrgTypeFilter('evlp')" id="btn-org-evlp" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all">EVLP Protocol</button>
+        <button onclick="setOrgTypeFilter('nmp')" id="btn-org-nmp" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all">NMP Protocol</button>
+        <button onclick="setOrgTypeFilter('hmp')" id="btn-org-hmp" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all">HMP Protocol</button>
         <button onclick="setOrgTypeFilter('proteomics')" id="btn-org-prot" class="px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all">Proteomics (Y)</button>
       </div>
 
@@ -256,7 +267,7 @@
   <script>
     const SPREADSHEET_ID = '1VxyGkDTWfMWHz5O-wltK9y-I5SrC7m0Z_l-TeNueCQw';
     let currentOrgFilter = 'all';
-    let organsData = [{"type": "Kidney(Left)", "donor_id": "AME1132", "clamped": "2025.05.29/14:53", "purpose": "NMP", "date": "2025.05.30-05.31", "proteomics": "Y", "detail": ""}, {"type": "Kidney(Right)", "donor_id": "AME3421", "clamped": "2025.05.30/18:54", "purpose": "NMP", "date": "2025.05.31", "proteomics": "", "detail": ""}, {"type": "RBC (2u)", "donor_id": "—", "clamped": "—", "purpose": "Dialysis", "date": "2025.06.16", "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMF2486", "clamped": "2025.06.29/16:19", "purpose": "Saline NMP", "date": "2025.07.01", "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMGB368", "clamped": "2025.07.04/11:17", "purpose": "NMP", "date": "2025.07.04", "proteomics": "Y", "detail": ""}, {"type": "Liver", "donor_id": "AMF4302", "clamped": "2025.07.03/17:36", "purpose": "HMP", "date": "2025.07.04", "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMGG324", "clamped": "2025.07.10/17:44", "purpose": "SCSC", "date": "2025.07.11", "proteomics": "Y", "detail": ""}, {"type": "Kidney(Left)", "donor_id": "AMGJ265", "clamped": "2025.07.13/11:11", "purpose": "NMP", "date": "2025.07.14", "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMGQ084", "clamped": "2025.07.18/16:58", "purpose": "NMP", "date": "2025.07.18-19", "proteomics": "", "detail": ""}, {"type": "Heart", "donor_id": "AMGP422", "clamped": "2025.07.17/22:26", "purpose": "NMP", "date": "2025.07.18", "proteomics": "", "detail": ""}, {"type": "Kidney(Both)", "donor_id": "AMGO171", "clamped": "2025.07.17/23:48", "purpose": "NMP", "date": "2025.07.18", "proteomics": "", "detail": "Tiny"}, {"type": "Liver", "donor_id": "AMG5011", "clamped": "2025.08.01/22:45", "purpose": "NMP", "date": "2025.08.02", "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMHO066", "clamped": "2025.08.17/18:18", "purpose": "NMP", "date": "2025.08.19", "proteomics": "", "detail": "Overweight"}, {"type": "Heart", "donor_id": "AMHT33", "clamped": "2025.08.22/06:52", "purpose": "NMP", "date": "2025.08.22", "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMHT34", "clamped": "2025.08.22/13:16", "purpose": "NMP", "date": "2025.08.22", "proteomics": "", "detail": "Necrosis"}, {"type": "Liver", "donor_id": "AMID027", "clamped": "2025.09.05/15:05", "purpose": "NMP", "date": "2025.09.06", "proteomics": "", "detail": "Missing Gallbladder • IBP High"}];
+    let organsData = [{"type": "Kidney(Left)", "donor_id": "AME1132", "clamped": "2025.05.29/14:53", "purpose": "NMP", "date": "2025.05.30-05.31", "proteomics": "Y", "detail": ""}, {"type": "Kidney(Right)", "donor_id": "AME3421", "clamped": "2025.05.30/18:54", "purpose": "NMP", "date": "2025.05.31", "proteomics": "", "detail": ""}, {"type": "RBC (2u)", "donor_id": "—", "clamped": "—", "purpose": "Dialysis", "date": "2025.06.16", "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMF2486", "clamped": "2025.06.29/16:19", "purpose": "Saline NMP", "date": "2025.07.01", "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMGB368", "clamped": "2025.07.04/11:17", "purpose": "NMP", "date": "2025.07.04", "proteomics": "Y", "detail": "Liver1"}, {"type": "Liver", "donor_id": "AMF4302", "clamped": "2025.07.03/17:36", "purpose": "HMP", "date": "2025.07.04/15:00-20:30", "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMGG324", "clamped": "2025.07.10/17:44", "purpose": "SCS", "date": "2025.07.11", "proteomics": "Y", "detail": ""}, {"type": "Kidney(Left)", "donor_id": "AMGJ265", "clamped": "2025.07.13/11:11", "purpose": "NMP", "date": "2025.07.14/14:30", "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMGQ084", "clamped": "2025.07.18/16:58", "purpose": "NMP", "date": "2025.07.19/02:30", "proteomics": "", "detail": ""}, {"type": "Heart", "donor_id": "AMGP422", "clamped": "2025.07.17/22:26", "purpose": "NMP", "date": "2025.07.18/19:30", "proteomics": "", "detail": ""}, {"type": "Kidney(Both)", "donor_id": "AMGO171", "clamped": "2025.07.17/23:48", "purpose": "NMP", "date": "2025.07.18/18:00", "proteomics": "", "detail": "Tiny"}, {"type": "Liver", "donor_id": "AMG5011", "clamped": "2025.08.01/22:45", "purpose": "NMP", "date": "2025.08.02/15:21", "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMHO066", "clamped": "2025.08.17/18:18", "purpose": "NMP", "date": "2025.08.19/23:00", "proteomics": "", "detail": "Overweight"}, {"type": "Heart", "donor_id": "AMHT33", "clamped": "2025.08.22/06:52", "purpose": "NMP", "date": "2025.08.22/17:00", "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMHT34", "clamped": "2025.08.22/13:16", "purpose": "NMP", "date": "2025.08.22/23:00", "proteomics": "", "detail": "Necrosis"}, {"type": "Liver", "donor_id": "AMID027", "clamped": "2025.09.05/15:05", "purpose": "NMP", "date": "2025.09.06/16:15", "proteomics": "", "detail": "Missing Gallbladder • IBP High"}, {"type": "Lung", "donor_id": "AMIL349", "clamped": "2025.09.14/10:46", "purpose": "EVLP", "date": "2025/09/16 20:15", "proteomics": "", "detail": "Toronto Protocol"}, {"type": "Lung", "donor_id": "AMIY093", "clamped": "2025.09.26/04:41", "purpose": "EVLP", "date": "2025/09/27 10:15", "proteomics": "", "detail": "Toronto Protocol"}, {"type": "Lung", "donor_id": "AMI2319", "clamped": "2025.09.29/23:59", "purpose": "EVLP", "date": "2025/09/30 20:45", "proteomics": "", "detail": "Toronto Protocol"}, {"type": "Liver", "donor_id": "AMJE110", "clamped": "2025.10.06/21:57", "purpose": "HMP", "date": "2025/10/08 13:40", "proteomics": "", "detail": "Saline+MPs,30min"}, {"type": "Liver", "donor_id": "AMJU124", "clamped": "2025.10.22/17:14", "purpose": "NMP", "date": "2025/10/22 16:30", "proteomics": "", "detail": ""}, {"type": "Kidney  (Both)", "donor_id": "AMKG442", "clamped": "2025/11/09 19:10", "purpose": "NMP", "date": "2025/11/10 18:00", "proteomics": "", "detail": "ULM and PA"}, {"type": "Lung", "donor_id": "AMJT331", "clamped": "2025/10/24 12:19", "purpose": "EVLP", "date": "2025/10/26", "proteomics": "", "detail": "Toronto Protocol   • Test"}, {"type": "Lung", "donor_id": "AMKB378", "clamped": "2025/10/24 10:00", "purpose": "EVLP", "date": "2025/10/27", "proteomics": "", "detail": "Toronto Protocol • Test"}, {"type": "kidney (paired)", "donor_id": "AMKL270", "clamped": "2025/11/15/01:20", "purpose": "NMP", "date": "2025/11/16 13:00", "proteomics": "", "detail": "ULM and OCT"}, {"type": "kidney", "donor_id": "AMKW400", "clamped": "2025/11/24/01:21", "purpose": "HMP", "date": "2025/11/25 14:00", "proteomics": "", "detail": "ULM and OCT"}];
 
     function showToast(msg, isSuccess = true) {
       const t = document.getElementById('toast');
@@ -267,26 +278,46 @@
       setTimeout(() => t.classList.add('translate-y-20', 'opacity-0'), 3500);
     }
 
+    // RFC-4180 Compliant JavaScript CSV Parser
     function parseCSV(text) {
-      const lines = text.trim().split('\n');
       const rows = [];
-      for (let line of lines) {
-        let row = [];
-        let inQuote = false;
-        let cell = '';
-        for (let i = 0; i < line.length; i++) {
-          let char = line[i];
-          if (char === '"' || char === "'") {
-            inQuote = !inQuote;
-          } else if (char === ',' && !inQuote) {
-            row.push(cell.trim().replace(/^["']|["']$/g, ''));
-            cell = '';
+      let row = [];
+      let cell = '';
+      let inQuotes = false;
+      
+      for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+        const nextChar = text[i + 1];
+        
+        if (char === '"') {
+          if (inQuotes && nextChar === '"') {
+            cell += '"';
+            i++;
           } else {
-            cell += char;
+            inQuotes = !inQuotes;
           }
+        } else if (char === ',' && !inQuotes) {
+          row.push(cell.trim().replace(/^["']|["']$/g, '').replace(/\r/g, ''));
+          cell = '';
+        } else if ((char === '\r' || char === '\n') && !inQuotes) {
+          if (char === '\r' && nextChar === '\n') {
+            i++;
+          }
+          row.push(cell.trim().replace(/^["']|["']$/g, '').replace(/\r/g, ''));
+          cell = '';
+          if (row.some(c => c.length > 0)) {
+            rows.push(row);
+          }
+          row = [];
+        } else {
+          cell += char;
         }
-        row.push(cell.trim().replace(/^["']|["']$/g, ''));
-        rows.push(row);
+      }
+      if (cell.length > 0 || row.length > 0) {
+        row.push(cell.trim().replace(/^["']|["']$/g, '').replace(/\r/g, ''));
+        if (row.some(c => c.length > 0)) {
+          rows.push(row);
+        }
       }
       return rows;
     }
@@ -300,24 +331,26 @@
       if (syncText) syncText.innerText = 'Syncing...';
 
       try {
-        const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:csv&sheet=Organ`;
-        const resp = await fetch(url);
+        // CRITICAL: Explicitly specify &headers=1 and cache-busting timestamp
+        const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:csv&sheet=Organ&headers=1&_t=${Date.now()}`;
+        const resp = await fetch(url, { cache: 'no-store' });
         if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
         const csvText = await resp.text();
         const rows = parseCSV(csvText);
 
         let newOrgans = [];
+        // Row 0 is the header row
         for (let i = 1; i < rows.length; i++) {
           const r = rows[i];
-          if (r.length >= 5 && r[0]) {
+          if (r.length >= 5 && r[0] && r[0].trim().length > 0) {
             newOrgans.push({
-              type: r[0],
-              donor_id: r[1] || '—',
-              clamped: r[2] || '—',
-              purpose: r[3] || 'Perfusion',
-              date: r[4] || '—',
-              proteomics: r[5] || '',
-              detail: (r[6] || '').replace(/\n/g, ' • ')
+              type: r[0].trim(),
+              donor_id: (r[1] || '').trim() || '—',
+              clamped: (r[2] || '').trim() || '—',
+              purpose: (r[3] || '').trim() || 'Perfusion',
+              date: (r[4] || '').trim() || '—',
+              proteomics: (r[5] || '').trim() || '',
+              detail: (r[6] || '').replace(/\r/g, '').replace(/\n/g, ' • ').trim()
             });
           }
         }
@@ -345,20 +378,23 @@
       currentOrgFilter = filter;
       const btns = document.querySelectorAll('#org-filters button');
       btns.forEach(b => {
-        b.className = 'px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all';
+        b.className = 'px-3.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/50 hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-medium text-xs transition-all flex items-center gap-1';
       });
 
       const activeMap = {
         'all': 'btn-org-all',
+        'lung': 'btn-org-lung',
         'liver': 'btn-org-liver',
         'kidney': 'btn-org-kidney',
         'heart': 'btn-org-heart',
+        'evlp': 'btn-org-evlp',
         'nmp': 'btn-org-nmp',
+        'hmp': 'btn-org-hmp',
         'proteomics': 'btn-org-prot'
       };
 
       const activeBtn = document.getElementById(activeMap[filter]);
-      if (activeBtn) activeBtn.className = 'px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-semibold text-xs transition-all shadow-sm';
+      if (activeBtn) activeBtn.className = 'px-3.5 py-1.5 rounded-lg bg-primary text-on-primary font-semibold text-xs transition-all shadow-sm flex items-center gap-1';
 
       renderOrgansTable();
     }
@@ -367,30 +403,49 @@
       const query = (document.getElementById('org-search-input').value || '').toLowerCase().trim();
       const tbody = document.getElementById('org-table-body');
 
+      let lungCount = 0;
+      let liverCount = 0;
+      let kidneyCount = 0;
+      let heartCount = 0;
+      let evlpCount = 0;
       let nmpCount = 0;
       let protCount = 0;
-      let alertCount = 0;
 
       organsData.forEach(item => {
-        if (item.purpose.toLowerCase().includes('nmp')) nmpCount++;
+        const t = item.type.toLowerCase();
+        const p = item.purpose.toLowerCase();
+        if (t.includes('lung')) lungCount++;
+        if (t.includes('liver')) liverCount++;
+        if (t.includes('kidney')) kidneyCount++;
+        if (t.includes('heart')) heartCount++;
+        if (p.includes('evlp')) evlpCount++;
+        if (p.includes('nmp')) nmpCount++;
         if (item.proteomics === 'Y') protCount++;
-        if (item.detail && (item.detail.includes('Necrosis') || item.detail.includes('Overweight') || item.detail.includes('Tiny') || item.detail.includes('Missing'))) alertCount++;
       });
 
       document.getElementById('kpi-org-total').innerText = organsData.length;
+      document.getElementById('kpi-org-evlp').innerText = evlpCount;
       document.getElementById('kpi-org-nmp').innerText = nmpCount;
       document.getElementById('kpi-org-prot').innerText = `${protCount} Donors`;
-      document.getElementById('kpi-org-alerts').innerText = `${alertCount} Logged`;
+
+      if (document.getElementById('filter-count-all')) document.getElementById('filter-count-all').innerText = organsData.length;
+      if (document.getElementById('filter-count-lung')) document.getElementById('filter-count-lung').innerText = lungCount;
+      if (document.getElementById('filter-count-liver')) document.getElementById('filter-count-liver').innerText = liverCount;
+      if (document.getElementById('filter-count-kidney')) document.getElementById('filter-count-kidney').innerText = kidneyCount;
+      if (document.getElementById('filter-count-heart')) document.getElementById('filter-count-heart').innerText = heartCount;
 
       let filtered = organsData.filter(item => {
         let matchFilter = true;
         const type = item.type.toLowerCase();
         const purpose = item.purpose.toLowerCase();
 
-        if (currentOrgFilter === 'liver') matchFilter = type.includes('liver');
+        if (currentOrgFilter === 'lung') matchFilter = type.includes('lung');
+        else if (currentOrgFilter === 'liver') matchFilter = type.includes('liver');
         else if (currentOrgFilter === 'kidney') matchFilter = type.includes('kidney');
         else if (currentOrgFilter === 'heart') matchFilter = type.includes('heart');
+        else if (currentOrgFilter === 'evlp') matchFilter = purpose.includes('evlp');
         else if (currentOrgFilter === 'nmp') matchFilter = purpose.includes('nmp');
+        else if (currentOrgFilter === 'hmp') matchFilter = purpose.includes('hmp');
         else if (currentOrgFilter === 'proteomics') matchFilter = (item.proteomics === 'Y');
 
         const matchQuery = !query ||
@@ -419,13 +474,16 @@
       filtered.forEach(item => {
         let icon = 'vital_signs';
         let colorCls = 'text-amber-400 bg-amber-500/20 border-amber-500/30';
-        if (item.type.includes('Kidney')) {
+        if (item.type.toLowerCase().includes('lung')) {
+          icon = 'air';
+          colorCls = 'text-cyan-400 bg-cyan-500/20 border-cyan-500/30';
+        } else if (item.type.toLowerCase().includes('kidney')) {
           icon = 'science';
           colorCls = 'text-primary bg-primary/20 border-primary/30';
-        } else if (item.type.includes('Heart')) {
+        } else if (item.type.toLowerCase().includes('heart')) {
           icon = 'favorite';
           colorCls = 'text-rose-400 bg-rose-500/20 border-rose-500/30';
-        } else if (item.type.includes('RBC')) {
+        } else if (item.type.toLowerCase().includes('rbc')) {
           icon = 'bloodtype';
           colorCls = 'text-purple-400 bg-purple-500/20 border-purple-500/30';
         }
@@ -434,12 +492,21 @@
           ? '<span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold">YES (Y)</span>'
           : '<span class="text-on-surface-variant/60 font-mono text-[11px]">—</span>';
 
+        let purposeBadgeCls = 'bg-primary/10 text-primary border-primary/30';
+        if (item.purpose.toLowerCase().includes('evlp')) {
+          purposeBadgeCls = 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30';
+        } else if (item.purpose.toLowerCase().includes('hmp')) {
+          purposeBadgeCls = 'bg-blue-500/20 text-blue-300 border-blue-500/30';
+        }
+
         let detailHtml = '<span class="text-on-surface-variant/50 font-mono text-[11px]">Normal / Unremarkable</span>';
         if (item.detail) {
           if (item.detail.includes('Necrosis')) {
             detailHtml = `<span class="px-2.5 py-1 rounded bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[11px] font-semibold flex items-center gap-1 inline-flex"><span class="material-symbols-outlined text-[14px]">warning</span> ${item.detail}</span>`;
           } else if (item.detail.includes('Overweight') || item.detail.includes('Missing')) {
             detailHtml = `<span class="px-2.5 py-1 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[11px] font-semibold flex items-center gap-1 inline-flex"><span class="material-symbols-outlined text-[14px]">info</span> ${item.detail}</span>`;
+          } else if (item.detail.includes('Toronto')) {
+            detailHtml = `<span class="px-2.5 py-1 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 text-[11px] font-semibold flex items-center gap-1 inline-flex"><span class="material-symbols-outlined text-[14px]">air</span> ${item.detail}</span>`;
           } else {
             detailHtml = `<span class="px-2.5 py-1 rounded bg-surface-container text-primary border border-primary/20 text-[11px] font-semibold inline-flex">${item.detail}</span>`;
           }
@@ -465,7 +532,7 @@
             </td>
             <td class="p-3.5 font-mono text-xs text-on-surface-variant">${item.clamped}</td>
             <td class="p-3.5">
-              <span class="px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/30 font-bold text-[11px]">
+              <span class="px-2.5 py-1 rounded-full border font-bold text-[11px] ${purposeBadgeCls}">
                 ${item.purpose}
               </span>
             </td>
