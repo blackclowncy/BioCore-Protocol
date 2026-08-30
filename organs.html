@@ -267,8 +267,10 @@
 
   <script>
     const SPREADSHEET_ID = '1VxyGkDTWfMWHz5O-wltK9y-I5SrC7m0Z_l-TeNueCQw';
+    const ORGAN_GID = '85071042';
     let currentOrgFilter = 'all';
-    let organsData = [{"type": "Kidney(Left)", "donor_id": "AME1132", "clamped": "2025.05.29/14:53", "purpose": "NMP", "date": "2025.05.30-05.31", "cit": "9h 7m", "cit_hours": 9.116666666666667, "proteomics": "Y", "detail": ""}, {"type": "Kidney(Right)", "donor_id": "AME3421", "clamped": "2025.05.30/18:54", "purpose": "NMP", "date": "2025.05.31", "cit": "5h 6m", "cit_hours": 5.1, "proteomics": "", "detail": ""}, {"type": "RBC (2u)", "donor_id": "—", "clamped": "—", "purpose": "Dialysis", "date": "2025.06.16", "cit": "—", "cit_hours": null, "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMF2486", "clamped": "2025.06.29/16:19", "purpose": "Saline NMP", "date": "2025.07.01", "cit": "31h 41m", "cit_hours": 31.683333333333334, "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMGB368", "clamped": "2025.07.04/11:17", "purpose": "NMP", "date": "2025.07.04", "cit": "< 1h", "cit_hours": 0.5, "proteomics": "Y", "detail": "Liver1"}, {"type": "Liver", "donor_id": "AMF4302", "clamped": "2025.07.03/17:36", "purpose": "HMP", "date": "2025.07.04/15:00-20:30", "cit": "21h 24m", "cit_hours": 21.4, "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMGG324", "clamped": "2025.07.10/17:44", "purpose": "SCS", "date": "2025.07.11", "cit": "6h 16m", "cit_hours": 6.266666666666667, "proteomics": "Y", "detail": ""}, {"type": "Kidney(Left)", "donor_id": "AMGJ265", "clamped": "2025.07.13/11:11", "purpose": "NMP", "date": "2025.07.14/14:30", "cit": "27h 19m", "cit_hours": 27.316666666666666, "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMGQ084", "clamped": "2025.07.18/16:58", "purpose": "NMP", "date": "2025.07.19/02:30", "cit": "9h 32m", "cit_hours": 9.533333333333333, "proteomics": "", "detail": ""}, {"type": "Heart", "donor_id": "AMGP422", "clamped": "2025.07.17/22:26", "purpose": "NMP", "date": "2025.07.18/19:30", "cit": "21h 4m", "cit_hours": 21.066666666666666, "proteomics": "", "detail": ""}, {"type": "Kidney(Both)", "donor_id": "AMGO171", "clamped": "2025.07.17/23:48", "purpose": "NMP", "date": "2025.07.18/18:00", "cit": "18h 12m", "cit_hours": 18.2, "proteomics": "", "detail": "Tiny"}, {"type": "Liver", "donor_id": "AMG5011", "clamped": "2025.08.01/22:45", "purpose": "NMP", "date": "2025.08.02/15:21", "cit": "16h 36m", "cit_hours": 16.6, "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMHO066", "clamped": "2025.08.17/18:18", "purpose": "NMP", "date": "2025.08.19/23:00", "cit": "52h 42m", "cit_hours": 52.7, "proteomics": "", "detail": "Overweight"}, {"type": "Heart", "donor_id": "AMHT33", "clamped": "2025.08.22/06:52", "purpose": "NMP", "date": "2025.08.22/17:00", "cit": "10h 8m", "cit_hours": 10.133333333333333, "proteomics": "", "detail": ""}, {"type": "Liver", "donor_id": "AMHT34", "clamped": "2025.08.22/13:16", "purpose": "NMP", "date": "2025.08.22/23:00", "cit": "9h 44m", "cit_hours": 9.733333333333333, "proteomics": "", "detail": "Necrosis"}, {"type": "Liver", "donor_id": "AMID027", "clamped": "2025.09.05/15:05", "purpose": "NMP", "date": "2025.09.06/16:15", "cit": "25h 10m", "cit_hours": 25.166666666666668, "proteomics": "", "detail": "Missing Gallbladder • IBP High"}, {"type": "Lung", "donor_id": "AMIL349", "clamped": "2025.09.14/10:46", "purpose": "EVLP", "date": "2025/09/16 20:15", "cit": "57h 29m", "cit_hours": 57.483333333333334, "proteomics": "", "detail": "Toronto Protocol"}, {"type": "Lung", "donor_id": "AMIY093", "clamped": "2025.09.26/04:41", "purpose": "EVLP", "date": "2025/09/27 10:15", "cit": "29h 34m", "cit_hours": 29.566666666666666, "proteomics": "", "detail": "Toronto Protocol"}, {"type": "Lung", "donor_id": "AMI2319", "clamped": "2025.09.29/23:59", "purpose": "EVLP", "date": "2025/09/30 20:45", "cit": "20h 46m", "cit_hours": 20.766666666666666, "proteomics": "", "detail": "Toronto Protocol"}, {"type": "Liver", "donor_id": "AMJE110", "clamped": "2025.10.06/21:57", "purpose": "HMP", "date": "2025/10/08 13:40", "cit": "39h 43m", "cit_hours": 39.71666666666667, "proteomics": "", "detail": "Saline+MPs,30min"}, {"type": "Liver", "donor_id": "AMJU124", "clamped": "2025.10.22/17:14", "purpose": "NMP", "date": "2025/10/22 16:30", "cit": "< 1h", "cit_hours": 0.5, "proteomics": "", "detail": ""}, {"type": "Kidney  (Both)", "donor_id": "AMKG442", "clamped": "2025/11/09 19:10", "purpose": "NMP", "date": "2025/11/10 18:00", "cit": "22h 50m", "cit_hours": 22.833333333333332, "proteomics": "", "detail": "ULM and PA"}, {"type": "Lung", "donor_id": "AMJT331", "clamped": "2025/10/24 12:19", "purpose": "EVLP", "date": "2025/10/26", "cit": "35h 41m", "cit_hours": 35.68333333333333, "proteomics": "", "detail": "Toronto Protocol   • Test"}, {"type": "Lung", "donor_id": "AMKB378", "clamped": "2025/10/24 10:00", "purpose": "EVLP", "date": "2025/10/27", "cit": "62h", "cit_hours": 62.0, "proteomics": "", "detail": "Toronto Protocol • Test"}, {"type": "kidney (paired)", "donor_id": "AMKL270", "clamped": "2025/11/15/01:20", "purpose": "NMP", "date": "2025/11/16 13:00", "cit": "35h 40m", "cit_hours": 35.666666666666664, "proteomics": "", "detail": "ULM and OCT"}, {"type": "kidney", "donor_id": "AMKW400", "clamped": "2025/11/24/01:21", "purpose": "HMP", "date": "2025/11/25 14:00", "cit": "36h 39m", "cit_hours": 36.65, "proteomics": "", "detail": "ULM and OCT"}];
+    const STATIC_ORGAN_BACKUP = [{"type":"Kidney(Left)","donor_id":"AME1132","clamped":"2025.05.29/14:53","purpose":"NMP","date":"2025.05.30-05.31","cit":"9h 7m","cit_hours":9.116666666666667,"proteomics":"Y","detail":""},{"type":"Kidney(Right)","donor_id":"AME3421","clamped":"2025.05.30/18:54","purpose":"NMP","date":"2025.05.31","cit":"5h 6m","cit_hours":5.1,"proteomics":"","detail":""},{"type":"RBC (2u)","donor_id":"—","clamped":"—","purpose":"Dialysis","date":"2025.06.16","cit":"—","cit_hours":null,"proteomics":"","detail":""},{"type":"Liver","donor_id":"AMF2486","clamped":"2025.06.29/16:19","purpose":"Saline NMP","date":"2025.07.01","cit":"31h 41m","cit_hours":31.683333333333334,"proteomics":"","detail":""},{"type":"Liver","donor_id":"AMGB368","clamped":"2025.07.04/11:17","purpose":"NMP","date":"2025.07.04","cit":"< 1h","cit_hours":0.5,"proteomics":"Y","detail":"Liver1"},{"type":"Liver","donor_id":"AMF4302","clamped":"2025.07.03/17:36","purpose":"HMP","date":"2025.07.04/15:00-20:30","cit":"21h 24m","cit_hours":21.4,"proteomics":"","detail":""},{"type":"Liver","donor_id":"AMGG324","clamped":"2025.07.10/17:44","purpose":"SCS","date":"2025.07.11","cit":"6h 16m","cit_hours":6.266666666666667,"proteomics":"Y","detail":""},{"type":"Kidney(Left)","donor_id":"AMGJ265","clamped":"2025.07.13/11:11","purpose":"NMP","date":"2025.07.14/14:30","cit":"27h 19m","cit_hours":27.316666666666666,"proteomics":"","detail":""},{"type":"Liver","donor_id":"AMGQ084","clamped":"2025.07.18/16:58","purpose":"NMP","date":"2025.07.19/02:30","cit":"9h 32m","cit_hours":9.533333333333333,"proteomics":"","detail":""},{"type":"Heart","donor_id":"AMGP422","clamped":"2025.07.17/22:26","purpose":"NMP","date":"2025.07.18/19:30","cit":"21h 4m","cit_hours":21.066666666666666,"proteomics":"","detail":""},{"type":"Kidney(Both)","donor_id":"AMGO171","clamped":"2025.07.17/23:48","purpose":"NMP","date":"2025.07.18/18:00","cit":"18h 12m","cit_hours":18.2,"proteomics":"","detail":"Tiny"},{"type":"Liver","donor_id":"AMG5011","clamped":"2025.08.01/22:45","purpose":"NMP","date":"2025.08.02/15:21","cit":"16h 36m","cit_hours":16.6,"proteomics":"","detail":""},{"type":"Liver","donor_id":"AMHO066","clamped":"2025.08.17/18:18","purpose":"NMP","date":"2025.08.19/23:00","cit":"52h 42m","cit_hours":52.7,"proteomics":"","detail":"Overweight"},{"type":"Heart","donor_id":"AMHT33","clamped":"2025.08.22/06:52","purpose":"NMP","date":"2025.08.22/17:00","cit":"10h 8m","cit_hours":10.133333333333333,"proteomics":"","detail":""},{"type":"Liver","donor_id":"AMHT34","clamped":"2025.08.22/13:16","purpose":"NMP","date":"2025.08.22/23:00","cit":"9h 44m","cit_hours":9.733333333333333,"proteomics":"","detail":"Necrosis"},{"type":"Liver","donor_id":"AMID027","clamped":"2025.09.05/15:05","purpose":"NMP","date":"2025.09.06/16:15","cit":"25h 10m","cit_hours":25.166666666666668,"proteomics":"","detail":"Missing Gallbladder • IBP High"},{"type":"Lung","donor_id":"AMIL349","clamped":"2025.09.14/10:46","purpose":"EVLP","date":"2025/09/16 20:15","cit":"57h 29m","cit_hours":57.483333333333334,"proteomics":"","detail":"Toronto Protocol"},{"type":"Lung","donor_id":"AMIY093","clamped":"2025.09.26/04:41","purpose":"EVLP","date":"2025/09/27 10:15","cit":"29h 34m","cit_hours":29.566666666666666,"proteomics":"","detail":"Toronto Protocol"},{"type":"Lung","donor_id":"AMI2319","clamped":"2025.09.29/23:59","purpose":"EVLP","date":"2025/09/30 20:45","cit":"20h 46m","cit_hours":20.766666666666666,"proteomics":"","detail":"Toronto Protocol"},{"type":"Liver","donor_id":"AMJE110","clamped":"2025.10.06/21:57","purpose":"HMP","date":"2025/10/08 13:40","cit":"39h 43m","cit_hours":39.71666666666667,"proteomics":"","detail":"Saline+MPs,30min"},{"type":"Liver","donor_id":"AMJU124","clamped":"2025.10.22/17:14","purpose":"NMP","date":"2025/10/22 16:30","cit":"< 1h","cit_hours":0.5,"proteomics":"","detail":""},{"type":"Kidney  (Both)","donor_id":"AMKG442","clamped":"2025/11/09 19:10","purpose":"NMP","date":"2025/11/10 18:00","cit":"22h 50m","cit_hours":22.833333333333332,"proteomics":"","detail":"ULM and PA"},{"type":"Lung","donor_id":"AMJT331","clamped":"2025/10/24 12:19","purpose":"EVLP","date":"2025/10/26","cit":"35h 41m","cit_hours":35.68333333333333,"proteomics":"","detail":"Toronto Protocol   • Test"},{"type":"Lung","donor_id":"AMKB378","clamped":"2025/10/24 10:00","purpose":"EVLP","date":"2025/10/27","cit":"62h","cit_hours":62,"proteomics":"","detail":"Toronto Protocol • Test"},{"type":"kidney (paired)","donor_id":"AMKL270","clamped":"2025/11/15/01:20","purpose":"NMP","date":"2025/11/16 13:00","cit":"35h 40m","cit_hours":35.666666666666664,"proteomics":"","detail":"ULM and OCT"},{"type":"kidney","donor_id":"AMKW400","clamped":"2025/11/24/01:21","purpose":"HMP","date":"2025/11/25 14:00","cit":"36h 39m","cit_hours":36.65,"proteomics":"","detail":"ULM and OCT"},{"type":"kidney","donor_id":"AMLT078","clamped":"2025/12/21/16:45","purpose":"NMP","date":"2025/12/22 18:00","cit":"25h 15m","cit_hours":25.25,"proteomics":"","detail":"ULM1"},{"type":"kidney","donor_id":"AMLI296","clamped":"2025/12/10/22:22","purpose":"NMP","date":"2025/12/11 15:00","cit":"16h 38m","cit_hours":16.633333333333333,"proteomics":"","detail":"ULM2"},{"type":"kidney","donor_id":"ANAG206","clamped":"2026/01/10/14:03","purpose":"NMP","date":"2026/01/11 11:30","cit":"21h 27m","cit_hours":21.45,"proteomics":"","detail":"ULM3"},{"type":"Liver","donor_id":"ANAG206","clamped":"2026/01/10/14:03","purpose":"NMP","date":"2026/01/11 17:00","cit":"26h 57m","cit_hours":26.95,"proteomics":"","detail":"Liver2"},{"type":"Kidney","donor_id":"ANAZ322","clamped":"2026/01/29 14:59","purpose":"NMP","date":"2026/01/30 18:00","cit":"27h 1m","cit_hours":27.016666666666666,"proteomics":"","detail":"MPs+ULM"},{"type":"Kidney","donor_id":"ANA5443","clamped":"2026/02/02 16:01","purpose":"HMP vs SCS","date":"2026/02/03 16:00","cit":"23h 59m","cit_hours":23.983333333333334,"proteomics":"","detail":"Kidney1"},{"type":"Liver","donor_id":"ANBJ352","clamped":"2026.02.11/18:21","purpose":"NMP","date":"2026/02/12 18:30","cit":"24h 9m","cit_hours":24.15,"proteomics":"","detail":"ULM and PA"},{"type":"Liver","donor_id":"ANBX109","clamped":"2026.02.25/15:17","purpose":"NMP","date":"2026/02/27 14:30","cit":"47h 13m","cit_hours":47.21666666666667,"proteomics":"","detail":"Half  perfusion test"},{"type":"Kidney","donor_id":"ANC2482","clamped":"2026-03-29 10:08","purpose":"NMP","date":"2026/03/30 18:00","cit":"31h 52m","cit_hours":31.866666666666667,"proteomics":"","detail":"ULM"},{"type":"Kidney","donor_id":"ANCZ359","clamped":"2026-03-30 17:05","purpose":"NMP","date":"2026/03/31 13:00","cit":"19h 55m","cit_hours":19.916666666666668,"proteomics":"","detail":"ULM"},{"type":"Liver","donor_id":"ANDJ095","clamped":"2026-04-14 17:55","purpose":"NMP","date":"2026/04/15 17:10","cit":"23h 15m","cit_hours":23.25,"proteomics":"","detail":"MPs"},{"type":"Liver","donor_id":"ANDN318","clamped":"2026-04-15 1:46","purpose":"NMP","date":"2026/04/17 18:00","cit":"64h 14m","cit_hours":64.23333333333333,"proteomics":"","detail":"OCTA"},{"type":"Kidney","donor_id":"ANDN318","clamped":"2026-04-15 1:46","purpose":"NMP","date":"2026/04/17 18:00","cit":"64h 14m","cit_hours":64.23333333333333,"proteomics":"","detail":"OCTA and ULM"},{"type":"Kidney","donor_id":"ANDP303","clamped":"2026-04-18 16:15","purpose":"NMP","date":"2026/04/17 18:00","cit":"—","cit_hours":null,"proteomics":"","detail":"OCTA"},{"type":"Liver","donor_id":"ANDU116","clamped":"2026-04-22 14:43","purpose":"NMP","date":"2026/04/23 18:00","cit":"27h 17m","cit_hours":27.283333333333335,"proteomics":"","detail":"ULM"},{"type":"Lung","donor_id":"ANDP303","clamped":"2026-04-18 16:15","purpose":"Ventilation","date":"2026/04/24 12:00","cit":"139h 45m","cit_hours":139.75,"proteomics":"","detail":"MPs Ventilation  only"},{"type":"Kidney(Both)","donor_id":"ANDW038","clamped":"2026-04-24 4:49","purpose":"NMP","date":"2026-04-24 22:00","cit":"17h 11m","cit_hours":17.183333333333334,"proteomics":"","detail":"MPs+ULM+OCTA"},{"type":"Kidney(Both)","donor_id":"ANDV472","clamped":"2026-04-23 8:42","purpose":"NMP","date":"2026-04-25 5:30","cit":"44h 48m","cit_hours":44.8,"proteomics":"","detail":"MPs+ULM+OCTA"},{"type":"Heart","donor_id":"ANDU116","clamped":"2026/04/22 14:43","purpose":"NMP","date":"2026-04-26 13:00","cit":"94h 17m","cit_hours":94.28333333333333,"proteomics":"","detail":"laser speckle+MPs"},{"type":"Lung","donor_id":"AND3439","clamped":"2026/05/01 6:40","purpose":"Ventilation","date":"2026/05/01 19:00","cit":"12h 20m","cit_hours":12.333333333333334,"proteomics":"","detail":"MPs Ventilation  only"},{"type":"Liver","donor_id":"ANDU116","clamped":"2026-04-22 14:43","purpose":"NMP","date":"2026/04/23 18:00","cit":"27h 17m","cit_hours":27.283333333333335,"proteomics":"","detail":"ULM"},{"type":"Kidney","donor_id":"ANEE240","clamped":"2026-05-06 9:45","purpose":"NMP","date":"2026/05/07 20:00","cit":"34h 15m","cit_hours":34.25,"proteomics":"","detail":"ULM"},{"type":"Liver","donor_id":"ANEG074","clamped":"2026-05-10 4:16","purpose":"NMP","date":"2026/05/11 19:00","cit":"38h 44m","cit_hours":38.733333333333334,"proteomics":"","detail":"ULM"},{"type":"Liver","donor_id":"ANEZ376","clamped":"2026-05-27 1:19","purpose":"NMP","date":"2026/05/27 15:00","cit":"13h 41m","cit_hours":13.683333333333334,"proteomics":"Y","detail":"Liver3"},{"type":"Kidney(Both)","donor_id":"ANE3051","clamped":"2026-05-31 0:07","purpose":"NMP","date":"2026-06-01 17:30","cit":"41h 23m","cit_hours":41.38333333333333,"proteomics":"","detail":"ULM"},{"type":"Kidney(Both)","donor_id":"ANEM136","clamped":"2026-05-13 4:43","purpose":"NMP","date":"2026/05/14 15:00","cit":"34h 17m","cit_hours":34.28333333333333,"proteomics":"","detail":"ULM and OCTA"},{"type":"Kidney(Both)","donor_id":"ANEL037","clamped":"2026-05-14 4:43","purpose":"NMP","date":"2026/05/15 14:30","cit":"33h 47m","cit_hours":33.78333333333333,"proteomics":"","detail":"ULM and OCTA"},{"type":"Liver","donor_id":"ANEP023","clamped":"2026-05-16 17:10","purpose":"NMP","date":"2026/05/18 17:00","cit":"47h 50m","cit_hours":47.833333333333336,"proteomics":"","detail":"ULM and OCTA"},{"type":"Kidney","donor_id":"ANEP023","clamped":"2026-05-16 17:10","purpose":"NMP","date":"2026/05/18 17:00","cit":"47h 50m","cit_hours":47.833333333333336,"proteomics":"","detail":"ULM and OCTA"},{"type":"Kidney","donor_id":"ANE2486","clamped":"2026-05-29 17:15","purpose":"NMP","date":"2026/06/04 15:00","cit":"141h 45m","cit_hours":141.75,"proteomics":"","detail":"Endoscope"},{"type":"Heart","donor_id":"ANFX490","clamped":"2026-06-25 8:59","purpose":"NMP","date":"2026/06/28 12:00","cit":"75h 1m","cit_hours":75.01666666666667,"proteomics":"","detail":"laser speckle+ULM"},{"type":"Kidney","donor_id":"ANF1284","clamped":"2026-06-29 0:00","purpose":"NMP","date":"2026/06/30 15:00","cit":"39h","cit_hours":39,"proteomics":"","detail":"ULM and Microplastics（huge cyst)"},{"type":"Kidney","donor_id":"ANGH025","clamped":"2026-07-11 4:16","purpose":"NMP","date":"2026/07/15 13:30","cit":"105h 14m","cit_hours":105.23333333333333,"proteomics":"","detail":"Endoscope"},{"type":"Kidney","donor_id":"ANGQ481","clamped":"2026-07-19 13:01","purpose":"NMP","date":"2026/07/20 13:30","cit":"24h 29m","cit_hours":24.483333333333334,"proteomics":"","detail":"ULM"},{"type":"Kidney(Both)","donor_id":"ANGU067","clamped":"2026-07-22 12:26","purpose":"NMP","date":"2026/07/23 20:30","cit":"32h 4m","cit_hours":32.06666666666667,"proteomics":"","detail":"MPs+ULM"},{"type":"Heart","donor_id":"ANDH486","clamped":"2026-08-05 20:16","purpose":"SCS","date":"2026/08/06 18:00","cit":"21h 44m","cit_hours":21.733333333333334,"proteomics":"","detail":"Tissue Slicer"},{"type":"Kidney(Both)","donor_id":"ANHU250","clamped":"2026-08-22 12:04","purpose":"NMP","date":"2026/08/23 2:30","cit":"14h 26m","cit_hours":14.433333333333334,"proteomics":"","detail":"ULM and OCTA"},{"type":"Liver","donor_id":"ANHU250","clamped":"2026-08-22 12:04","purpose":"NMP（OPO）","date":"2026/08/23 2:30","cit":"14h 26m","cit_hours":14.433333333333334,"proteomics":"Y","detail":"Biopsy"}];
+    let organsData = JSON.parse(JSON.stringify(STATIC_ORGAN_BACKUP));
 
     function showToast(msg, isSuccess = true) {
       const t = document.getElementById('toast');
@@ -323,20 +325,52 @@
       return rows;
     }
 
-    // Parse DateTime components from strings like "2025.05.29/14:53" or "2025/11/09 19:10"
+    // Robust DateTime component parser supporting diverse spreadsheet formats
     function parseDateComponents(str) {
-      if (!str || str === '—' || str === '-') return null;
-      let s = str.trim().replace(/\r/g, '');
-      if (s.includes('-') && !s.startsWith('2025-') && !s.includes(' 2025-')) {
-        s = s.split('-')[0];
+      if (!str || str === '—' || str === '-' || str.trim() === '') return null;
+      let s = str.trim().replace(/\r/g, '').replace(/\n/g, ' ');
+
+      // Handle GViz Date(YYYY, M, D, H, M, S) format
+      const gvizMatch = s.match(/Date\((\d+),(\d+),(\d+)(?:,(\d+),(\d+)(?:,(\d+))?)?\)/);
+      if (gvizMatch) {
+        const y = parseInt(gvizMatch[1], 10);
+        const mon = parseInt(gvizMatch[2], 10);
+        const d = parseInt(gvizMatch[3], 10);
+        const hh = gvizMatch[4] !== undefined ? parseInt(gvizMatch[4], 10) : 0;
+        const mm = gvizMatch[5] !== undefined ? parseInt(gvizMatch[5], 10) : 0;
+        const ss = gvizMatch[6] !== undefined ? parseInt(gvizMatch[6], 10) : 0;
+        return new Date(y, mon, d, hh, mm, ss);
       }
-      const m = s.match(/(\d{4})[./-](\d{1,2})[./-](\d{1,2})(?:[ /T]+(\d{1,2})[:.](\d{1,2}))?/);
+
+      // Handle date/time ranges (e.g. "2025.07.04/15:00-20:30", "2025.05.30-05.31", "2025-05-30 - 2025-05-31")
+      if (s.includes(' - ') || s.includes('~')) {
+        s = s.split(/\s*[-~]\s*/)[0];
+      } else if (s.includes('-')) {
+        const timeRangeMatch = s.match(/(\d{4}[./-]\d{1,2}[./-]\d{1,2}[ /T]+\d{1,2}[:.]\d{1,2})-(\d{1,2}[:.]\d{1,2})/);
+        if (timeRangeMatch) {
+          s = timeRangeMatch[1];
+        } else {
+          const dateRangeMatch = s.match(/(\d{4}[./-]\d{1,2}[./-]\d{1,2})-(\d{1,2}[./-]\d{1,2})/);
+          if (dateRangeMatch) {
+            s = dateRangeMatch[1];
+          }
+        }
+      }
+
+      // Match YYYY-MM-DD, YYYY.MM.DD, YYYY/MM/DD with optional time (/HH:MM, space HH:MM, :HH:MM, THH:MM)
+      const m = s.match(/(\d{4})[./-](\d{1,2})[./-](\d{1,2})(?:[ /T:]+(\d{1,2})[:.](\d{1,2}))?/);
       if (!m) return null;
+
       const y = parseInt(m[1], 10);
       const mon = parseInt(m[2], 10) - 1;
       const d = parseInt(m[3], 10);
       const hh = m[4] !== undefined ? parseInt(m[4], 10) : 0;
       const mm = m[5] !== undefined ? parseInt(m[5], 10) : 0;
+
+      if (mon < 0 || mon > 11 || d < 1 || d > 31 || hh < 0 || hh > 23 || mm < 0 || mm > 59) {
+        return null;
+      }
+
       return new Date(y, mon, d, hh, mm);
     }
 
@@ -371,8 +405,8 @@
       if (syncText) syncText.innerText = 'Syncing...';
 
       try {
-        const url = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:csv&sheet=Organ&headers=1&_t=${Date.now()}`;
-        const resp = await fetch(url, { cache: 'no-store' });
+        const gvizUrl = `https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/gviz/tq?tqx=out:csv&sheet=Organ&headers=1&_t=${Date.now()}`;
+        const resp = await fetch(gvizUrl, { cache: 'no-store' });
         if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
         const csvText = await resp.text();
         const rows = parseCSV(csvText);
@@ -380,21 +414,40 @@
         let newOrgans = [];
         for (let i = 1; i < rows.length; i++) {
           const r = rows[i];
-          if (r.length >= 5 && r[0] && r[0].trim().length > 0) {
-            const clamped = (r[2] || '').trim() || '—';
-            const dateVal = (r[4] || '').trim() || '—';
+          if (r.length >= 2 && r[0] && r[0].trim().length > 0) {
+            const type = r[0].trim();
+            const donorId = (r[1] || '').trim() || '—';
+            let clamped = (r[2] || '').trim();
+            const purpose = (r[3] || '').trim() || 'Perfusion';
+            let dateVal = (r[4] || '').trim();
+            const proteomics = (r[5] || '').trim();
+            const detail = (r[6] || '').replace(/\r/g, '').replace(/\n/g, ' • ').trim();
+
+            // Fallback to immutable backup record if GViz stripped heterogeneous date text
+            const backup = STATIC_ORGAN_BACKUP.find(b => 
+              b.donor_id.trim().toLowerCase() === donorId.toLowerCase() && 
+              b.type.trim().toLowerCase() === type.toLowerCase()
+            ) || (STATIC_ORGAN_BACKUP[i - 1] && STATIC_ORGAN_BACKUP[i - 1].donor_id.trim().toLowerCase() === donorId.toLowerCase() ? STATIC_ORGAN_BACKUP[i - 1] : STATIC_ORGAN_BACKUP[i - 1]);
+
+            if ((!clamped || clamped === '—') && backup && backup.clamped && backup.clamped !== '—') {
+              clamped = backup.clamped;
+            }
+            if ((!dateVal || dateVal === '—') && backup && backup.date && backup.date !== '—') {
+              dateVal = backup.date;
+            }
+
             const citRes = calculateCIT(clamped, dateVal);
 
             newOrgans.push({
-              type: r[0].trim(),
-              donor_id: (r[1] || '').trim() || '—',
-              clamped: clamped,
-              purpose: (r[3] || '').trim() || 'Perfusion',
-              date: dateVal,
+              type: type,
+              donor_id: donorId,
+              clamped: clamped || '—',
+              purpose: purpose,
+              date: dateVal || '—',
               cit: citRes.text,
               cit_hours: citRes.hours,
-              proteomics: (r[5] || '').trim() || '',
-              detail: (r[6] || '').replace(/\r/g, '').replace(/\n/g, ' • ').trim()
+              proteomics: proteomics,
+              detail: detail
             });
           }
         }
