@@ -244,12 +244,12 @@
           <table class="w-full text-left text-xs border-collapse">
             <thead>
               <tr class="bg-surface-container-high/80 border-b border-white/10 text-on-surface text-[11px] uppercase tracking-wider font-semibold">
-                <th class="p-3.5">Chemical / Product Name</th>
-                <th class="p-3.5">Category</th>
-                <th class="p-3.5">Manufacturer</th>
-                <th class="p-3.5">Specification / Volume</th>
-                <th class="p-3.5 text-center">Stock / Quantity</th>
-                <th class="p-3.5 text-right">SDS / Details</th>
+                <th class="p-3.5 min-w-[240px]">Chemical / Product Name</th>
+                <th class="p-3.5 min-w-[150px] w-40 whitespace-nowrap">Category</th>
+                <th class="p-3.5 min-w-[170px] whitespace-nowrap">Manufacturer</th>
+                <th class="p-3.5 min-w-[140px] whitespace-nowrap">Specification / Volume</th>
+                <th class="p-3.5 min-w-[120px] whitespace-nowrap text-center">Stock / Quantity</th>
+                <th class="p-3.5 min-w-[130px] whitespace-nowrap text-right">SDS / Details</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-white/5" id="inv-table-body">
@@ -457,14 +457,18 @@
         let badgeCls = 'bg-primary/20 text-primary border-primary/30';
         let sdsUrl = 'index.html#safety';
 
+        let catIcon = 'medication';
         if (item.category === 'Drugs') {
           icon = 'medication';
+          catIcon = 'medication';
           badgeCls = 'bg-purple-500/20 text-purple-300 border-purple-500/30';
         } else if (item.category === 'Chemicals') {
           icon = 'science';
+          catIcon = 'science';
           badgeCls = 'bg-amber-500/20 text-amber-300 border-amber-500/30';
         } else if (item.category === 'Testing kits') {
           icon = 'biotech';
+          catIcon = 'biotech';
           badgeCls = 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30';
         }
 
@@ -476,19 +480,20 @@
                 <span class="font-semibold">${item.name}</span>
               </div>
             </td>
-            <td class="p-3.5">
-              <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold border ${badgeCls}">
+            <td class="p-3.5 whitespace-nowrap min-w-[150px]">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold border whitespace-nowrap ${badgeCls}">
+                <span class="material-symbols-outlined text-[13px]">${catIcon}</span>
                 ${item.category}
               </span>
             </td>
-            <td class="p-3.5 text-on-surface-variant font-mono text-xs">${item.mfg}</td>
-            <td class="p-3.5 font-mono text-xs text-on-surface">${item.vol}</td>
-            <td class="p-3.5 text-center">
+            <td class="p-3.5 text-on-surface-variant font-mono text-xs whitespace-nowrap">${item.mfg}</td>
+            <td class="p-3.5 font-mono text-xs text-on-surface whitespace-nowrap">${item.vol}</td>
+            <td class="p-3.5 text-center whitespace-nowrap">
               <span class="inline-flex items-center justify-center px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold font-mono text-xs border border-primary/30 shadow-sm">
                 ${item.qty}
               </span>
             </td>
-            <td class="p-3.5 text-right">
+            <td class="p-3.5 text-right whitespace-nowrap">
               <a href="${sdsUrl}" class="inline-flex items-center gap-1 px-3 py-1 bg-surface-container hover:bg-primary text-on-surface-variant hover:text-on-primary rounded-lg text-xs font-semibold border border-white/10 transition-all">
                 <span class="material-symbols-outlined text-[14px]">shield</span> Safety SDS
               </a>
