@@ -283,20 +283,20 @@
                 <h2 class="text-lg font-headline text-on-surface flex items-center gap-2 font-semibold">
                   <span class="material-symbols-outlined text-primary">format_list_numbered</span> Usage Procedure
                 </h2>
-                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('bridges_step_by_step')" id="tab-btn-bridges_step_by_step" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">1. Step-by-Step Procedure</button><button onclick="switchTab('bridges_wash_table')" id="tab-btn-bridges_wash_table" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">2. Wash & Incubation Schedule</button></div>
+                <div class="flex bg-surface-container p-1 rounded-lg border border-white/5 flex-wrap gap-1"><button onclick="switchTab('bridges_standard_protocol')" id="tab-btn-bridges_standard_protocol" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md bg-surface-container-high shadow-sm text-primary transition-all">1. Standard Protocol</button><button onclick="switchTab('rapid_tissue_processing')" id="tab-btn-rapid_tissue_processing" class="proc-tab-btn px-3.5 py-1.5 text-xs font-medium rounded-md text-on-surface-variant hover:text-on-surface transition-all">2. Rapid Tissue Processing (Post-Fixation)</button></div>
               </div>
               <div class="p-5">
                 
-        <div id="proc-content-bridges_step_by_step" class="proc-tab-content ">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Bridges Lab 14-Step Complete Paraffin Embedding Workflow</h3>
+        <div id="proc-content-bridges_standard_protocol" class="proc-tab-content ">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Official Paraffin Embedding Procedure from Bridges Lab, University of Michigan</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">1. Tissue Harvest & Formalin Fixation</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Harvest tissue specimen from animal, place immediately into a labelled biopsy/tissue cassette, and submerge in 10% neutral buffered formalin (NBF) for 24–48 hours (depending on tissue sample thickness and density).</p>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">1. Tissue Harvest & Formalin Fixation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Harvest tissue specimen from animal, place immediately into a labelled biopsy/tissue cassette, and submerge in 10% neutral buffered formalin (NBF) for 24–48 hours (depending on tissue sample thickness and density).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -307,11 +307,11 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">2. Transfer to 70% Ethanol & Staging</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Move cassettes into 70% ethanol for 24 hours.
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">2. Transfer to 70% Ethanol & Staging</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Move cassettes into 70% ethanol for 24 hours.
 • Note: Samples can be safely left in 70% ethanol for long-term storage if required.
 • Core Facility Option: At this step, samples can alternatively be submitted to the Rogel Cancer Center's Tissue and Molecular Pathology Core for automated machine processing.
 • Planning Warning: Subsequent dehydration steps involve many long incubation periods and must be started first thing in the morning.</p>
@@ -325,11 +325,11 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">3. Wax Pot Initialization</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Turn on wax pots and preheat histological paraffin in beakers to 58–60°C (the melting point of paraffin is 58°C; maintaining temperature 2°C above melting point yields optimal penetration).</p>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">3. Wax Pot Initialization</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Turn on wax pots and preheat histological paraffin in beakers to 58–60°C (the melting point of paraffin is 58°C; maintaining temperature 2°C above melting point yields optimal penetration).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -340,11 +340,11 @@
                 </div>
             </div>
             <!-- Step 4 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">4. 75% Ethanol Incubation</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Move cassettes into 75% ethanol and incubate for 30 minutes at room temperature.</p>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">4. 75% Ethanol Incubation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Move cassettes into 75% ethanol and incubate for 30 minutes at room temperature.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -355,11 +355,11 @@
                 </div>
             </div>
             <!-- Step 5 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">5. 95% Ethanol Dehydration (2 Cycles)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Move cassettes into fresh 95% ethanol for 75 minutes. Repeat this step a second time using a fresh container of 95% ethanol (Total: 2 × 75 min = 150 min).</p>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">5. 95% Ethanol Dehydration (2 Cycles)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Move cassettes into fresh 95% ethanol for 75 minutes. Repeat this step a second time using a fresh container of 95% ethanol (Total: 2 × 75 min = 150 min).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -370,11 +370,11 @@
                 </div>
             </div>
             <!-- Step 6 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">6</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">6. 100% Anhydrous Ethanol Dehydration (3 Cycles)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Move cassettes into 100% anhydrous ethanol for 60 minutes. Repeat this step twice more using fresh 100% ethanol each time (Total: 3 × 60 min = 3 hrs).
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">6. 100% Anhydrous Ethanol Dehydration (3 Cycles)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Move cassettes into 100% anhydrous ethanol for 60 minutes. Repeat this step twice more using fresh 100% ethanol each time (Total: 3 × 60 min = 3 hrs).
 • Note: Some protocols allow the first 100% ethanol wash to sit overnight if scheduling requires, but extended dehydration can alter tissue micro-morphology.
 • During these incubations, prepare beakers of melted 58–60°C paraffin.</p>
                     
@@ -387,11 +387,11 @@
                 </div>
             </div>
             <!-- Step 7 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">7</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">7. Citrosolv Clearing (2 Cycles)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Move cassettes into Citrosolv (clearing agent) for 30–60 minutes inside a chemical fume hood. Repeat this step a second time using fresh Citrosolv (Total: 2 × 30–60 min). Tissues will become cleared and translucent.</p>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">7. Citrosolv Clearing (2 Cycles)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Move cassettes into Citrosolv (clearing agent) for 30–60 minutes inside a chemical fume hood. Repeat this step a second time using fresh Citrosolv (Total: 2 × 30–60 min). Tissues will become cleared and translucent.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -402,11 +402,11 @@
                 </div>
             </div>
             <!-- Step 8 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">8</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">8. 60°C Molten Paraffin Infiltration (3 Cycles)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Move cassettes into 60°C melted paraffin for 60 minutes. Repeat this step twice more using fresh paraffin beakers each time (Total: 3 × 60 min).
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">8. 60°C Molten Paraffin Infiltration (3 Cycles)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Move cassettes into 60°C melted paraffin for 60 minutes. Repeat this step twice more using fresh paraffin beakers each time (Total: 3 × 60 min).
 • Note: The 2nd or 3rd paraffin incubation can optionally be extended overnight, but excessive hot wax exposure may increase tissue brittleness during microtomy.
 • During these steps, turn on the paraffin embedding station (Link Building, Room 311).</p>
                     
@@ -419,11 +419,11 @@
                 </div>
             </div>
             <!-- Step 9 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">9</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">9. Mold Preparation & Base Layer</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Immediately prior to embedding, lightly spray the metallic base mold with 'Mold Grease' release spray. Dispense a shallow foundation layer of melted paraffin into the bottom of the mold.</p>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">9. Mold Preparation & Base Layer</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Immediately prior to embedding, lightly spray the metallic base mold with 'Mold Grease' release spray. Dispense a shallow foundation layer of melted paraffin into the bottom of the mold.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -434,11 +434,11 @@
                 </div>
             </div>
             <!-- Step 10 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">10</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">10. Specimen Orientation</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Open the cassette, remove the tissue with warm forceps, and position the specimen flat or on-edge (for cross-sectional examination) on top of the base wax. Partially cover with additional molten paraffin.</p>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">10. Specimen Orientation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Open the cassette, remove the tissue with warm forceps, and position the specimen flat or on-edge (for cross-sectional examination) on top of the base wax. Partially cover with additional molten paraffin.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -449,11 +449,11 @@
                 </div>
             </div>
             <!-- Step 11 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">11</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">11. Cassette Placement & Mold Filling</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Place the labelled pathology cassette base directly on top of the base mold, and completely fill the mold and cassette reservoir with molten paraffin wax.</p>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">11. Cassette Placement & Mold Filling</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Place the labelled pathology cassette base directly on top of the base mold, and completely fill the mold and cassette reservoir with molten paraffin wax.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -464,11 +464,11 @@
                 </div>
             </div>
             <!-- Step 12 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">12</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">12. Cold Plate Solidification</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Transfer the filled mold assembly onto the 'Cold Side' (cooling plate) of the embedding station. The paraffin block will solidify and contract away from the mold within 10–15 minutes.</p>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">12. Cold Plate Solidification</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Transfer the filled mold assembly onto the 'Cold Side' (cooling plate) of the embedding station. The paraffin block will solidify and contract away from the mold within 10–15 minutes.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -479,11 +479,11 @@
                 </div>
             </div>
             <!-- Step 13 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">13</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">13. Block Demolding</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Remove the solidified paraffin block from the metal mold (with proper mold grease and contraction, it slips out easily).</p>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">13. Block Demolding</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Remove the solidified paraffin block from the metal mold (with proper mold grease and contraction, it slips out easily).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -494,11 +494,11 @@
                 </div>
             </div>
             <!-- Step 14 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">14</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">14. Block Archival & Storage</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Trim excess flash paraffin around the edges of the cassette. Store blocks at room temperature until ready for rotary microtome sectioning (4–7 µm).</p>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">14. Block Archival & Storage</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Trim excess flash paraffin around the edges of the cassette. Store blocks at room temperature until ready for rotary microtome sectioning (4–7 µm).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -510,34 +510,126 @@
             </div>
             </div>
         </div>
-        <div id="proc-content-bridges_wash_table" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Standardized Solution Incubation & Time Table</h3>
+        <div id="proc-content-rapid_tissue_processing" class="proc-tab-content hidden">
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Phase 1: Rapid Tissue Processing (Post-Fixation) / 第一阶段：组织快速处理</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Dehydration, Clearing & Wax Infiltration Matrix</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Summary schedule for manual beaker transfer series:
-
-1. 70% Ethanol — Overnight / 24 hours (Holding point)
-2. 75% Ethanol — 30 min
-3. 95% Ethanol (Batch 1) — 75 min
-4. 95% Ethanol (Batch 2) — 75 min
-5. 100% Ethanol (Batch 1) — 60 min
-6. 100% Ethanol (Batch 2) — 60 min
-7. 100% Ethanol (Batch 3) — 60 min
-8. Citrosolv (Batch 1) — 30–60 min
-9. Citrosolv (Batch 2) — 30–60 min
-10. 60°C Paraffin (Batch 1) — 60 min
-11. 60°C Paraffin (Batch 2) — 60 min
-12. 60°C Paraffin (Batch 3) — 60 min or Overnight</p>
-                    
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Step 1: 70% Ethanol</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Immerse fixed tissue in 70% Ethanol for 30 minutes with continuous agitation. / 将固定后组织置于 70% 乙醇中脱水 30 分钟，要求持续震荡。</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">Agitation required / 持续震荡</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
-                        <span class="material-symbols-outlined text-[14px]">schedule</span> Total Process Time: ~11–13 hours
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 min
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="flex gap-3.5 relative min-w-0">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Step 2: 95% Ethanol</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Transfer tissue into 95% Ethanol for 30 minutes with agitation. / 移入 95% 乙醇中脱水 30 分钟，保持震荡。</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">Agitation / 震荡</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 min
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="flex gap-3.5 relative min-w-0">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Step 3: 100% Ethanol (I)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Transfer to fresh 100% Ethanol (first change) for 45 minutes for absolute dehydration. / 移入第一缸 100% 无水乙醇 45 分钟，进行彻底脱水。</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">Absolute dehydration / 彻底脱水</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 45 min
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="flex gap-3.5 relative min-w-0">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Step 4: 100% Ethanol (II)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Transfer to fresh 100% Ethanol (second change) for 45 minutes to remove all residual moisture. / 移入第二缸 100% 无水乙醇 45 分钟，彻底脱尽残留水分。</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">Absolute dehydration / 彻底脱水</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 45 min
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 5 -->
+            <div class="flex gap-3.5 relative min-w-0">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Step 5: Xylene (I)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Transfer to Xylene (first change) inside a chemical fume hood for 30 minutes for clearing. / 移入第一缸二甲苯中 30 分钟，执行初步透明化。</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">Clearing / 透明</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 min
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 6 -->
+            <div class="flex gap-3.5 relative min-w-0">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">6</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Step 6: Xylene (II)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Transfer to fresh Xylene (second change) for 30 minutes for complete tissue clearing. / 移入第二缸二甲苯中 30 分钟，完成组织彻底透明化。</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">Clearing / 透明</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 30 min
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 7 -->
+            <div class="flex gap-3.5 relative min-w-0">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">7</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Step 7: Paraffin (60 °C)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Transfer cassettes into molten Paraffin held at 60 °C for 45 minutes for wax infiltration. / 移入 60 °C 熔融石蜡中浸蜡 45 分钟。</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">Infiltration / 浸蜡</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 45 min
+                    </span>
+                </div>
+                </div>
+            </div>
+            <!-- Step 8 -->
+            <div class="flex gap-3.5 relative min-w-0">
+                <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">8</div>
+                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm overflow-hidden">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Step 8: Paraffin (60 °C) [Holding Point]</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Transfer cassettes into fresh molten Paraffin at 60 °C for 45 minutes. Holding point: samples can be left in wax overnight if required. / 移入第二缸 60 °C 熔融石蜡浸润 45 分钟。此步骤为安全停靠点（Holding Point），浸蜡完成可安全过夜。</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">Holding point / 浸蜡完成，可过夜</span></div>
+                    
+                <div class="flex gap-3 mt-3">
+                    <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
+                        <span class="material-symbols-outlined text-[14px]">schedule</span> 45 min (or Overnight)
                     </span>
                 </div>
                 </div>
@@ -564,104 +656,104 @@
                 </h2>
                 <span class="text-[11px] text-on-surface-variant uppercase tracking-wider font-mono">Kit Contents</span>
               </div>
-              <div class="w-full">
-                <table class="w-full text-left border-collapse table-fixed">
+              <div class="w-full overflow-hidden">
+                <table class="w-full text-left border-collapse">
                   <thead>
                     <tr class="border-b border-white/5 text-[11px] text-on-surface-variant bg-surface-container/20">
                       <th class="py-2 px-3 font-semibold uppercase tracking-wider">Item / Reagent</th>
-                      <th class="py-2 px-3 font-semibold uppercase tracking-wider text-right w-20">Spec</th>
+                      <th class="py-2 px-3 font-semibold uppercase tracking-wider text-right whitespace-nowrap">Spec / Vol</th>
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-white/5">
                     
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">10% Neutral Buffered Formalin (NBF)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp, chemical fume hood</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Room temp, chemical fume hood</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Required volume</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Required volume</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">70% Ethanol</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp, flammable cabinet</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Room temp, flammable cabinet</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Required volume</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Required volume</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">75% Ethanol</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp, flammable cabinet</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Room temp, flammable cabinet</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Required volume</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Required volume</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">95% Ethanol</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp, flammable cabinet</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Room temp, flammable cabinet</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Required volume (2 batches)</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Required volume (2 batches)</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">100% Ethanol (Anhydrous)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp, flammable cabinet</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Room temp, flammable cabinet</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Required volume (3 batches)</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Required volume (3 batches)</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Citrosolv (d-Limonene Clearing Agent)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp, chemical fume hood</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Room temp, chemical fume hood</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Required volume (2 batches)</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Required volume (2 batches)</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Histological Paraffin Wax (Melting Point 58°C, heated to 60°C)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Dry oven / wax pots</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Dry oven / wax pots</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">3 fresh beakers</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">3 fresh beakers</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Mold Release Spray ('Mold Grease')</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Room temp</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 aerosol can</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">1 aerosol can</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Pathology Cassettes & Stainless Steel Base Molds</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Room temp</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">As needed</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">As needed</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Tissue Embedding Center (Warm Dispenser & Cold Plate)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Histology suite (Link Bldg)</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Histology suite (Link Bldg)</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 unit</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">1 unit</span>
             </td>
         </tr>
                   </tbody>
