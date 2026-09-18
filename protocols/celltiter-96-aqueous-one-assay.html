@@ -86,6 +86,10 @@
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <!-- KaTeX for math typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
 </head>
 <body class="bg-background font-body text-on-background min-h-screen">
   <!-- Toast Notification Container -->
@@ -536,22 +540,69 @@
                 <span class="material-symbols-outlined text-tertiary">calculate</span> Absorbance Background Subtraction, Viability & ED50 Calculation
             </h2>
             
-            <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto">
+            <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto whitespace-pre-wrap leading-relaxed">
                 A_corrected = A_490(sample) - A_490(no-cell blank)
 Cell Viability (%) = [A_corrected(treated) / A_corrected(vehicle control)] × 100%
-ED_50 Response = [(A_max - A_min) / 2] + A_min
+ED_50 Half-Maximal Response = [(A_max - A_min) / 2] + A_min
             </div>
             <div class="text-xs sm:text-sm text-on-surface-variant leading-relaxed space-y-2.5">
                 
               <div class="space-y-4">
-                <p><strong>1. Net Absorbance Calculation:</strong></p>
-                <p>$$A_{\text{corrected}} = A_{490\text{ (sample)}} - A_{490\text{ (no-cell control)}}$$</p>
-                <p><em>(Optional Dual-Wavelength Reference Correction: $A_{\text{net}} = [A_{490} - A_{650}]_{\text{sample}} - [A_{490} - A_{650}]_{\text{blank}}$)</em></p>
-                <p><strong>2. Percent Relative Viability / Proliferation:</strong></p>
-                <p>$$\text{Viability (\%)} = \frac{A_{\text{corrected(treated)}}}{A_{\text{corrected(vehicle control)}}} \times 100\%$$</p>
-                <p><strong>3. Cytokine Bioassay $\text{ED}_{50}$ Determination:</strong></p>
-                <p>Plot corrected $A_{490}$ against log cytokine/compound concentration. Fit a 4-parameter logistic sigmoidal curve. The $\text{ED}_{50}$ is the concentration corresponding to $50\%$ maximal biological proliferation response:</p>
-                <p>$$\text{Half-Maximal Absorbance} = \frac{A_{\max} - A_{\min}}{2} + A_{\min}$$</p>
+                <!-- Formula 1: Net Absorbance -->
+                <div class="bg-surface-container/40 rounded-xl p-4 border border-white/5">
+                  <div class="font-semibold text-on-surface text-sm mb-2 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(125,211,252,0.6)]"></span>
+                    1. Net Absorbance Calculation (Blank Correction)
+                  </div>
+                  <div class="bg-surface-container-high/60 p-3 rounded-lg font-mono text-xs sm:text-sm text-primary mb-2 overflow-x-auto border border-white/5">
+                    A<sub>corrected</sub> = A<sub>490</sub>(Sample) &minus; A<sub>490</sub>(No-Cell Blank)
+                  </div>
+                  <p class="text-xs text-on-surface-variant leading-relaxed">
+                    Subtract the mean 490 nm absorbance of triplicate no-cell control wells (medium + reagent without cells) from all experimental test wells to correct for spontaneous background absorbance (typically 0.2–0.3 OD).
+                  </p>
+                  <div class="mt-2.5 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2">
+                    <span class="material-symbols-outlined text-[15px] text-secondary flex-shrink-0 mt-0.5">tune</span>
+                    <span class="leading-relaxed"><strong>Optional Dual-Wavelength Correction:</strong> A<sub>net</sub> = [A<sub>490</sub> &minus; A<sub>650</sub>]<sub>sample</sub> &minus; [A<sub>490</sub> &minus; A<sub>650</sub>]<sub>blank</sub>. Subtracting a reference wavelength (630–700 nm) eliminates non-specific optical interference from plastic scratches, cell debris, or condensation.</span>
+                  </div>
+                </div>
+
+                <!-- Formula 2: Relative Cell Viability -->
+                <div class="bg-surface-container/40 rounded-xl p-4 border border-white/5">
+                  <div class="font-semibold text-on-surface text-sm mb-2 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]"></span>
+                    2. Percent Relative Cell Viability / Proliferation
+                  </div>
+                  <div class="bg-surface-container-high/60 p-3 rounded-lg font-mono text-xs sm:text-sm text-emerald-300 mb-2 overflow-x-auto border border-white/5 flex items-center gap-3">
+                    <span class="font-medium">Relative Viability (%) =</span>
+                    <div class="inline-flex flex-col items-center justify-center text-center">
+                      <span class="border-b border-emerald-400/60 px-2 pb-0.5">A<sub>corrected</sub> (Treated Cells)</span>
+                      <span class="pt-0.5 px-2">A<sub>corrected</sub> (Vehicle Control Cells)</span>
+                    </div>
+                    <span>&times; 100%</span>
+                  </div>
+                  <p class="text-xs text-on-surface-variant leading-relaxed">
+                    Normalizes cell viability, cytotoxicity, or growth inhibition as a percentage relative to untreated or vehicle-treated control populations.
+                  </p>
+                </div>
+
+                <!-- Formula 3: Cytokine Bioassay ED50 -->
+                <div class="bg-surface-container/40 rounded-xl p-4 border border-white/5">
+                  <div class="font-semibold text-on-surface text-sm mb-2 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-tertiary shadow-[0_0_8px_rgba(200,160,240,0.6)]"></span>
+                    3. Cytokine Bioassay ED<sub>50</sub> Determination
+                  </div>
+                  <div class="bg-surface-container-high/60 p-3 rounded-lg font-mono text-xs sm:text-sm text-tertiary mb-2 overflow-x-auto border border-white/5 flex items-center gap-3">
+                    <span class="font-medium">Half-Maximal Absorbance =</span>
+                    <div class="inline-flex flex-col items-center justify-center text-center">
+                      <span class="border-b border-tertiary/60 px-2 pb-0.5">A<sub>max</sub> &minus; A<sub>min</sub></span>
+                      <span class="pt-0.5 px-2">2</span>
+                    </div>
+                    <span>+ A<sub>min</sub></span>
+                  </div>
+                  <p class="text-xs text-on-surface-variant leading-relaxed">
+                    Plot corrected A<sub>490</sub> values (y-axis) against growth factor concentration (x-axis, logarithmic scale). Fit a four-parameter logistic (4PL) sigmoidal curve. The <strong>ED<sub>50</sub></strong> corresponds to the cytokine concentration required to elicit 50% of the maximum proliferation plateau response.
+                  </p>
+                </div>
               </div>
             
             </div>
