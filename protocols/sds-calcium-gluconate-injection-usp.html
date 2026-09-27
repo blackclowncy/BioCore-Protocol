@@ -86,6 +86,10 @@
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <!-- KaTeX for math typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
 </head>
 <body class="bg-background font-body text-on-background min-h-screen">
   <!-- Toast Notification Container -->
@@ -313,15 +317,15 @@
               <div class="p-5">
                 
         <div id="proc-content-sds_sec_1_3" class="proc-tab-content ">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">GHS Classification & Chemical Identification: Calcium Gluconate Injection, USP</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">GHS Classification & Chemical Identification: Calcium Gluconate Injection, USP</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Substance & Manufacturer Identification</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Product Name: Calcium Gluconate Injection, USP
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Substance & Manufacturer Identification</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Product Name: Calcium Gluconate Injection, USP
 • CAS Number: Mixture / Formulated Solution
 • Manufacturer / Distributor: Fresenius Kabi USA
 • Recommended Use: Research laboratory reagent, biochemical buffer, and analytical synthesis.
@@ -336,11 +340,11 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">GHS Hazard Classification & Signal Word</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• GHS Signal Word: DANGER
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">GHS Hazard Classification & Signal Word</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• GHS Signal Word: DANGER
 • Classification Criteria: Evaluated according to OSHA Hazard Communication Standard (29 CFR 1910.1200) and Globally Harmonized System (GHS Rev. 8).
 • Hazard Statements:
   - Causes severe skin burns and eye damage / Toxic or highly flammable</p>
@@ -354,11 +358,11 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Composition & Ingredient Purity</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Substance / Mixture: Calcium Gluconate Injection, USP
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Composition & Ingredient Purity</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Substance / Mixture: Calcium Gluconate Injection, USP
 • CAS Registry: Mixture / Formulated Solution
 • Impurities / Stabilizers: Contains no additional hazardous ingredients above regulatory reporting thresholds unless specified on container certificate of analysis.</p>
                     
@@ -373,15 +377,15 @@
             </div>
         </div>
         <div id="proc-content-sds_sec_4_6" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Emergency First Aid Measures & Spill Response</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Emergency First Aid Measures & Spill Response</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Emergency First Aid Protocols (Eyes, Skin, Inhalation, Ingestion)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Eye Contact: Immediately flush eyes with plenty of running water for at least 15–20 minutes, lifting upper and lower eyelids. Seek immediate medical attention / ophthalmologist evaluation.
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Emergency First Aid Protocols (Eyes, Skin, Inhalation, Ingestion)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Eye Contact: Immediately flush eyes with plenty of running water for at least 15–20 minutes, lifting upper and lower eyelids. Seek immediate medical attention / ophthalmologist evaluation.
 • Skin Contact: Immediately flush contaminated skin with soap and copious water for at least 15 minutes while removing contaminated clothing and shoes. Wash clothing before reuse.
 • Inhalation: Remove exposed person to fresh air immediately. If breathing is difficult, give oxygen. If not breathing, perform artificial respiration (CPR). Seek prompt medical care.
 • Ingestion: Never give anything by mouth to an unconscious person. Rinse mouth thoroughly with water. Do NOT induce vomiting unless specifically directed by medical personnel. Call Poison Center immediately.</p>
@@ -395,11 +399,11 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Firefighting Measures & Extinguishing Media</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Suitable Extinguishing Media: Water spray, alcohol-resistant foam, dry chemical powder, or carbon dioxide (CO2).
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Firefighting Measures & Extinguishing Media</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Suitable Extinguishing Media: Water spray, alcohol-resistant foam, dry chemical powder, or carbon dioxide (CO2).
 • Specific Hazards: Thermal decomposition may release toxic or irritating fumes (Carbon oxides, Nitrogen oxides, Halogenated gases, Sulfur oxides).
 • Firefighter Protection: Wear self-contained breathing apparatus (SCBA) with full protective turnout gear.</p>
                     
@@ -412,11 +416,11 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Accidental Release & Spill Clean-Up SOP</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Personal Precautions: Evacuate non-essential personnel. Eliminate all ignition sources. Ensure adequate ventilation. Don full PPE (gloves, goggles, lab coat, respirator if vapors present).
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Accidental Release & Spill Clean-Up SOP</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Personal Precautions: Evacuate non-essential personnel. Eliminate all ignition sources. Ensure adequate ventilation. Don full PPE (gloves, goggles, lab coat, respirator if vapors present).
 • Environmental Precautions: Prevent product from entering drains, sewers, surface water, or ground water.
 • Spill Containment & Clean-Up: Soak up liquid spill with inert absorbent material (vermiculite, dry sand, or commercial spill pillows). For solids, sweep up gently avoiding dust generation. Place in suitable, labeled, closed hazardous waste disposal containers.</p>
                     
@@ -431,15 +435,15 @@
             </div>
         </div>
         <div id="proc-content-sds_sec_7_8" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Safe Handling Guidelines, Storage Conditions & Exposure Controls</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Safe Handling Guidelines, Storage Conditions & Exposure Controls</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Safe Handling & Operational Practices</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Avoid contact with eyes, skin, and clothing. Avoid breathing vapors, mists, or dusts.
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Safe Handling & Operational Practices</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Avoid contact with eyes, skin, and clothing. Avoid breathing vapors, mists, or dusts.
 • Handle inside a certified chemical fume hood or well-ventilated enclosure.
 • Wash hands thoroughly with soap and water after handling and before eating, drinking, or smoking.
 • Keep away from open flames, hot surfaces, and incompatible chemicals.</p>
@@ -453,11 +457,11 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Storage Conditions & Incompatibilities</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Storage Temperature: Store frozen at -20°C. Protect from light.
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Storage Conditions & Incompatibilities</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Storage Temperature: Store frozen at -20°C. Protect from light.
 • Packaging: Keep container tightly closed in a dry, cool, and well-ventilated location.
 • Segregation: Store away from strong oxidizing agents, strong acids, strong bases, and direct heat sources.
 • Security: Keep out of reach of unauthorized personnel in dedicated laboratory chemical storage cabinets.</p>
@@ -471,11 +475,11 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Engineering Controls & Personal Protective Equipment (PPE)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Engineering Controls: Safety eyewash station and emergency deluge shower must be accessible within 10 seconds of work area. Chemical fume hood with face velocity >= 100 fpm.
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Engineering Controls & Personal Protective Equipment (PPE)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Engineering Controls: Safety eyewash station and emergency deluge shower must be accessible within 10 seconds of work area. Chemical fume hood with face velocity >= 100 fpm.
 • Eye/Face Protection: Tight-fitting chemical splash goggles (ANSI Z87.1 approved) and face shield when splash hazard exists.
 • Skin/Hand Protection: Impermeable nitrile or neoprene gloves; inspect gloves before use; remove using glove-to-glove technique.
 • Body Protection: Flame-retardant / chemical-resistant laboratory coat.
@@ -492,15 +496,15 @@
             </div>
         </div>
         <div id="proc-content-sds_sec_9_12" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Physical / Chemical Properties & Toxicological Information</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Physical / Chemical Properties & Toxicological Information</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Physical & Chemical Properties</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Chemical Identity: Calcium Gluconate Injection, USP
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Physical & Chemical Properties</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Chemical Identity: Calcium Gluconate Injection, USP
 • CAS Registry: Mixture / Formulated Solution
 • State / Appearance: Liquid solution / crystalline solid (refer to original SDS for exact visual spec).
 • Odor / Threshold: Characteristic or odorless.
@@ -515,11 +519,11 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Stability & Chemical Reactivity</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Chemical Stability: Stable under recommended storage and handling conditions.
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Stability & Chemical Reactivity</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Chemical Stability: Stable under recommended storage and handling conditions.
 • Hazardous Polymerization: Will not occur under normal processing conditions.
 • Conditions to Avoid: Excessive heat, open flames, sparks, moisture, and exposure to incompatible materials.
 • Incompatible Materials: Strong oxidizers, reducing agents, strong acids, and reactive metals.</p>
@@ -533,11 +537,11 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Toxicological Profile & Health Effects</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Acute Toxicity: Refer to original manufacturer SDS for compound-specific LD50 / LC50 data.
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Toxicological Profile & Health Effects</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Acute Toxicity: Refer to original manufacturer SDS for compound-specific LD50 / LC50 data.
 • Skin / Eye Irritation: May cause irritation, redness, or chemical burns depending on concentration.
 • Carcinogenicity: Not listed as a known or anticipated human carcinogen by IARC, NTP, or OSHA unless specified on compound label.
 • Target Organs: Eyes, skin, respiratory tract, central nervous system, liver, or kidneys (refer to H-statements).</p>
@@ -551,11 +555,11 @@
                 </div>
             </div>
             <!-- Step 4 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Ecological Impact & Ecotoxicity</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Ecotoxicity: Prevent direct discharge into aquatic ecosystems, waterways, or unmanaged sewer systems.
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Ecological Impact & Ecotoxicity</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Ecotoxicity: Prevent direct discharge into aquatic ecosystems, waterways, or unmanaged sewer systems.
 • Persistence / Degradability: Refer to specific biochemical degradation pathway.
 • Bioaccumulative Potential: Low bioaccumulation potential under standard laboratory use.</p>
                     
@@ -570,15 +574,15 @@
             </div>
         </div>
         <div id="proc-content-sds_sec_13_16" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Waste Disposal Guidelines & Transport Regulation</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Waste Disposal Guidelines & Transport Regulation</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Laboratory Waste Disposal Protocols</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Disposal Method: Dispose of in accordance with all local, regional, state, and federal environmental regulations (EPA / RCRA).
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Laboratory Waste Disposal Protocols</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Disposal Method: Dispose of in accordance with all local, regional, state, and federal environmental regulations (EPA / RCRA).
 • Neutralization / Pre-treatment: Do NOT pour raw chemical down laboratory sinks without appropriate institutional EHS approval and neutralization.
 • Waste Packaging: Collect chemical waste in dedicated, non-leaking, labeled hazardous waste containers; schedule pickup through institutional environmental health and safety (EHS) department.</p>
                     
@@ -591,11 +595,11 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Transport & Shipping Information (DOT / IATA / IMDG)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Domestic Transport (US DOT): Refer to original SDS for UN number, proper shipping name, and hazard class (e.g. Non-regulated or Class 3 / 8 / 9).
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Transport & Shipping Information (DOT / IATA / IMDG)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Domestic Transport (US DOT): Refer to original SDS for UN number, proper shipping name, and hazard class (e.g. Non-regulated or Class 3 / 8 / 9).
 • International Air (IATA / ICAO): Comply with dangerous goods packaging, labeling, and passenger/cargo quantity limitations.
 • Marine Transport (IMDG): Comply with marine pollutant labeling where applicable.</p>
                     
@@ -608,11 +612,11 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Regulatory Inventory & Document Verification</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• TSCA / REACH: Listed or exempt on United States TSCA and European REACH inventory.
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Regulatory Inventory & Document Verification</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• TSCA / REACH: Listed or exempt on United States TSCA and European REACH inventory.
 • OSHA Status: Evaluated in compliance with 29 CFR 1910.1200 Hazard Communication.
 • Original Document Source: SDS-Calcium Gluconate Injection, USP.pdf (9 pages) archived in BioCore SDS repository.</p>
                     
@@ -636,7 +640,7 @@
                 <span class="material-symbols-outlined text-tertiary">calculate</span> Chemical Dilution & Solution Preparation Formulas
             </h2>
             
-            <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto">
+            <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto whitespace-pre-wrap leading-relaxed">
                 Dilution: C₁V₁ = C₂V₂
 Molar Solution Prep: Mass (g) = Molarity (mol/L) × Volume (L) × Molecular Weight (g/mol)
             </div>
@@ -860,68 +864,68 @@ Molar Solution Prep: Mass (g) = Molarity (mol/L) × Volume (L) × Molecular Weig
                 </h2>
                 <span class="text-[11px] text-on-surface-variant uppercase tracking-wider font-mono">Kit Contents</span>
               </div>
-              <div class="w-full">
-                <table class="w-full text-left border-collapse table-fixed">
+              <div class="w-full overflow-hidden">
+                <table class="w-full text-left border-collapse">
                   <thead>
                     <tr class="border-b border-white/5 text-[11px] text-on-surface-variant bg-surface-container/20">
                       <th class="py-2 px-3 font-semibold uppercase tracking-wider">Item / Reagent</th>
-                      <th class="py-2 px-3 font-semibold uppercase tracking-wider text-right w-20">Spec</th>
+                      <th class="py-2 px-3 font-semibold uppercase tracking-wider text-right whitespace-nowrap">Spec / Vol</th>
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-white/5">
                     
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Chemical Substance: Calcium Gluconate Injection, USP</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store frozen at -20°C. Protect from light.</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store frozen at -20°C. Protect from light.</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">CAS: Mixture / Formulated Solution</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">CAS: Mixture / Formulated Solution</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Chemical-Resistant Gloves (Nitrile / Neoprene)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Clean dry storage</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Clean dry storage</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Mandatory PPE</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Mandatory PPE</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Splash Goggles / Safety Face Shield</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Clean dry storage</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Clean dry storage</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Mandatory PPE</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Mandatory PPE</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Laboratory Coat / Chemical Apron</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Clean dry storage</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Clean dry storage</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Mandatory PPE</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Mandatory PPE</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Chemical Fume Hood / Local Exhaust</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Certified >= 100 fpm</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Certified >= 100 fpm</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Engineering Control</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Engineering Control</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Inert Absorbent (Vermiculite / Spill Kit)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Accessible in lab</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Accessible in lab</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Emergency Clean-up</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Emergency Clean-up</span>
             </td>
         </tr>
                   </tbody>
@@ -930,7 +934,7 @@ Molar Solution Prep: Mass (g) = Molarity (mol/L) × Volume (L) × Molecular Weig
             </section>
 
             <!-- Storage Card -->
-            <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-4.5 flex items-start gap-3.5">
+            <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 flex items-start gap-3.5">
               <div class="w-10 h-10 rounded-xl bg-tertiary/20 border border-tertiary/30 text-tertiary flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(200,160,240,0.15)]">
                 <span class="material-symbols-outlined text-[20px]">inventory_2</span>
               </div>
@@ -944,7 +948,7 @@ Molar Solution Prep: Mass (g) = Molarity (mol/L) × Volume (L) × Molecular Weig
             </section>
 
             <!-- Cautions Card -->
-            <section class="bg-error-container/10 backdrop-blur-2xl rounded-2xl border border-error/20 shadow-2xl p-4.5">
+            <section class="bg-error-container/10 backdrop-blur-2xl rounded-2xl border border-error/20 shadow-2xl p-5">
               <h3 class="text-sm font-headline text-error mb-2.5 flex items-center gap-1.5 font-semibold">
                 <span class="material-symbols-outlined text-[18px] drop-shadow-[0_0_8px_rgba(255,107,107,0.5)]">warning</span> Cautions & Safety
               </h3>
@@ -974,7 +978,7 @@ Molar Solution Prep: Mass (g) = Molarity (mol/L) × Volume (L) × Molecular Weig
             </section>
 
             <!-- Expected Results / Morphology Preview -->
-            <div class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 p-4.5 shadow-2xl relative overflow-hidden">
+            <div class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 p-5 shadow-2xl relative">
               <div class="flex items-center gap-2 mb-1.5">
                 <span class="material-symbols-outlined text-secondary text-[18px]">analytics</span>
                 <h3 class="text-sm font-headline text-on-surface font-semibold">Expected Results</h3>
