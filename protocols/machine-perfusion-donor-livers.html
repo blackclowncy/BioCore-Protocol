@@ -86,6 +86,10 @@
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <!-- KaTeX for math typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
 </head>
 <body class="bg-background font-body text-on-background min-h-screen">
   <!-- Toast Notification Container -->
@@ -288,15 +292,15 @@
               <div class="p-5">
                 
         <div id="proc-content-circuit_priming" class="proc-tab-content ">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Machine Perfusion Circuit Setup & DHOPE Priming</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Machine Perfusion Circuit Setup & DHOPE Priming</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Equipment Assembly & Sterility</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Mount the Liver Assist disposable set (XVIVO) onto the drive unit. Connect arterial and portal pressure lines, filling lines, and temperature probes in a sterile laminar field.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Equipment Assembly & Sterility</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Mount the Liver Assist disposable set (XVIVO) onto the drive unit. Connect arterial and portal pressure lines, filling lines, and temperature probes in a sterile laminar field.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -307,12 +311,12 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">UW Machine Perfusion Solution Priming</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Infuse 3 L of sterile UW machine perfusion solution (Belzer MPS) into the circuit through filling lines. Attach a three-way valve to the portal oxygenator for subsequent sampling.</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Do not detach filling lines after priming; cap them for subsequent refilling during fluid switch.</span></div>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">UW Machine Perfusion Solution Priming</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Infuse 3 L of sterile UW machine perfusion solution (Belzer MPS) into the circuit through filling lines. Attach a three-way valve to the portal oxygenator for subsequent sampling.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">Do not detach filling lines after priming; cap them for subsequent refilling during fluid switch.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -322,11 +326,11 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Gas Mixer & Temperature Pre-Cooling</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Connect 100% O2 to the gas mixer at 1.0 L/min. Set arterial pressure to 25 mmHg and portal pressure to 5 mmHg. Fill the thermo unit with nonsterile crushed ice to achieve 8–12°C.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Gas Mixer & Temperature Pre-Cooling</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Connect 100% O2 to the gas mixer at 1.0 L/min. Set arterial pressure to 25 mmHg and portal pressure to 5 mmHg. Fill the thermo unit with nonsterile crushed ice to achieve 8–12°C.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -337,11 +341,11 @@
                 </div>
             </div>
             <!-- Step 4 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Blood Gas Oxygenation Verification</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Sample perfusate from the sampling port (discarding the first 5 mL dead volume) and analyze with blood gas analyzer. Confirm pO2 > 100 kPa (>750 mmHg) before organ connection.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Blood Gas Oxygenation Verification</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Sample perfusate from the sampling port (discarding the first 5 mL dead volume) and analyze with blood gas analyzer. Confirm pO2 > 100 kPa (>750 mmHg) before organ connection.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -354,16 +358,16 @@
             </div>
         </div>
         <div id="proc-content-backtable_cannulation" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Donor Liver Preparation & Vessel Cannulation</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Donor Liver Preparation & Vessel Cannulation</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Portal Vein Cannulation</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Dissect the portal vein and IVC. Insert the 25 Fr curved cannula into the portal vein oriented toward the right liver lobe without any twisting of the main stem or bifurcation. Secure with braided Mersilene 1.0 thread.</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Decompress or remove gallbladder if large to prevent portal vein compression.</span></div>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Portal Vein Cannulation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Dissect the portal vein and IVC. Insert the 25 Fr curved cannula into the portal vein oriented toward the right liver lobe without any twisting of the main stem or bifurcation. Secure with braided Mersilene 1.0 thread.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">Decompress or remove gallbladder if large to prevent portal vein compression.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -373,12 +377,12 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Portal Flush & Air Bubble Elimination</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Flush the portal vein with 1 L of cold UW-MPS to wash out static preservation solution. Inspect for leaks. Use a 60 mL catheter-tip syringe to de-air the cannula completely and lock with a hose clamp.</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Air bubbles will cause airlocks and zero flow during low-pressure hypothermic perfusion.</span></div>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Portal Flush & Air Bubble Elimination</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Flush the portal vein with 1 L of cold UW-MPS to wash out static preservation solution. Inspect for leaks. Use a 60 mL catheter-tip syringe to de-air the cannula completely and lock with a hose clamp.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">Air bubbles will cause airlocks and zero flow during low-pressure hypothermic perfusion.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -388,11 +392,11 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Hepatic Artery Cannulation</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Cannulate the 3–4 cm circular supratruncal aorta patch using a 25 Fr straight cannula. Oversew the distal infratruncal aorta with running 2-0 Prolene. (If aortic segment is missing, use a 12 Fr cannula in the celiac trunk or a donor iliac artery interposition graft).</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Hepatic Artery Cannulation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Cannulate the 3–4 cm circular supratruncal aorta patch using a 25 Fr straight cannula. Oversew the distal infratruncal aorta with running 2-0 Prolene. (If aortic segment is missing, use a 12 Fr cannula in the celiac trunk or a donor iliac artery interposition graft).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -403,11 +407,11 @@
                 </div>
             </div>
             <!-- Step 4 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Leak Test & Hemostasis</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Apply gentle manual pressure with a 60 mL syringe containing UW solution to test the artery for branch leaks. Ligate or clip all bleeding side branches.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Leak Test & Hemostasis</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Apply gentle manual pressure with a 60 mL syringe containing UW solution to test the artery for branch leaks. Ligate or clip all bleeding side branches.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -420,15 +424,15 @@
             </div>
         </div>
         <div id="proc-content-dhope_phase" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Dual Hypothermic Oxygenated Machine Perfusion Phase</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Dual Hypothermic Oxygenated Machine Perfusion Phase</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Liver Placement in Perfusion Chamber</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Place an unfolded sterile 40×40 cm gauze on the reservoir net. Position the liver with the dorsal side facing upward and gallbladder oriented toward the machine front.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Liver Placement in Perfusion Chamber</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Place an unfolded sterile 40×40 cm gauze on the reservoir net. Position the liver with the dorsal side facing upward and gallbladder oriented toward the machine front.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -439,11 +443,11 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Initiate Portal Perfusion</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Connect portal cannula to portal inlet line. Release hose clamp and start portal pump. Adjust pressure to 3–5 mmHg; target flow is 100–300 mL/min (highest flow at lowest pressure).</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Initiate Portal Perfusion</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Connect portal cannula to portal inlet line. Release hose clamp and start portal pump. Adjust pressure to 3–5 mmHg; target flow is 100–300 mL/min (highest flow at lowest pressure).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -454,11 +458,11 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Initiate Arterial Perfusion</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Connect arterial cannula to arterial inlet. Start arterial pulsatile perfusion at 18–25 mmHg. Target arterial flow is approximately 1/3 of portal flow.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Initiate Arterial Perfusion</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Connect arterial cannula to arterial inlet. Start arterial pulsatile perfusion at 18–25 mmHg. Target arterial flow is approximately 1/3 of portal flow.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -469,12 +473,12 @@
                 </div>
             </div>
             <!-- Step 4 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Steady Hypothermic Perfusion (1–2 Hours)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Maintain DHOPE for at least 1 hour (extendable for logistics). Cover vessels with wet cold gauze and close sterile reservoir lid. Perform backtable parenchyma trimming and measure blood gas every 30 mins (pO2 > 100 kPa).</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>DHOPE recharges mitochondrial ATP pools and reduces succinate before rewarming.</span></div>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Steady Hypothermic Perfusion (1–2 Hours)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Maintain DHOPE for at least 1 hour (extendable for logistics). Cover vessels with wet cold gauze and close sterile reservoir lid. Perform backtable parenchyma trimming and measure blood gas every 30 mins (pO2 > 100 kPa).</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">DHOPE recharges mitochondrial ATP pools and reduces succinate before rewarming.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -486,15 +490,15 @@
             </div>
         </div>
         <div id="proc-content-fluid_switch_cor" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Perfusate Replacement & Controlled Oxygenated Rewarming</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Perfusate Replacement & Controlled Oxygenated Rewarming</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Disconnect & Backtable Ringer Flush</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Pause pumps, clamp cannulas, and transfer liver to a sterile bowl with cold preservation solution on ice. Flush liver at backtable with 2 L cold Ringer's Lactate (1.5 L PV, 0.5 L HA) to clear high-potassium UW-MPS.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Disconnect & Backtable Ringer Flush</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Pause pumps, clamp cannulas, and transfer liver to a sterile bowl with cold preservation solution on ice. Flush liver at backtable with 2 L cold Ringer's Lactate (1.5 L PV, 0.5 L HA) to clear high-potassium UW-MPS.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -505,11 +509,11 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Circuit Rinsing & NMP Perfusate Loading</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Place flow sensors in water buckets. Vacuum-empty the circuit, rinse with 3 L sterile water, then infuse chosen NMP formulation (Original XVIVO 2,064.7 mL or Modified Lab 1,985 mL) with 10 mL Calcium Gluconate at start.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Circuit Rinsing & NMP Perfusate Loading</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Place flow sensors in water buckets. Vacuum-empty the circuit, rinse with 3 L sterile water, then infuse chosen NMP formulation (Original XVIVO 2,064.7 mL or Modified Lab 1,985 mL) with 10 mL Calcium Gluconate at start.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -520,11 +524,11 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Bile Duct & IVC Cannulation</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Cannulate distal common bile duct with an 8 Fr Nutrifit catheter using a 5-0 Prolene purse-string suture. Place a sampling catheter into the IVC cranial orifice.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Bile Duct & IVC Cannulation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Cannulate distal common bile duct with an 8 Fr Nutrifit catheter using a 5-0 Prolene purse-string suture. Place a sampling catheter into the IVC cranial orifice.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -535,12 +539,12 @@
                 </div>
             </div>
             <!-- Step 4 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Reconnect at 20°C & Start COR</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Reconnect liver at 20°C (PV 5 mmHg, HA 25 mmHg, FiO2 21% at 150–200 mL/min). Ramp temperature upwards by 3°C every 7.5 minutes from 20°C to 37°C over 45–60 minutes (Fig. 2 algorithm).</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Take arterial blood gas every 7.5 min during rewarming. Maintain mild acidosis during early rewarming to protect against reperfusion injury; correct only if Base Excess < -10 mmol/L.</span></div>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Reconnect at 20°C & Start COR</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Reconnect liver at 20°C (PV 5 mmHg, HA 25 mmHg, FiO2 21% at 150–200 mL/min). Ramp temperature upwards by 3°C every 7.5 minutes from 20°C to 37°C over 45–60 minutes (Fig. 2 algorithm).</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">Take arterial blood gas every 7.5 min during rewarming. Maintain mild acidosis during early rewarming to protect against reperfusion injury; correct only if Base Excess < -10 mmol/L.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -552,15 +556,15 @@
             </div>
         </div>
         <div id="proc-content-nmp_viability" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Normothermic Machine Perfusion & Maintenance Protocol</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Normothermic Machine Perfusion & Maintenance Protocol</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Establish Physiological NMP Settings (37°C)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Upon reaching 37°C, adjust portal pressure to 6–11 mmHg and arterial pressure to 35–60 mmHg. Target portal flow is 92–110 mL/min per 100 g liver weight. Start continuous heparin infusion at 1,000 IU/h (0.2 mL/h of 5000 IU/mL).</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Establish Physiological NMP Settings (37°C)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Upon reaching 37°C, adjust portal pressure to 6–11 mmHg and arterial pressure to 35–60 mmHg. Target portal flow is 92–110 mL/min per 100 g liver weight. Start continuous heparin infusion at 1,000 IU/h (0.2 mL/h of 5000 IU/mL).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -571,11 +575,11 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Serial Blood & Bile Sampling (Every 30 min)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Collect arterial blood gas, venous blood gas (target sO2 55–75%), and bile gas every 30 minutes. Collect bile into an Eppendorf tube under mineral oil to prevent atmospheric gas diffusion.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Serial Blood & Bile Sampling (Every 30 min)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Collect arterial blood gas, venous blood gas (target sO2 55–75%), and bile gas every 30 minutes. Collect bile into an Eppendorf tube under mineral oil to prevent atmospheric gas diffusion.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -586,11 +590,11 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Perfusate Maintenance & Dynamic Corrections</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Monitor arterial glucose (maintain 8–12 mmol/L with 50% glucose boluses), Ca2+ (>=0.70 mmol/L), K+ (3.5–5.0 mmol/L), Cl- (>90 mmol/L), and pH (7.35–7.45) using the Perfusate Correction Guide.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Perfusate Maintenance & Dynamic Corrections</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Monitor arterial glucose (maintain 8–12 mmol/L with 50% glucose boluses), Ca2+ (>=0.70 mmol/L), K+ (3.5–5.0 mmol/L), Cl- (>90 mmol/L), and pH (7.35–7.45) using the Perfusate Correction Guide.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -601,11 +605,11 @@
                 </div>
             </div>
             <!-- Step 4 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Transplant Decision & Pre-Implantation Cold Flush</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">At 150 min NMP, evaluate hepato-biliary viability against Table 3. Continue NMP until recipient surgery is ready. Stop pumps and flush liver with >= 2 L ice-cold preservation solution before implantation.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Transplant Decision & Pre-Implantation Cold Flush</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">At 150 min NMP, evaluate hepato-biliary viability against Table 3. Continue NMP until recipient surgery is ready. Stop pumps and flush liver with >= 2 L ice-cold preservation solution before implantation.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -618,15 +622,15 @@
             </div>
         </div>
         <div id="proc-content-perfusate_original_xvivo" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Original XVIVO Liver Assist Perfusate Formulation</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Original XVIVO Liver Assist Perfusate Formulation</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Design Principles & Colloid Osmotic Pressure</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">The XVIVO formulation is designed to provide a physiological colloid osmotic pressure and osmolality tailored for human liver ex situ normothermic machine perfusion. Total initial volume is 2,064.7 mL.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Design Principles & Colloid Osmotic Pressure</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">The XVIVO formulation is designed to provide a physiological colloid osmotic pressure and osmolality tailored for human liver ex situ normothermic machine perfusion. Total initial volume is 2,064.7 mL.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -637,11 +641,11 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Core Components & Volume Breakdown</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Red blood cells (Hematocrit 60% in SAGM): 840 mL (Oxygen carrier)
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Core Components & Volume Breakdown</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Red blood cells (Hematocrit 60% in SAGM): 840 mL (Oxygen carrier)
 • Gelofusine 4% (B. Braun): 500 mL (Colloid osmotic pressure & osmolality)
 • Albumin 20%: 250 mL (Colloid osmotic pressure)
 • Total Parenteral Nutrition (TPN N14G30E): 20 mL (Metabolic substrate)
@@ -667,12 +671,12 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Preparation & Loading Sequence</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Load RBCs first, followed by Gelofusine, Albumin, sterile water, and pharmaceuticals. Add Sodium Bicarbonate and Calcium Gluconate (10 mL) immediately prior to initiating rewarming/perfusion to avoid calcium-carbonate precipitation.</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Packed red blood cells are derived from the local blood bank and dissolved in SAGM (saline, adenine, glucose, mannitol) solution.</span></div>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Preparation & Loading Sequence</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Load RBCs first, followed by Gelofusine, Albumin, sterile water, and pharmaceuticals. Add Sodium Bicarbonate and Calcium Gluconate (10 mL) immediately prior to initiating rewarming/perfusion to avoid calcium-carbonate precipitation.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">Packed red blood cells are derived from the local blood bank and dissolved in SAGM (saline, adenine, glucose, mannitol) solution.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -684,15 +688,15 @@
             </div>
         </div>
         <div id="proc-content-perfusate_modified_lab" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Calculated NMP Perfusate Formulation (Laboratory Substitute Protocol)</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Calculated NMP Perfusate Formulation (Laboratory Substitute Protocol)</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Rationale for Laboratory Substitution</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Where clinical products (Gelofusine, TPN N14G30E, Cernevit, Tationil) are restricted or unavailable, this modified formulation provides mass-matched colloid osmotic pressure, stoichiometric electrolyte balance, and robust antimicrobial protection for research and pre-clinical protocols. Total estimated volume: approx 1,985 mL.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Rationale for Laboratory Substitution</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Where clinical products (Gelofusine, TPN N14G30E, Cernevit, Tationil) are restricted or unavailable, this modified formulation provides mass-matched colloid osmotic pressure, stoichiometric electrolyte balance, and robust antimicrobial protection for research and pre-clinical protocols. Total estimated volume: approx 1,985 mL.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -703,11 +707,11 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Modified Reagent Composition Breakdown</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Red Blood Cells (AS-1, Leukocyte Reduced): 2 Units (approx 650 mL) - Oxygen carrier
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Modified Reagent Composition Breakdown</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Red Blood Cells (AS-1, Leukocyte Reduced): 2 Units (approx 650 mL) - Oxygen carrier
 • 6% Hetastarch in 0.9% NaCl: 333 mL (Mass-matched substitution for Gelofusine 4%) - Primary synthetic colloid
 • 0.9% Normal Saline (NaCl): 677 mL - Volume expansion & stoichiometric sodium baseline
 • Albumin 20%: 250 mL - Natural colloid osmotic pressure
@@ -732,15 +736,15 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Calculated Ionic & Osmotic Concentrations</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Sodium (Na⁺): approx 133 mmol/L
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Calculated Ionic & Osmotic Concentrations</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Sodium (Na⁺): approx 133 mmol/L
 • Chloride (Cl⁻): approx 102.4 mmol/L
 • Calcium (Ca²⁺): approx 1.14 mmol/L (following the initial 10 mL bolus)
 • Colloid Osmotic Pressure: 21–25 mmHg (mimicking physiological oncotic gradient)</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>When using near-expired or older RBC units, high potassium leakage from erythrocytes occurs. Omit the baseline KCl to prevent dangerous hyperkalemia (>6.0 mmol/L).</span></div>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">When using near-expired or older RBC units, high potassium leakage from erythrocytes occurs. Omit the baseline KCl to prevent dangerous hyperkalemia (>6.0 mmol/L).</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -752,15 +756,15 @@
             </div>
         </div>
         <div id="proc-content-perfusion_correction_guide" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Arterial Perfusate & Blood Gas Dynamic Correction Guide during NMP</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Arterial Perfusate & Blood Gas Dynamic Correction Guide during NMP</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Anticoagulation Maintenance (Heparin 5000 IE/mL)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Protocol: Administer 0.2 mL (1,000 units) at the start of NMP. Administer 0.2 mL (1,000 units) every hour thereafter (or continuous 1,000 IU/h infusion).
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Anticoagulation Maintenance (Heparin 5000 IE/mL)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Protocol: Administer 0.2 mL (1,000 units) at the start of NMP. Administer 0.2 mL (1,000 units) every hour thereafter (or continuous 1,000 IU/h infusion).
 • Rationale: Anticoagulation maintains extracorporeal circuit patency and prevents microvascular thrombus formation in the hepatic sinusoids.</p>
                     
                     
@@ -772,11 +776,11 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Metabolites: Lactate (cLac) & Glucose (cGluc)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Lactate (cLac): Target < 1.8 mmol/L after 150 min NMP. (Develops during anaerobic metabolism; a functioning liver clears lactate via gluconeogenesis. Rising lactate indicates severe graft dysfunction).
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Metabolites: Lactate (cLac) & Glucose (cGluc)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Lactate (cLac): Target < 1.8 mmol/L after 150 min NMP. (Develops during anaerobic metabolism; a functioning liver clears lactate via gluconeogenesis. Rising lactate indicates severe graft dysfunction).
 • Glucose (cGluc): Target > 4.0 mmol/L, strive for 8–12 mmol/L. Administer 2–4 mL of Glucose 50% (2.775 mmol/mL) per correction. (Active liver metabolism rapidly clears glucose. Ischemia-reperfusion injury triggers cellular leakage, elevating perfusate glucose).</p>
                     
                     
@@ -788,11 +792,11 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Electrolytes: Sodium (cNa⁺), Potassium (cK⁺), Chloride (cCl⁻), Calcium (cCa²⁺)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Sodium (cNa⁺): Target 135–145 mmol/L. Administer NaCl 5% (0.86 mmol/mL) solely if no NaHCO3 is given, to increase sodium to 135 mmol/L. Initiate correction strictly after T10. (Na+/K+-ATPase pumps Na+ out of cells).
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Electrolytes: Sodium (cNa⁺), Potassium (cK⁺), Chloride (cCl⁻), Calcium (cCa²⁺)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Sodium (cNa⁺): Target 135–145 mmol/L. Administer NaCl 5% (0.86 mmol/mL) solely if no NaHCO3 is given, to increase sodium to 135 mmol/L. Initiate correction strictly after T10. (Na+/K+-ATPase pumps Na+ out of cells).
 • Potassium (cK⁺): Target 3.5–5.0 mmol/L. Administer KCl 74.6 mg/mL (1 mmol/mL) specifically for verified hypokalemia. Apply strict limits to avoid over-correction! (Active Na+/K+-ATPase pumps K+ into cells, depleting perfusate K+).
 • Chloride (cCl⁻): Target > 90 mmol/L. Administer NaCl 5% (0.86 mmol/mL). (CFTR channel facilitates transmembrane chloride flow toward bile; AE2 exchanges Cl- for HCO3- in bile duct; alkali bile is dependent on Cl- values).
 • Calcium (cCa²⁺): Target >= 0.70 mmol/L. Administer 10 mL Calcium Gluconate (0.225 mmol/mL) at start of COR, then another 10 mL during normothermic phase when warm. Proceed with 5 mL increments. (Ca2+ is an essential cofactor for bile secretion).</p>
@@ -806,14 +810,14 @@
                 </div>
             </div>
             <!-- Step 4 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Blood Gas & Ventilation: pH, pCO2, and pO2</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• pH: Target COR < 7.30; NMP: 7.35–7.45. Administer NaHCO3 8.4% (1 mmol/mL) to neutralize acid loads. Note: Mild acidosis during COR protects against reperfusion injury.
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Blood Gas & Ventilation: pH, pCO2, and pO2</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• pH: Target COR < 7.30; NMP: 7.35–7.45. Administer NaHCO3 8.4% (1 mmol/mL) to neutralize acid loads. Note: Mild acidosis during COR protects against reperfusion injury.
 • pCO2: Target 4.5–6.0 kPa. Decrease gas flow to lower pH (increase pCO2); increase gas flow to raise pH (accelerate pCO2 clearance). Caution: Only increase gas flow once liver produces CO2.
 • pO2: Target continuous levels > 10 kPa (10–13.3 kPa during COR & NMP). Elevate FiO2 in 1–2% increments concomitantly with gas flow. (Hypoxia is toxic; hyperoxia generates harmful reactive oxygen species).</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Arterial blood gas samples should be taken every 7.5 min during rewarming and every 30 min during NMP.</span></div>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">Arterial blood gas samples should be taken every 7.5 min during rewarming and every 30 min during NMP.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -825,16 +829,16 @@
             </div>
         </div>
         <div id="proc-content-viability_criteria_table" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Groningen Hepato-Biliary Viability Criteria (Table 3)</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Groningen Hepato-Biliary Viability Criteria (Table 3)</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Hepatocellular Criteria (Metabolic Recovery)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">1. Bile Production: >= 10 g total within 150 min (with >= 4 g in the final hour). 2. Perfusate Lactate Clearance: < 1.7 mmol/L at 150 min. 3. Perfusate pH: 7.35–7.45.</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Rapid lactate clearance reflects robust mitochondrial beta-oxidation and gluconeogenesis.</span></div>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Hepatocellular Criteria (Metabolic Recovery)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">1. Bile Production: >= 10 g total within 150 min (with >= 4 g in the final hour). 2. Perfusate Lactate Clearance: < 1.7 mmol/L at 150 min. 3. Perfusate pH: 7.35–7.45.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">Rapid lactate clearance reflects robust mitochondrial beta-oxidation and gluconeogenesis.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -844,12 +848,12 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Cholangiocellular Criteria (Bile Duct Integrity)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">1. Bile pH: > 7.45 (and Delta pH > 0.10 above perfusate). 2. Delta Bicarbonate (Bile - Perfusate): > 5.0 mmol/L. 3. Delta Glucose (Bile - Perfusate): < -5.0 mmol/L (reflecting active cholangiocyte glucose reabsorption).</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Alkaline biliary pH and bicarbonate excretion protect cholangiocytes against cytotoxic hydrophobic bile salts.</span></div>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Cholangiocellular Criteria (Bile Duct Integrity)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">1. Bile pH: > 7.45 (and Delta pH > 0.10 above perfusate). 2. Delta Bicarbonate (Bile - Perfusate): > 5.0 mmol/L. 3. Delta Glucose (Bile - Perfusate): < -5.0 mmol/L (reflecting active cholangiocyte glucose reabsorption).</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">Alkaline biliary pH and bicarbonate excretion protect cholangiocytes against cytotoxic hydrophobic bile salts.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -859,11 +863,11 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Clinical Decision Framework</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">GREEN ZONE: Proceed to transplantation with low risk of ischemic cholangiopathy or primary non-function. ORANGE ZONE: Borderline function; transplant only if other criteria are solid green and recipient urgency warrants. RED ZONE: Reject organ (high risk of graft failure).</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Clinical Decision Framework</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">GREEN ZONE: Proceed to transplantation with low risk of ischemic cholangiopathy or primary non-function. ORANGE ZONE: Borderline function; transplant only if other criteria are solid green and recipient urgency warrants. RED ZONE: Reject organ (high risk of graft failure).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -876,15 +880,15 @@
             </div>
         </div>
         <div id="proc-content-troubleshooting_perfusion" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Troubleshooting Complications & Technical Errors (Table 4)</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Troubleshooting Complications & Technical Errors (Table 4)</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Low Flow / High Vascular Resistance</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Check for vessel kinking, airlocks in cannula (aspirate with 60 mL syringe), or IVC outflow obstruction by gauze. Reposition cannula with braided thread. If liver is higher than pressure sensor, lower net in reservoir.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Low Flow / High Vascular Resistance</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Check for vessel kinking, airlocks in cannula (aspirate with 60 mL syringe), or IVC outflow obstruction by gauze. Reposition cannula with braided thread. If liver is higher than pressure sensor, lower net in reservoir.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -895,11 +899,11 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Excessive Non-Physiological High Flow</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Most common cause is side branch leak or intimal dissection. Inspect all arterial and portal branches; apply clips or sutures to stop leakage.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Excessive Non-Physiological High Flow</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Most common cause is side branch leak or intimal dissection. Inspect all arterial and portal branches; apply clips or sutures to stop leakage.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -910,11 +914,11 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Hypoxia / Dark Perfusate</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Check venous sO2 (<55%) and arterial pO2 (<10 kPa). Increase FiO2 by 1–2% increments or check oxygenator gas line connections.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Hypoxia / Dark Perfusate</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Check venous sO2 (<55%) and arterial pO2 (<10 kPa). Increase FiO2 by 1–2% increments or check oxygenator gas line connections.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -925,11 +929,11 @@
                 </div>
             </div>
             <!-- Step 4 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Persistent Lactic Acidosis during NMP</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Indicates parenchymal hypoperfusion, cellular necrosis, or oxygenation failure. Verify vascular flows, check temperature calibration, and evaluate viability thresholds.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Persistent Lactic Acidosis during NMP</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Indicates parenchymal hypoperfusion, cellular necrosis, or oxygenation failure. Verify vascular flows, check temperature calibration, and evaluate viability thresholds.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -951,7 +955,7 @@
                 <span class="material-symbols-outlined text-tertiary">calculate</span> Perfusate Formulations & Flow Target Algorithms
             </h2>
             
-            <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto">
+            <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto whitespace-pre-wrap leading-relaxed">
                 Target Portal Flow (mL/min) = (Liver Weight in grams / 100) × (92 to 110 mL/min)
 Target Arterial Flow (mL/min) ≈ 1/3 × Portal Venous Flow
             </div>
@@ -1579,176 +1583,176 @@ Target Arterial Flow (mL/min) ≈ 1/3 × Portal Venous Flow
                 </h2>
                 <span class="text-[11px] text-on-surface-variant uppercase tracking-wider font-mono">Kit Contents</span>
               </div>
-              <div class="w-full">
-                <table class="w-full text-left border-collapse table-fixed">
+              <div class="w-full overflow-hidden">
+                <table class="w-full text-left border-collapse">
                   <thead>
                     <tr class="border-b border-white/5 text-[11px] text-on-surface-variant bg-surface-container/20">
                       <th class="py-2 px-3 font-semibold uppercase tracking-wider">Item / Reagent</th>
-                      <th class="py-2 px-3 font-semibold uppercase tracking-wider text-right w-20">Spec</th>
+                      <th class="py-2 px-3 font-semibold uppercase tracking-wider text-right whitespace-nowrap">Spec / Vol</th>
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-white/5">
                     
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">UW Machine Perfusion Solution (Belzer MPS)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">4–8°C (DHOPE Phase)</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">4–8°C (DHOPE Phase)</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">3,000 mL</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">3,000 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Packed RBCs (Original: SAGM Hct 60% 840 mL; Mod: AS-1 Leukocyte Reduced 2 Units ~650 mL)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 4°C (< 2 weeks old)</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 4°C (< 2 weeks old)</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">650–840 mL</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">650–840 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Colloid Solution (Original: Gelofusine 4% 500 mL; Mod: 6% Hetastarch in 0.9% NaCl 333 mL)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 15–25°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 15–25°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">333–500 mL</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">333–500 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Human Albumin 20%</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 2–8°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">250 mL</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">250 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">0.9% Normal Saline NaCl (Modified Formulation Expansion)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 15–25°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 15–25°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">677 mL</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">677 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Nutritional Substrate (Original: TPN N14G30E 20 mL; Mod: CLINIMIX E 5/20 30 mL)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 4°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 4°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">20–30 mL</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">20–30 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Vitamins (Original: Cernevit 2 mL + Addamel 10 mL; Mod: Vitamin B Complex HP 5 mL)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 2–8°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">5–12 mL</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">5–12 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Antimicrobial (Original: Cefazolin 400 mg + Metronidazole 220 mg; Mod: Meropenem 500 mg + Cefuroxime 750 mg)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 15–25°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 15–25°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">2 vials</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">2 vials</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">L-Glutathione (Original: Tationil 600 mg/4 mL 14 mL; Mod: Reduced 97% 2,000 mg)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 2–8°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">2,000–2,100 mg</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">2,000–2,100 mg</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Insulin (NovoRapid or Regular 100 IU/mL)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 2–8°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1 mL (100 IU)</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">1 mL (100 IU)</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Heparin (5,000 IU/mL)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 15–25°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 15–25°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">2 mL bolus + 1000 IU/h</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">2 mL bolus + 1000 IU/h</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Sodium Bicarbonate 8.4% (1 mmol/mL)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 15–25°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 15–25°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">35–55 mL (+ supplementation)</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">35–55 mL (+ supplementation)</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Potassium Chloride KCl (1 mmol/mL)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 15–25°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 15–25°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">2 mL (Omit if using older RBCs)</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">2 mL (Omit if using older RBCs)</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Calcium Gluconate 10% (0.225 mmol/mL)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 15–25°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 15–25°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">10 mL at COR start + 10 mL in NMP</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">10 mL at COR start + 10 mL in NMP</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Taurocholic Acid Sodium Salt 0.1% (1 mg/mL)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at -20°C (Original XVIVO)</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at -20°C (Original XVIVO)</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">7.7 mL</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">7.7 mL</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Glucose 50% (2.775 mmol/mL)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 15–25°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 15–25°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">20 mL (for NMP corrections)</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">20 mL (for NMP corrections)</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Hypertonic NaCl 5% (0.86 mmol/mL)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 15–25°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 15–25°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">50 mL (for NMP Cl-/Na+ corrections)</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">50 mL (for NMP Cl-/Na+ corrections)</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Cold Ringer's Lactate (Liver Washout)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 0–4°C on ice</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 0–4°C on ice</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">2,000 mL (1.5L PV, 0.5L HA)</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">2,000 mL (1.5L PV, 0.5L HA)</span>
             </td>
         </tr>
                   </tbody>
@@ -1757,21 +1761,21 @@ Target Arterial Flow (mL/min) ≈ 1/3 × Portal Venous Flow
             </section>
 
             <!-- Storage Card -->
-            <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-4.5 flex items-start gap-3.5">
+            <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 flex items-start gap-3.5">
               <div class="w-10 h-10 rounded-xl bg-tertiary/20 border border-tertiary/30 text-tertiary flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(200,160,240,0.15)]">
                 <span class="material-symbols-outlined text-[20px]">inventory_2</span>
               </div>
               <div>
                 <h3 class="text-sm font-headline text-on-surface mb-1 font-semibold">Storage & Stability</h3>
-                <p class="text-xs text-on-surface-variant leading-relaxed">UW Machine Perfusion Solution (Belzer MPS) at 4–8°C; Packed RBCs (<2 wks) & Albumin/Gelofusine at 4°C.</p>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Store UW-MPS at 4–8°C; RBC units at 4°C (< 2 weeks); NMP perfusate supplements according to component labels.</p>
                 <p class="text-[11px] text-primary mt-1.5 flex items-center gap-1 font-medium">
-                  <span class="material-symbols-outlined text-[13px]">event_available</span> DHOPE at 8–12°C for 1–2h; COR from 20°C to 37°C in 45–60 min; NMP stable for up to 6–12h before transplantation.
+                  <span class="material-symbols-outlined text-[13px]">event_available</span> Viability assessment completed within 150 min of NMP; organ maintenance sustainable for 6–24+ hours.
                 </p>
               </div>
             </section>
 
             <!-- Cautions Card -->
-            <section class="bg-error-container/10 backdrop-blur-2xl rounded-2xl border border-error/20 shadow-2xl p-4.5">
+            <section class="bg-error-container/10 backdrop-blur-2xl rounded-2xl border border-error/20 shadow-2xl p-5">
               <h3 class="text-sm font-headline text-error mb-2.5 flex items-center gap-1.5 font-semibold">
                 <span class="material-symbols-outlined text-[18px] drop-shadow-[0_0_8px_rgba(255,107,107,0.5)]">warning</span> Cautions & Safety
               </h3>
@@ -1801,7 +1805,7 @@ Target Arterial Flow (mL/min) ≈ 1/3 × Portal Venous Flow
             </section>
 
             <!-- Expected Results / Morphology Preview -->
-            <div class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 p-4.5 shadow-2xl relative overflow-hidden">
+            <div class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 p-5 shadow-2xl relative">
               <div class="flex items-center gap-2 mb-1.5">
                 <span class="material-symbols-outlined text-secondary text-[18px]">analytics</span>
                 <h3 class="text-sm font-headline text-on-surface font-semibold">Expected Results</h3>

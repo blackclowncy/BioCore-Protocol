@@ -86,6 +86,10 @@
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <!-- KaTeX for math typesetting -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false});"></script>
 </head>
 <body class="bg-background font-body text-on-background min-h-screen">
   <!-- Toast Notification Container -->
@@ -267,8 +271,8 @@
               <div class="mt-5 flex flex-wrap gap-3">
                 
         <div class="flex items-center gap-3 bg-surface-container/50 px-3.5 py-2.5 rounded-xl border border-white/5 flex-1 min-w-[160px] backdrop-blur-sm">
-            <div class="w-9 h-9 rounded-full bg-purple-500/20 border-purple-500/30 border flex items-center justify-center flex-shrink-0">
-                <div class="w-3.5 h-3.5 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(192,132,252,0.5)]"></div>
+            <div class="w-9 h-9 rounded-full bg-blue-500/20 border-blue-500/30 border flex items-center justify-center flex-shrink-0">
+                <div class="w-3.5 h-3.5 rounded-full bg-blue-400 shadow-[0_0_10px_rgba(96,165,250,0.5)]"></div>
             </div>
             <div>
                 <div class="text-[11px] text-on-surface-variant uppercase tracking-wider font-medium">Marker Pair</div>
@@ -276,8 +280,8 @@
             </div>
         </div>
         <div class="flex items-center gap-3 bg-surface-container/50 px-3.5 py-2.5 rounded-xl border border-white/5 flex-1 min-w-[160px] backdrop-blur-sm">
-            <div class="w-9 h-9 rounded-full bg-amber-500/20 border-amber-500/30 border flex items-center justify-center flex-shrink-0">
-                <div class="w-3.5 h-3.5 rounded-full bg-amber-400 shadow-[0_0_10px_rgba(251,113,133,0.5)]"></div>
+            <div class="w-9 h-9 rounded-full bg-purple-500/20 border-purple-500/30 border flex items-center justify-center flex-shrink-0">
+                <div class="w-3.5 h-3.5 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(192,132,252,0.5)]"></div>
             </div>
             <div>
                 <div class="text-[11px] text-on-surface-variant uppercase tracking-wider font-medium">Tissue Formats</div>
@@ -294,8 +298,8 @@
             </div>
         </div>
         <div class="flex items-center gap-3 bg-surface-container/50 px-3.5 py-2.5 rounded-xl border border-white/5 flex-1 min-w-[160px] backdrop-blur-sm">
-            <div class="w-9 h-9 rounded-full bg-rose-500/20 border-rose-500/30 border flex items-center justify-center flex-shrink-0">
-                <div class="w-3.5 h-3.5 rounded-full bg-rose-400 shadow-[0_0_10px_rgba(251,113,133,0.5)]"></div>
+            <div class="w-9 h-9 rounded-full bg-amber-500/20 border-amber-500/30 border flex items-center justify-center flex-shrink-0">
+                <div class="w-3.5 h-3.5 rounded-full bg-amber-400 shadow-[0_0_10px_rgba(251,113,133,0.5)]"></div>
             </div>
             <div>
                 <div class="text-[11px] text-on-surface-variant uppercase tracking-wider font-medium">H₂O₂ Quench</div>
@@ -316,15 +320,15 @@
               <div class="p-5">
                 
         <div id="proc-content-protocol_a_cd68_ffpe" class="proc-tab-content ">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Protocol A — CD68 Monoclonal Antibody (Clone KP1), FFPE Sections</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Protocol A — CD68 Monoclonal Antibody (Clone KP1), FFPE Sections</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Sectioning & Slide Baking</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Cut FFPE block at 4 µm thickness; float section on a 45–50°C water bath; mount onto a positively charged slide (e.g. SuperFrost Plus). Air-dry vertically 10–15 min, then bake horizontally at 56–60°C for 60 min to ensure adhesion.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Sectioning & Slide Baking</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Cut FFPE block at 4 µm thickness; float section on a 45–50°C water bath; mount onto a positively charged slide (e.g. SuperFrost Plus). Air-dry vertically 10–15 min, then bake horizontally at 56–60°C for 60 min to ensure adhesion.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -335,11 +339,11 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Deparaffinization</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Immerse slides in Xylene jar 1 for 5 min -> transfer to fresh Xylene jar 2 for 5 min.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Deparaffinization</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Immerse slides in Xylene jar 1 for 5 min -> transfer to fresh Xylene jar 2 for 5 min.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -350,12 +354,12 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Graded Ethanol Rehydration</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">100% ethanol (2 changes × 5 min) -> 95% ethanol (5 min) -> 70% ethanol (5 min) -> rinse in running distilled water for 2 min. From this point, do not let sections dry out at any step.</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Keep slides immersed in wash buffer or distilled water between steps.</span></div>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Graded Ethanol Rehydration</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">100% ethanol (2 changes × 5 min) -> 95% ethanol (5 min) -> 70% ethanol (5 min) -> rinse in running distilled water for 2 min. From this point, do not let sections dry out at any step.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">Keep slides immersed in wash buffer or distilled water between steps.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -365,12 +369,12 @@
                 </div>
             </div>
             <!-- Step 4 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Heat-Induced Epitope Retrieval (HIER)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Transfer slides into pre-warmed 10 mM citrate buffer, pH 6.0. Heat in a steamer / water bath at 95–99°C for 20 min (alternative: pressure cooker at 121°C for 3 min, if locally validated). Turn off heat; cool slides inside the buffer at room temperature for 20–30 min before removing.</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>Rapid cooling or buffer-swapping while hot risks tissue detachment.</span></div>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Heat-Induced Epitope Retrieval (HIER)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Transfer slides into pre-warmed 10 mM citrate buffer, pH 6.0. Heat in a steamer / water bath at 95–99°C for 20 min (alternative: pressure cooker at 121°C for 3 min, if locally validated). Turn off heat; cool slides inside the buffer at room temperature for 20–30 min before removing.</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">Rapid cooling or buffer-swapping while hot risks tissue detachment.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -380,11 +384,11 @@
                 </div>
             </div>
             <!-- Step 5 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Wash & Hydrophobic Barrier</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Wash in TBST (2 × 5 min) with gentle agitation. Carefully wipe excess buffer around the tissue and circle each section with a PAP pen ~2–3 mm outside the tissue edge; let dry 1–2 min.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Wash & Hydrophobic Barrier</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Wash in TBST (2 × 5 min) with gentle agitation. Carefully wipe excess buffer around the tissue and circle each section with a PAP pen ~2–3 mm outside the tissue edge; let dry 1–2 min.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -395,11 +399,11 @@
                 </div>
             </div>
             <!-- Step 6 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">6</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Endogenous Peroxidase Quench</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Apply ~100–150 µL of freshly diluted 3% H₂O₂ (1:10 in methanol or distilled water) to fully cover the section. Incubate 10 min at room temperature in a closed slide box (protect from strong light). Wash in TBST (2 × 5 min).</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Endogenous Peroxidase Quench</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Apply ~100–150 µL of freshly diluted 3% H₂O₂ (1:10 in methanol or distilled water) to fully cover the section. Incubate 10 min at room temperature in a closed slide box (protect from strong light). Wash in TBST (2 × 5 min).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -410,11 +414,11 @@
                 </div>
             </div>
             <!-- Step 7 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">7</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Protein Serum Blocking</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Apply ~100–150 µL of 10% normal goat serum (matched to secondary host) + 1% BSA in TBST. Incubate 20–30 min at room temperature in a humidified chamber. Gently tip off excess without washing, then proceed directly to primary antibody.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Protein Serum Blocking</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Apply ~100–150 µL of 10% normal goat serum (matched to secondary host) + 1% BSA in TBST. Incubate 20–30 min at room temperature in a humidified chamber. Gently tip off excess without washing, then proceed directly to primary antibody.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -425,11 +429,11 @@
                 </div>
             </div>
             <!-- Step 8 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">8</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Primary Antibody Incubation (CD68 KP1)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Dilute CD68 (KP1) to 1:50–1:100 in antibody diluent (1% BSA + 0.05% Tween-20 in TBS). Apply ~100 µL per section. Incubate 30–60 min at room temperature, or 4°C overnight in a lidded humidified chamber. In parallel, process one mouse IgG1 isotype-control slide and one no-primary control slide identically.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Primary Antibody Incubation (CD68 KP1)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Dilute CD68 (KP1) to 1:50–1:100 in antibody diluent (1% BSA + 0.05% Tween-20 in TBS). Apply ~100 µL per section. Incubate 30–60 min at room temperature, or 4°C overnight in a lidded humidified chamber. In parallel, process one mouse IgG1 isotype-control slide and one no-primary control slide identically.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -440,11 +444,11 @@
                 </div>
             </div>
             <!-- Step 9 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">9</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Wash & Polymer Secondary Detection</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Wash in TBST (3 × 5 min) with complete buffer exchange each time. Apply ~100–150 µL of ready-to-use HRP-polymer anti-mouse reagent. Incubate 30 min at room temperature. Wash in TBST (3 × 5 min).</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Wash & Polymer Secondary Detection</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Wash in TBST (3 × 5 min) with complete buffer exchange each time. Apply ~100–150 µL of ready-to-use HRP-polymer anti-mouse reagent. Incubate 30 min at room temperature. Wash in TBST (3 × 5 min).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -455,11 +459,11 @@
                 </div>
             </div>
             <!-- Step 10 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">10</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">DAB Chromogen Substrate Reaction</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Prepare DAB working solution immediately before use (1 drop / 20 µL DAB concentrate per 1.0 mL substrate buffer). Apply ~100 µL per section. Develop 5–10 min at room temperature, checking color under microscope every 2–3 min; stop by immersion in distilled water once brown granular signal is adequate relative to background.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">DAB Chromogen Substrate Reaction</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Prepare DAB working solution immediately before use (1 drop / 20 µL DAB concentrate per 1.0 mL substrate buffer). Apply ~100 µL per section. Develop 5–10 min at room temperature, checking color under microscope every 2–3 min; stop by immersion in distilled water once brown granular signal is adequate relative to background.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -470,11 +474,11 @@
                 </div>
             </div>
             <!-- Step 11 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">11</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Counterstain, Bluing, Dehydration & Mounting</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Rinse in running distilled water (5 min). Counterstain with Mayer's hematoxylin (1–2 min); rinse tap water (1–2 min). Blue in ammonia water (0.1–1%) or Scott's substitute for 30–60 sec until nuclei turn blue; rinse tap water (1–2 min). Dehydrate: 70% ethanol 1 min -> 95% ethanol 1 min -> 100% ethanol (2 × 2 min). Clear in xylene (2 × 2–5 min). Mount with permanent resinous medium (DPX) and coverslip.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Counterstain, Bluing, Dehydration & Mounting</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Rinse in running distilled water (5 min). Counterstain with Mayer's hematoxylin (1–2 min); rinse tap water (1–2 min). Blue in ammonia water (0.1–1%) or Scott's substitute for 30–60 sec until nuclei turn blue; rinse tap water (1–2 min). Dehydrate: 70% ethanol 1 min -> 95% ethanol 1 min -> 100% ethanol (2 × 2 min). Clear in xylene (2 × 2–5 min). Mount with permanent resinous medium (DPX) and coverslip.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -487,15 +491,15 @@
             </div>
         </div>
         <div id="proc-content-protocol_b_cd68_frozen" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Protocol B — CD68 Monoclonal Antibody (Clone KP1), Frozen Sections</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Protocol B — CD68 Monoclonal Antibody (Clone KP1), Frozen Sections</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Cryosectioning & Storage</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Cut fresh-frozen OCT-embedded tissue at 5–8 µm on a cryostat (chamber –18 to –22°C / specimen head –18 to –20°C); thaw-mount onto charged slides. Air-dry at room temperature for 30–60 min. (If stored at -80°C, thaw inside original sealed wrapping at room temp for 20–30 min to prevent condensation directly on tissue).</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Cryosectioning & Storage</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Cut fresh-frozen OCT-embedded tissue at 5–8 µm on a cryostat (chamber –18 to –22°C / specimen head –18 to –20°C); thaw-mount onto charged slides. Air-dry at room temperature for 30–60 min. (If stored at -80°C, thaw inside original sealed wrapping at room temp for 20–30 min to prevent condensation directly on tissue).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -506,11 +510,11 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Cold Acetone Fixation</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Immerse in pre-cooled (–20°C) 100% acetone for 10 min. Remove and air-dry at room temperature for 5–10 min before any aqueous step (do NOT rinse immediately; let acetone evaporate fully). Circle section with a PAP pen.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Cold Acetone Fixation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Immerse in pre-cooled (–20°C) 100% acetone for 10 min. Remove and air-dry at room temperature for 5–10 min before any aqueous step (do NOT rinse immediately; let acetone evaporate fully). Circle section with a PAP pen.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -521,12 +525,12 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Wash & Peroxidase Quench (0.3% H₂O₂)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Wash in PBS or TBS (2 × 5 min). Apply ~100–150 µL of freshly diluted 0.3% H₂O₂ (diluted 1:100 in methanol or PBS) for 10 min at room temperature. Wash in PBS/TBS (2 × 5 min).</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>0.3% H₂O₂ (rather than 3%) is used for uncrosslinked frozen tissue to prevent oxidative damage and epitope loss.</span></div>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Wash & Peroxidase Quench (0.3% H₂O₂)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Wash in PBS or TBS (2 × 5 min). Apply ~100–150 µL of freshly diluted 0.3% H₂O₂ (diluted 1:100 in methanol or PBS) for 10 min at room temperature. Wash in PBS/TBS (2 × 5 min).</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">0.3% H₂O₂ (rather than 3%) is used for uncrosslinked frozen tissue to prevent oxidative damage and epitope loss.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -536,11 +540,11 @@
                 </div>
             </div>
             <!-- Step 4 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Protein Block & Primary Antibody</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Block with ~100–150 µL of 10% normal serum + 1% BSA for 20–30 min. Apply CD68 (KP1) diluted 1:50 in antibody diluent (~100 µL). Incubate 30–60 min at room temperature, or 4°C overnight in a humidified chamber. Run isotype-control and no-primary slides in parallel. Wash in PBS/TBS (3 × 5 min).</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Protein Block & Primary Antibody</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Block with ~100–150 µL of 10% normal serum + 1% BSA for 20–30 min. Apply CD68 (KP1) diluted 1:50 in antibody diluent (~100 µL). Incubate 30–60 min at room temperature, or 4°C overnight in a humidified chamber. Run isotype-control and no-primary slides in parallel. Wash in PBS/TBS (3 × 5 min).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -551,11 +555,11 @@
                 </div>
             </div>
             <!-- Step 5 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Chromogenic Detection (DAB Branch)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Apply ~100–150 µL ready-to-use HRP-polymer anti-mouse reagent for 30 min at room temperature. Wash (3 × 5 min). Apply freshly prepared DAB working solution for 5–10 min (monitor under microscope). Rinse, counterstain with Mayer's hematoxylin, blue, dehydrate, clear, and mount with permanent medium.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Chromogenic Detection (DAB Branch)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Apply ~100–150 µL ready-to-use HRP-polymer anti-mouse reagent for 30 min at room temperature. Wash (3 × 5 min). Apply freshly prepared DAB working solution for 5–10 min (monitor under microscope). Rinse, counterstain with Mayer's hematoxylin, blue, dehydrate, clear, and mount with permanent medium.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -566,11 +570,11 @@
                 </div>
             </div>
             <!-- Step 6 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">6</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Alternative: Immunofluorescence Branch (IF)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Omit DAB steps. Apply fluorophore-conjugated anti-mouse secondary (1:200–1:500) for 30–60 min at room temperature in the dark. Wash in PBS (3 × 5 min). Counterstain with DAPI (300 nM, 5 min). Mount with aqueous anti-fade mounting medium, seal edges, and store flat at 4°C protected from light.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Alternative: Immunofluorescence Branch (IF)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Omit DAB steps. Apply fluorophore-conjugated anti-mouse secondary (1:200–1:500) for 30–60 min at room temperature in the dark. Wash in PBS (3 × 5 min). Counterstain with DAPI (300 nM, 5 min). Mount with aqueous anti-fade mounting medium, seal edges, and store flat at 4°C protected from light.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -583,15 +587,15 @@
             </div>
         </div>
         <div id="proc-content-protocol_c_mpo_ffpe" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Protocol C — Myeloperoxidase (MPO) Polyclonal Antibody, FFPE Sections</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Protocol C — Myeloperoxidase (MPO) Polyclonal Antibody, FFPE Sections</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Sectioning, Deparaffinization & Rehydration</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Cut FFPE block at 4 µm; float on 45–50°C water bath; mount on charged slides. Bake horizontally at 56–60°C for 60 min. Deparaffinize in Xylene (2 changes × 5 min). Rehydrate through 100% ethanol (2 × 5 min) -> 95% ethanol (5 min) -> 70% ethanol (5 min) -> rinse in running distilled water for 2 min.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Sectioning, Deparaffinization & Rehydration</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Cut FFPE block at 4 µm; float on 45–50°C water bath; mount on charged slides. Bake horizontally at 56–60°C for 60 min. Deparaffinize in Xylene (2 changes × 5 min). Rehydrate through 100% ethanol (2 × 5 min) -> 95% ethanol (5 min) -> 70% ethanol (5 min) -> rinse in running distilled water for 2 min.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -602,11 +606,11 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Antigen Retrieval (HIER)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Immerse slides in 10 mM citrate buffer pH 6.0 (or Tris-EDTA buffer pH 9.0). Heat at 95–99°C for 20 min; cool in buffer at room temperature for 20–30 min. Wash in TBST (2 × 5 min). Circle section with PAP pen and let dry.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Antigen Retrieval (HIER)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Immerse slides in 10 mM citrate buffer pH 6.0 (or Tris-EDTA buffer pH 9.0). Heat at 95–99°C for 20 min; cool in buffer at room temperature for 20–30 min. Wash in TBST (2 × 5 min). Circle section with PAP pen and let dry.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -617,11 +621,11 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Peroxidase Quench & Protein Serum Block</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Apply ~100–150 µL of freshly diluted 3% H₂O₂ for 10 min at room temperature (essential to quench endogenous neutrophil peroxidase). Wash TBST (2 × 5 min). Apply 10% normal goat serum + 1% BSA in TBST for 20–30 min. Tip off excess without washing.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Peroxidase Quench & Protein Serum Block</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Apply ~100–150 µL of freshly diluted 3% H₂O₂ for 10 min at room temperature (essential to quench endogenous neutrophil peroxidase). Wash TBST (2 × 5 min). Apply 10% normal goat serum + 1% BSA in TBST for 20–30 min. Tip off excess without washing.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -632,11 +636,11 @@
                 </div>
             </div>
             <!-- Step 4 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">MPO Primary Antibody Incubation</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Dilute MPO polyclonal antibody to 1:300–1:600 in antibody diluent (titrate against positive control tissue). Apply ~100 µL per section. Incubate 30–60 min at room temperature, or 4°C overnight in a humidified chamber. In parallel, run non-immune rabbit serum/IgG and no-primary controls. Wash in TBST (3 × 5 min).</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">MPO Primary Antibody Incubation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Dilute MPO polyclonal antibody to 1:300–1:600 in antibody diluent (titrate against positive control tissue). Apply ~100 µL per section. Incubate 30–60 min at room temperature, or 4°C overnight in a humidified chamber. In parallel, run non-immune rabbit serum/IgG and no-primary controls. Wash in TBST (3 × 5 min).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -647,11 +651,11 @@
                 </div>
             </div>
             <!-- Step 5 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">HRP-Polymer Anti-Rabbit & DAB Chromogen</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Apply ~100–150 µL ready-to-use HRP-polymer anti-rabbit secondary reagent for 30 min at room temperature. Wash in TBST (3 × 5 min). Apply freshly prepared DAB working solution for 5–10 min, monitoring under microscope until brown cytoplasmic granules in neutrophils are distinct. Stop in distilled water.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">HRP-Polymer Anti-Rabbit & DAB Chromogen</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Apply ~100–150 µL ready-to-use HRP-polymer anti-rabbit secondary reagent for 30 min at room temperature. Wash in TBST (3 × 5 min). Apply freshly prepared DAB working solution for 5–10 min, monitoring under microscope until brown cytoplasmic granules in neutrophils are distinct. Stop in distilled water.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -662,11 +666,11 @@
                 </div>
             </div>
             <!-- Step 6 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">6</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Counterstain, Dehydration & Mounting</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Counterstain in Mayer's hematoxylin (1–2 min), rinse in tap water, blue in ammonia water (30–60 sec), rinse. Dehydrate through graded ethanol (70%, 95%, 100% × 2), clear in xylene (2 × 2–5 min), and mount with permanent resinous medium.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Counterstain, Dehydration & Mounting</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Counterstain in Mayer's hematoxylin (1–2 min), rinse in tap water, blue in ammonia water (30–60 sec), rinse. Dehydrate through graded ethanol (70%, 95%, 100% × 2), clear in xylene (2 × 2–5 min), and mount with permanent resinous medium.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -679,15 +683,15 @@
             </div>
         </div>
         <div id="proc-content-protocol_d_mpo_frozen" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Protocol D — Myeloperoxidase (MPO) Polyclonal Antibody, Frozen Sections</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Protocol D — Myeloperoxidase (MPO) Polyclonal Antibody, Frozen Sections</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Cryosectioning & Acetone Fixation</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Cut fresh-frozen OCT tissue at 5–8 µm; thaw-mount on charged slides; air-dry 30–60 min at room temperature. Fix in pre-cooled (–20°C) 100% acetone for 10 min. Air-dry at room temperature 5–10 min. Circle with PAP pen. Wash in PBS/TBS (2 × 5 min).</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Cryosectioning & Acetone Fixation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Cut fresh-frozen OCT tissue at 5–8 µm; thaw-mount on charged slides; air-dry 30–60 min at room temperature. Fix in pre-cooled (–20°C) 100% acetone for 10 min. Air-dry at room temperature 5–10 min. Circle with PAP pen. Wash in PBS/TBS (2 × 5 min).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -698,12 +702,12 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Gentle Peroxidase Quench (0.3% H₂O₂)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Apply ~100–150 µL of freshly diluted 0.3% H₂O₂ in methanol or PBS for 10 min at room temperature. (Quenches endogenous neutrophil peroxidase without destroying uncrosslinked frozen tissue architecture). Wash in PBS/TBS (2 × 5 min).</p>
-                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0">info</span><span>CRITICAL: Do NOT use detergent permeabilization; MPO is soluble and detergent causes granule content diffusion.</span></div>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Gentle Peroxidase Quench (0.3% H₂O₂)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Apply ~100–150 µL of freshly diluted 0.3% H₂O₂ in methanol or PBS for 10 min at room temperature. (Quenches endogenous neutrophil peroxidase without destroying uncrosslinked frozen tissue architecture). Wash in PBS/TBS (2 × 5 min).</p>
+                    <div class="mt-2 text-xs text-secondary bg-surface-container-high/40 p-2.5 rounded-lg border border-secondary/20 flex items-start gap-2 min-w-0"><span class="material-symbols-outlined text-[16px] text-secondary flex-shrink-0 mt-0.5">info</span><span class="break-words min-w-0 leading-relaxed">CRITICAL: Do NOT use detergent permeabilization; MPO is soluble and detergent causes granule content diffusion.</span></div>
                     
                 <div class="flex gap-3 mt-3">
                     <span class="inline-flex items-center gap-1 text-xs px-2.5 py-0.5 rounded bg-secondary-container/50 text-on-secondary-container border border-secondary-container">
@@ -713,11 +717,11 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Protein Block & MPO Primary Incubation</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Apply 10% normal goat serum + 1% BSA for 20–30 min. Apply MPO polyclonal antibody diluted 1:150–1:300 in antibody diluent (~100 µL). Incubate 30–60 min at room temperature, or 4°C overnight in a humidified chamber. Wash PBS/TBS (3 × 5 min).</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Protein Block & MPO Primary Incubation</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Apply 10% normal goat serum + 1% BSA for 20–30 min. Apply MPO polyclonal antibody diluted 1:150–1:300 in antibody diluent (~100 µL). Incubate 30–60 min at room temperature, or 4°C overnight in a humidified chamber. Wash PBS/TBS (3 × 5 min).</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -728,11 +732,11 @@
                 </div>
             </div>
             <!-- Step 4 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">4</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Chromogenic Detection (DAB Branch)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Apply ready-to-use HRP-polymer anti-rabbit secondary for 30 min. Wash (3 × 5 min). Develop in DAB for 5–10 min (monitor under microscope). Rinse, counterstain with Mayer's hematoxylin, blue, dehydrate, clear, and mount with permanent resinous medium.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Chromogenic Detection (DAB Branch)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Apply ready-to-use HRP-polymer anti-rabbit secondary for 30 min. Wash (3 × 5 min). Develop in DAB for 5–10 min (monitor under microscope). Rinse, counterstain with Mayer's hematoxylin, blue, dehydrate, clear, and mount with permanent resinous medium.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -743,11 +747,11 @@
                 </div>
             </div>
             <!-- Step 5 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">5</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Alternative: Immunofluorescence Branch (IF)</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">Omit DAB. Apply fluorophore-conjugated anti-rabbit secondary (1:200–1:500) for 30–60 min in the dark. Wash PBS (3 × 5 min). Counterstain with DAPI (300 nM, 5 min). Mount with aqueous anti-fade mounting medium.</p>
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Alternative: Immunofluorescence Branch (IF)</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">Omit DAB. Apply fluorophore-conjugated anti-rabbit secondary (1:200–1:500) for 30–60 min in the dark. Wash PBS (3 × 5 min). Counterstain with DAPI (300 nM, 5 min). Mount with aqueous anti-fade mounting medium.</p>
                     
                     
                 <div class="flex gap-3 mt-3">
@@ -760,15 +764,15 @@
             </div>
         </div>
         <div id="proc-content-recipes_controls_master" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Master Buffer Recipes & Multi-Level Run Controls</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Master Buffer Recipes & Multi-Level Run Controls</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Master Buffer Recipes Matrix</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Citrate Buffer (10 mM, pH 6.0): 2.94 g tri-sodium citrate dihydrate in 1 L ddH2O + 0.5 mL Tween-20 (0.05%), adjust pH to 6.0 with 1 N HCl.
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Master Buffer Recipes Matrix</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Citrate Buffer (10 mM, pH 6.0): 2.94 g tri-sodium citrate dihydrate in 1 L ddH2O + 0.5 mL Tween-20 (0.05%), adjust pH to 6.0 with 1 N HCl.
 • Tris-EDTA Buffer (10 mM Tris / 1 mM EDTA, pH 9.0): 1.21 g Tris base + 0.37 g disodium EDTA in 1 L ddH2O + 0.5 mL Tween-20 (0.05%), adjust pH to 9.0.
 • TBST Wash Buffer (1X): 0.05 M Tris-HCl, 0.15 M NaCl, pH 7.6 + 0.05% Tween-20.
 • PBS (1X): 137 mM NaCl, 2.7 mM KCl, 10 mM Na2HPO4, 1.8 mM KH2PO4, pH 7.4.
@@ -785,11 +789,11 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Multi-Level Quality Controls Protocol</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Positive Tissue Controls: Human tonsil or lymph node for CD68 (germinal center macrophages, sinus histiocytes); Human tonsil, spleen, or bone marrow for MPO (granulocytes, intensely positive in splenic red pulp).
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Multi-Level Quality Controls Protocol</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Positive Tissue Controls: Human tonsil or lymph node for CD68 (germinal center macrophages, sinus histiocytes); Human tonsil, spleen, or bone marrow for MPO (granulocytes, intensely positive in splenic red pulp).
 • Negative Reagent Controls: Replace primary antibody with mouse IgG1 isotype control (for CD68) or non-immune rabbit serum/IgG (for MPO) at matched final concentration on serial sections.
 • Negative Tissue Controls: Human colon epithelium serves as built-in negative tissue control for MPO (epithelium is completely negative; scattered stromal granulocytes serve as internal positive check).</p>
                     
@@ -804,15 +808,15 @@
             </div>
         </div>
         <div id="proc-content-troubleshooting_evidence_notes" class="proc-tab-content hidden">
-            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-4.5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold">Troubleshooting Matrix & Evidence-Based Technical Notes</h3>
+            <h3 class="text-base text-on-surface mb-5 flex items-center gap-2 before:content-[''] before:w-1 before:h-5 before:bg-primary before:rounded-full before:shadow-[0_0_10px_rgba(125,211,252,0.5)] font-semibold break-words">Troubleshooting Matrix & Evidence-Based Technical Notes</h3>
             <div class="space-y-6 relative before:content-[''] before:absolute before:left-[17px] before:top-2 before:bottom-2 before:w-px before:bg-white/10">
                 
             <!-- Step 1 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">1</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Troubleshooting Guide</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• High Background: Insufficient blocking, primary too concentrated, or inadequate washing. -> Remedy: Extend serum block (30–60 min); dilute primary further; increase wash volume and complete buffer exchanges.
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Troubleshooting Guide</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• High Background: Insufficient blocking, primary too concentrated, or inadequate washing. -> Remedy: Extend serum block (30–60 min); dilute primary further; increase wash volume and complete buffer exchanges.
 • Weak or Absent Signal: Under-retrieval, antibody too dilute, degraded reagent, or fixation > 48h. -> Remedy: Extend HIER time or switch buffer (citrate <-> Tris-EDTA); increase antibody concentration; verify reagent expiry.
 • Nonspecific Stromal / Fibroblast Staining with CD68: Known cross-reactivity of KP1 with a shared epitope outside macrophage lineage. -> Remedy: Confirm with cellular morphology and consider a secondary macrophage marker (e.g. CD163).
 • Weak MPO in Confirmed Neutrophils: Insufficient retrieval or low antibody titer for that lot. -> Remedy: Re-titrate against positive control (tonsil/spleen) for current lot.</p>
@@ -826,11 +830,11 @@
                 </div>
             </div>
             <!-- Step 2 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">2</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Technical Notes: Peroxidase Quench & Permeabilization</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Peroxidase Quench Concentration: FFPE uses 3% H2O2; Frozen sections use 0.3% H2O2. Acetone-fixed frozen tissue lacks formalin crosslinking and is susceptible to oxidative morphological damage and epitope loss at 3%.
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Technical Notes: Peroxidase Quench & Permeabilization</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Peroxidase Quench Concentration: FFPE uses 3% H2O2; Frozen sections use 0.3% H2O2. Acetone-fixed frozen tissue lacks formalin crosslinking and is susceptible to oxidative morphological damage and epitope loss at 3%.
 • On Permeabilization (Omitted for Frozen MPO): Acetone dissolves membrane lipids during fixation. Adding detergent (Triton X-100) to acetone-fixed MPO sections causes soluble MPO to leak from azurophilic granules, blurring discrete granular staining into diffuse background artifact.</p>
                     
                     
@@ -842,11 +846,11 @@
                 </div>
             </div>
             <!-- Step 3 -->
-            <div class="flex gap-3.5 relative">
+            <div class="flex gap-3.5 relative min-w-0">
                 <div class="w-9 h-9 rounded-full bg-surface-container text-primary flex items-center justify-center font-bold text-base flex-shrink-0 border border-primary/30 z-10 shadow-[0_0_15px_rgba(125,211,252,0.15)]">3</div>
-                <div class="bg-surface-container/30 rounded-xl p-4.5 border border-white/5 flex-1 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
-                    <h4 class="text-sm font-semibold text-on-surface mb-1">Selected Primary References</h4>
-                    <p class="text-sm text-on-surface-variant leading-relaxed">• Pulford KA, et al. KP1: a new monoclonal antibody that detects a monocyte/macrophage associated antigen in routinely processed tissue sections. J Clin Pathol. 1989;42(4):414–421.
+                <div class="bg-surface-container/30 rounded-xl p-5 border border-white/5 flex-1 min-w-0 hover:border-primary/30 hover:bg-surface-container/50 transition-all backdrop-blur-sm">
+                    <h4 class="text-sm font-semibold text-on-surface mb-1 break-words">Selected Primary References</h4>
+                    <p class="text-sm text-on-surface-variant leading-relaxed break-words whitespace-pre-line">• Pulford KA, et al. KP1: a new monoclonal antibody that detects a monocyte/macrophage associated antigen in routinely processed tissue sections. J Clin Pathol. 1989;42(4):414–421.
 • Agilent/Dako Package Inserts: CD68 KP1 (Code M0814) and Polyclonal MPO (Code A0398).
 • Torlakovic EE, et al. Standardization of Negative Controls in Diagnostic Immunohistochemistry. Appl Immunohistochem Mol Morphol. 2014;22(4):241–252.
 • Ramos-Vara JA, Miller MA. When tissue antigens and antibodies get along: technical aspects of IHC. Vet Pathol. 2014;51(1):42–87.</p>
@@ -871,7 +875,7 @@
                 <span class="material-symbols-outlined text-tertiary">calculate</span> Master Buffer Formulation & Myeloid Infiltrate Ratio Analysis
             </h2>
             
-            <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto">
+            <div class="bg-surface-container/40 p-3.5 rounded-xl border border-white/5 font-mono text-xs text-primary mb-3 overflow-x-auto whitespace-pre-wrap leading-relaxed">
                 FFPE Peroxidase Block: 3% H₂O₂ (1:10 from 30% stock in methanol)
 Frozen Peroxidase Block: 0.3% H₂O₂ (1:100 from 30% stock in methanol/PBS)
 Myeloid Infiltrate Ratio = N(CD68⁺ Macrophages) / N(MPO⁺ Neutrophils)
@@ -1207,113 +1211,113 @@ Myeloid Infiltrate Ratio = N(CD68⁺ Macrophages) / N(MPO⁺ Neutrophils)
                 </h2>
                 <span class="text-[11px] text-on-surface-variant uppercase tracking-wider font-mono">Kit Contents</span>
               </div>
-              <div class="w-full">
-                <table class="w-full text-left border-collapse table-fixed">
+              <div class="w-full overflow-hidden">
+                <table class="w-full text-left border-collapse">
                   <thead>
                     <tr class="border-b border-white/5 text-[11px] text-on-surface-variant bg-surface-container/20">
                       <th class="py-2 px-3 font-semibold uppercase tracking-wider">Item / Reagent</th>
-                      <th class="py-2 px-3 font-semibold uppercase tracking-wider text-right w-20">Spec</th>
+                      <th class="py-2 px-3 font-semibold uppercase tracking-wider text-right whitespace-nowrap">Spec / Vol</th>
                     </tr>
                   </thead>
                   <tbody class="divide-y divide-white/5">
                     
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">10% Neutral Buffered Formalin (NBF) & OCT Compound</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp / -80°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Room temp / -80°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Tissue handling</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Tissue handling</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Xylene & Graded Ethanol (100%, 95%, 70%)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Room temp</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Staining series</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Staining series</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">10 mM Citrate Buffer pH 6.0 & Tris-EDTA Buffer pH 9.0</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 15–25°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 15–25°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Retrieval solutions</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Retrieval solutions</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">3% H₂O₂ (FFPE) & 0.3% H₂O₂ (Frozen) in Methanol/PBS</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Prepare fresh</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Prepare fresh</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Peroxidase quench</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Peroxidase quench</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">10% Normal Goat Serum + 1% BSA in TBST</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 2–8°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Protein block</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Protein block</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">CD68 Monoclonal Antibody (Clone KP1, Mouse IgG1)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 4°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 4°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1:50–1:100 (FFPE) / 1:50 (Frozen)</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">1:50–1:100 (FFPE) / 1:50 (Frozen)</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Myeloperoxidase (MPO) Polyclonal Antibody (Rabbit IgG)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at -20°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at -20°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">1:300–1:600 (FFPE) / 1:150–1:300 (Frozen)</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">1:300–1:600 (FFPE) / 1:150–1:300 (Frozen)</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Polymer-based HRP Anti-Mouse & Anti-Rabbit Secondary Kits</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 2–8°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Ready-to-use</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Ready-to-use</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">DAB Chromogen Kit & Mayer's Hematoxylin Counterstain</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Store at 2–8°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Store at 2–8°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Ready-to-use</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Ready-to-use</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Bluing Reagent (0.1–1% Ammonia Water / Scott's Substitute)</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Room temp</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Prepared fresh</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Prepared fresh</span>
             </td>
         </tr>
         <tr class="hover:bg-surface-container/40 transition-colors">
-            <td class="py-2.5 px-3 align-top">
+            <td class="py-2.5 px-3 align-top min-w-0">
                 <div class="font-medium text-xs sm:text-sm text-on-surface break-words leading-snug">Permanent Mounting Medium (DPX) & Aqueous Antifade Mountant</div>
-                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-center gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0">inventory_2</span><span class="truncate">Room temp / 4°C</span></div>
+                <div class="text-[11px] text-on-surface-variant/70 font-normal mt-0.5 flex items-start gap-1"><span class="material-symbols-outlined text-[12px] text-tertiary flex-shrink-0 mt-0.5">inventory_2</span><span class="break-words">Room temp / 4°C</span></div>
             </td>
-            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium whitespace-nowrap align-top w-20">
-                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block">Mounting</span>
+            <td class="py-2.5 px-3 text-right text-on-surface-variant font-mono text-xs font-medium align-top">
+                <span class="bg-surface-container-high/90 px-2 py-0.5 rounded border border-white/5 text-[11px] inline-block whitespace-normal break-words max-w-[130px] text-right">Mounting</span>
             </td>
         </tr>
                   </tbody>
@@ -1322,21 +1326,21 @@ Myeloid Infiltrate Ratio = N(CD68⁺ Macrophages) / N(MPO⁺ Neutrophils)
             </section>
 
             <!-- Storage Card -->
-            <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-4.5 flex items-start gap-3.5">
+            <section class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 shadow-2xl p-5 flex items-start gap-3.5">
               <div class="w-10 h-10 rounded-xl bg-tertiary/20 border border-tertiary/30 text-tertiary flex items-center justify-center flex-shrink-0 shadow-[0_0_15px_rgba(200,160,240,0.15)]">
                 <span class="material-symbols-outlined text-[20px]">inventory_2</span>
               </div>
               <div>
                 <h3 class="text-sm font-headline text-on-surface mb-1 font-semibold">Storage & Stability</h3>
-                <p class="text-xs text-on-surface-variant leading-relaxed">Store primary antibodies at 4°C (CD68) and -20°C (MPO); Reagents at 15–25°C or 2–8°C.</p>
+                <p class="text-xs text-on-surface-variant leading-relaxed">Store primary antibodies at -20°C / 4°C, detection polymer at 4°C, substrates protected from light.</p>
                 <p class="text-[11px] text-primary mt-1.5 flex items-center gap-1 font-medium">
-                  <span class="material-symbols-outlined text-[13px]">event_available</span> Buffers prepared fresh; FFPE slides baked 60 min at 60°C; frozen sections stored at -80°C.
+                  <span class="material-symbols-outlined text-[13px]">event_available</span> Reagents stable according to individual manufacturer guidelines.
                 </p>
               </div>
             </section>
 
             <!-- Cautions Card -->
-            <section class="bg-error-container/10 backdrop-blur-2xl rounded-2xl border border-error/20 shadow-2xl p-4.5">
+            <section class="bg-error-container/10 backdrop-blur-2xl rounded-2xl border border-error/20 shadow-2xl p-5">
               <h3 class="text-sm font-headline text-error mb-2.5 flex items-center gap-1.5 font-semibold">
                 <span class="material-symbols-outlined text-[18px] drop-shadow-[0_0_8px_rgba(255,107,107,0.5)]">warning</span> Cautions & Safety
               </h3>
@@ -1362,7 +1366,7 @@ Myeloid Infiltrate Ratio = N(CD68⁺ Macrophages) / N(MPO⁺ Neutrophils)
             </section>
 
             <!-- Expected Results / Morphology Preview -->
-            <div class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 p-4.5 shadow-2xl relative overflow-hidden">
+            <div class="bg-surface/60 backdrop-blur-2xl rounded-2xl border border-white/5 p-5 shadow-2xl relative">
               <div class="flex items-center gap-2 mb-1.5">
                 <span class="material-symbols-outlined text-secondary text-[18px]">analytics</span>
                 <h3 class="text-sm font-headline text-on-surface font-semibold">Expected Results</h3>
